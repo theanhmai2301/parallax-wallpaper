@@ -8,9 +8,10 @@ import javax.inject.Singleton
 /**
  * Fetches parallax items from the DataWallpaper API and groups their layers into [Wallpaper]s.
  *
- * Files follow `<Category><GroupId><LayerId>.{png|jpg}` (e.g. Anime53.jpg). Items sharing a group
- * key (Anime5) are merged: layer 1 = background (bottom), layer 2 = subject (top), layer 3 = the
- * pre-composed JPG used as the grid thumbnail.
+ * Files follow `<Category><GroupId><LayerId>.{png|jpg}` (e.g. Anime11.png). Items sharing a group
+ * key (e.g. Anime11/Anime12/Anime13 -> "Anime1") are merged into one wallpaper. Layer 1 is the
+ * bottom layer (moves with the tilt) and layer 2 the top layer (stays still). Layer 3 is unused as
+ * a render layer and only doubles as the grid thumbnail.
  */
 @Singleton
 class RemoteWallpaperSource @Inject constructor(
@@ -42,7 +43,9 @@ class RemoteWallpaperSource @Inject constructor(
             val l1 = layers[1]
             val l2 = layers[2]
             val l3 = layers[3]
-            val layerUris = listOfNotNull(l1, l2).ifEmpty { listOfNotNull(l3) }
+            // bottom (layer 1) -> top (layer 2): the order the renderer expects, so layer 1 moves
+            // with the tilt and layer 2 stays still. Layer 3 is unused as a render layer.
+            val layerUris = listOfNotNull(l1, l2)
             if (layerUris.isEmpty()) return@mapNotNull null
             val thumb = l3 ?: l1 ?: layerUris.first()
             Wallpaper(

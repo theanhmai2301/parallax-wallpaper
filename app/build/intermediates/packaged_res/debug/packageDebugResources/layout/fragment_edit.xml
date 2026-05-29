@@ -14,23 +14,23 @@
         android:layout_margin="@dimen/screen_margin"
         android:background="@drawable/bg_circle_glass"
         android:contentDescription="@string/cd_back"
+        android:elevation="8dp"
         android:padding="10dp"
         android:src="@drawable/ic_back"
-        app:layout_constraintBottom_toBottomOf="@id/title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/title"
+        app:layout_constraintTop_toTopOf="parent"
         app:tint="?attr/colorOnBackground" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_sm"
         android:text="@string/edit_title"
         android:textAppearance="@style/TextAppearance.ParallaxWallpaper.Title"
+        app:layout_constraintBottom_toBottomOf="@id/btnBack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/btnBack" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnNext"
@@ -93,13 +93,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_sm"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="2">
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/slotBottomCard"
                 android:layout_width="0dp"
-                android:layout_height="92dp"
+                android:layout_height="220dp"
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/surface_variant"
                 app:cardCornerRadius="14dp"
                 app:cardElevation="0dp"
@@ -107,11 +109,20 @@
                 app:strokeWidth="1dp">
 
                 <ImageView
+                    android:id="@+id/slotBottomHint"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_folder"
+                    app:tint="@color/on_surface_variant" />
+
+                <ImageView
                     android:id="@+id/slotBottomImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:importantForAccessibility="no"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="fitCenter" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -127,10 +138,11 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/slotTopCard"
                 android:layout_width="0dp"
-                android:layout_height="92dp"
+                android:layout_height="220dp"
                 android:layout_weight="1"
-                android:layout_marginEnd="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/surface_variant"
                 app:cardCornerRadius="14dp"
                 app:cardElevation="0dp"
@@ -138,41 +150,20 @@
                 app:strokeWidth="1dp">
 
                 <ImageView
-                    android:id="@+id/slotMiddleImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:id="@+id/slotTopHint"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center"
                     android:importantForAccessibility="no"
-                    android:scaleType="centerCrop" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:background="#99000000"
-                    android:gravity="center"
-                    android:paddingVertical="3dp"
-                    android:text="@string/layer_middle"
-                    android:textColor="@color/white"
-                    android:textSize="10sp"
-                    android:textStyle="bold" />
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="0dp"
-                android:layout_height="92dp"
-                android:layout_weight="1"
-                app:cardBackgroundColor="@color/surface_variant"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="0dp"
-                app:strokeColor="@color/glass_stroke"
-                app:strokeWidth="1dp">
+                    android:src="@drawable/ic_folder"
+                    app:tint="@color/on_surface_variant" />
 
                 <ImageView
                     android:id="@+id/slotTopImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:importantForAccessibility="no"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="fitCenter" />
 
                 <TextView
                     android:layout_width="match_parent"

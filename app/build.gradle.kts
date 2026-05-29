@@ -19,7 +19,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables { useSupportLibrary = true }
 
-        buildConfigField("String", "BASE_URL", "\"https://datawallpaper-api.onrender.com/\"")
+        buildConfigField("String", "BASE_URL", "\"https://wallpaper-data-server.onrender.com/\"")
     }
 
     buildTypes {

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -19,15 +20,19 @@ public final class ActivityLanguageBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
+  public final ImageView btnBack;
+
+  @NonNull
   public final ActivityLanguage1Binding layoutEmpty;
 
   @NonNull
   public final ActivityLanguage2Binding layoutSelected;
 
-  private ActivityLanguageBinding(@NonNull FrameLayout rootView,
+  private ActivityLanguageBinding(@NonNull FrameLayout rootView, @NonNull ImageView btnBack,
       @NonNull ActivityLanguage1Binding layoutEmpty,
       @NonNull ActivityLanguage2Binding layoutSelected) {
     this.rootView = rootView;
+    this.btnBack = btnBack;
     this.layoutEmpty = layoutEmpty;
     this.layoutSelected = layoutSelected;
   }
@@ -59,6 +64,12 @@ public final class ActivityLanguageBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnBack;
+      ImageView btnBack = ViewBindings.findChildViewById(rootView, id);
+      if (btnBack == null) {
+        break missingId;
+      }
+
       id = R.id.layoutEmpty;
       View layoutEmpty = ViewBindings.findChildViewById(rootView, id);
       if (layoutEmpty == null) {
@@ -73,7 +84,7 @@ public final class ActivityLanguageBinding implements ViewBinding {
       }
       ActivityLanguage2Binding binding_layoutSelected = ActivityLanguage2Binding.bind(layoutSelected);
 
-      return new ActivityLanguageBinding((FrameLayout) rootView, binding_layoutEmpty,
+      return new ActivityLanguageBinding((FrameLayout) rootView, btnBack, binding_layoutEmpty,
           binding_layoutSelected);
     }
     String missingId = rootView.getResources().getResourceName(id);

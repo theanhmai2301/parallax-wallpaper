@@ -15,6 +15,7 @@ import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.galaxywall.app.R;
 import com.galaxywall.app.ui.customview.ParallaxImageView;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.slider.Slider;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -43,10 +44,19 @@ public final class FragmentEditBinding implements ViewBinding {
   public final Slider sliderDepth;
 
   @NonNull
+  public final MaterialCardView slotBottomCard;
+
+  @NonNull
+  public final ImageView slotBottomHint;
+
+  @NonNull
   public final ImageView slotBottomImage;
 
   @NonNull
-  public final ImageView slotMiddleImage;
+  public final MaterialCardView slotTopCard;
+
+  @NonNull
+  public final ImageView slotTopHint;
 
   @NonNull
   public final ImageView slotTopImage;
@@ -57,8 +67,9 @@ public final class FragmentEditBinding implements ViewBinding {
   private FragmentEditBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView btnBack,
       @NonNull AppCompatButton btnNext, @NonNull ParallaxImageView editPreview,
       @NonNull ConstraintLayout editRoot, @NonNull LinearLayout panel, @NonNull Slider sliderDepth,
-      @NonNull ImageView slotBottomImage, @NonNull ImageView slotMiddleImage,
-      @NonNull ImageView slotTopImage, @NonNull TextView title) {
+      @NonNull MaterialCardView slotBottomCard, @NonNull ImageView slotBottomHint,
+      @NonNull ImageView slotBottomImage, @NonNull MaterialCardView slotTopCard,
+      @NonNull ImageView slotTopHint, @NonNull ImageView slotTopImage, @NonNull TextView title) {
     this.rootView = rootView;
     this.btnBack = btnBack;
     this.btnNext = btnNext;
@@ -66,8 +77,11 @@ public final class FragmentEditBinding implements ViewBinding {
     this.editRoot = editRoot;
     this.panel = panel;
     this.sliderDepth = sliderDepth;
+    this.slotBottomCard = slotBottomCard;
+    this.slotBottomHint = slotBottomHint;
     this.slotBottomImage = slotBottomImage;
-    this.slotMiddleImage = slotMiddleImage;
+    this.slotTopCard = slotTopCard;
+    this.slotTopHint = slotTopHint;
     this.slotTopImage = slotTopImage;
     this.title = title;
   }
@@ -131,15 +145,33 @@ public final class FragmentEditBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.slotBottomCard;
+      MaterialCardView slotBottomCard = ViewBindings.findChildViewById(rootView, id);
+      if (slotBottomCard == null) {
+        break missingId;
+      }
+
+      id = R.id.slotBottomHint;
+      ImageView slotBottomHint = ViewBindings.findChildViewById(rootView, id);
+      if (slotBottomHint == null) {
+        break missingId;
+      }
+
       id = R.id.slotBottomImage;
       ImageView slotBottomImage = ViewBindings.findChildViewById(rootView, id);
       if (slotBottomImage == null) {
         break missingId;
       }
 
-      id = R.id.slotMiddleImage;
-      ImageView slotMiddleImage = ViewBindings.findChildViewById(rootView, id);
-      if (slotMiddleImage == null) {
+      id = R.id.slotTopCard;
+      MaterialCardView slotTopCard = ViewBindings.findChildViewById(rootView, id);
+      if (slotTopCard == null) {
+        break missingId;
+      }
+
+      id = R.id.slotTopHint;
+      ImageView slotTopHint = ViewBindings.findChildViewById(rootView, id);
+      if (slotTopHint == null) {
         break missingId;
       }
 
@@ -156,7 +188,8 @@ public final class FragmentEditBinding implements ViewBinding {
       }
 
       return new FragmentEditBinding((ConstraintLayout) rootView, btnBack, btnNext, editPreview,
-          editRoot, panel, sliderDepth, slotBottomImage, slotMiddleImage, slotTopImage, title);
+          editRoot, panel, sliderDepth, slotBottomCard, slotBottomHint, slotBottomImage,
+          slotTopCard, slotTopHint, slotTopImage, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -3399,7 +3399,7 @@ id action_bar_title
 id action_container
 id action_context_bar
 id action_divider
-id action_edit_to_overlay
+id action_edit_to_result
 id action_favorite_to_preview
 id action_home_to_edit
 id action_home_to_favorite
@@ -3411,7 +3411,6 @@ id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
-id action_overlay_to_result
 id action_preview_to_edit
 id action_text
 id actions
@@ -3452,7 +3451,6 @@ id bounceStart
 id btnBack
 id btnNext
 id btnNextToOB
-id btnSave
 id btnSetBackground
 id btnSkip
 id btnWatchAd
@@ -3542,10 +3540,6 @@ id editPreview
 id editRoot
 id edit_query
 id edit_text_id
-id effectCard
-id effectImage
-id effectLabel
-id effectRecycler
 id elastic
 id embed
 id emptyAnim
@@ -3748,9 +3742,6 @@ id open_search_view_toolbar_container
 id outline
 id outward
 id overlay
-id overlayFragment
-id overlayPreview
-id overlayRoot
 id overshoot
 id packed
 id pageImage
@@ -3812,7 +3803,6 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
-id searchBar
 id searchIcon
 id searchInput
 id search_badge
@@ -3830,7 +3820,9 @@ id selected
 id selection_type
 id settingsContent
 id settingsFragment
+id settingsHeaderTitle
 id settingsRoot
+id settingsScroll
 id sharedValueSet
 id sharedValueUnset
 id shimmerLayout
@@ -3846,8 +3838,11 @@ id sliderDepth
 id sliderSensitivity
 id sliding_pane_detail_container
 id sliding_pane_layout
+id slotBottomCard
+id slotBottomHint
 id slotBottomImage
-id slotMiddleImage
+id slotTopCard
+id slotTopHint
 id slotTopImage
 id snackbar_action
 id snackbar_text
@@ -4118,13 +4113,11 @@ layout dialog_progress
 layout fragment_edit
 layout fragment_favorite
 layout fragment_home
-layout fragment_overlay
 layout fragment_preview
 layout fragment_result
 layout fragment_settings
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
-layout item_effect
 layout item_language
 layout item_preview_page
 layout item_survey

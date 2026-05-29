@@ -55,7 +55,6 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         applyInsets()
         setupToolbar()
-        setupSearch()
         setupChips()
         setupRecycler()
         setupSwipeRefresh()
@@ -85,10 +84,6 @@ class HomeFragment : Fragment() {
         binding.toolbar.onSettingsClick {
             findNavController().navigate(R.id.action_home_to_settings)
         }
-    }
-
-    private fun setupSearch() {
-        binding.searchBar.onQueryChanged = { query -> viewModel.setQuery(query) }
     }
 
     private fun setupChips() {

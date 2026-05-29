@@ -9,9 +9,9 @@ import coil.request.ImageRequest
 import coil.size.Size
 
 /**
- * Loads bitmaps through Coil so the same code path works for bundled assets
- * ("file:///android_asset/...") and remote images ("https://..."). Returns software bitmaps
- * (hardware disabled) so they can be drawn on a Canvas and used with WallpaperManager.
+ * Loads bitmaps through Coil from remote image URLs ("https://...") and content URIs. Returns
+ * software bitmaps (hardware disabled) so they can be drawn on a Canvas and used with
+ * WallpaperManager.
  */
 object BitmapLoader {
 

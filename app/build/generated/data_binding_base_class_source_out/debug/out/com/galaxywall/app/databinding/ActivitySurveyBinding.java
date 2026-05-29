@@ -4,6 +4,7 @@ package com.galaxywall.app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +21,9 @@ import java.lang.String;
 public final class ActivitySurveyBinding implements ViewBinding {
   @NonNull
   private final ConstraintLayout rootView;
+
+  @NonNull
+  public final ImageView btnBack;
 
   @NonNull
   public final MaterialButton btnNextToOB;
@@ -39,11 +43,12 @@ public final class ActivitySurveyBinding implements ViewBinding {
   @NonNull
   public final TextView textView;
 
-  private ActivitySurveyBinding(@NonNull ConstraintLayout rootView,
+  private ActivitySurveyBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView btnBack,
       @NonNull MaterialButton btnNextToOB, @NonNull ConstraintLayout main,
       @NonNull RecyclerView recyclerViewSurvey, @NonNull TextView surveyTxt,
       @NonNull ConstraintLayout svTitle, @NonNull TextView textView) {
     this.rootView = rootView;
+    this.btnBack = btnBack;
     this.btnNextToOB = btnNextToOB;
     this.main = main;
     this.recyclerViewSurvey = recyclerViewSurvey;
@@ -79,6 +84,12 @@ public final class ActivitySurveyBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnBack;
+      ImageView btnBack = ViewBindings.findChildViewById(rootView, id);
+      if (btnBack == null) {
+        break missingId;
+      }
+
       id = R.id.btnNextToOB;
       MaterialButton btnNextToOB = ViewBindings.findChildViewById(rootView, id);
       if (btnNextToOB == null) {
@@ -111,7 +122,7 @@ public final class ActivitySurveyBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivitySurveyBinding((ConstraintLayout) rootView, btnNextToOB, main,
+      return new ActivitySurveyBinding((ConstraintLayout) rootView, btnBack, btnNextToOB, main,
           recyclerViewSurvey, surveyTxt, svTitle, textView);
     }
     String missingId = rootView.getResources().getResourceName(id);

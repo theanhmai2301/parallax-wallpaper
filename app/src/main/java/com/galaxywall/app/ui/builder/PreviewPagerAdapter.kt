@@ -10,7 +10,8 @@ import com.galaxywall.app.R
 import com.galaxywall.app.data.model.Wallpaper
 
 class PreviewPagerAdapter(
-    private val items: List<Wallpaper>
+    private val items: List<Wallpaper>,
+    private val onClick: (Int) -> Unit
 ) : RecyclerView.Adapter<PreviewPagerAdapter.PageVH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PageVH {
@@ -27,6 +28,7 @@ class PreviewPagerAdapter(
             placeholder(R.drawable.shape_shimmer)
             error(R.drawable.ic_image_broken)
         }
+        holder.image.setOnClickListener { onClick(holder.bindingAdapterPosition) }
     }
 
     class PageVH(view: View) : RecyclerView.ViewHolder(view) {

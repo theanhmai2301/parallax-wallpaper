@@ -104,6 +104,12 @@ class ResultFragment : Fragment() {
         }
         content.findViewById<View>(R.id.btnSkip).setOnClickListener { dialog.dismiss() }
         dialog.show()
+        // Default Dialog windows wrap their content, which makes this card too narrow and forces
+        // ugly text wrapping. Pin the width to most of the screen so it matches the rest of the UI.
+        dialog.window?.setLayout(
+            (resources.displayMetrics.widthPixels * 0.88f).toInt(),
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
     }
 
     private fun watchAdThenApply() {

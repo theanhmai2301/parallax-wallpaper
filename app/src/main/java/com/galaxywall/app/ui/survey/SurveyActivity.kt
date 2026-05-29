@@ -24,6 +24,8 @@ class SurveyActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+        binding.btnBack.setOnClickListener { finish() }
+
         // trạng thái nút next ban đầu
         binding.btnNextToOB.isActivated = false
 

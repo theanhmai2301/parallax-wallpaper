@@ -183,6 +183,8 @@ class LanguageActivity : AppCompatActivity() {
 
     private fun setupClick() {
 
+        binding.btnBack.setOnClickListener { finish() }
+
         // NEXT EMPTY
         layoutEmpty.btnNext.setOnClickListener {
 

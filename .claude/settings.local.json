@@ -5,7 +5,21 @@
       "Bash(rm -f app/src/main/java/com/galaxywall/app/ui/detail/WallpaperDetailFragment.kt app/src/main/java/com/galaxywall/app/ui/detail/WallpaperDetailViewModel.kt app/src/main/java/com/galaxywall/app/wallpaper/ImageDownloader.kt app/src/main/res/layout/fragment_detail.xml)",
       "Bash(ls app/src/main/java/com/galaxywall/app/ui/detail/)",
       "Bash(rm -f app/src/main/res/menu/bottom_nav_menu.xml)",
-      "Bash(rmdir app/src/main/res/menu)"
+      "Bash(rmdir app/src/main/res/menu)",
+      "Bash(grep -E \"\\\\.\\(kt|java|xml|gradle\\)$\")",
+      "Bash(git -C \"C:/Users/maing/AndroidStudioProjects/parallax-wallpaper\" rm app/src/main/java/com/galaxywall/app/data/local/AssetCatalogSource.kt)",
+      "PowerShell(.\\\\gradlew.bat compileDebugKotlin -q --console=plain 2>&1)",
+      "PowerShell(Get-ChildItem -Force | Select-Object Name | Format-Table -AutoSize; Write-Output \"--- gradle cmd?\"; \\(Get-Command gradle -ErrorAction SilentlyContinue\\).Source)",
+      "PowerShell(Get-ChildItem -Recurse \"app\\\\src\\\\main\" -Directory | Where-Object { $_.Name -eq 'assets' } | Select-Object FullName; Write-Output \"---catalog?\"; Get-ChildItem -Recurse \"app\\\\src\\\\main\" -Filter \"catalog.json\" -ErrorAction SilentlyContinue | Select-Object FullName)",
+      "Bash(curl -s -m 90 -w \"\\\\nHTTP %{http_code}  time %{time_total}s\\\\n\" \"https://datawallpaper-api.onrender.com/\")",
+      "Bash(curl -s -m 90 -w '\\\\nHTTP %{http_code}  time %{time_total}s\\\\n' https://datawallpaper-api.onrender.com/__TRACKED_VAR__)",
+      "Bash(curl -s -m 120 -w '\\\\nHTTP %{http_code}  time %{time_total}s\\\\n' https://wallpaper-data-server.onrender.com/__TRACKED_VAR__)",
+      "Bash(curl -s -I -m 60 \"https://pub-f5743a8516de4a38bac8dc81d998a46a.r2.dev/parallax/Galaxy/Galaxy13.jpg\")",
+      "Bash(curl -s -m 90 \"https://wallpaper-data-server.onrender.com/api/parallax?category=anime&limit=200\")",
+      "Bash(python -c \"import sys,json,re; d=json.load\\(sys.stdin\\)['data']; g={}; [g.setdefault\\(re.match\\(r'^\\([A-Za-z]+\\\\d+?\\)\\(\\\\d\\)\\\\.',i['filename']\\).group\\(1\\),{}\\).__setitem__\\(int\\(re.match\\(r'^\\([A-Za-z]+\\\\d+?\\)\\(\\\\d\\)\\\\.',i['filename']\\).group\\(2\\)\\), i['filename']\\) for i in d if re.match\\(r'^\\([A-Za-z]+\\\\d+?\\)\\(\\\\d\\)\\\\.',i['filename']\\)]; print\\('groups:', len\\(g\\)\\); [print\\(k, sorted\\(v.items\\(\\)\\)\\) for k,v in list\\(g.items\\(\\)\\)[:4]]\")",
+      "Bash(curl -s -m 90 \"https://wallpaper-data-server.onrender.com/api/parallax?category=Galaxy&limit=200\")",
+      "Bash(git rm *)",
+      "Bash(cd \"C:/Users/maing/AndroidStudioProjects/parallax-wallpaper\" && stat -c '%y  %s bytes' app/build/outputs/apk/debug/app-debug.apk)"
     ]
   }
 }

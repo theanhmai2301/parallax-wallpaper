@@ -5,7 +5,6 @@ import com.galaxywall.app.di.NetworkModule;
 import com.galaxywall.app.ui.MainActivity_GeneratedInjector;
 import com.galaxywall.app.ui.builder.BuilderViewModel_HiltModules;
 import com.galaxywall.app.ui.builder.EditFragment_GeneratedInjector;
-import com.galaxywall.app.ui.builder.OverlayFragment_GeneratedInjector;
 import com.galaxywall.app.ui.builder.PreviewFragment_GeneratedInjector;
 import com.galaxywall.app.ui.builder.ResultFragment_GeneratedInjector;
 import com.galaxywall.app.ui.favorite.FavoriteFragment_GeneratedInjector;
@@ -239,7 +238,6 @@ public final class App_HiltComponents {
   )
   @FragmentScoped
   public abstract static class FragmentC implements EditFragment_GeneratedInjector,
-      OverlayFragment_GeneratedInjector,
       PreviewFragment_GeneratedInjector,
       ResultFragment_GeneratedInjector,
       FavoriteFragment_GeneratedInjector,

@@ -17,7 +17,6 @@ import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.galaxywall.app.R;
-import com.galaxywall.app.ui.customview.GlassSearchBar;
 import com.galaxywall.app.ui.customview.PremiumToolbar;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.chip.ChipGroup;
@@ -46,9 +45,6 @@ public final class FragmentHomeBinding implements ViewBinding {
 
   @NonNull
   public final RecyclerView recycler;
-
-  @NonNull
-  public final GlassSearchBar searchBar;
 
   @NonNull
   public final ShimmerFrameLayout shimmerLayout;
@@ -80,9 +76,9 @@ public final class FragmentHomeBinding implements ViewBinding {
   private FragmentHomeBinding(@NonNull ConstraintLayout rootView, @NonNull ChipGroup categoryChips,
       @NonNull HorizontalScrollView chipScroll, @NonNull ViewEmptyStateBinding emptyState,
       @NonNull MaterialCardView homeBottomBar, @NonNull ConstraintLayout homeRoot,
-      @NonNull RecyclerView recycler, @NonNull GlassSearchBar searchBar,
-      @NonNull ShimmerFrameLayout shimmerLayout, @NonNull SwipeRefreshLayout swipeRefresh,
-      @NonNull LinearLayout tabDiy, @NonNull ImageView tabDiyIcon, @NonNull TextView tabDiyText,
+      @NonNull RecyclerView recycler, @NonNull ShimmerFrameLayout shimmerLayout,
+      @NonNull SwipeRefreshLayout swipeRefresh, @NonNull LinearLayout tabDiy,
+      @NonNull ImageView tabDiyIcon, @NonNull TextView tabDiyText,
       @NonNull LinearLayout tabParallax, @NonNull ImageView tabParallaxIcon,
       @NonNull TextView tabParallaxText, @NonNull PremiumToolbar toolbar) {
     this.rootView = rootView;
@@ -92,7 +88,6 @@ public final class FragmentHomeBinding implements ViewBinding {
     this.homeBottomBar = homeBottomBar;
     this.homeRoot = homeRoot;
     this.recycler = recycler;
-    this.searchBar = searchBar;
     this.shimmerLayout = shimmerLayout;
     this.swipeRefresh = swipeRefresh;
     this.tabDiy = tabDiy;
@@ -164,12 +159,6 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.searchBar;
-      GlassSearchBar searchBar = ViewBindings.findChildViewById(rootView, id);
-      if (searchBar == null) {
-        break missingId;
-      }
-
       id = R.id.shimmerLayout;
       ShimmerFrameLayout shimmerLayout = ViewBindings.findChildViewById(rootView, id);
       if (shimmerLayout == null) {
@@ -225,9 +214,8 @@ public final class FragmentHomeBinding implements ViewBinding {
       }
 
       return new FragmentHomeBinding((ConstraintLayout) rootView, categoryChips, chipScroll,
-          binding_emptyState, homeBottomBar, homeRoot, recycler, searchBar, shimmerLayout,
-          swipeRefresh, tabDiy, tabDiyIcon, tabDiyText, tabParallax, tabParallaxIcon,
-          tabParallaxText, toolbar);
+          binding_emptyState, homeBottomBar, homeRoot, recycler, shimmerLayout, swipeRefresh,
+          tabDiy, tabDiyIcon, tabDiyText, tabParallax, tabParallaxIcon, tabParallaxText, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

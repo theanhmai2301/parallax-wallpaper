@@ -8,6 +8,19 @@
     tools:context=".ui.survey.SurveyActivity"
     android:background="#1B0A2E">
 
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:contentDescription="@string/cd_back"
+        android:padding="8dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@android:color/white" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/sv_title"
         android:layout_width="match_parent"
@@ -17,7 +30,7 @@
         android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/btnBack">
 
         <TextView
             android:id="@+id/surveyTxt"

@@ -14,23 +14,23 @@
         android:layout_margin="@dimen/screen_margin"
         android:background="@drawable/bg_circle_glass"
         android:contentDescription="@string/cd_back"
+        android:elevation="8dp"
         android:padding="10dp"
         android:src="@drawable/ic_back"
-        app:layout_constraintBottom_toBottomOf="@id/title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/title"
+        app:layout_constraintTop_toTopOf="parent"
         app:tint="?attr/colorOnBackground" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_sm"
         android:text="@string/result_title"
         android:textAppearance="@style/TextAppearance.ParallaxWallpaper.Title"
+        app:layout_constraintBottom_toBottomOf="@id/btnBack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/btnBack" />
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="0dp"

@@ -18,16 +18,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.galaxywall.app.ui.customview.GlassSearchBar
-        android:id="@+id/searchBar"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/search_height"
-        android:layout_marginHorizontal="@dimen/screen_margin"
-        android:layout_marginTop="@dimen/space_md"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
-
     <HorizontalScrollView
         android:id="@+id/chipScroll"
         android:layout_width="0dp"
@@ -38,7 +28,7 @@
         android:scrollbars="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchBar">
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/categoryChips"

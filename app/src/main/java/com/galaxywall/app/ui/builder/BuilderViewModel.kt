@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
+import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.galaxywall.app.R
@@ -20,17 +21,20 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.File
 import javax.inject.Inject
 import kotlin.math.max
 
 /**
  * Shared, activity-scoped state for the wallpaper builder flow:
- * Preview -> Edit (layers + depth) -> Overlay (effect) -> Result -> apply.
+ * Preview -> Edit (layers + depth) -> Result -> apply.
  *
- * Layers are composited as-is (no background removal). The bottom layer is the background and moves
- * with the tilt; the top layer stays fixed. [parallaxDepth] controls the tilt intensity.
+ * Layers are composited as-is (no background removal). The bottom layer moves with the tilt; the
+ * top layer stays still. [parallaxDepth] controls the tilt amount. There are two layers only
+ * (bottom + top); a DIY user can pick either from the gallery.
  */
 @HiltViewModel
 class BuilderViewModel @Inject constructor(
@@ -39,12 +43,13 @@ class BuilderViewModel @Inject constructor(
     private val applier: WallpaperApplier
 ) : ViewModel() {
 
+    enum class Slot { BOTTOM, TOP }
+
     data class LayerState(
         val bottom: String? = null,
-        val middle: String? = null,
         val top: String? = null
     ) {
-        fun ordered(): List<String> = listOfNotNull(bottom, middle, top)
+        fun ordered(): List<String> = listOfNotNull(bottom, top)
     }
 
     sealed interface Event {
@@ -52,6 +57,10 @@ class BuilderViewModel @Inject constructor(
     }
 
     var previewList: List<Wallpaper> = emptyList()
+        private set
+
+    /** True only when the builder was opened in DIY mode; gallery picking is allowed then. */
+    var isDiy: Boolean = false
         private set
 
     private val _index = MutableStateFlow(0)
@@ -73,6 +82,7 @@ class BuilderViewModel @Inject constructor(
     val events = _events.asSharedFlow()
 
     fun startFrom(list: List<Wallpaper>, startIndex: Int) {
+        isDiy = false
         previewList = list
         _index.value = startIndex.coerceIn(0, max(0, list.size - 1))
         _layers.value = LayerState()
@@ -81,6 +91,7 @@ class BuilderViewModel @Inject constructor(
     }
 
     fun startBlank() {
+        isDiy = true
         previewList = emptyList()
         _index.value = 0
         _layers.value = LayerState()
@@ -96,11 +107,38 @@ class BuilderViewModel @Inject constructor(
     /** Pre-fills the layer slots from the currently previewed wallpaper. */
     fun prepareLayersFromCurrent() {
         val wp = previewList.getOrNull(_index.value) ?: return
+        val uris = wp.layerUris
+        // bottom = the moving layer, top = the still layer.
         _layers.value = LayerState(
-            bottom = wp.layerUris.getOrNull(0),
-            middle = wp.layerUris.getOrNull(1),
-            top = wp.layerUris.getOrNull(2)
+            bottom = uris.firstOrNull(),
+            top = uris.getOrNull(1)
         )
+    }
+
+    /** Assigns a gallery image to a layer slot (DIY). The image is copied into app storage so the
+     *  live wallpaper service can still read it later, then exposed as a file:// URI. */
+    fun pickLayer(slot: Slot, uri: Uri) {
+        viewModelScope.launch {
+            val path = withContext(Dispatchers.IO) { copyToInternal(uri, slot.name.lowercase()) }
+                ?: return@launch
+            _layers.update { state ->
+                when (slot) {
+                    Slot.BOTTOM -> state.copy(bottom = path)
+                    Slot.TOP -> state.copy(top = path)
+                }
+            }
+        }
+    }
+
+    private fun copyToInternal(uri: Uri, name: String): String? = try {
+        context.filesDir.listFiles { f -> f.name.startsWith("diy_${name}_") }?.forEach { it.delete() }
+        val file = File(context.filesDir, "diy_${name}_${System.currentTimeMillis()}.img")
+        context.contentResolver.openInputStream(uri)?.use { input ->
+            file.outputStream().use { output -> input.copyTo(output) }
+        }
+        "file://${file.absolutePath}"
+    } catch (e: Exception) {
+        null
     }
 
     fun setEffect(value: OverlayEffect) {

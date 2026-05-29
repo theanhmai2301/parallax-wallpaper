@@ -44,18 +44,7 @@
         android:label="Edit"
         tools:layout="@layout/fragment_edit">
         <action
-            android:id="@+id/action_edit_to_overlay"
-            app:destination="@id/overlayFragment"
-            app:enterAnim="@anim/fade_in" app:exitAnim="@anim/fade_in" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/overlayFragment"
-        android:name="com.galaxywall.app.ui.builder.OverlayFragment"
-        android:label="Overlay"
-        tools:layout="@layout/fragment_overlay">
-        <action
-            android:id="@+id/action_overlay_to_result"
+            android:id="@+id/action_edit_to_result"
             app:destination="@id/resultFragment"
             app:enterAnim="@anim/fade_in" app:exitAnim="@anim/fade_in" />
     </fragment>

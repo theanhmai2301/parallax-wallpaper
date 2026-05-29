@@ -14,6 +14,7 @@ import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import coil.imageLoader
 import com.galaxywall.app.BuildConfig
 import com.galaxywall.app.R
@@ -45,11 +46,12 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ViewCompat.setOnApplyWindowInsetsListener(binding.settingsContent) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(binding.settingsRoot) { v, insets ->
             v.updatePadding(top = insets.getInsets(WindowInsetsCompat.Type.systemBars()).top)
             insets
         }
 
+        binding.btnBack.setOnClickListener { findNavController().navigateUp() }
         binding.textVersion.text = BuildConfig.VERSION_NAME
         setupControls()
         observe()

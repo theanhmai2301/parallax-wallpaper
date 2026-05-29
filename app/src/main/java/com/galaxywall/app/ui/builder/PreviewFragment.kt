@@ -10,9 +10,12 @@ import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.galaxywall.app.R
 import com.galaxywall.app.databinding.FragmentPreviewBinding
+import com.galaxywall.app.util.dp
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -45,14 +48,34 @@ class PreviewFragment : Fragment() {
             insets
         }
 
-        binding.previewPager.adapter = PreviewPagerAdapter(builderViewModel.previewList)
+        binding.previewPager.adapter = PreviewPagerAdapter(builderViewModel.previewList) { position ->
+            if (position >= 0) {
+                builderViewModel.setIndex(position)
+                openEdit()
+            }
+        }
         binding.previewPager.setCurrentItem(builderViewModel.index.value, false)
         binding.previewPager.registerOnPageChangeCallback(pageCallback)
+        setupPeek()
 
         binding.btnBack.setOnClickListener { findNavController().navigateUp() }
-        binding.btnNext.setOnClickListener {
-            builderViewModel.prepareLayersFromCurrent()
-            findNavController().navigate(R.id.action_preview_to_edit)
+        binding.btnNext.setOnClickListener { openEdit() }
+    }
+
+    private fun openEdit() {
+        builderViewModel.prepareLayersFromCurrent()
+        findNavController().navigate(R.id.action_preview_to_edit)
+    }
+
+    /** Makes the pager reveal a peek of the previous/next wallpaper on the left and right. */
+    private fun setupPeek() {
+        val pager = binding.previewPager
+        pager.offscreenPageLimit = 1
+        pager.setPageTransformer(MarginPageTransformer(14.dp))
+        (pager.getChildAt(0) as? RecyclerView)?.apply {
+            val peek = 36.dp
+            setPadding(peek, 0, peek, 0)
+            clipToPadding = false
         }
     }
 

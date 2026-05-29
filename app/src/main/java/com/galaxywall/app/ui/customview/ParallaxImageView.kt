@@ -10,15 +10,15 @@ import android.util.AttributeSet
 import android.view.Choreographer
 import android.view.MotionEvent
 import android.view.View
-import com.galaxywall.app.util.dp
 import kotlin.math.abs
 import kotlin.math.max
 
 /**
  * Renders a stack of layers (bottom -> top) and shifts them by the device tilt to create depth.
- * The bottom layer (background) moves the most while the top layer stays fixed; the [parallaxDepth]
- * controls how much they move and how much the moving layers are over-scaled (so no black edge
- * shows). Motion is eased each frame on the Choreographer for a smooth 60fps feel.
+ * The bottom layer moves the most while the top layer stays still. [parallaxDepth] over-scales the
+ * moving layer (zooms it in): a larger depth means more zoom and therefore more room to shift, so
+ * raising it tilts further while the layer always keeps the frame covered — no black edge ever
+ * shows. Motion is eased each frame on the Choreographer for a smooth 60fps feel.
  */
 class ParallaxImageView @JvmOverloads constructor(
     context: Context,
@@ -37,7 +37,7 @@ class ParallaxImageView @JvmOverloads constructor(
     private var curX = 0f
     private var curY = 0f
 
-    /** 0f..1f — how strong the parallax tilt is (also drives the over-scale of moving layers). */
+    /** 0f..1f — how far the foreground layers shift with the tilt (depth / tilt amount). */
     private var parallaxDepth = 0.5f
 
     /** Render content at this width/height aspect (e.g. the screen) so preview == final wallpaper. */
@@ -132,15 +132,19 @@ class ParallaxImageView @JvmOverloads constructor(
             val bw = bitmap.width.toFloat()
             val bh = bitmap.height.toFloat()
             if (bw <= 0f || bh <= 0f) return@forEachIndexed
-            // Bottom layer (i=0) moves the most; top layer stays fixed.
-            val factor = if (n <= 1) 1f else 1f - i.toFloat() / (n - 1)
-            val cover = max(contentW / bw, contentH / bh)
-            val scale = cover * (1f + OVERSCALE_AMOUNT * parallaxDepth * factor)
+            // Bottom layer (i=0) moves the most; top layer stays still.
+            val factor = if (n <= 1) 0f else 1f - i.toFloat() / (n - 1)
+            // Over-scale the moving layer by the depth, then let it travel exactly the extra margin
+            // that over-scale created — so it shifts as far as possible while still covering the frame.
+            val scale = max(contentW / bw, contentH / bh) * (1f + OVERSCALE_AMOUNT * parallaxDepth * factor)
             val sw = bw * scale
             val sh = bh * scale
-            val move = BASE_TRANSLATE * parallaxDepth * factor
-            val tx = offX + (contentW - sw) / 2f + curX * move
-            val ty = offY + (contentH - sh) / 2f + curY * move
+            val marginX = (sw - contentW) / 2f
+            val marginY = (sh - contentH) / 2f
+            // Multiply by factor so the still (top) layer (factor 0) never drifts, even when its
+            // cover-fit overflows the frame; only the moving layer travels within its margin.
+            val tx = offX + (contentW - sw) / 2f + curX * marginX * factor
+            val ty = offY + (contentH - sh) / 2f + curY * marginY * factor
             matrix.reset()
             matrix.postScale(scale, scale)
             matrix.postTranslate(tx, ty)
@@ -173,7 +177,6 @@ class ParallaxImageView @JvmOverloads constructor(
     companion object {
         private const val EASE = 0.12f
         private const val EPS = 0.0005f
-        private val BASE_TRANSLATE = 80f.dp
-        private const val OVERSCALE_AMOUNT = 0.7f
+        private const val OVERSCALE_AMOUNT = 0.6f
     }
 }

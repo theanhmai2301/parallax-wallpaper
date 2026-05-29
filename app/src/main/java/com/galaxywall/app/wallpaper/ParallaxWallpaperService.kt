@@ -10,12 +10,10 @@ import android.service.wallpaper.WallpaperService
 import android.view.Choreographer
 import android.view.SurfaceHolder
 import coil.size.Size
-import com.galaxywall.app.data.local.AssetCatalogSource
 import com.galaxywall.app.data.local.SettingsManager
 import com.galaxywall.app.sensors.ParallaxSensorManager
 import com.galaxywall.app.ui.builder.OverlayEffect
 import com.galaxywall.app.util.BitmapLoader
-import com.galaxywall.app.util.dp
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -29,8 +27,10 @@ import kotlin.math.max
 
 /**
  * Live wallpaper that renders the saved layers (bottom -> top) with gyroscope parallax. The bottom
- * layer (background) moves the most and is over-scaled so no black edge shows; the top layer stays
- * fixed. [depth] controls the tilt strength. Layers are drawn as-is (no background removal).
+ * layer moves the most and fills the surface; the top layer stays still. [depth] over-scales the
+ * moving layer (zooms it in) and the layer travels exactly that extra margin, so a larger depth
+ * tilts further while always keeping the frame covered — no black edge ever shows. Layers are drawn
+ * as-is (no background removal).
  */
 class ParallaxWallpaperService : WallpaperService() {
 
@@ -41,7 +41,6 @@ class ParallaxWallpaperService : WallpaperService() {
         private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
         private val sensor = ParallaxSensorManager(applicationContext)
         private val settingsManager = SettingsManager(applicationContext)
-        private val catalog = AssetCatalogSource(applicationContext)
 
         private val paint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG)
         private val matrix = Matrix()
@@ -126,8 +125,7 @@ class ParallaxWallpaperService : WallpaperService() {
             scope.launch {
                 val size = Size(surfaceW, surfaceH)
                 val bitmaps = withContext(Dispatchers.IO) {
-                    val source = uris.ifEmpty { catalog.loadAll().firstOrNull()?.layerUris.orEmpty() }
-                    source.mapNotNull { BitmapLoader.load(applicationContext, it, size) }
+                    uris.mapNotNull { BitmapLoader.load(applicationContext, it, size) }
                 }
                 renderLayers = bitmaps
                 depth = depthVal
@@ -189,8 +187,8 @@ class ParallaxWallpaperService : WallpaperService() {
 
             val n = renderLayers.size
             renderLayers.forEachIndexed { i, bitmap ->
-                // Bottom layer (i=0) moves the most; top layer stays fixed.
-                val factor = if (n <= 1) 1f else 1f - i.toFloat() / (n - 1)
+                // Bottom layer (i=0) moves the most; top layer stays still.
+                val factor = if (n <= 1) 0f else 1f - i.toFloat() / (n - 1)
                 if (i == 0) {
                     drawBackground(canvas, bitmap, factor)
                 } else {
@@ -202,7 +200,7 @@ class ParallaxWallpaperService : WallpaperService() {
             }
         }
 
-        /** Bottom/background layer fills the whole surface (no black margins) and moves with tilt. */
+        /** Bottom layer fills the whole surface (no black margins) and moves with the tilt. */
         private fun drawBackground(canvas: Canvas, bitmap: Bitmap, factor: Float) {
             val bw = bitmap.width.toFloat()
             val bh = bitmap.height.toFloat()
@@ -210,9 +208,10 @@ class ParallaxWallpaperService : WallpaperService() {
             val scale = max(surfaceW / bw, surfaceH / bh) * (1f + OVERSCALE_AMOUNT * depth * factor)
             val sw = bw * scale
             val sh = bh * scale
-            val move = BASE_TRANSLATE * depth * factor
-            val tx = (surfaceW - sw) / 2f + curX * move
-            val ty = (surfaceH - sh) / 2f + curY * move
+            val marginX = (sw - surfaceW) / 2f
+            val marginY = (sh - surfaceH) / 2f
+            val tx = (surfaceW - sw) / 2f + curX * marginX * factor
+            val ty = (surfaceH - sh) / 2f + curY * marginY * factor
             matrix.reset()
             matrix.postScale(scale, scale)
             matrix.postTranslate(tx, ty)
@@ -234,9 +233,10 @@ class ParallaxWallpaperService : WallpaperService() {
             val scale = max(contentW / bw, contentH / bh) * (1f + OVERSCALE_AMOUNT * depth * factor)
             val sw = bw * scale
             val sh = bh * scale
-            val move = BASE_TRANSLATE * depth * factor
-            val tx = offX + (contentW - sw) / 2f + curX * move
-            val ty = offY + (contentH - sh) / 2f + curY * move
+            val marginX = (sw - contentW) / 2f
+            val marginY = (sh - contentH) / 2f
+            val tx = offX + (contentW - sw) / 2f + curX * marginX * factor
+            val ty = offY + (contentH - sh) / 2f + curY * marginY * factor
             matrix.reset()
             matrix.postScale(scale, scale)
             matrix.postTranslate(tx, ty)
@@ -256,7 +256,6 @@ class ParallaxWallpaperService : WallpaperService() {
     companion object {
         private const val EASE = 0.12f
         private const val REDRAW_EPS = 0.0008f
-        private val BASE_TRANSLATE = 80f.dp
-        private const val OVERSCALE_AMOUNT = 0.7f
+        private const val OVERSCALE_AMOUNT = 0.6f
     }
 }

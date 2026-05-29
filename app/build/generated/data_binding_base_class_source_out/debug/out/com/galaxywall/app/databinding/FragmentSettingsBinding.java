@@ -4,10 +4,12 @@ package com.galaxywall.app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.widget.NestedScrollView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -20,7 +22,10 @@ import java.lang.String;
 
 public final class FragmentSettingsBinding implements ViewBinding {
   @NonNull
-  private final NestedScrollView rootView;
+  private final ConstraintLayout rootView;
+
+  @NonNull
+  public final ImageView btnBack;
 
   @NonNull
   public final LinearLayout rowClearCache;
@@ -35,7 +40,13 @@ public final class FragmentSettingsBinding implements ViewBinding {
   public final LinearLayout settingsContent;
 
   @NonNull
-  public final NestedScrollView settingsRoot;
+  public final TextView settingsHeaderTitle;
+
+  @NonNull
+  public final ConstraintLayout settingsRoot;
+
+  @NonNull
+  public final NestedScrollView settingsScroll;
 
   @NonNull
   public final Slider sliderSensitivity;
@@ -52,18 +63,22 @@ public final class FragmentSettingsBinding implements ViewBinding {
   @NonNull
   public final TextView textVersion;
 
-  private FragmentSettingsBinding(@NonNull NestedScrollView rootView,
+  private FragmentSettingsBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView btnBack,
       @NonNull LinearLayout rowClearCache, @NonNull LinearLayout rowPrivacy,
       @NonNull LinearLayout rowRate, @NonNull LinearLayout settingsContent,
-      @NonNull NestedScrollView settingsRoot, @NonNull Slider sliderSensitivity,
+      @NonNull TextView settingsHeaderTitle, @NonNull ConstraintLayout settingsRoot,
+      @NonNull NestedScrollView settingsScroll, @NonNull Slider sliderSensitivity,
       @NonNull MaterialSwitch switchDarkMode, @NonNull MaterialSwitch switchDynamic,
       @NonNull MaterialSwitch switchParallax, @NonNull TextView textVersion) {
     this.rootView = rootView;
+    this.btnBack = btnBack;
     this.rowClearCache = rowClearCache;
     this.rowPrivacy = rowPrivacy;
     this.rowRate = rowRate;
     this.settingsContent = settingsContent;
+    this.settingsHeaderTitle = settingsHeaderTitle;
     this.settingsRoot = settingsRoot;
+    this.settingsScroll = settingsScroll;
     this.sliderSensitivity = sliderSensitivity;
     this.switchDarkMode = switchDarkMode;
     this.switchDynamic = switchDynamic;
@@ -73,7 +88,7 @@ public final class FragmentSettingsBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public NestedScrollView getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -98,6 +113,12 @@ public final class FragmentSettingsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnBack;
+      ImageView btnBack = ViewBindings.findChildViewById(rootView, id);
+      if (btnBack == null) {
+        break missingId;
+      }
+
       id = R.id.rowClearCache;
       LinearLayout rowClearCache = ViewBindings.findChildViewById(rootView, id);
       if (rowClearCache == null) {
@@ -122,7 +143,19 @@ public final class FragmentSettingsBinding implements ViewBinding {
         break missingId;
       }
 
-      NestedScrollView settingsRoot = (NestedScrollView) rootView;
+      id = R.id.settingsHeaderTitle;
+      TextView settingsHeaderTitle = ViewBindings.findChildViewById(rootView, id);
+      if (settingsHeaderTitle == null) {
+        break missingId;
+      }
+
+      ConstraintLayout settingsRoot = (ConstraintLayout) rootView;
+
+      id = R.id.settingsScroll;
+      NestedScrollView settingsScroll = ViewBindings.findChildViewById(rootView, id);
+      if (settingsScroll == null) {
+        break missingId;
+      }
 
       id = R.id.sliderSensitivity;
       Slider sliderSensitivity = ViewBindings.findChildViewById(rootView, id);
@@ -154,9 +187,9 @@ public final class FragmentSettingsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentSettingsBinding((NestedScrollView) rootView, rowClearCache, rowPrivacy,
-          rowRate, settingsContent, settingsRoot, sliderSensitivity, switchDarkMode, switchDynamic,
-          switchParallax, textVersion);
+      return new FragmentSettingsBinding((ConstraintLayout) rootView, btnBack, rowClearCache,
+          rowPrivacy, rowRate, settingsContent, settingsHeaderTitle, settingsRoot, settingsScroll,
+          sliderSensitivity, switchDarkMode, switchDynamic, switchParallax, textVersion);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

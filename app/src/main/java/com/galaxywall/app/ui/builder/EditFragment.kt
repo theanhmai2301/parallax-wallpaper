@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.ViewCompat
+import androidx.core.view.isVisible
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
@@ -36,6 +38,12 @@ class EditFragment : Fragment() {
     private lateinit var sensorManager: ParallaxSensorManager
     private var renderJob: Job? = null
 
+    private var pickingSlot: BuilderViewModel.Slot? = null
+    private val pickImage = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+        val slot = pickingSlot ?: return@registerForActivityResult
+        if (uri != null) builderViewModel.pickLayer(slot, uri)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -47,8 +55,12 @@ class EditFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val basePanelBottom = binding.panel.paddingBottom
         ViewCompat.setOnApplyWindowInsetsListener(binding.editRoot) { v, insets ->
-            v.updatePadding(top = insets.getInsets(WindowInsetsCompat.Type.systemBars()).top)
+            val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.updatePadding(top = bars.top)
+            // Lift the panel (depth slider) above the system navigation bar so they don't overlap.
+            binding.panel.updatePadding(bottom = basePanelBottom + bars.bottom)
             insets
         }
 
@@ -59,7 +71,18 @@ class EditFragment : Fragment() {
         binding.editPreview.targetAspect = dm.widthPixels.toFloat() / dm.heightPixels
 
         binding.btnBack.setOnClickListener { findNavController().navigateUp() }
-        binding.btnNext.setOnClickListener { findNavController().navigate(R.id.action_edit_to_overlay) }
+        binding.btnNext.setOnClickListener { findNavController().navigate(R.id.action_edit_to_result) }
+
+        // Gallery picking is only for DIY; when viewing an API wallpaper the slots are read-only.
+        val diy = builderViewModel.isDiy
+        binding.slotBottomHint.isVisible = diy
+        binding.slotTopHint.isVisible = diy
+        binding.slotBottomCard.isClickable = diy
+        binding.slotTopCard.isClickable = diy
+        if (diy) {
+            binding.slotBottomCard.setOnClickListener { launchPicker(BuilderViewModel.Slot.BOTTOM) }
+            binding.slotTopCard.setOnClickListener { launchPicker(BuilderViewModel.Slot.TOP) }
+        }
 
         binding.sliderDepth.addOnChangeListener { _, value, fromUser ->
             if (fromUser) builderViewModel.setParallaxDepth(value)
@@ -67,7 +90,6 @@ class EditFragment : Fragment() {
 
         collectWhenStarted(builderViewModel.layers) { state ->
             binding.slotBottomImage.loadOrClear(state.bottom)
-            binding.slotMiddleImage.loadOrClear(state.middle)
             binding.slotTopImage.loadOrClear(state.top)
             renderPreview()
         }
@@ -89,6 +111,11 @@ class EditFragment : Fragment() {
         renderJob = viewLifecycleOwner.lifecycleScope.launch {
             binding.editPreview.setLayers(builderViewModel.loadRenderLayers())
         }
+    }
+
+    private fun launchPicker(slot: BuilderViewModel.Slot) {
+        pickingSlot = slot
+        pickImage.launch("image/*")
     }
 
     private fun android.widget.ImageView.loadOrClear(uri: String?) {

@@ -24,7 +24,6 @@ import hilt_aggregated_deps._com_galaxywall_app_ui_MainActivity_GeneratedInjecto
 import hilt_aggregated_deps._com_galaxywall_app_ui_builder_BuilderViewModel_HiltModules_BindsModule;
 import hilt_aggregated_deps._com_galaxywall_app_ui_builder_BuilderViewModel_HiltModules_KeyModule;
 import hilt_aggregated_deps._com_galaxywall_app_ui_builder_EditFragment_GeneratedInjector;
-import hilt_aggregated_deps._com_galaxywall_app_ui_builder_OverlayFragment_GeneratedInjector;
 import hilt_aggregated_deps._com_galaxywall_app_ui_builder_PreviewFragment_GeneratedInjector;
 import hilt_aggregated_deps._com_galaxywall_app_ui_builder_ResultFragment_GeneratedInjector;
 import hilt_aggregated_deps._com_galaxywall_app_ui_favorite_FavoriteFragment_GeneratedInjector;
@@ -83,7 +82,6 @@ import hilt_aggregated_deps._dagger_hilt_android_internal_modules_HiltWrapper_Ac
         _com_galaxywall_app_ui_builder_BuilderViewModel_HiltModules_BindsModule.class,
         _com_galaxywall_app_ui_builder_BuilderViewModel_HiltModules_KeyModule.class,
         _com_galaxywall_app_ui_builder_EditFragment_GeneratedInjector.class,
-        _com_galaxywall_app_ui_builder_OverlayFragment_GeneratedInjector.class,
         _com_galaxywall_app_ui_builder_PreviewFragment_GeneratedInjector.class,
         _com_galaxywall_app_ui_builder_ResultFragment_GeneratedInjector.class,
         _com_galaxywall_app_ui_favorite_FavoriteFragment_GeneratedInjector.class,
