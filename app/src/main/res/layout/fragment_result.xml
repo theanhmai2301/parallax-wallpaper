@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/resultRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_margin="@dimen/screen_margin"
+        android:background="@drawable/bg_circle_glass"
+        android:contentDescription="@string/cd_back"
+        android:padding="10dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintBottom_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/title"
+        app:tint="?attr/colorOnBackground" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_sm"
+        android:text="@string/result_title"
+        android:textAppearance="@style/TextAppearance.ParallaxWallpaper.Title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/screen_margin"
+        app:cardBackgroundColor="@color/black"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toTopOf="@id/btnSetBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title">
+
+        <com.galaxywall.app.ui.customview.ParallaxImageView
+            android:id="@+id/resultPreview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSetBackground"
+        style="@style/Widget.ParallaxWallpaper.Button.Primary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/screen_margin"
+        android:layout_marginBottom="@dimen/space_xl"
+        android:drawableStart="@drawable/ic_apply"
+        android:drawablePadding="6dp"
+        android:paddingStart="100dp"
+        android:paddingEnd="100dp"
+        android:gravity="center"
+        android:text="@string/set_background"
+        app:drawableTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

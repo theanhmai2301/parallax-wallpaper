@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ===== Bottom navigation ===== -->
+    <style name="Widget.ParallaxWallpaper.BottomNav" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@drawable/bg_bottom_nav</item>
+        <item name="itemActiveIndicatorStyle">@style/Widget.ParallaxWallpaper.NavIndicator</item>
+        <item name="itemIconTint">@color/selector_nav_item</item>
+        <item name="itemTextColor">@color/selector_nav_item</item>
+        <item name="elevation">0dp</item>
+        <item name="labelVisibilityMode">labeled</item>
+    </style>
+
+    <style name="Widget.ParallaxWallpaper.NavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/brand_purple</item>
+        <item name="android:alpha">0.18</item>
+    </style>
+
+    <!-- ===== Category chip ===== -->
+    <style name="Widget.ParallaxWallpaper.Chip" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/selector_chip_bg</item>
+        <item name="android:textColor">@color/selector_chip_text</item>
+        <item name="chipStrokeColor">@color/selector_chip_stroke</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipCornerRadius">22dp</item>
+        <item name="chipMinHeight">40dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.ParallaxWallpaper.Chip</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="chipIconVisible">false</item>
+        <item name="ensureMinTouchTargetSize">false</item>
+        <item name="rippleColor">@color/brand_purple_light</item>
+    </style>
+
+    <!-- ===== Buttons ===== -->
+    <style name="Widget.ParallaxWallpaper.Button.Primary" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/bg_button_primary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <style name="Widget.ParallaxWallpaper.Button.Tonal" parent="Widget.Material3.Button.TonalButton">
+        <item name="backgroundTint">@color/glass_bg</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="cornerRadius">18dp</item>
+    </style>
+
+    <!-- ===== Cards ===== -->
+    <style name="Widget.ParallaxWallpaper.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">@dimen/card_corner</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/surface_variant</item>
+        <item name="android:foreground">@drawable/ripple_card</item>
+    </style>
+
+    <!-- ===== Text appearances ===== -->
+    <style name="TextAppearance.ParallaxWallpaper.Display" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+    </style>
+
+    <style name="TextAppearance.ParallaxWallpaper.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+    </style>
+
+    <style name="TextAppearance.ParallaxWallpaper.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    </style>
+
+    <style name="TextAppearance.ParallaxWallpaper.Chip" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextAppearance.ParallaxWallpaper.CardTitle" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- ===== Settings rows ===== -->
+    <style name="SettingRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/bg_setting_card</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="SettingRow.Clickable" parent="SettingRow">
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+</resources>

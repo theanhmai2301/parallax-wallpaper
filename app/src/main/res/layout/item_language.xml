@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/language_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/selector_bg_item_language"
+        android:paddingHorizontal="13dp"
+        android:paddingVertical="13dp">
+
+        <ImageView
+            android:id="@+id/imgIconLanguage"
+            android:layout_width="23.8dp"
+            android:layout_height="23.8dp"
+            android:contentDescription="TODO"
+            android:src="@drawable/ic_languages_setting"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtNameLanguage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="13dp"
+            android:textColor="@color/white"
+            android:paddingVertical="7.8dp"
+            android:textSize="15.6sp"
+            android:text="langugaeeeeeeeeeeeee"
+            app:layout_constraintBottom_toBottomOf="@+id/imgIconLanguage"
+            app:layout_constraintEnd_toStartOf="@+id/imgChooseLanguage"
+            app:layout_constraintStart_toEndOf="@+id/imgIconLanguage"
+            app:layout_constraintTop_toTopOf="@+id/imgIconLanguage" />
+
+        <ImageView
+            android:id="@+id/imgChooseLanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="TODO"
+            android:src="@drawable/ic_select_lang"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,237 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.galaxywall.app"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="35" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:5:5-67
+11-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:6:5-79
+12-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:6:22-76
+13    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+13-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:7:5-72
+13-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:7:22-69
+14
+15    <uses-feature
+15-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:9:5-11:36
+16        android:name="android.hardware.sensor.gyroscope"
+16-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:10:9-57
+17        android:required="false" />
+17-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:11:9-33
+18    <uses-feature
+18-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:12:5-14:36
+19        android:name="android.hardware.sensor.accelerometer"
+19-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:13:9-61
+20        android:required="false" />
+20-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:14:9-33
+21    <uses-feature
+21-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:15:5-17:36
+22        android:name="android.software.live_wallpaper"
+22-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:16:9-55
+23        android:required="false" />
+23-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:17:9-33
+24
+25    <permission
+25-->[androidx.core:core:1.15.0] C:\Users\maing\.gradle\caches\8.9\transforms\dee341c5bf39f1aa1ed98a96037d8291\transformed\core-1.15.0\AndroidManifest.xml:22:5-24:47
+26        android:name="com.galaxywall.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+26-->[androidx.core:core:1.15.0] C:\Users\maing\.gradle\caches\8.9\transforms\dee341c5bf39f1aa1ed98a96037d8291\transformed\core-1.15.0\AndroidManifest.xml:23:9-81
+27        android:protectionLevel="signature" />
+27-->[androidx.core:core:1.15.0] C:\Users\maing\.gradle\caches\8.9\transforms\dee341c5bf39f1aa1ed98a96037d8291\transformed\core-1.15.0\AndroidManifest.xml:24:9-44
+28
+29    <uses-permission android:name="com.galaxywall.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+29-->[androidx.core:core:1.15.0] C:\Users\maing\.gradle\caches\8.9\transforms\dee341c5bf39f1aa1ed98a96037d8291\transformed\core-1.15.0\AndroidManifest.xml:26:5-97
+29-->[androidx.core:core:1.15.0] C:\Users\maing\.gradle\caches\8.9\transforms\dee341c5bf39f1aa1ed98a96037d8291\transformed\core-1.15.0\AndroidManifest.xml:26:22-94
+30
+31    <application
+31-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:19:5-69:19
+32        android:name="com.galaxywall.app.App"
+32-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:20:9-28
+33        android:allowBackup="true"
+33-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:21:9-35
+34        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+34-->[androidx.core:core:1.15.0] C:\Users\maing\.gradle\caches\8.9\transforms\dee341c5bf39f1aa1ed98a96037d8291\transformed\core-1.15.0\AndroidManifest.xml:28:18-86
+35        android:dataExtractionRules="@xml/data_extraction_rules"
+35-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:22:9-65
+36        android:debuggable="true"
+37        android:extractNativeLibs="false"
+38        android:fullBackupContent="@xml/backup_rules"
+38-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:23:9-54
+39        android:icon="@mipmap/ic_launcher"
+39-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:24:9-43
+40        android:label="@string/app_name"
+40-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:25:9-41
+41        android:roundIcon="@mipmap/ic_launcher_round"
+41-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:26:9-54
+42        android:supportsRtl="true"
+42-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:27:9-35
+43        android:testOnly="true"
+44        android:theme="@style/Theme.ParallaxWallpaper" >
+44-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:28:9-55
+45        <activity
+45-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:30:9-32:40
+46            android:name="com.galaxywall.app.ui.survey.SurveyActivity"
+46-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:31:13-53
+47            android:exported="false" />
+47-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:32:13-37
+48        <activity android:name="com.galaxywall.app.ui.language.LanguageActivity" />
+48-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:33:9-66
+48-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:33:19-63
+49        <activity
+49-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:34:9-44:20
+50            android:name="com.galaxywall.app.ui.MainActivity"
+50-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:35:13-44
+51            android:exported="true"
+51-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:36:13-36
+52            android:launchMode="singleTop"
+52-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:37:13-43
+53            android:theme="@style/Theme.ParallaxWallpaper.Splash" >
+53-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:38:13-66
+54            <intent-filter>
+54-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:39:13-43:29
+55                <action android:name="android.intent.action.MAIN" />
+55-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:40:17-69
+55-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:40:25-66
+56
+57                <category android:name="android.intent.category.LAUNCHER" />
+57-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:42:17-77
+57-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:42:27-74
+58            </intent-filter>
+59        </activity>
+60
+61        <service
+61-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:46:9-58:19
+62            android:name="com.galaxywall.app.wallpaper.ParallaxWallpaperService"
+62-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:47:13-63
+63            android:exported="true"
+63-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:48:13-36
+64            android:label="@string/live_wallpaper_label"
+64-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:49:13-57
+65            android:permission="android.permission.BIND_WALLPAPER" >
+65-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:50:13-67
+66            <intent-filter>
+66-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:51:13-53:29
+67                <action android:name="android.service.wallpaper.WallpaperService" />
+67-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:52:17-85
+67-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:52:25-82
+68            </intent-filter>
+69
+70            <meta-data
+70-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:55:13-57:62
+71                android:name="android.service.wallpaper"
+71-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:56:17-57
+72                android:resource="@xml/parallax_wallpaper" />
+72-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:57:17-59
+73        </service>
+74
+75        <provider
+76            android:name="androidx.core.content.FileProvider"
+76-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:61:13-62
+77            android:authorities="com.galaxywall.app.fileprovider"
+77-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:62:13-64
+78            android:exported="false"
+78-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:63:13-37
+79            android:grantUriPermissions="true" >
+79-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:64:13-47
+80            <meta-data
+80-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:65:13-67:54
+81                android:name="android.support.FILE_PROVIDER_PATHS"
+81-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:66:17-67
+82                android:resource="@xml/file_paths" />
+82-->C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:67:17-51
+83        </provider>
+84        <provider
+84-->[androidx.emoji2:emoji2:1.3.0] C:\Users\maing\.gradle\caches\8.9\transforms\5b10ed6af7a8a1322c8e953e39e0f201\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+85            android:name="androidx.startup.InitializationProvider"
+85-->[androidx.emoji2:emoji2:1.3.0] C:\Users\maing\.gradle\caches\8.9\transforms\5b10ed6af7a8a1322c8e953e39e0f201\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+86            android:authorities="com.galaxywall.app.androidx-startup"
+86-->[androidx.emoji2:emoji2:1.3.0] C:\Users\maing\.gradle\caches\8.9\transforms\5b10ed6af7a8a1322c8e953e39e0f201\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+87            android:exported="false" >
+87-->[androidx.emoji2:emoji2:1.3.0] C:\Users\maing\.gradle\caches\8.9\transforms\5b10ed6af7a8a1322c8e953e39e0f201\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+88            <meta-data
+88-->[androidx.emoji2:emoji2:1.3.0] C:\Users\maing\.gradle\caches\8.9\transforms\5b10ed6af7a8a1322c8e953e39e0f201\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+89                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+89-->[androidx.emoji2:emoji2:1.3.0] C:\Users\maing\.gradle\caches\8.9\transforms\5b10ed6af7a8a1322c8e953e39e0f201\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+90                android:value="androidx.startup" />
+90-->[androidx.emoji2:emoji2:1.3.0] C:\Users\maing\.gradle\caches\8.9\transforms\5b10ed6af7a8a1322c8e953e39e0f201\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+91            <meta-data
+91-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\maing\.gradle\caches\8.9\transforms\4f1d126d50bd5317dade956dc75d363c\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:29:13-31:52
+92                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+92-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\maing\.gradle\caches\8.9\transforms\4f1d126d50bd5317dade956dc75d363c\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:30:17-78
+93                android:value="androidx.startup" />
+93-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\maing\.gradle\caches\8.9\transforms\4f1d126d50bd5317dade956dc75d363c\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:31:17-49
+94            <meta-data
+94-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\maing\.gradle\caches\8.9\transforms\7542778d105cb99be254326f651724d7\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+95                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+95-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\maing\.gradle\caches\8.9\transforms\7542778d105cb99be254326f651724d7\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+96                android:value="androidx.startup" />
+96-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\maing\.gradle\caches\8.9\transforms\7542778d105cb99be254326f651724d7\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+97        </provider>
+98
+99        <uses-library
+99-->[androidx.window:window:1.0.0] C:\Users\maing\.gradle\caches\8.9\transforms\a5ebc9de1ae90d88e7bb3887d496e992\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+100            android:name="androidx.window.extensions"
+100-->[androidx.window:window:1.0.0] C:\Users\maing\.gradle\caches\8.9\transforms\a5ebc9de1ae90d88e7bb3887d496e992\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+101            android:required="false" />
+101-->[androidx.window:window:1.0.0] C:\Users\maing\.gradle\caches\8.9\transforms\a5ebc9de1ae90d88e7bb3887d496e992\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+102        <uses-library
+102-->[androidx.window:window:1.0.0] C:\Users\maing\.gradle\caches\8.9\transforms\a5ebc9de1ae90d88e7bb3887d496e992\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+103            android:name="androidx.window.sidecar"
+103-->[androidx.window:window:1.0.0] C:\Users\maing\.gradle\caches\8.9\transforms\a5ebc9de1ae90d88e7bb3887d496e992\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+104            android:required="false" />
+104-->[androidx.window:window:1.0.0] C:\Users\maing\.gradle\caches\8.9\transforms\a5ebc9de1ae90d88e7bb3887d496e992\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+105
+106        <service
+106-->[androidx.room:room-runtime:2.6.1] C:\Users\maing\.gradle\caches\8.9\transforms\6b7275356607481973a212da94194410\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
+107            android:name="androidx.room.MultiInstanceInvalidationService"
+107-->[androidx.room:room-runtime:2.6.1] C:\Users\maing\.gradle\caches\8.9\transforms\6b7275356607481973a212da94194410\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
+108            android:directBootAware="true"
+108-->[androidx.room:room-runtime:2.6.1] C:\Users\maing\.gradle\caches\8.9\transforms\6b7275356607481973a212da94194410\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
+109            android:exported="false" />
+109-->[androidx.room:room-runtime:2.6.1] C:\Users\maing\.gradle\caches\8.9\transforms\6b7275356607481973a212da94194410\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
+110
+111        <receiver
+111-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\maing\.gradle\caches\8.9\transforms\7542778d105cb99be254326f651724d7\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+112            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+112-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\maing\.gradle\caches\8.9\transforms\7542778d105cb99be254326f651724d7\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+113            android:directBootAware="false"
+113-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\maing\.gradle\caches\8.9\transforms\7542778d105cb99be254326f651724d7\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+114            android:enabled="true"
+114-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\maing\.gradle\caches\8.9\transforms\7542778d105cb99be254326f651724d7\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+115            android:exported="true"
+115-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\maing\.gradle\caches\8.9\transforms\7542778d105cb99be254326f651724d7\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+116            android:permission="android.permission.DUMP" >
+116-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\maing\.gradle\caches\8.9\transforms\7542778d105cb99be254326f651724d7\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
+117            <intent-filter>
+117-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\maing\.gradle\caches\8.9\transforms\7542778d105cb99be254326f651724d7\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+118                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+118-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\maing\.gradle\caches\8.9\transforms\7542778d105cb99be254326f651724d7\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+118-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\maing\.gradle\caches\8.9\transforms\7542778d105cb99be254326f651724d7\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
+119            </intent-filter>
+120            <intent-filter>
+120-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\maing\.gradle\caches\8.9\transforms\7542778d105cb99be254326f651724d7\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+121                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+121-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\maing\.gradle\caches\8.9\transforms\7542778d105cb99be254326f651724d7\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+121-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\maing\.gradle\caches\8.9\transforms\7542778d105cb99be254326f651724d7\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+122            </intent-filter>
+123            <intent-filter>
+123-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\maing\.gradle\caches\8.9\transforms\7542778d105cb99be254326f651724d7\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+124                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+124-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\maing\.gradle\caches\8.9\transforms\7542778d105cb99be254326f651724d7\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+124-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\maing\.gradle\caches\8.9\transforms\7542778d105cb99be254326f651724d7\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+125            </intent-filter>
+126            <intent-filter>
+126-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\maing\.gradle\caches\8.9\transforms\7542778d105cb99be254326f651724d7\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+127                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+127-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\maing\.gradle\caches\8.9\transforms\7542778d105cb99be254326f651724d7\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+127-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\maing\.gradle\caches\8.9\transforms\7542778d105cb99be254326f651724d7\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+128            </intent-filter>
+129        </receiver>
+130    </application>
+131
+132</manifest>

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"C:\\\\Users\\\\maing\\\\AndroidStudioProjects\\\\parallax-wallpaper\")",
+      "Bash(rm -f app/src/main/java/com/galaxywall/app/ui/detail/WallpaperDetailFragment.kt app/src/main/java/com/galaxywall/app/ui/detail/WallpaperDetailViewModel.kt app/src/main/java/com/galaxywall/app/wallpaper/ImageDownloader.kt app/src/main/res/layout/fragment_detail.xml)",
+      "Bash(ls app/src/main/java/com/galaxywall/app/ui/detail/)",
+      "Bash(rm -f app/src/main/res/menu/bottom_nav_menu.xml)",
+      "Bash(rmdir app/src/main/res/menu)"
+    ]
+  }
+}

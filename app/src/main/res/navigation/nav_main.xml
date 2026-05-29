@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.galaxywall.app.ui.home.HomeFragment"
+        android:label="@string/home_title"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_preview"
+            app:destination="@id/previewFragment"
+            app:enterAnim="@anim/fade_in" app:exitAnim="@anim/fade_in"
+            app:popEnterAnim="@anim/fade_in" app:popExitAnim="@anim/fade_in" />
+        <action
+            android:id="@+id/action_home_to_edit"
+            app:destination="@id/editFragment"
+            app:enterAnim="@anim/fade_in" app:exitAnim="@anim/fade_in" />
+        <action
+            android:id="@+id/action_home_to_favorite"
+            app:destination="@id/favoriteFragment" />
+        <action
+            android:id="@+id/action_home_to_settings"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/previewFragment"
+        android:name="com.galaxywall.app.ui.builder.PreviewFragment"
+        android:label="Preview"
+        tools:layout="@layout/fragment_preview">
+        <action
+            android:id="@+id/action_preview_to_edit"
+            app:destination="@id/editFragment"
+            app:enterAnim="@anim/fade_in" app:exitAnim="@anim/fade_in" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.galaxywall.app.ui.builder.EditFragment"
+        android:label="Edit"
+        tools:layout="@layout/fragment_edit">
+        <action
+            android:id="@+id/action_edit_to_overlay"
+            app:destination="@id/overlayFragment"
+            app:enterAnim="@anim/fade_in" app:exitAnim="@anim/fade_in" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/overlayFragment"
+        android:name="com.galaxywall.app.ui.builder.OverlayFragment"
+        android:label="Overlay"
+        tools:layout="@layout/fragment_overlay">
+        <action
+            android:id="@+id/action_overlay_to_result"
+            app:destination="@id/resultFragment"
+            app:enterAnim="@anim/fade_in" app:exitAnim="@anim/fade_in" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.galaxywall.app.ui.builder.ResultFragment"
+        android:label="Result"
+        tools:layout="@layout/fragment_result" />
+
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.galaxywall.app.ui.favorite.FavoriteFragment"
+        android:label="@string/tab_favorites"
+        tools:layout="@layout/fragment_favorite">
+        <action
+            android:id="@+id/action_favorite_to_preview"
+            app:destination="@id/previewFragment"
+            app:enterAnim="@anim/fade_in" app:exitAnim="@anim/fade_in" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.galaxywall.app.ui.settings.SettingsFragment"
+        android:label="@string/settings_title"
+        tools:layout="@layout/fragment_settings" />
+
+</navigation>

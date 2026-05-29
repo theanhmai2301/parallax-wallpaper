@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Parallax Wallpaper</string>
+    <string name="live_wallpaper_label">Parallax Wallpaper</string>
+    <string name="live_wallpaper_description">Depth motion wallpaper that reacts to your device tilt.</string>
+
+    <!-- Home -->
+    <string name="home_title">Parallax Wallpaper</string>
+    <string name="search_hint">Search wallpapers…</string>
+    <string name="tab_home">Explore</string>
+    <string name="tab_favorites">Favorites</string>
+    <string name="tab_settings">Settings</string>
+    <string name="section_recent">Recently viewed</string>
+    <string name="empty_home">No wallpapers found</string>
+    <string name="empty_favorites">No favorites yet</string>
+    <string name="empty_favorites_hint">Tap the heart on any wallpaper to save it here.</string>
+
+    <!-- Detail -->
+    <string name="detail_apply">Apply</string>
+    <string name="detail_download">Download</string>
+    <string name="detail_share">Share</string>
+    <string name="detail_favorite">Favorite</string>
+    <string name="detail_live">Live</string>
+    <string name="tilt_hint">Tilt your device to feel the depth</string>
+
+    <!-- Apply dialog -->
+    <string name="apply_title">Apply wallpaper</string>
+    <string name="apply_home">Home screen</string>
+    <string name="apply_lock">Lock screen</string>
+    <string name="apply_both">Home &amp; Lock screen</string>
+    <string name="apply_live">Set as live parallax</string>
+    <string name="applying">Applying wallpaper…</string>
+    <string name="apply_success">Wallpaper applied</string>
+    <string name="apply_error">Could not apply wallpaper</string>
+
+    <!-- Download -->
+    <string name="downloading">Downloading…</string>
+    <string name="download_success">Saved to Pictures/Parallax</string>
+    <string name="download_error">Download failed</string>
+    <string name="permission_storage_rationale">Storage permission is needed to save the image to your gallery.</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_appearance">Appearance</string>
+    <string name="settings_dark_mode">Dark mode</string>
+    <string name="settings_dark_mode_sub">AMOLED black theme</string>
+    <string name="settings_dynamic_color">Dynamic color</string>
+    <string name="settings_dynamic_color_sub">Use colors from your system (Android 12+)</string>
+    <string name="settings_parallax">Parallax</string>
+    <string name="settings_enable_parallax">Enable parallax motion</string>
+    <string name="settings_enable_parallax_sub">Layers react to gyroscope and tilt</string>
+    <string name="settings_sensitivity">Motion sensitivity</string>
+    <string name="settings_general">General</string>
+    <string name="settings_clear_cache">Clear image cache</string>
+    <string name="settings_clear_cache_sub">Free up storage used by previews</string>
+    <string name="settings_rate">Rate the app</string>
+    <string name="settings_privacy">Privacy policy</string>
+    <string name="settings_version">Version</string>
+    <string name="cache_cleared">Cache cleared</string>
+
+    <!-- Generic -->
+    <string name="cd_back">Back</string>
+    <string name="cd_settings">Settings</string>
+    <string name="cd_folder">Categories</string>
+    <string name="cd_favorite">Favorite</string>
+    <string name="cd_wallpaper_preview">Wallpaper preview</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="retry">Retry</string>
+
+    <string name="privacy_policy_text">Parallax Wallpaper works offline using bundled wallpapers and can also stream more from our content server. We do not collect, transmit, or share personal data. Favorites and preferences are stored only on your device. Motion sensors are used solely to render the parallax effect and never leave your device.</string>
+
+    <!-- Home bottom bar -->
+    <string name="tab_parallax">Parallax Wallpaper</string>
+    <string name="tab_diy">DIY Wallpaper</string>
+    <string name="section_categories">Categories</string>
+
+    <!-- Builder flow -->
+    <string name="action_next">Next</string>
+    <string name="action_save">Save</string>
+    <string name="preview_title">Preview</string>
+    <string name="edit_title">Edit</string>
+    <string name="overlay_title">Add Overlay Effect</string>
+    <string name="result_title">Preview Result</string>
+    <string name="set_background">Set Background</string>
+
+    <string name="layer_bottom">Bottom Layer</string>
+    <string name="layer_middle">Middle Layer</string>
+    <string name="layer_top">Top Layer</string>
+    <string name="layers_label">Layers</string>
+    <string name="layer_size">Object size</string>
+    <string name="layer_depth">Depth (tilt strength)</string>
+    <string name="effects_label">Effects</string>
+    <string name="library_label">Library</string>
+    <string name="pick_gallery">Gallery</string>
+    <string name="clear_layer">Clear</string>
+    <string name="empty_layer">Tap an image below to set this layer</string>
+
+    <!-- Ad gate -->
+    <string name="ad_gate_title">Set wallpaper</string>
+    <string name="ad_gate_message">Watch a short ad to set this wallpaper for free.</string>
+    <string name="ad_watch">Watch ad &amp; set</string>
+    <string name="ad_skip">Skip</string>
+    <string name="ad_loading">Loading ad…</string>
+</resources>

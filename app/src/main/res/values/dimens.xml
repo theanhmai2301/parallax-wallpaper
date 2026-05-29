@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="space_xs">4dp</dimen>
+    <dimen name="space_sm">8dp</dimen>
+    <dimen name="space_md">12dp</dimen>
+    <dimen name="space_lg">16dp</dimen>
+    <dimen name="space_xl">24dp</dimen>
+    <dimen name="space_xxl">32dp</dimen>
+
+    <dimen name="screen_margin">16dp</dimen>
+    <dimen name="card_corner">24dp</dimen>
+    <dimen name="card_gap">10dp</dimen>
+    <dimen name="card_min_height">220dp</dimen>
+
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="search_height">52dp</dimen>
+    <dimen name="search_corner">26dp</dimen>
+    <dimen name="chip_spacing">8dp</dimen>
+
+    <dimen name="fab_size">52dp</dimen>
+    <dimen name="favorite_btn_size">36dp</dimen>
+    <dimen name="bottom_nav_height">64dp</dimen>
+
+    <dimen name="detail_action_size">56dp</dimen>
+    <dimen name="parallax_max_translation">28dp</dimen>
+</resources>

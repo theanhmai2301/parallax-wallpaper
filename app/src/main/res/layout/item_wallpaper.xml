@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card"
+    style="@style/Widget.ParallaxWallpaper.Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:transitionGroup="false">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+        <ImageView
+            android:id="@+id/thumb"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/cd_wallpaper_preview"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="H,3:4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <View
+            android:id="@+id/overlay"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_card_overlay"
+            app:layout_constraintBottom_toBottomOf="@id/thumb"
+            app:layout_constraintEnd_toEndOf="@id/thumb"
+            app:layout_constraintStart_toStartOf="@id/thumb"
+            app:layout_constraintTop_toTopOf="@id/thumb" />
+
+        <TextView
+            android:id="@+id/categoryTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_pill_tag"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/thumb"
+            app:layout_constraintTop_toTopOf="@id/thumb"
+            tools:text="Anime" />
+
+        <ImageView
+            android:id="@+id/favoriteButton"
+            android:layout_width="@dimen/favorite_btn_size"
+            android:layout_height="@dimen/favorite_btn_size"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_circle_scrim"
+            android:contentDescription="@string/cd_favorite"
+            android:padding="8dp"
+            android:src="@drawable/ic_favorite_border"
+            app:layout_constraintEnd_toEndOf="@id/thumb"
+            app:layout_constraintTop_toTopOf="@id/thumb"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.ParallaxWallpaper.CardTitle"
+            app:layout_constraintBottom_toBottomOf="@id/thumb"
+            app:layout_constraintEnd_toStartOf="@id/resolution"
+            app:layout_constraintStart_toStartOf="@id/thumb"
+            tools:text="Anime 01" />
+
+        <TextView
+            android:id="@+id/resolution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:alpha="0.85"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/title"
+            app:layout_constraintEnd_toEndOf="@id/thumb"
+            app:layout_constraintTop_toTopOf="@id/title"
+            tools:text="4K" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_setting_card"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <ImageView
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_star"
+        app:tint="@color/brand_purple" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/ad_gate_title"
+        android:textAppearance="@style/TextAppearance.ParallaxWallpaper.Title"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
+        android:text="@string/ad_gate_message"
+        android:textAppearance="@style/TextAppearance.ParallaxWallpaper.Body" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnWatchAd"
+        style="@style/Widget.ParallaxWallpaper.Button.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/ad_watch" />
+
+    <TextView
+        android:id="@+id/btnSkip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="10dp"
+        android:text="@string/ad_skip"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+</LinearLayout>

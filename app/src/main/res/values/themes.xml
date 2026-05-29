@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.ParallaxWallpaper" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/brand_purple</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/brand_purple_dark</item>
+        <item name="colorOnPrimaryContainer">@color/white</item>
+        <item name="colorSecondary">@color/brand_blue</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/brand_blue</item>
+        <item name="colorOnSecondaryContainer">@color/white</item>
+
+        <item name="android:colorBackground">@color/bg</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/on_surface</item>
+        <item name="colorSurfaceVariant">@color/surface_variant</item>
+        <item name="colorOnSurfaceVariant">@color/on_surface_variant</item>
+        <item name="colorOutline">@color/outline</item>
+        <item name="colorError">@color/favorite_red</item>
+
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">@bool/window_light_status</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">@bool/window_light_status</item>
+        <item name="android:enforceNavigationBarContrast" tools:targetApi="q">false</item>
+        <item name="android:enforceStatusBarContrast" tools:targetApi="q">false</item>
+
+        <item name="bottomNavigationStyle">@style/Widget.ParallaxWallpaper.BottomNav</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.ParallaxWallpaper.Dialog</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="Theme.ParallaxWallpaper" parent="Base.Theme.ParallaxWallpaper" />
+
+    <style name="Theme.ParallaxWallpaper.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/bg</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.ParallaxWallpaper</item>
+    </style>
+
+    <style name="ThemeOverlay.ParallaxWallpaper.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorPrimary">@color/brand_purple</item>
+        <item name="alertDialogStyle">@style/MaterialAlertDialog.Material3</item>
+    </style>
+
+    <!-- Fullscreen detail screen (edge-to-edge, transparent bars) -->
+    <style name="Theme.ParallaxWallpaper.Translucent" parent="Theme.ParallaxWallpaper">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+</resources>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/previewRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_margin="@dimen/screen_margin"
+        android:background="@drawable/bg_circle_glass"
+        android:contentDescription="@string/cd_back"
+        android:padding="10dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintBottom_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/title"
+        app:tint="?attr/colorOnBackground" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/preview_title"
+        android:textAppearance="@style/TextAppearance.ParallaxWallpaper.Title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnNext"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginEnd="@dimen/screen_margin"
+        android:background="@drawable/bg_button_primary"
+        android:minWidth="92dp"
+        android:paddingHorizontal="20dp"
+        android:stateListAnimator="@null"
+        android:text="@string/action_next"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/title" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/previewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/space_md"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

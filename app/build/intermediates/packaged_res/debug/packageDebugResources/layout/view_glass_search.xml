@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="android.widget.FrameLayout">
+
+    <ImageView
+        android:id="@+id/searchIcon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_vertical|start"
+        android:layout_marginStart="18dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_search"
+        app:tint="@color/on_surface_variant" />
+
+    <EditText
+        android:id="@+id/searchInput"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:background="@null"
+        android:fontFamily="sans-serif"
+        android:hint="@string/search_hint"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textColor="?attr/colorOnSurface"
+        android:textColorHint="@color/on_surface_variant"
+        android:textCursorDrawable="@null"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/clearIcon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginEnd="18dp"
+        android:contentDescription="@string/cancel"
+        android:src="@drawable/ic_close"
+        android:visibility="gone"
+        app:tint="@color/on_surface_variant" />
+</merge>

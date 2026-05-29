@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand palette (shared across light/dark) -->
+    <color name="brand_purple">#FF7C4DFF</color>
+    <color name="brand_purple_light">#FFB388FF</color>
+    <color name="brand_purple_dark">#FF5E35F2</color>
+    <color name="brand_blue">#FF2979FF</color>
+    <color name="brand_blue_light">#FF82B1FF</color>
+    <color name="brand_gradient_start">#FF8E54FF</color>
+    <color name="brand_gradient_end">#FF2D6CFF</color>
+    <color name="accent_pink">#FFE040FB</color>
+    <color name="favorite_red">#FFFF4D6D</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
+    <!-- Mode-aware (light defaults; overridden in values-night) -->
+    <color name="bg">#FFF4F5FA</color>
+    <color name="surface">#FFFFFFFF</color>
+    <color name="surface_variant">#FFEAECF4</color>
+    <color name="on_bg">#FF111219</color>
+    <color name="on_surface">#FF111219</color>
+    <color name="on_surface_variant">#FF5A5E6C</color>
+    <color name="outline">#1F000000</color>
+    <color name="glass_bg">#14000000</color>
+    <color name="glass_stroke">#1F000000</color>
+    <color name="scrim">#80000000</color>
+    <color name="shimmer_base">#FFE4E7F0</color>
+    <color name="shimmer_highlight">#FFF6F7FC</color>
+    <color name="nav_bg">#FFFFFFFF</color>
+</resources>
