@@ -153,7 +153,7 @@ class PreviewFragment : Fragment() {
         pager.setPageTransformer(transformer)
         (pager.getChildAt(0) as? RecyclerView)?.apply {
             // Pad each side by 1/6 of the screen so each page (and its frame) is ~2/3 wide.
-            val peek = resources.displayMetrics.widthPixels / 14
+            val peek = resources.displayMetrics.widthPixels / 9
             setPadding(peek, 0, peek, 0)
             //setPadding(36, 0, 36, 0)
             clipToPadding = false
@@ -161,7 +161,7 @@ class PreviewFragment : Fragment() {
     }
 
     private companion object {
-        const val SIDE_SCALE = 0.8f
+        const val SIDE_SCALE = 0.9f
     }
 
     override fun onResume() {
