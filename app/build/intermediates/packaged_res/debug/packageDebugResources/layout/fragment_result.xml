@@ -33,12 +33,15 @@
         app:layout_constraintTop_toTopOf="@id/btnBack" />
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/resultCard"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="@dimen/screen_margin"
         app:cardBackgroundColor="@color/black"
-        app:cardCornerRadius="24dp"
+        app:cardCornerRadius="42dp"
         app:cardElevation="0dp"
+        app:strokeColor="@color/glass_stroke"
+        app:strokeWidth="6dp"
         app:layout_constraintBottom_toTopOf="@id/btnSetBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,6 +57,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone" />
+
+        <!-- Phone-style notch pill at the top center. -->
+        <View
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_pill_tag"
+            android:elevation="3dp" />
     </com.google.android.material.card.MaterialCardView>
 
     <androidx.appcompat.widget.AppCompatButton

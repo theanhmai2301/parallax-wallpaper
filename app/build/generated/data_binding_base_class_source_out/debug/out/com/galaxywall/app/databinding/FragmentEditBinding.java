@@ -35,6 +35,9 @@ public final class FragmentEditBinding implements ViewBinding {
   public final ParallaxImageView editPreview;
 
   @NonNull
+  public final MaterialCardView editPreviewCard;
+
+  @NonNull
   public final ConstraintLayout editRoot;
 
   @NonNull
@@ -66,7 +69,8 @@ public final class FragmentEditBinding implements ViewBinding {
 
   private FragmentEditBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView btnBack,
       @NonNull AppCompatButton btnNext, @NonNull ParallaxImageView editPreview,
-      @NonNull ConstraintLayout editRoot, @NonNull LinearLayout panel, @NonNull Slider sliderDepth,
+      @NonNull MaterialCardView editPreviewCard, @NonNull ConstraintLayout editRoot,
+      @NonNull LinearLayout panel, @NonNull Slider sliderDepth,
       @NonNull MaterialCardView slotBottomCard, @NonNull ImageView slotBottomHint,
       @NonNull ImageView slotBottomImage, @NonNull MaterialCardView slotTopCard,
       @NonNull ImageView slotTopHint, @NonNull ImageView slotTopImage, @NonNull TextView title) {
@@ -74,6 +78,7 @@ public final class FragmentEditBinding implements ViewBinding {
     this.btnBack = btnBack;
     this.btnNext = btnNext;
     this.editPreview = editPreview;
+    this.editPreviewCard = editPreviewCard;
     this.editRoot = editRoot;
     this.panel = panel;
     this.sliderDepth = sliderDepth;
@@ -128,6 +133,12 @@ public final class FragmentEditBinding implements ViewBinding {
       id = R.id.editPreview;
       ParallaxImageView editPreview = ViewBindings.findChildViewById(rootView, id);
       if (editPreview == null) {
+        break missingId;
+      }
+
+      id = R.id.editPreviewCard;
+      MaterialCardView editPreviewCard = ViewBindings.findChildViewById(rootView, id);
+      if (editPreviewCard == null) {
         break missingId;
       }
 
@@ -188,8 +199,8 @@ public final class FragmentEditBinding implements ViewBinding {
       }
 
       return new FragmentEditBinding((ConstraintLayout) rootView, btnBack, btnNext, editPreview,
-          editRoot, panel, sliderDepth, slotBottomCard, slotBottomHint, slotBottomImage,
-          slotTopCard, slotTopHint, slotTopImage, title);
+          editPreviewCard, editRoot, panel, sliderDepth, slotBottomCard, slotBottomHint,
+          slotBottomImage, slotTopCard, slotTopHint, slotTopImage, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

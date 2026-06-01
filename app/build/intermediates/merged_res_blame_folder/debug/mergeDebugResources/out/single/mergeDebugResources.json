@@ -24,10 +24,6 @@
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\color\\selector_chip_stroke.xml"
     },
     {
-        "merged": "com.galaxywall.app-debug-65:/layout_view_premium_toolbar.xml.flat",
-        "source": "com.galaxywall.app-main-67:/layout/view_premium_toolbar.xml"
-    },
-    {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\layout_view_empty_state.xml.flat",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\view_empty_state.xml"
     },
@@ -58,6 +54,10 @@
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\drawable_flag_th_thailan.webp.flat",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\drawable\\flag_th_thailan.webp"
+    },
+    {
+        "merged": "com.galaxywall.app-debug-65:/layout_fragment_result.xml.flat",
+        "source": "com.galaxywall.app-main-67:/layout/fragment_result.xml"
     },
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\drawable_ic_layers.xml.flat",
@@ -288,16 +288,16 @@
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\fragment_preview.xml"
     },
     {
-        "merged": "com.galaxywall.app-debug-65:/layout_fragment_home.xml.flat",
-        "source": "com.galaxywall.app-main-67:/layout/fragment_home.xml"
-    },
-    {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\drawable_gradient_top_scrim.xml.flat",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\drawable\\gradient_top_scrim.xml"
     },
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\drawable_gradient_brand.xml.flat",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\drawable\\gradient_brand.xml"
+    },
+    {
+        "merged": "com.galaxywall.app-debug-65:/layout_fragment_edit.xml.flat",
+        "source": "com.galaxywall.app-main-67:/layout/fragment_edit.xml"
     },
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\raw_loading_pulse.json.flat",

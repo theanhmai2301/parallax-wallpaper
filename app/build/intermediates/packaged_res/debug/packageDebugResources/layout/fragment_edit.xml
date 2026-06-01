@@ -50,6 +50,7 @@
         app:layout_constraintTop_toTopOf="@id/title" />
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/editPreviewCard"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="@dimen/screen_margin"
@@ -92,15 +93,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_sm"
-            android:orientation="horizontal"
-            android:weightSum="2">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/slotBottomCard"
-                android:layout_width="0dp"
-                android:layout_height="220dp"
-                android:layout_weight="1"
-                android:layout_marginEnd="8dp"
+                android:layout_width="110dp"
+                android:layout_height="200dp"
+                android:layout_marginEnd="12dp"
                 android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/surface_variant"
                 app:cardCornerRadius="14dp"
@@ -122,7 +122,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:importantForAccessibility="no"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="centerCrop" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -139,9 +139,8 @@
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/slotTopCard"
-                android:layout_width="0dp"
-                android:layout_height="220dp"
-                android:layout_weight="1"
+                android:layout_width="110dp"
+                android:layout_height="200dp"
                 android:foreground="?attr/selectableItemBackground"
                 app:cardBackgroundColor="@color/surface_variant"
                 app:cardCornerRadius="14dp"
@@ -163,7 +162,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:importantForAccessibility="no"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="centerCrop" />
 
                 <TextView
                     android:layout_width="match_parent"

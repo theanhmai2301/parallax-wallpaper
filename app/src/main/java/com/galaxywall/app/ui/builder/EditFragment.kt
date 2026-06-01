@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.isVisible
 import androidx.core.view.WindowInsetsCompat
@@ -68,7 +69,10 @@ class EditFragment : Fragment() {
         sensorManager.setListener { x, y -> binding.editPreview.setOffset(x, y) }
         binding.editPreview.touchParallaxEnabled = !sensorManager.isAvailable
         val dm = resources.displayMetrics
-        binding.editPreview.targetAspect = dm.widthPixels.toFloat() / dm.heightPixels
+        // Frame matches the screen/image aspect and the image fills it (no black side bars).
+        binding.editPreview.targetAspect = 0f
+        (binding.editPreviewCard.layoutParams as ConstraintLayout.LayoutParams).dimensionRatio =
+            "W,${dm.widthPixels}:${dm.heightPixels}"
 
         binding.btnBack.setOnClickListener { findNavController().navigateUp() }
         binding.btnNext.setOnClickListener { findNavController().navigate(R.id.action_edit_to_result) }

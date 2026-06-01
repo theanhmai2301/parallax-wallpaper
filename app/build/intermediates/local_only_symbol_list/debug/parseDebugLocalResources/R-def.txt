@@ -149,6 +149,7 @@ id chipScroll
 id clearIcon
 id editFragment
 id editPreview
+id editPreviewCard
 id editRoot
 id emptyAnim
 id emptyRoot
@@ -195,6 +196,7 @@ id recycler
 id recyclerViewLanguage
 id recyclerViewSurvey
 id resolution
+id resultCard
 id resultFragment
 id resultPreview
 id resultRoot

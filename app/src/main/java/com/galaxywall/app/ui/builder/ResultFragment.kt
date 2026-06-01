@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
@@ -66,7 +67,10 @@ class ResultFragment : Fragment() {
         binding.resultPreview.touchParallaxEnabled = !sensorManager.isAvailable
         binding.resultPreview.setEffectColorFilter(builderViewModel.effect.value.colorFilter())
         val dm = resources.displayMetrics
-        binding.resultPreview.targetAspect = dm.widthPixels.toFloat() / dm.heightPixels
+        // Phone-shaped frame matching the screen aspect; the image fills it (no black side gaps).
+        binding.resultPreview.targetAspect = 0f
+        (binding.resultCard.layoutParams as ConstraintLayout.LayoutParams).dimensionRatio =
+            "W,${dm.widthPixels}:${dm.heightPixels}"
 
         binding.btnBack.setOnClickListener { findNavController().navigateUp() }
         binding.btnSetBackground.setOnClickListener { showAdGate() }

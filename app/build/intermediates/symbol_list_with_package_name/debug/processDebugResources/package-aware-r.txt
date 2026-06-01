@@ -3541,6 +3541,7 @@ id east
 id edge
 id editFragment
 id editPreview
+id editPreviewCard
 id editRoot
 id edit_query
 id edit_text_id
@@ -3791,6 +3792,7 @@ id recyclerViewSurvey
 id report_drawn
 id resolution
 id restart
+id resultCard
 id resultFragment
 id resultPreview
 id resultRoot

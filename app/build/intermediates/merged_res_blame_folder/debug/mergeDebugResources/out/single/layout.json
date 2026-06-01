@@ -1,9 +1,5 @@
 [
     {
-        "merged": "com.galaxywall.app-mergeDebugResources-64:/layout/view_premium_toolbar.xml",
-        "source": "com.galaxywall.app-main-67:/layout/view_premium_toolbar.xml"
-    },
-    {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-mergeDebugResources-64:\\layout\\chip_category.xml",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\chip_category.xml"
     },
@@ -14,6 +10,10 @@
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-mergeDebugResources-64:\\layout\\fragment_settings.xml",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\fragment_settings.xml"
+    },
+    {
+        "merged": "com.galaxywall.app-mergeDebugResources-64:/layout/fragment_edit.xml",
+        "source": "com.galaxywall.app-main-67:/layout/fragment_edit.xml"
     },
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-mergeDebugResources-64:\\layout\\view_premium_toolbar.xml",
@@ -38,6 +38,10 @@
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-mergeDebugResources-64:\\layout\\fragment_favorite.xml",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\fragment_favorite.xml"
+    },
+    {
+        "merged": "com.galaxywall.app-mergeDebugResources-64:/layout/fragment_result.xml",
+        "source": "com.galaxywall.app-main-67:/layout/fragment_result.xml"
     },
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-mergeDebugResources-64:\\layout\\activity_language_2.xml",
@@ -106,9 +110,5 @@
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-mergeDebugResources-64:\\layout\\activity_survey.xml",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\activity_survey.xml"
-    },
-    {
-        "merged": "com.galaxywall.app-mergeDebugResources-64:/layout/fragment_home.xml",
-        "source": "com.galaxywall.app-main-67:/layout/fragment_home.xml"
     }
 ]
