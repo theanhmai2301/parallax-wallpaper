@@ -30,7 +30,6 @@ import com.galaxywall.app.ui.favorite.FavoriteFragment;
 import com.galaxywall.app.ui.favorite.FavoriteViewModel;
 import com.galaxywall.app.ui.favorite.FavoriteViewModel_HiltModules;
 import com.galaxywall.app.ui.home.HomeFragment;
-import com.galaxywall.app.ui.home.HomeFragment_MembersInjector;
 import com.galaxywall.app.ui.home.HomeViewModel;
 import com.galaxywall.app.ui.home.HomeViewModel_HiltModules;
 import com.galaxywall.app.ui.settings.SettingsFragment;
@@ -366,7 +365,6 @@ public final class DaggerApp_HiltComponents_SingletonC {
 
     @Override
     public void injectHomeFragment(HomeFragment homeFragment) {
-      injectHomeFragment2(homeFragment);
     }
 
     @Override
@@ -399,12 +397,6 @@ public final class DaggerApp_HiltComponents_SingletonC {
     private ResultFragment injectResultFragment2(ResultFragment instance3) {
       ResultFragment_MembersInjector.injectSettingsManager(instance3, singletonCImpl.settingsManagerProvider.get());
       return instance3;
-    }
-
-    @CanIgnoreReturnValue
-    private HomeFragment injectHomeFragment2(HomeFragment instance4) {
-      HomeFragment_MembersInjector.injectSettingsManager(instance4, singletonCImpl.settingsManagerProvider.get());
-      return instance4;
     }
   }
 
@@ -473,16 +465,16 @@ public final class DaggerApp_HiltComponents_SingletonC {
 
     @IdentifierNameString
     private static final class LazyClassKeyProvider {
-      static String com_galaxywall_app_ui_builder_BuilderViewModel = "com.galaxywall.app.ui.builder.BuilderViewModel";
+      static String com_galaxywall_app_ui_favorite_FavoriteViewModel = "com.galaxywall.app.ui.favorite.FavoriteViewModel";
 
       static String com_galaxywall_app_ui_home_HomeViewModel = "com.galaxywall.app.ui.home.HomeViewModel";
 
       static String com_galaxywall_app_ui_settings_SettingsViewModel = "com.galaxywall.app.ui.settings.SettingsViewModel";
 
-      static String com_galaxywall_app_ui_favorite_FavoriteViewModel = "com.galaxywall.app.ui.favorite.FavoriteViewModel";
+      static String com_galaxywall_app_ui_builder_BuilderViewModel = "com.galaxywall.app.ui.builder.BuilderViewModel";
 
       @KeepFieldType
-      BuilderViewModel com_galaxywall_app_ui_builder_BuilderViewModel2;
+      FavoriteViewModel com_galaxywall_app_ui_favorite_FavoriteViewModel2;
 
       @KeepFieldType
       HomeViewModel com_galaxywall_app_ui_home_HomeViewModel2;
@@ -491,7 +483,7 @@ public final class DaggerApp_HiltComponents_SingletonC {
       SettingsViewModel com_galaxywall_app_ui_settings_SettingsViewModel2;
 
       @KeepFieldType
-      FavoriteViewModel com_galaxywall_app_ui_favorite_FavoriteViewModel2;
+      BuilderViewModel com_galaxywall_app_ui_builder_BuilderViewModel2;
     }
   }
 
@@ -543,9 +535,9 @@ public final class DaggerApp_HiltComponents_SingletonC {
     private static final class LazyClassKeyProvider {
       static String com_galaxywall_app_ui_favorite_FavoriteViewModel = "com.galaxywall.app.ui.favorite.FavoriteViewModel";
 
-      static String com_galaxywall_app_ui_builder_BuilderViewModel = "com.galaxywall.app.ui.builder.BuilderViewModel";
-
       static String com_galaxywall_app_ui_home_HomeViewModel = "com.galaxywall.app.ui.home.HomeViewModel";
+
+      static String com_galaxywall_app_ui_builder_BuilderViewModel = "com.galaxywall.app.ui.builder.BuilderViewModel";
 
       static String com_galaxywall_app_ui_settings_SettingsViewModel = "com.galaxywall.app.ui.settings.SettingsViewModel";
 
@@ -553,10 +545,10 @@ public final class DaggerApp_HiltComponents_SingletonC {
       FavoriteViewModel com_galaxywall_app_ui_favorite_FavoriteViewModel2;
 
       @KeepFieldType
-      BuilderViewModel com_galaxywall_app_ui_builder_BuilderViewModel2;
+      HomeViewModel com_galaxywall_app_ui_home_HomeViewModel2;
 
       @KeepFieldType
-      HomeViewModel com_galaxywall_app_ui_home_HomeViewModel2;
+      BuilderViewModel com_galaxywall_app_ui_builder_BuilderViewModel2;
 
       @KeepFieldType
       SettingsViewModel com_galaxywall_app_ui_settings_SettingsViewModel2;

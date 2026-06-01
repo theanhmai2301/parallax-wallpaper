@@ -93,6 +93,9 @@
     <string name="library_label">Library</string>
     <string name="live_wallpaper_description">Depth motion wallpaper that reacts to your device tilt.</string>
     <string name="live_wallpaper_label">Parallax Wallpaper</string>
+    <string name="nav_category">Category</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_setting">Settings</string>
     <string name="ok">OK</string>
     <string name="overlay_title">Add Overlay Effect</string>
     <string name="permission_storage_rationale">Storage permission is needed to save the image to your gallery.</string>

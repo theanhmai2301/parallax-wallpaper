@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
@@ -53,8 +54,22 @@ class SettingsFragment : Fragment() {
 
         binding.btnBack.setOnClickListener { findNavController().navigateUp() }
         binding.textVersion.text = BuildConfig.VERSION_NAME
+        setupBottomNav()
         setupControls()
         observe()
+    }
+
+    private fun setupBottomNav() {
+        // Home / Category return to the home screen; Setting is the current screen.
+        binding.bottomNav.navHome.setOnClickListener { findNavController().navigateUp() }
+        binding.bottomNav.navCategory.setOnClickListener { findNavController().navigateUp() }
+        // Highlight the Setting tab as active.
+        val active = ContextCompat.getColor(requireContext(), R.color.brand_purple)
+        val inactive = ContextCompat.getColor(requireContext(), R.color.on_surface_variant)
+        binding.bottomNav.navHomeIcon.setColorFilter(inactive)
+        binding.bottomNav.navHomeText.setTextColor(inactive)
+        binding.bottomNav.navSettingIcon.setColorFilter(active)
+        binding.bottomNav.navSettingText.setTextColor(active)
     }
 
     private fun setupControls() {

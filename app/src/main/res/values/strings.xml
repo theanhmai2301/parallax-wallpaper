@@ -5,6 +5,9 @@
     <string name="live_wallpaper_description">Depth motion wallpaper that reacts to your device tilt.</string>
     <string name="video_wallpaper_label">Video Wallpaper</string>
     <string name="video_wallpaper_description">Looping video live wallpaper.</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_category">Category</string>
+    <string name="nav_setting">Settings</string>
     <string name="set_image_title">Set wallpaper</string>
     <string name="set_image_message">Set this image as your home and lock screen wallpaper?</string>
     <string name="action_set">Set</string>

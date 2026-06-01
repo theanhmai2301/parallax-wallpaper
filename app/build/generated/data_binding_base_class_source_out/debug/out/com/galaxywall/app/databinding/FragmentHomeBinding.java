@@ -5,9 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -18,7 +15,6 @@ import androidx.viewbinding.ViewBindings;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.galaxywall.app.R;
 import com.galaxywall.app.ui.customview.PremiumToolbar;
-import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.chip.ChipGroup;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -29,6 +25,9 @@ public final class FragmentHomeBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final ViewBottomNavBinding bottomNav;
+
+  @NonNull
   public final ChipGroup categoryChips;
 
   @NonNull
@@ -36,9 +35,6 @@ public final class FragmentHomeBinding implements ViewBinding {
 
   @NonNull
   public final ViewEmptyStateBinding emptyState;
-
-  @NonNull
-  public final MaterialCardView homeBottomBar;
 
   @NonNull
   public final ConstraintLayout homeRoot;
@@ -53,49 +49,23 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final SwipeRefreshLayout swipeRefresh;
 
   @NonNull
-  public final LinearLayout tabDiy;
-
-  @NonNull
-  public final ImageView tabDiyIcon;
-
-  @NonNull
-  public final TextView tabDiyText;
-
-  @NonNull
-  public final LinearLayout tabParallax;
-
-  @NonNull
-  public final ImageView tabParallaxIcon;
-
-  @NonNull
-  public final TextView tabParallaxText;
-
-  @NonNull
   public final PremiumToolbar toolbar;
 
-  private FragmentHomeBinding(@NonNull ConstraintLayout rootView, @NonNull ChipGroup categoryChips,
+  private FragmentHomeBinding(@NonNull ConstraintLayout rootView,
+      @NonNull ViewBottomNavBinding bottomNav, @NonNull ChipGroup categoryChips,
       @NonNull HorizontalScrollView chipScroll, @NonNull ViewEmptyStateBinding emptyState,
-      @NonNull MaterialCardView homeBottomBar, @NonNull ConstraintLayout homeRoot,
-      @NonNull RecyclerView recycler, @NonNull ShimmerFrameLayout shimmerLayout,
-      @NonNull SwipeRefreshLayout swipeRefresh, @NonNull LinearLayout tabDiy,
-      @NonNull ImageView tabDiyIcon, @NonNull TextView tabDiyText,
-      @NonNull LinearLayout tabParallax, @NonNull ImageView tabParallaxIcon,
-      @NonNull TextView tabParallaxText, @NonNull PremiumToolbar toolbar) {
+      @NonNull ConstraintLayout homeRoot, @NonNull RecyclerView recycler,
+      @NonNull ShimmerFrameLayout shimmerLayout, @NonNull SwipeRefreshLayout swipeRefresh,
+      @NonNull PremiumToolbar toolbar) {
     this.rootView = rootView;
+    this.bottomNav = bottomNav;
     this.categoryChips = categoryChips;
     this.chipScroll = chipScroll;
     this.emptyState = emptyState;
-    this.homeBottomBar = homeBottomBar;
     this.homeRoot = homeRoot;
     this.recycler = recycler;
     this.shimmerLayout = shimmerLayout;
     this.swipeRefresh = swipeRefresh;
-    this.tabDiy = tabDiy;
-    this.tabDiyIcon = tabDiyIcon;
-    this.tabDiyText = tabDiyText;
-    this.tabParallax = tabParallax;
-    this.tabParallaxIcon = tabParallaxIcon;
-    this.tabParallaxText = tabParallaxText;
     this.toolbar = toolbar;
   }
 
@@ -126,6 +96,13 @@ public final class FragmentHomeBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.bottomNav;
+      View bottomNav = ViewBindings.findChildViewById(rootView, id);
+      if (bottomNav == null) {
+        break missingId;
+      }
+      ViewBottomNavBinding binding_bottomNav = ViewBottomNavBinding.bind(bottomNav);
+
       id = R.id.categoryChips;
       ChipGroup categoryChips = ViewBindings.findChildViewById(rootView, id);
       if (categoryChips == null) {
@@ -144,12 +121,6 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
       ViewEmptyStateBinding binding_emptyState = ViewEmptyStateBinding.bind(emptyState);
-
-      id = R.id.homeBottomBar;
-      MaterialCardView homeBottomBar = ViewBindings.findChildViewById(rootView, id);
-      if (homeBottomBar == null) {
-        break missingId;
-      }
 
       ConstraintLayout homeRoot = (ConstraintLayout) rootView;
 
@@ -171,51 +142,14 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tabDiy;
-      LinearLayout tabDiy = ViewBindings.findChildViewById(rootView, id);
-      if (tabDiy == null) {
-        break missingId;
-      }
-
-      id = R.id.tabDiyIcon;
-      ImageView tabDiyIcon = ViewBindings.findChildViewById(rootView, id);
-      if (tabDiyIcon == null) {
-        break missingId;
-      }
-
-      id = R.id.tabDiyText;
-      TextView tabDiyText = ViewBindings.findChildViewById(rootView, id);
-      if (tabDiyText == null) {
-        break missingId;
-      }
-
-      id = R.id.tabParallax;
-      LinearLayout tabParallax = ViewBindings.findChildViewById(rootView, id);
-      if (tabParallax == null) {
-        break missingId;
-      }
-
-      id = R.id.tabParallaxIcon;
-      ImageView tabParallaxIcon = ViewBindings.findChildViewById(rootView, id);
-      if (tabParallaxIcon == null) {
-        break missingId;
-      }
-
-      id = R.id.tabParallaxText;
-      TextView tabParallaxText = ViewBindings.findChildViewById(rootView, id);
-      if (tabParallaxText == null) {
-        break missingId;
-      }
-
       id = R.id.toolbar;
       PremiumToolbar toolbar = ViewBindings.findChildViewById(rootView, id);
       if (toolbar == null) {
         break missingId;
       }
 
-      return new FragmentHomeBinding((ConstraintLayout) rootView, categoryChips, chipScroll,
-          binding_emptyState, homeBottomBar, homeRoot, recycler, shimmerLayout, swipeRefresh,
-          tabDiy, tabDiyIcon, tabDiyText, tabParallax, tabParallaxIcon, tabParallaxText, toolbar);
+      return new FragmentHomeBinding((ConstraintLayout) rootView, binding_bottomNav, categoryChips,
+          chipScroll, binding_emptyState, homeRoot, recycler, shimmerLayout, swipeRefresh, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

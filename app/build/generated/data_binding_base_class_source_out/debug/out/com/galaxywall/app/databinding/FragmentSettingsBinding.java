@@ -25,6 +25,9 @@ public final class FragmentSettingsBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final ViewBottomNavBinding bottomNav;
+
+  @NonNull
   public final ImageView btnBack;
 
   @NonNull
@@ -63,7 +66,8 @@ public final class FragmentSettingsBinding implements ViewBinding {
   @NonNull
   public final TextView textVersion;
 
-  private FragmentSettingsBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView btnBack,
+  private FragmentSettingsBinding(@NonNull ConstraintLayout rootView,
+      @NonNull ViewBottomNavBinding bottomNav, @NonNull ImageView btnBack,
       @NonNull LinearLayout rowClearCache, @NonNull LinearLayout rowPrivacy,
       @NonNull LinearLayout rowRate, @NonNull LinearLayout settingsContent,
       @NonNull TextView settingsHeaderTitle, @NonNull ConstraintLayout settingsRoot,
@@ -71,6 +75,7 @@ public final class FragmentSettingsBinding implements ViewBinding {
       @NonNull MaterialSwitch switchDarkMode, @NonNull MaterialSwitch switchDynamic,
       @NonNull MaterialSwitch switchParallax, @NonNull TextView textVersion) {
     this.rootView = rootView;
+    this.bottomNav = bottomNav;
     this.btnBack = btnBack;
     this.rowClearCache = rowClearCache;
     this.rowPrivacy = rowPrivacy;
@@ -113,6 +118,13 @@ public final class FragmentSettingsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.bottomNav;
+      View bottomNav = ViewBindings.findChildViewById(rootView, id);
+      if (bottomNav == null) {
+        break missingId;
+      }
+      ViewBottomNavBinding binding_bottomNav = ViewBottomNavBinding.bind(bottomNav);
+
       id = R.id.btnBack;
       ImageView btnBack = ViewBindings.findChildViewById(rootView, id);
       if (btnBack == null) {
@@ -187,9 +199,10 @@ public final class FragmentSettingsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentSettingsBinding((ConstraintLayout) rootView, btnBack, rowClearCache,
-          rowPrivacy, rowRate, settingsContent, settingsHeaderTitle, settingsRoot, settingsScroll,
-          sliderSensitivity, switchDarkMode, switchDynamic, switchParallax, textVersion);
+      return new FragmentSettingsBinding((ConstraintLayout) rootView, binding_bottomNav, btnBack,
+          rowClearCache, rowPrivacy, rowRate, settingsContent, settingsHeaderTitle, settingsRoot,
+          settingsScroll, sliderSensitivity, switchDarkMode, switchDynamic, switchParallax,
+          textVersion);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

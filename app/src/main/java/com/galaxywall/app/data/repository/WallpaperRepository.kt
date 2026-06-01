@@ -5,6 +5,7 @@ import com.galaxywall.app.data.local.RecentEntity
 import com.galaxywall.app.data.local.WallpaperDao
 import com.galaxywall.app.data.model.ContentType
 import com.galaxywall.app.data.model.Wallpaper
+import com.galaxywall.app.data.model.WallpaperCategory
 import com.galaxywall.app.data.remote.RemoteWallpaperSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
@@ -24,6 +25,9 @@ class WallpaperRepository @Inject constructor(
     @Volatile
     private var cache: List<Wallpaper>? = null
 
+    @Volatile
+    private var feedCache: List<Wallpaper>? = null
+
     /** All settable content (parallax + images + videos) from the API. Empty result is not cached,
      *  so it retries (Render cold start). */
     private suspend fun loadCatalog(): List<Wallpaper> {
@@ -39,19 +43,43 @@ class WallpaperRepository @Inject constructor(
 
     fun invalidate() {
         cache = null
+        feedCache = null
     }
 
     private fun catalogFlow(): Flow<List<Wallpaper>> = flow { emit(loadCatalog()) }
 
-    fun observeWallpapers(type: ContentType?, query: String): Flow<List<Wallpaper>> =
+    fun observeWallpapers(
+        type: ContentType?,
+        category: WallpaperCategory?,
+        query: String
+    ): Flow<List<Wallpaper>> =
         combine(catalogFlow(), dao.observeFavoriteIds()) { all, favIds ->
             val favSet = favIds.toHashSet()
             all.asSequence()
                 .filter { type == null || it.type == type }
+                .filter { category == null || it.category == category }
                 .filter { matchesQuery(it, query) }
                 .map { it.copy(isFavorite = favSet.contains(it.id)) }
                 .toList()
         }
+
+    /**
+     * Home feed: a curated random mix — a few items per category — built once and kept stable for
+     * the session so it doesn't reshuffle on every favorite change. Small + uses thumbnails so fast
+     * scrolling stays smooth. Rebuilt on [invalidate] (pull-to-refresh).
+     */
+    fun observeHomeFeed(): Flow<List<Wallpaper>> =
+        combine(catalogFlow(), dao.observeFavoriteIds()) { all, favIds ->
+            val favSet = favIds.toHashSet()
+            val feed = feedCache ?: buildFeed(all).also { feedCache = it }
+            feed.map { it.copy(isFavorite = favSet.contains(it.id)) }
+        }
+
+    private fun buildFeed(all: List<Wallpaper>): List<Wallpaper> =
+        all.groupBy { it.category }
+            .values
+            .flatMap { items -> items.shuffled().take(FEED_PER_CATEGORY) }
+            .shuffled()
 
     fun observeFavorites(): Flow<List<Wallpaper>> =
         combine(catalogFlow(), dao.observeFavoriteIds()) { all, favIds ->
@@ -79,5 +107,9 @@ class WallpaperRepository @Inject constructor(
         return wallpaper.title.lowercase().contains(q) ||
             wallpaper.category.label.lowercase().contains(q) ||
             wallpaper.category.key.contains(q)
+    }
+
+    private companion object {
+        const val FEED_PER_CATEGORY = 4
     }
 }

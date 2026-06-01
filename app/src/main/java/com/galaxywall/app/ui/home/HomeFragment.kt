@@ -5,33 +5,29 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updateMargins
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import coil.size.Size
 import com.galaxywall.app.R
-import com.galaxywall.app.data.local.SettingsManager
 import com.galaxywall.app.data.model.Wallpaper
+import com.galaxywall.app.data.model.WallpaperCategory
 import com.galaxywall.app.databinding.FragmentHomeBinding
-import com.galaxywall.app.sensors.ParallaxSensorManager
 import com.galaxywall.app.ui.adapter.WallpaperAdapter
 import com.galaxywall.app.ui.builder.BuilderViewModel
-import com.galaxywall.app.ui.customview.ParallaxImageView
 import com.galaxywall.app.util.UiState
 import com.galaxywall.app.util.collectWhenStarted
 import com.galaxywall.app.util.setVisible
 import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -42,22 +38,15 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
     private val builderViewModel: BuilderViewModel by activityViewModels()
 
-    @Inject
-    lateinit var settingsManager: SettingsManager
-
-    private lateinit var gridSensor: ParallaxSensorManager
-
     private val adapter by lazy {
-        WallpaperAdapter(
-            onClick = ::openPreview,
-            onFavorite = viewModel::toggleFavorite,
-            scope = lifecycleScope,
-            loadSize = Size(GRID_LAYER_PX, GRID_LAYER_PX),
-            animateParallax = true
-        )
+        WallpaperAdapter(onClick = ::openPreview, onFavorite = viewModel::toggleFavorite)
     }
 
     private var firstLoadAnimated = false
+
+    /** Set when the dataset is swapped (mode/theme change) so the grid relayouts from the top,
+     *  avoiding a StaggeredGridLayoutManager gap in the first row. */
+    private var pendingScrollReset = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -72,29 +61,11 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         applyInsets()
         setupToolbar()
-        setupChips()
+        setupThemeChips()
         setupRecycler()
         setupSwipeRefresh()
-        setupBottomBar()
-        setupGridParallax()
+        setupBottomNav()
         observeState()
-    }
-
-    private fun setupGridParallax() {
-        gridSensor = ParallaxSensorManager(requireContext())
-        gridSensor.setListener { x, y -> forwardGridOffset(x, y) }
-        collectWhenStarted(settingsManager.settings) { s ->
-            gridSensor.sensitivity = s.sensitivity
-            gridSensor.enabled = s.parallaxEnabled
-        }
-    }
-
-    /** Tilts every visible parallax grid thumbnail with the device. */
-    private fun forwardGridOffset(x: Float, y: Float) {
-        val rv = _binding?.recycler ?: return
-        for (i in 0 until rv.childCount) {
-            rv.getChildAt(i).findViewById<ParallaxImageView>(R.id.thumbParallax)?.setOffset(x, y)
-        }
     }
 
     private fun applyInsets() {
@@ -102,7 +73,7 @@ class HomeFragment : Fragment() {
             v.updatePadding(top = insets.getInsets(WindowInsetsCompat.Type.systemBars()).top)
             insets
         }
-        ViewCompat.setOnApplyWindowInsetsListener(binding.homeBottomBar) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(binding.bottomNav.root) { v, insets ->
             val bottom = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom
             v.updateLayoutParams<android.view.ViewGroup.MarginLayoutParams> {
                 updateMargins(bottom = bottom + (8 * resources.displayMetrics.density).toInt())
@@ -116,26 +87,27 @@ class HomeFragment : Fragment() {
         binding.toolbar.onFolderClick {
             findNavController().navigate(R.id.action_home_to_favorite)
         }
-        binding.toolbar.onSettingsClick {
-            findNavController().navigate(R.id.action_home_to_settings)
-        }
     }
 
-    private fun setupChips() {
+    /** Category chips: themes only (no "All"); used in Category mode. */
+    private fun setupThemeChips() {
         val group = binding.categoryChips
-        viewModel.filters.forEach { filter ->
+        viewModel.themes.forEach { category ->
             val chip = LayoutInflater.from(requireContext())
                 .inflate(R.layout.chip_category, group, false) as Chip
             chip.id = View.generateViewId()
-            chip.text = filter.label
-            chip.tag = filter
-            chip.isChecked = filter == HomeViewModel.ContentFilter.ALL
+            chip.text = category.label
+            chip.tag = category
+            chip.isChecked = category == viewModel.theme.value
             group.addView(chip)
         }
         group.setOnCheckedStateChangeListener { _, checkedIds ->
             val id = checkedIds.firstOrNull() ?: return@setOnCheckedStateChangeListener
             val chip = group.findViewById<Chip>(id)
-            (chip.tag as? HomeViewModel.ContentFilter)?.let { viewModel.setFilter(it) }
+            (chip.tag as? WallpaperCategory)?.let {
+                pendingScrollReset = true
+                viewModel.setTheme(it)
+            }
         }
     }
 
@@ -151,19 +123,46 @@ class HomeFragment : Fragment() {
 
     private fun setupSwipeRefresh() {
         binding.swipeRefresh.setColorSchemeResources(R.color.brand_purple, R.color.brand_blue)
-        binding.swipeRefresh.setOnRefreshListener { viewModel.refresh() }
+        binding.swipeRefresh.setOnRefreshListener {
+            // Refresh reshuffles the feed (a new dataset) → relayout from the top to avoid a gap.
+            pendingScrollReset = true
+            viewModel.refresh()
+        }
     }
 
-    private fun setupBottomBar() {
-        binding.tabParallax.setOnClickListener { binding.recycler.smoothScrollToPosition(0) }
-        binding.tabDiy.setOnClickListener {
-            builderViewModel.startBlank()
-            findNavController().navigate(R.id.action_home_to_edit)
+    private fun setupBottomNav() {
+        binding.bottomNav.navHome.setOnClickListener {
+            pendingScrollReset = true
+            viewModel.setMode(HomeViewModel.Mode.HOME)
+        }
+        binding.bottomNav.navCategory.setOnClickListener {
+            pendingScrollReset = true
+            viewModel.setMode(HomeViewModel.Mode.CATEGORY)
+        }
+        binding.bottomNav.navSetting.setOnClickListener {
+            findNavController().navigate(R.id.action_home_to_settings)
         }
     }
 
     private fun observeState() {
         collectWhenStarted(viewModel.uiState) { renderState(it) }
+        collectWhenStarted(viewModel.mode) { mode ->
+            // Home = curated mix (no chips); Category = pick a theme via the chips.
+            binding.chipScroll.isVisible = mode == HomeViewModel.Mode.CATEGORY
+            highlightNav(mode)
+        }
+    }
+
+    private fun highlightNav(mode: HomeViewModel.Mode) {
+        val active = ContextCompat.getColor(requireContext(), R.color.brand_purple)
+        val inactive = ContextCompat.getColor(requireContext(), R.color.on_surface_variant)
+        val homeActive = mode == HomeViewModel.Mode.HOME
+        binding.bottomNav.navHomeIcon.setColorFilter(if (homeActive) active else inactive)
+        binding.bottomNav.navHomeText.setTextColor(if (homeActive) active else inactive)
+        binding.bottomNav.navCategoryIcon.setColorFilter(if (homeActive) inactive else active)
+        binding.bottomNav.navCategoryText.setTextColor(if (homeActive) inactive else active)
+        binding.bottomNav.navSettingIcon.setColorFilter(inactive)
+        binding.bottomNav.navSettingText.setTextColor(inactive)
     }
 
     private fun renderState(state: UiState<List<Wallpaper>>) {
@@ -194,11 +193,19 @@ class HomeFragment : Fragment() {
 
     private fun submitAndAnimate(data: List<Wallpaper>) {
         adapter.submitList(data) {
+            val recycler = _binding?.recycler ?: return@submitList
+            if (pendingScrollReset) {
+                pendingScrollReset = false
+                (recycler.layoutManager as? StaggeredGridLayoutManager)?.apply {
+                    invalidateSpanAssignments()
+                    scrollToPositionWithOffset(0, 0)
+                }
+            }
             if (!firstLoadAnimated && data.isNotEmpty()) {
                 firstLoadAnimated = true
-                binding.recycler.layoutAnimation =
+                recycler.layoutAnimation =
                     AnimationUtils.loadLayoutAnimation(requireContext(), R.anim.layout_anim_fall_down)
-                binding.recycler.scheduleLayoutAnimation()
+                recycler.scheduleLayoutAnimation()
             }
         }
     }
@@ -218,23 +225,9 @@ class HomeFragment : Fragment() {
         findNavController().navigate(R.id.action_home_to_preview)
     }
 
-    override fun onResume() {
-        super.onResume()
-        if (::gridSensor.isInitialized) gridSensor.start()
-    }
-
-    override fun onPause() {
-        if (::gridSensor.isInitialized) gridSensor.stop()
-        super.onPause()
-    }
-
     override fun onDestroyView() {
         binding.recycler.adapter = null
         _binding = null
         super.onDestroyView()
-    }
-
-    private companion object {
-        const val GRID_LAYER_PX = 540
     }
 }

@@ -45,5 +45,6 @@
         android:contentDescription="@string/cd_settings"
         android:padding="10dp"
         android:src="@drawable/ic_settings"
+        android:visibility="gone"
         app:tint="?attr/colorOnBackground" />
 </merge>

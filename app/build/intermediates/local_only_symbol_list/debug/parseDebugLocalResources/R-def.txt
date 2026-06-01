@@ -134,6 +134,7 @@ id action_home_to_preview
 id action_home_to_settings
 id action_preview_to_edit
 id action_preview_to_result
+id bottomNav
 id btnBack
 id btnNext
 id btnNextToOB
@@ -158,7 +159,6 @@ id favoriteButton
 id favoriteFragment
 id favoriteRoot
 id favoriteTitle
-id homeBottomBar
 id homeFragment
 id homeRoot
 id imgChooseLanguage
@@ -171,7 +171,16 @@ id layoutEmpty
 id layoutSelected
 id ll_title
 id main
+id navCategory
+id navCategoryIcon
+id navCategoryText
+id navHome
+id navHomeIcon
+id navHomeText
 id navHost
+id navSetting
+id navSettingIcon
+id navSettingText
 id nav_main
 id overlay
 id pagePreview
@@ -216,12 +225,6 @@ id swipeRefresh
 id switchDarkMode
 id switchDynamic
 id switchParallax
-id tabDiy
-id tabDiyIcon
-id tabDiyText
-id tabParallax
-id tabParallaxIcon
-id tabParallaxText
 id textVersion
 id textView
 id thumb
@@ -250,6 +253,7 @@ layout item_language
 layout item_preview_page
 layout item_survey
 layout item_wallpaper
+layout view_bottom_nav
 layout view_empty_state
 layout view_glass_search
 layout view_premium_toolbar
@@ -307,6 +311,9 @@ string layers_label
 string library_label
 string live_wallpaper_description
 string live_wallpaper_label
+string nav_category
+string nav_home
+string nav_setting
 string ok
 string overlay_title
 string permission_storage_rationale

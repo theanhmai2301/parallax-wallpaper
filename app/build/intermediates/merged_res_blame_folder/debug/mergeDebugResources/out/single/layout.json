@@ -1,5 +1,9 @@
 [
     {
+        "merged": "com.galaxywall.app-mergeDebugResources-64:/layout/view_premium_toolbar.xml",
+        "source": "com.galaxywall.app-main-67:/layout/view_premium_toolbar.xml"
+    },
+    {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-mergeDebugResources-64:\\layout\\chip_category.xml",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\chip_category.xml"
     },
@@ -42,6 +46,10 @@
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-mergeDebugResources-64:\\layout\\fragment_overlay.xml",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\fragment_overlay.xml"
+    },
+    {
+        "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-mergeDebugResources-64:\\layout\\view_bottom_nav.xml",
+        "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\view_bottom_nav.xml"
     },
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-mergeDebugResources-64:\\layout\\fragment_preview.xml",
@@ -96,11 +104,11 @@
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\item_language.xml"
     },
     {
-        "merged": "com.galaxywall.app-mergeDebugResources-64:/layout/item_preview_page.xml",
-        "source": "com.galaxywall.app-main-67:/layout/item_preview_page.xml"
-    },
-    {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-mergeDebugResources-64:\\layout\\activity_survey.xml",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\activity_survey.xml"
+    },
+    {
+        "merged": "com.galaxywall.app-mergeDebugResources-64:/layout/fragment_home.xml",
+        "source": "com.galaxywall.app-main-67:/layout/fragment_home.xml"
     }
 ]
