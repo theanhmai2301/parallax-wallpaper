@@ -8,6 +8,7 @@ import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.galaxywall.app.R
+import com.galaxywall.app.data.model.ContentType
 import com.galaxywall.app.data.model.Wallpaper
 import com.galaxywall.app.data.repository.WallpaperRepository
 import com.galaxywall.app.ui.customview.ParallaxImageView
@@ -151,10 +152,46 @@ class BuilderViewModel @Inject constructor(
 
     fun currentLayerUris(): List<String> = _layers.value.ordered()
 
-    /** Loads the ordered layer bitmaps as-is (bottom -> top), no background removal. */
+    fun currentWallpaper(): Wallpaper? = previewList.getOrNull(_index.value)
+
+    fun currentType(): ContentType = currentWallpaper()?.type ?: ContentType.PARALLAX
+
+    /**
+     * URIs to render in the preview. Picked/edited layers win (parallax + DIY); otherwise the item
+     * is shown by type: parallax -> its layers, image/video -> a single static image (full image for
+     * a photo, the thumbnail for a video).
+     */
+    private fun renderUris(): List<String> {
+        val edited = currentLayerUris()
+        if (edited.isNotEmpty()) return edited
+        val wp = currentWallpaper() ?: return emptyList()
+        return when (wp.type) {
+            ContentType.PARALLAX -> wp.layerUris
+            // A video's sourceUrl is an MP4 (not decodable as a bitmap) — preview its thumbnail.
+            ContentType.VIDEO -> listOfNotNull(wp.thumbUri)
+            else -> listOfNotNull(wp.sourceUrl ?: wp.thumbUri)
+        }
+    }
+
+    /** Loads the ordered render bitmaps as-is (bottom -> top), no background removal. */
     suspend fun loadRenderLayers(): List<ParallaxImageView.LayerInput> = withContext(Dispatchers.IO) {
-        currentLayerUris().mapNotNull { uri ->
+        renderUris().mapNotNull { uri ->
             BitmapLoader.load(context, uri)?.let { ParallaxImageView.LayerInput(it) }
+        }
+    }
+
+    /** Applies the current static image (IMAGE type) directly with WallpaperManager. */
+    fun applyStaticImage(target: WallpaperApplier.Target) {
+        viewModelScope.launch {
+            val url = currentWallpaper()?.sourceUrl
+            if (url == null) {
+                _events.emit(Event.Applied(false))
+                return@launch
+            }
+            _working.value = context.getString(R.string.applying)
+            val ok = applier.applyFromUrl(url, target)
+            _working.value = null
+            _events.emit(Event.Applied(ok))
         }
     }
 

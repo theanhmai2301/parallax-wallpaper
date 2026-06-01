@@ -8,14 +8,27 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.core.view.isVisible
 import coil.load
+import coil.size.Size
 import com.galaxywall.app.R
+import com.galaxywall.app.data.model.ContentType
 import com.galaxywall.app.data.model.Wallpaper
 import com.galaxywall.app.databinding.ItemWallpaperBinding
+import com.galaxywall.app.ui.customview.ParallaxImageView
+import com.galaxywall.app.util.BitmapLoader
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class WallpaperAdapter(
     private val onClick: (Wallpaper, View) -> Unit,
-    private val onFavorite: (Wallpaper) -> Unit
+    private val onFavorite: (Wallpaper) -> Unit,
+    private val scope: CoroutineScope? = null,
+    private val loadSize: Size = Size.ORIGINAL,
+    private val animateParallax: Boolean = false
 ) : ListAdapter<Wallpaper, WallpaperAdapter.VH>(DIFF) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
@@ -29,8 +42,21 @@ class WallpaperAdapter(
         holder.bind(getItem(position), position)
     }
 
+    override fun onViewRecycled(holder: VH) {
+        holder.clearParallax()
+    }
+
     inner class VH(private val binding: ItemWallpaperBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+        private var parallaxJob: Job? = null
+
+        fun clearParallax() {
+            parallaxJob?.cancel()
+            parallaxJob = null
+            binding.thumbParallax.setLayers(emptyList())
+            binding.thumbParallax.isVisible = false
+        }
 
         fun bind(item: Wallpaper, position: Int) {
             binding.title.text = item.title
@@ -46,6 +72,31 @@ class WallpaperAdapter(
                 crossfade(220)
                 placeholder(R.drawable.shape_shimmer)
                 error(R.drawable.ic_image_broken)
+            }
+
+            binding.playBadge.isVisible = item.type == ContentType.VIDEO
+
+            // Parallax items animate with the device tilt right in the grid (Home only).
+            parallaxJob?.cancel()
+            val s = scope
+            val animate = animateParallax && s != null &&
+                item.type == ContentType.PARALLAX && item.layerUris.isNotEmpty()
+            binding.thumbParallax.isVisible = animate
+            if (animate && s != null) {
+                binding.thumbParallax.targetAspect = 0f
+                binding.thumbParallax.parallaxEnabled = true
+                val ctx = binding.thumbParallax.context
+                parallaxJob = s.launch {
+                    val inputs = withContext(Dispatchers.IO) {
+                        item.layerUris.mapNotNull { uri ->
+                            BitmapLoader.load(ctx, uri, loadSize)
+                                ?.let { ParallaxImageView.LayerInput(it) }
+                        }
+                    }
+                    binding.thumbParallax.setLayers(inputs)
+                }
+            } else {
+                binding.thumbParallax.setLayers(emptyList())
             }
 
             val favColor = if (item.isFavorite) R.color.favorite_red else R.color.white

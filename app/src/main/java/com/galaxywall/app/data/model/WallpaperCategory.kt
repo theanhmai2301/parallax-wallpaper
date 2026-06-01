@@ -2,9 +2,13 @@ package com.galaxywall.app.data.model
 
 enum class WallpaperCategory(val key: String, val label: String) {
     ALL("all", "All"),
+    CAR("car", "Car"),
+    SILLYSMILE("sillysmile", "Smile"),
     SPORT("sport", "Sport"),
-    GALAXY("galaxy", "Galaxy"),
-    ANIME("anime", "Anime");
+    FISH("fish", "Fish"),
+    TRENDING("trending_funky", "Trending"),
+    ANIME("anime", "Anime"),
+    GALAXY("galaxy", "Galaxy");
 
     companion object {
         fun fromKey(key: String): WallpaperCategory =

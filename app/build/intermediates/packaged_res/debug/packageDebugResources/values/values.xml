@@ -46,6 +46,7 @@
     <dimen name="toolbar_height">56dp</dimen>
     <string name="action_next">Next</string>
     <string name="action_save">Save</string>
+    <string name="action_set">Set</string>
     <string name="ad_gate_message">Watch a short ad to set this wallpaper for free.</string>
     <string name="ad_gate_title">Set wallpaper</string>
     <string name="ad_loading">Loading ad…</string>
@@ -104,6 +105,8 @@
     <string name="section_categories">Categories</string>
     <string name="section_recent">Recently viewed</string>
     <string name="set_background">Set Background</string>
+    <string name="set_image_message">Set this image as your home and lock screen wallpaper?</string>
+    <string name="set_image_title">Set wallpaper</string>
     <string name="settings_appearance">Appearance</string>
     <string name="settings_clear_cache">Clear image cache</string>
     <string name="settings_clear_cache_sub">Free up storage used by previews</string>
@@ -126,6 +129,8 @@
     <string name="tab_parallax">Parallax Wallpaper</string>
     <string name="tab_settings">Settings</string>
     <string name="tilt_hint">Tilt your device to feel the depth</string>
+    <string name="video_wallpaper_description">Looping video live wallpaper.</string>
+    <string name="video_wallpaper_label">Video Wallpaper</string>
     <style name="Base.Theme.ParallaxWallpaper" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/brand_purple</item>
         <item name="colorOnPrimary">@color/white</item>

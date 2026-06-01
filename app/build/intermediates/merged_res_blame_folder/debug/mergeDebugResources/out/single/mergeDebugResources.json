@@ -28,12 +28,12 @@
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\view_empty_state.xml"
     },
     {
-        "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\layout_view_glass_search.xml.flat",
-        "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\view_glass_search.xml"
-    },
-    {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\drawable_ic_search.xml.flat",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\drawable\\ic_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\layout_view_glass_search.xml.flat",
+        "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\view_glass_search.xml"
     },
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\drawable_bg_card_overlay.xml.flat",
@@ -116,12 +116,12 @@
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\drawable_flag_ko_korea.webp.flat",
-        "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\drawable\\flag_ko_korea.webp"
-    },
-    {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\drawable_bg_language_selected.xml.flat",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\drawable\\bg_language_selected.xml"
+    },
+    {
+        "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\drawable_flag_ko_korea.webp.flat",
+        "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\drawable\\flag_ko_korea.webp"
     },
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\drawable_ic_select_lang.xml.flat",
@@ -136,12 +136,12 @@
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\item_preview_page.xml"
     },
     {
-        "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\drawable_bg_sheet.xml.flat",
-        "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\drawable\\bg_sheet.xml"
-    },
-    {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\layout_fragment_settings.xml.flat",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\fragment_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\drawable_bg_sheet.xml.flat",
+        "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\drawable\\bg_sheet.xml"
     },
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\drawable_bg_search.xml.flat",
@@ -150,6 +150,10 @@
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\layout_fragment_favorite.xml.flat",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\fragment_favorite.xml"
+    },
+    {
+        "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\drawable_ic_play.xml.flat",
+        "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\drawable\\ic_play.xml"
     },
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\layout_activity_language_2.xml.flat",
@@ -194,6 +198,10 @@
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\drawable_ic_palette.xml.flat",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\drawable\\ic_palette.xml"
+    },
+    {
+        "merged": "com.galaxywall.app-debug-65:/layout_item_preview_page.xml.flat",
+        "source": "com.galaxywall.app-main-67:/layout/item_preview_page.xml"
     },
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\drawable_ic_image_broken.xml.flat",
@@ -264,6 +272,10 @@
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\drawable\\flag_en.webp"
     },
     {
+        "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\xml_video_wallpaper.xml.flat",
+        "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\xml\\video_wallpaper.xml"
+    },
+    {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\layout_item_survey.xml.flat",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\item_survey.xml"
     },
@@ -272,20 +284,12 @@
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\fragment_preview.xml"
     },
     {
-        "merged": "com.galaxywall.app-debug-65:/layout_fragment_home.xml.flat",
-        "source": "com.galaxywall.app-main-67:/layout/fragment_home.xml"
-    },
-    {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\drawable_gradient_top_scrim.xml.flat",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\drawable\\gradient_top_scrim.xml"
     },
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\drawable_gradient_brand.xml.flat",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\drawable\\gradient_brand.xml"
-    },
-    {
-        "merged": "com.galaxywall.app-debug-65:/layout_fragment_edit.xml.flat",
-        "source": "com.galaxywall.app-main-67:/layout/fragment_edit.xml"
     },
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\raw_loading_pulse.json.flat",
@@ -388,12 +392,12 @@
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\drawable\\ic_share.xml"
     },
     {
-        "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\drawable_ic_chevron_right.xml.flat",
-        "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\drawable\\ic_chevron_right.xml"
-    },
-    {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\layout_fragment_home.xml.flat",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\drawable_ic_chevron_right.xml.flat",
+        "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\drawable\\ic_chevron_right.xml"
     },
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-debug-65:\\drawable_ic_launcher_foreground.xml.flat",

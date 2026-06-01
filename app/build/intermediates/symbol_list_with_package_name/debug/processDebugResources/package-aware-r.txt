@@ -3244,6 +3244,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_palette
+drawable ic_play
 drawable ic_refresh
 drawable ic_search
 drawable ic_search_black_24
@@ -3412,6 +3413,7 @@ id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
 id action_preview_to_edit
+id action_preview_to_result
 id action_text
 id actions
 id activity_chooser_view_content
@@ -3459,6 +3461,7 @@ id cache_measures
 id callMeasure
 id cancel_button
 id card
+id cardPage
 id carryVelocity
 id categoryChips
 id categoryTag
@@ -3744,7 +3747,8 @@ id outward
 id overlay
 id overshoot
 id packed
-id pageImage
+id pagePreview
+id pageVideo
 id panel
 id parallax
 id parent
@@ -3757,6 +3761,7 @@ id pathRelative
 id peekHeight
 id percent
 id pin
+id playBadge
 id pooling_container_listener_holder_tag
 id position
 id postLayout
@@ -3780,6 +3785,7 @@ id restart
 id resultFragment
 id resultPreview
 id resultRoot
+id resultVideo
 id reverse
 id reverseSawtooth
 id right
@@ -3921,6 +3927,7 @@ id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
 id thumb
+id thumbParallax
 id time
 id title
 id titleDividerNoCustom
@@ -4222,6 +4229,7 @@ string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string action_next
 string action_save
+string action_set
 string ad_gate_message
 string ad_gate_title
 string ad_loading
@@ -4419,6 +4427,8 @@ string searchview_navigation_content_description
 string section_categories
 string section_recent
 string set_background
+string set_image_message
+string set_image_title
 string settings_appearance
 string settings_clear_cache
 string settings_clear_cache_sub
@@ -4444,6 +4454,8 @@ string tab_home
 string tab_parallax
 string tab_settings
 string tilt_hint
+string video_wallpaper_description
+string video_wallpaper_label
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
@@ -5775,3 +5787,4 @@ xml backup_rules
 xml data_extraction_rules
 xml file_paths
 xml parallax_wallpaper
+xml video_wallpaper

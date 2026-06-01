@@ -3,8 +3,8 @@ package com.galaxywall.app.data.repository
 import com.galaxywall.app.data.local.FavoriteEntity
 import com.galaxywall.app.data.local.RecentEntity
 import com.galaxywall.app.data.local.WallpaperDao
+import com.galaxywall.app.data.model.ContentType
 import com.galaxywall.app.data.model.Wallpaper
-import com.galaxywall.app.data.model.WallpaperCategory
 import com.galaxywall.app.data.remote.RemoteWallpaperSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
@@ -24,12 +24,13 @@ class WallpaperRepository @Inject constructor(
     @Volatile
     private var cache: List<Wallpaper>? = null
 
-    /** Content comes from the API only. Empty result is not cached, so it retries (Render cold start). */
+    /** All settable content (parallax + images + videos) from the API. Empty result is not cached,
+     *  so it retries (Render cold start). */
     private suspend fun loadCatalog(): List<Wallpaper> {
         cache?.let { return it }
         return mutex.withLock {
             cache ?: run {
-                val list = runCatching { remote.loadParallax() }.getOrDefault(emptyList())
+                val list = runCatching { remote.loadAll() }.getOrDefault(emptyList())
                 if (list.isNotEmpty()) cache = list
                 list
             }
@@ -42,11 +43,11 @@ class WallpaperRepository @Inject constructor(
 
     private fun catalogFlow(): Flow<List<Wallpaper>> = flow { emit(loadCatalog()) }
 
-    fun observeWallpapers(category: WallpaperCategory, query: String): Flow<List<Wallpaper>> =
+    fun observeWallpapers(type: ContentType?, query: String): Flow<List<Wallpaper>> =
         combine(catalogFlow(), dao.observeFavoriteIds()) { all, favIds ->
             val favSet = favIds.toHashSet()
             all.asSequence()
-                .filter { category == WallpaperCategory.ALL || it.category == category }
+                .filter { type == null || it.type == type }
                 .filter { matchesQuery(it, query) }
                 .map { it.copy(isFavorite = favSet.contains(it.id)) }
                 .toList()

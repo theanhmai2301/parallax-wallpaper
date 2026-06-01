@@ -110,6 +110,7 @@ drawable ic_layers
 drawable ic_lock
 drawable ic_logo
 drawable ic_palette
+drawable ic_play
 drawable ic_refresh
 drawable ic_search
 drawable ic_select_lang
@@ -132,6 +133,7 @@ id action_home_to_favorite
 id action_home_to_preview
 id action_home_to_settings
 id action_preview_to_edit
+id action_preview_to_result
 id btnBack
 id btnNext
 id btnNextToOB
@@ -139,6 +141,7 @@ id btnSetBackground
 id btnSkip
 id btnWatchAd
 id card
+id cardPage
 id categoryChips
 id categoryTag
 id chipScroll
@@ -171,8 +174,10 @@ id main
 id navHost
 id nav_main
 id overlay
-id pageImage
+id pagePreview
+id pageVideo
 id panel
+id playBadge
 id previewFragment
 id previewPager
 id previewRoot
@@ -184,6 +189,7 @@ id resolution
 id resultFragment
 id resultPreview
 id resultRoot
+id resultVideo
 id rowClearCache
 id rowPrivacy
 id rowRate
@@ -219,6 +225,7 @@ id tabParallaxText
 id textVersion
 id textView
 id thumb
+id thumbParallax
 id title
 id toolbar
 id toolbarTitle
@@ -253,6 +260,7 @@ navigation nav_main
 raw loading_pulse
 string action_next
 string action_save
+string action_set
 string ad_gate_message
 string ad_gate_title
 string ad_loading
@@ -311,6 +319,8 @@ string search_hint
 string section_categories
 string section_recent
 string set_background
+string set_image_message
+string set_image_title
 string settings_appearance
 string settings_clear_cache
 string settings_clear_cache_sub
@@ -333,6 +343,8 @@ string tab_home
 string tab_parallax
 string tab_settings
 string tilt_hint
+string video_wallpaper_description
+string video_wallpaper_label
 style Base.Theme.ParallaxWallpaper
 style SettingRow
 style SettingRow.Clickable
@@ -355,3 +367,4 @@ xml backup_rules
 xml data_extraction_rules
 xml file_paths
 xml parallax_wallpaper
+xml video_wallpaper

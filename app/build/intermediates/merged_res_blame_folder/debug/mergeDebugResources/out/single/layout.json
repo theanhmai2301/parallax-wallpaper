@@ -12,10 +12,6 @@
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\fragment_settings.xml"
     },
     {
-        "merged": "com.galaxywall.app-mergeDebugResources-64:/layout/fragment_edit.xml",
-        "source": "com.galaxywall.app-main-67:/layout/fragment_edit.xml"
-    },
-    {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-mergeDebugResources-64:\\layout\\view_premium_toolbar.xml",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\view_premium_toolbar.xml"
     },
@@ -32,12 +28,12 @@
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\dialog_ad_gate.xml"
     },
     {
-        "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-mergeDebugResources-64:\\layout\\fragment_favorite.xml",
-        "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\fragment_favorite.xml"
-    },
-    {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-mergeDebugResources-64:\\layout\\item_wallpaper.xml",
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\item_wallpaper.xml"
+    },
+    {
+        "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-mergeDebugResources-64:\\layout\\fragment_favorite.xml",
+        "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\fragment_favorite.xml"
     },
     {
         "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-mergeDebugResources-64:\\layout\\activity_language_2.xml",
@@ -100,11 +96,11 @@
         "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\item_language.xml"
     },
     {
-        "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-mergeDebugResources-64:\\layout\\activity_survey.xml",
-        "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\activity_survey.xml"
+        "merged": "com.galaxywall.app-mergeDebugResources-64:/layout/item_preview_page.xml",
+        "source": "com.galaxywall.app-main-67:/layout/item_preview_page.xml"
     },
     {
-        "merged": "com.galaxywall.app-mergeDebugResources-64:/layout/fragment_home.xml",
-        "source": "com.galaxywall.app-main-67:/layout/fragment_home.xml"
+        "merged": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-mergeDebugResources-64:\\layout\\activity_survey.xml",
+        "source": "C:\\Users\\maing\\.gradle\\daemon\\8.9\\com.galaxywall.app-main-67:\\layout\\activity_survey.xml"
     }
 ]

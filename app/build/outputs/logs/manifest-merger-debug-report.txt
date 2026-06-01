@@ -1,20 +1,20 @@
 -- Merging decision tree log ---
 provider#androidx.core.content.FileProvider
-INJECTED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:60:9-68:20
+INJECTED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:74:9-82:20
 	android:grantUriPermissions
-		ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:64:13-47
+		ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:78:13-47
 	android:authorities
 		INJECTED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:62:13-64
+		ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:76:13-64
 	android:exported
-		ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:63:13-37
+		ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:77:13-37
 	android:name
-		ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:61:13-62
+		ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:75:13-62
 manifest
-ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:2:1-71:12
-INJECTED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:2:1-71:12
-INJECTED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:2:1-71:12
-INJECTED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:2:1-71:12
+ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:2:1-85:12
+INJECTED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:2:1-85:12
+INJECTED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:2:1-85:12
+INJECTED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:2:1-85:12
 MERGED from [androidx.databinding:databinding-adapters:8.7.3] C:\Users\maing\.gradle\caches\8.9\transforms\917629acd9b6d7e329bb052d4b488851\transformed\databinding-adapters-8.7.3\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.databinding:databinding-ktx:8.7.3] C:\Users\maing\.gradle\caches\8.9\transforms\c04acb819e0ca2064133c773c9789835\transformed\databinding-ktx-8.7.3\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.databinding:databinding-runtime:8.7.3] C:\Users\maing\.gradle\caches\8.9\transforms\653d4a765d2d04ba56f3a4bc525d5ec1\transformed\databinding-runtime-8.7.3\AndroidManifest.xml:2:1-7:12
@@ -139,8 +139,8 @@ ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\
 	android:name
 		ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:16:9-55
 application
-ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:19:5-69:19
-INJECTED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:19:5-69:19
+ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:19:5-83:19
+INJECTED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:19:5-83:19
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\maing\.gradle\caches\8.9\transforms\8d9770f18181e22b7c184ff395781901\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\maing\.gradle\caches\8.9\transforms\8d9770f18181e22b7c184ff395781901\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] C:\Users\maing\.gradle\caches\8.9\transforms\9bd9daac158058b0bb62fc67823fefa7\transformed\constraintlayout-2.2.0\AndroidManifest.xml:7:5-20
@@ -239,12 +239,22 @@ ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\
 		ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:57:17-59
 	android:name
 		ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:56:17-57
-meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:65:13-67:54
-	android:resource
-		ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:67:17-51
+service#com.galaxywall.app.wallpaper.VideoWallpaperService
+ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:60:9-72:19
+	android:label
+		ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:63:13-58
+	android:exported
+		ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:62:13-36
+	android:permission
+		ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:64:13-67
 	android:name
-		ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:66:17-67
+		ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:61:13-60
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:79:13-81:54
+	android:resource
+		ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:81:17-51
+	android:name
+		ADDED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml:80:17-67
 uses-sdk
 INJECTED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\maing\AndroidStudioProjects\parallax-wallpaper\app\src\main\AndroidManifest.xml

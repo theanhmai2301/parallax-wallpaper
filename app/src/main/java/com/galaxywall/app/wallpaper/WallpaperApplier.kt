@@ -3,6 +3,7 @@ package com.galaxywall.app.wallpaper
 import android.app.WallpaperManager
 import android.content.Context
 import android.graphics.Bitmap
+import com.galaxywall.app.util.BitmapLoader
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -23,5 +24,11 @@ class WallpaperApplier @Inject constructor(
             Target.BOTH -> WallpaperManager.FLAG_SYSTEM or WallpaperManager.FLAG_LOCK
         }
         manager.setBitmap(bitmap, null, true, flags)
+    }
+
+    /** Loads a static image from [url] and applies it. Returns true on success. */
+    suspend fun applyFromUrl(url: String, target: Target): Boolean = withContext(Dispatchers.IO) {
+        val bitmap = BitmapLoader.load(context, url) ?: return@withContext false
+        runCatching { apply(bitmap, target) }.isSuccess
     }
 }

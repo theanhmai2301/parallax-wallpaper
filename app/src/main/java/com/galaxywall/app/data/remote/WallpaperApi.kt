@@ -18,4 +18,11 @@ interface WallpaperApi {
         @Query("limit") limit: Int = 200,
         @Query("offset") offset: Int = 0
     ): RemoteListResponse
+
+    @GET("api/videos")
+    suspend fun listVideos(
+        @Query("category") category: String? = null,
+        @Query("limit") limit: Int = 200,
+        @Query("offset") offset: Int = 0
+    ): RemoteListResponse
 }

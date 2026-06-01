@@ -1,7 +1,10 @@
 package com.galaxywall.app.data.remote
 
+import com.galaxywall.app.data.model.ContentType
 import com.galaxywall.app.data.model.Wallpaper
 import com.galaxywall.app.data.model.WallpaperCategory
+import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -20,9 +23,40 @@ class RemoteWallpaperSource @Inject constructor(
     suspend fun loadParallax(): List<Wallpaper> =
         groupItems(api.listParallax(limit = 200).data)
 
-    /** Static images from /api/images — extra source images for the layer picker library. */
-    suspend fun loadImages(): List<String> =
-        api.listImages(limit = 200).data.mapNotNull { it.url }
+    /**
+     * Every settable wallpaper from the API: parallax (multi-layer), static images and videos,
+     * across all categories. The three endpoints are fetched concurrently.
+     */
+    suspend fun loadAll(): List<Wallpaper> = coroutineScope {
+        val parallaxDef = async { runCatching { groupItems(api.listParallax(limit = 200).data) }.getOrDefault(emptyList()) }
+        val imagesDef = async { runCatching { api.listImages(limit = 200).data.mapNotNull { toImage(it) } }.getOrDefault(emptyList()) }
+        val videosDef = async { runCatching { api.listVideos(limit = 200).data.mapNotNull { toVideo(it) } }.getOrDefault(emptyList()) }
+        parallaxDef.await() + imagesDef.await() + videosDef.await()
+    }
+
+    private fun toImage(item: RemoteItem): Wallpaper? {
+        val url = item.url ?: return null
+        return Wallpaper(
+            id = item.id ?: "img_${item.filename ?: url}",
+            title = item.title ?: prettyTitle(item.filename ?: "Image"),
+            category = WallpaperCategory.fromKey(item.category ?: ""),
+            thumbUri = item.thumbnailUrl ?: url,
+            type = ContentType.IMAGE,
+            sourceUrl = url
+        )
+    }
+
+    private fun toVideo(item: RemoteItem): Wallpaper? {
+        val url = item.url ?: return null
+        return Wallpaper(
+            id = item.id ?: "vid_${item.filename ?: url}",
+            title = item.title ?: prettyTitle(item.filename ?: "Video"),
+            category = WallpaperCategory.fromKey(item.category ?: ""),
+            thumbUri = item.thumbnailUrl ?: url,
+            type = ContentType.VIDEO,
+            sourceUrl = url
+        )
+    }
 
     private fun groupItems(items: List<RemoteItem>): List<Wallpaper> {
         val fileRegex = Regex("^([A-Za-z]+\\d+?)(\\d)\\.[A-Za-z0-9]+$")

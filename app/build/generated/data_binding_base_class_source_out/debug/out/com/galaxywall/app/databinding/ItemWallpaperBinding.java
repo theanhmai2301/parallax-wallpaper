@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.galaxywall.app.R;
+import com.galaxywall.app.ui.customview.ParallaxImageView;
 import com.google.android.material.card.MaterialCardView;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -33,24 +34,33 @@ public final class ItemWallpaperBinding implements ViewBinding {
   public final View overlay;
 
   @NonNull
+  public final ImageView playBadge;
+
+  @NonNull
   public final TextView resolution;
 
   @NonNull
   public final ImageView thumb;
 
   @NonNull
+  public final ParallaxImageView thumbParallax;
+
+  @NonNull
   public final TextView title;
 
   private ItemWallpaperBinding(@NonNull MaterialCardView rootView, @NonNull MaterialCardView card,
       @NonNull TextView categoryTag, @NonNull ImageView favoriteButton, @NonNull View overlay,
-      @NonNull TextView resolution, @NonNull ImageView thumb, @NonNull TextView title) {
+      @NonNull ImageView playBadge, @NonNull TextView resolution, @NonNull ImageView thumb,
+      @NonNull ParallaxImageView thumbParallax, @NonNull TextView title) {
     this.rootView = rootView;
     this.card = card;
     this.categoryTag = categoryTag;
     this.favoriteButton = favoriteButton;
     this.overlay = overlay;
+    this.playBadge = playBadge;
     this.resolution = resolution;
     this.thumb = thumb;
+    this.thumbParallax = thumbParallax;
     this.title = title;
   }
 
@@ -101,6 +111,12 @@ public final class ItemWallpaperBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.playBadge;
+      ImageView playBadge = ViewBindings.findChildViewById(rootView, id);
+      if (playBadge == null) {
+        break missingId;
+      }
+
       id = R.id.resolution;
       TextView resolution = ViewBindings.findChildViewById(rootView, id);
       if (resolution == null) {
@@ -113,6 +129,12 @@ public final class ItemWallpaperBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.thumbParallax;
+      ParallaxImageView thumbParallax = ViewBindings.findChildViewById(rootView, id);
+      if (thumbParallax == null) {
+        break missingId;
+      }
+
       id = R.id.title;
       TextView title = ViewBindings.findChildViewById(rootView, id);
       if (title == null) {
@@ -120,7 +142,7 @@ public final class ItemWallpaperBinding implements ViewBinding {
       }
 
       return new ItemWallpaperBinding((MaterialCardView) rootView, card, categoryTag,
-          favoriteButton, overlay, resolution, thumb, title);
+          favoriteButton, overlay, playBadge, resolution, thumb, thumbParallax, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

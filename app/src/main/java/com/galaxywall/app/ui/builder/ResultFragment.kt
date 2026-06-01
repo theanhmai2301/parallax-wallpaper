@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -15,10 +16,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.galaxywall.app.R
 import com.galaxywall.app.data.local.SettingsManager
+import com.galaxywall.app.data.model.ContentType
 import com.galaxywall.app.databinding.FragmentResultBinding
 import com.galaxywall.app.sensors.ParallaxSensorManager
+import com.galaxywall.app.ui.customview.LoopingVideoTexture
 import com.galaxywall.app.util.collectWhenStarted
 import com.galaxywall.app.wallpaper.LiveWallpaperController
+import com.galaxywall.app.wallpaper.VideoWallpaperController
 import com.galaxywall.app.wallpaper.WallpaperApplier
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,6 +43,7 @@ class ResultFragment : Fragment() {
 
     private lateinit var sensorManager: ParallaxSensorManager
     private var progressDialog: Dialog? = null
+    private var videoPlayer: LoopingVideoTexture? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -67,6 +72,7 @@ class ResultFragment : Fragment() {
         binding.btnSetBackground.setOnClickListener { showAdGate() }
 
         renderPreview()
+        setupVideo()
 
         collectWhenStarted(builderViewModel.working) { message ->
             if (message != null) showProgress(message) else dismissProgress()
@@ -90,6 +96,15 @@ class ResultFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             binding.resultPreview.setLayers(builderViewModel.loadRenderLayers())
         }
+    }
+
+    /** For a video item, play it (looping, muted) over the thumbnail poster. */
+    private fun setupVideo() {
+        val isVideo = builderViewModel.currentType() == ContentType.VIDEO
+        binding.resultVideo.isVisible = isVideo
+        if (!isVideo) return
+        if (videoPlayer == null) videoPlayer = LoopingVideoTexture(binding.resultVideo)
+        builderViewModel.currentWallpaper()?.sourceUrl?.let { videoPlayer?.play(it) }
     }
 
     private fun showAdGate() {
@@ -118,15 +133,37 @@ class ResultFragment : Fragment() {
             showProgress(getString(R.string.ad_loading))
             delay(1800)
             dismissProgress()
-            // Save the composition (layers + depth + effect) for the live wallpaper.
-            builderViewModel.saveLiveComposition()
-            // Set as a live parallax wallpaper so the 3D tilt works on the home screen.
-            try {
-                startActivity(LiveWallpaperController.changeIntent(requireContext()))
-            } catch (e: Exception) {
-                // Device without a live-wallpaper picker → fall back to a static composite.
-                builderViewModel.setWallpaper(WallpaperApplier.Target.BOTH)
+            when (builderViewModel.currentType()) {
+                ContentType.IMAGE -> builderViewModel.applyStaticImage(WallpaperApplier.Target.BOTH)
+                ContentType.VIDEO -> setVideoWallpaper()
+                ContentType.PARALLAX -> applyParallax()
             }
+        }
+    }
+
+    private fun applyParallax() {
+        // Save the composition (layers + depth + effect) for the live wallpaper.
+        builderViewModel.saveLiveComposition()
+        // Set as a live parallax wallpaper so the 3D tilt works on the home screen.
+        try {
+            startActivity(LiveWallpaperController.changeIntent(requireContext()))
+        } catch (e: Exception) {
+            // Device without a live-wallpaper picker → fall back to a static composite.
+            builderViewModel.setWallpaper(WallpaperApplier.Target.BOTH)
+        }
+    }
+
+    private fun setVideoWallpaper() {
+        val url = builderViewModel.currentWallpaper()?.sourceUrl
+        if (url == null) {
+            Snackbar.make(binding.root, R.string.apply_error, Snackbar.LENGTH_SHORT).show()
+            return
+        }
+        VideoWallpaperController.setVideo(requireContext(), url)
+        try {
+            startActivity(VideoWallpaperController.changeIntent(requireContext()))
+        } catch (e: Exception) {
+            Snackbar.make(binding.root, R.string.apply_error, Snackbar.LENGTH_SHORT).show()
         }
     }
 
@@ -153,16 +190,20 @@ class ResultFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         sensorManager.start()
+        setupVideo()
     }
 
     override fun onPause() {
         sensorManager.stop()
+        videoPlayer?.stop()
         super.onPause()
     }
 
     override fun onDestroyView() {
         dismissProgress()
         progressDialog = null
+        videoPlayer?.stop()
+        videoPlayer = null
         _binding = null
         super.onDestroyView()
     }

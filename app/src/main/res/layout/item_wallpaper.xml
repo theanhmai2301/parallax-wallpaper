@@ -27,6 +27,16 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/backgrounds/scenic" />
 
+        <com.galaxywall.app.ui.customview.ParallaxImageView
+            android:id="@+id/thumbParallax"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/thumb"
+            app:layout_constraintEnd_toEndOf="@id/thumb"
+            app:layout_constraintStart_toStartOf="@id/thumb"
+            app:layout_constraintTop_toTopOf="@id/thumb" />
+
         <View
             android:id="@+id/overlay"
             android:layout_width="0dp"
@@ -36,6 +46,21 @@
             app:layout_constraintEnd_toEndOf="@id/thumb"
             app:layout_constraintStart_toStartOf="@id/thumb"
             app:layout_constraintTop_toTopOf="@id/thumb" />
+
+        <ImageView
+            android:id="@+id/playBadge"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_circle_scrim"
+            android:contentDescription="@string/cd_wallpaper_preview"
+            android:padding="10dp"
+            android:src="@drawable/ic_play"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/thumb"
+            app:layout_constraintEnd_toEndOf="@id/thumb"
+            app:layout_constraintStart_toStartOf="@id/thumb"
+            app:layout_constraintTop_toTopOf="@id/thumb"
+            app:tint="@color/white" />
 
         <TextView
             android:id="@+id/categoryTag"

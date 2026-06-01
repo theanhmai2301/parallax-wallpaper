@@ -76,7 +76,7 @@ class FavoriteFragment : Fragment() {
     }
 
     private fun openPreview(wallpaper: Wallpaper, sharedView: View) {
-        val list = adapter.currentList
+        val list = adapter.currentList.filter { it.type == wallpaper.type }
         val index = list.indexOfFirst { it.id == wallpaper.id }.coerceAtLeast(0)
         builderViewModel.startFrom(list, index)
         findNavController().navigate(R.id.action_favorite_to_preview)

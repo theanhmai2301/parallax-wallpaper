@@ -2,6 +2,7 @@
 package com.galaxywall.app.databinding;
 
 import android.view.LayoutInflater;
+import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -35,16 +36,21 @@ public final class FragmentResultBinding implements ViewBinding {
   public final ConstraintLayout resultRoot;
 
   @NonNull
+  public final TextureView resultVideo;
+
+  @NonNull
   public final TextView title;
 
   private FragmentResultBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView btnBack,
       @NonNull AppCompatButton btnSetBackground, @NonNull ParallaxImageView resultPreview,
-      @NonNull ConstraintLayout resultRoot, @NonNull TextView title) {
+      @NonNull ConstraintLayout resultRoot, @NonNull TextureView resultVideo,
+      @NonNull TextView title) {
     this.rootView = rootView;
     this.btnBack = btnBack;
     this.btnSetBackground = btnSetBackground;
     this.resultPreview = resultPreview;
     this.resultRoot = resultRoot;
+    this.resultVideo = resultVideo;
     this.title = title;
   }
 
@@ -95,6 +101,12 @@ public final class FragmentResultBinding implements ViewBinding {
 
       ConstraintLayout resultRoot = (ConstraintLayout) rootView;
 
+      id = R.id.resultVideo;
+      TextureView resultVideo = ViewBindings.findChildViewById(rootView, id);
+      if (resultVideo == null) {
+        break missingId;
+      }
+
       id = R.id.title;
       TextView title = ViewBindings.findChildViewById(rootView, id);
       if (title == null) {
@@ -102,7 +114,7 @@ public final class FragmentResultBinding implements ViewBinding {
       }
 
       return new FragmentResultBinding((ConstraintLayout) rootView, btnBack, btnSetBackground,
-          resultPreview, resultRoot, title);
+          resultPreview, resultRoot, resultVideo, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
