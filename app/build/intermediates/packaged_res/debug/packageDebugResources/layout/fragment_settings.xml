@@ -128,16 +128,27 @@
             android:textColor="@color/brand_purple_light" android:textStyle="bold" android:textSize="12sp"
             android:letterSpacing="0.08" />
 
-        <LinearLayout android:id="@+id/rowClearCache" style="@style/SettingRow.Clickable">
-            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                android:layout_weight="1" android:orientation="vertical">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="@string/settings_clear_cache" android:textAppearance="@style/TextAppearance.ParallaxWallpaper.Title" android:textSize="16sp" />
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="@string/settings_clear_cache_sub" android:textAppearance="@style/TextAppearance.ParallaxWallpaper.Body" android:textSize="13sp" />
-            </LinearLayout>
+        <LinearLayout android:id="@+id/rowLanguage" style="@style/SettingRow.Clickable">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="@string/language" android:textAppearance="@style/TextAppearance.ParallaxWallpaper.Title" android:textSize="16sp" />
             <ImageView android:layout_width="22dp" android:layout_height="22dp"
-                android:src="@drawable/ic_refresh" android:importantForAccessibility="no"
+                android:src="@drawable/ic_languages_setting" android:importantForAccessibility="no"
+                app:tint="@color/on_surface_variant" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/rowShare" style="@style/SettingRow.Clickable">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="@string/detail_share" android:textAppearance="@style/TextAppearance.ParallaxWallpaper.Title" android:textSize="16sp" />
+            <ImageView android:layout_width="22dp" android:layout_height="22dp"
+                android:src="@drawable/ic_share" android:importantForAccessibility="no"
+                app:tint="@color/on_surface_variant" />
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/rowFeedback" style="@style/SettingRow.Clickable">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="@string/settings_feedback" android:textAppearance="@style/TextAppearance.ParallaxWallpaper.Title" android:textSize="16sp" />
+            <ImageView android:layout_width="22dp" android:layout_height="22dp"
+                android:src="@drawable/ic_chevron_right" android:importantForAccessibility="no"
                 app:tint="@color/on_surface_variant" />
         </LinearLayout>
 
@@ -155,13 +166,6 @@
             <ImageView android:layout_width="22dp" android:layout_height="22dp"
                 android:src="@drawable/ic_chevron_right" android:importantForAccessibility="no"
                 app:tint="@color/on_surface_variant" />
-        </LinearLayout>
-
-        <LinearLayout style="@style/SettingRow">
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-                android:text="@string/settings_version" android:textAppearance="@style/TextAppearance.ParallaxWallpaper.Title" android:textSize="16sp" />
-            <TextView android:id="@+id/textVersion" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.ParallaxWallpaper.Body" />
         </LinearLayout>
 
     </LinearLayout>

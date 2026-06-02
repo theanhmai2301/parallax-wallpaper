@@ -37,20 +37,17 @@ class LanguageFO2Activity : BaseLanguageActivity() {
         getDataLanguage(openFromMain)
         setClickView()
 
-        if (openFromMain) {
-            binding.imgBack.visibility = View.VISIBLE
-            binding.tvLanguages.visibility = View.VISIBLE
-            binding.tvSetting.visibility = View.GONE
-            binding.tvChooseLanguage.visibility = View.GONE
-            binding.imgBack.setOnClickListener { finish() }
-        }
 
         languageAdapter.selectItem(positionSelected)
         languageCodeSelected = languageAdapter.getAt(positionSelected).locale
+        // Open scrolled to the row chosen on FO1 so the list doesn't appear to reset to the top.
+        binding.recyclerViewLanguage.scrollToPosition(positionSelected)
     }
 
     override fun setAdapter() {
         binding.recyclerViewLanguage.layoutManager = LinearLayoutManager(this)
+        binding.recyclerViewLanguage.setHasFixedSize(true)
+        binding.recyclerViewLanguage.setItemViewCacheSize(languageAdapter.itemCount)
         binding.recyclerViewLanguage.adapter = languageAdapter
     }
 
@@ -71,7 +68,6 @@ class LanguageFO2Activity : BaseLanguageActivity() {
 
     private fun setClickView() {
         binding.imgConfirm.setOnClickListener { changeLanguage(openFromMain) }
-        binding.imgBack.setOnClickListener { finish() }
     }
 
     /** Placeholder: load + show the FO2 native ad into binding.frAds. */

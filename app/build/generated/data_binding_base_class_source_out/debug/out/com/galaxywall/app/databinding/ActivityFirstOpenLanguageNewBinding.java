@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.galaxywall.app.R;
-import com.google.android.material.button.MaterialButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -27,10 +26,7 @@ public final class ActivityFirstOpenLanguageNewBinding implements ViewBinding {
   public final FrameLayout frAds;
 
   @NonNull
-  public final ImageView imgBack;
-
-  @NonNull
-  public final MaterialButton imgConfirm;
+  public final ImageView imgConfirm;
 
   @NonNull
   public final ConstraintLayout llTitle;
@@ -42,27 +38,21 @@ public final class ActivityFirstOpenLanguageNewBinding implements ViewBinding {
   public final TextView tvChooseLanguage;
 
   @NonNull
-  public final TextView tvLanguages;
-
-  @NonNull
   public final TextView tvMessage;
 
   @NonNull
   public final TextView tvSetting;
 
   private ActivityFirstOpenLanguageNewBinding(@NonNull ConstraintLayout rootView,
-      @NonNull FrameLayout frAds, @NonNull ImageView imgBack, @NonNull MaterialButton imgConfirm,
-      @NonNull ConstraintLayout llTitle, @NonNull RecyclerView recyclerViewLanguage,
-      @NonNull TextView tvChooseLanguage, @NonNull TextView tvLanguages,
+      @NonNull FrameLayout frAds, @NonNull ImageView imgConfirm, @NonNull ConstraintLayout llTitle,
+      @NonNull RecyclerView recyclerViewLanguage, @NonNull TextView tvChooseLanguage,
       @NonNull TextView tvMessage, @NonNull TextView tvSetting) {
     this.rootView = rootView;
     this.frAds = frAds;
-    this.imgBack = imgBack;
     this.imgConfirm = imgConfirm;
     this.llTitle = llTitle;
     this.recyclerViewLanguage = recyclerViewLanguage;
     this.tvChooseLanguage = tvChooseLanguage;
-    this.tvLanguages = tvLanguages;
     this.tvMessage = tvMessage;
     this.tvSetting = tvSetting;
   }
@@ -100,14 +90,8 @@ public final class ActivityFirstOpenLanguageNewBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.imgBack;
-      ImageView imgBack = ViewBindings.findChildViewById(rootView, id);
-      if (imgBack == null) {
-        break missingId;
-      }
-
       id = R.id.imgConfirm;
-      MaterialButton imgConfirm = ViewBindings.findChildViewById(rootView, id);
+      ImageView imgConfirm = ViewBindings.findChildViewById(rootView, id);
       if (imgConfirm == null) {
         break missingId;
       }
@@ -130,12 +114,6 @@ public final class ActivityFirstOpenLanguageNewBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tvLanguages;
-      TextView tvLanguages = ViewBindings.findChildViewById(rootView, id);
-      if (tvLanguages == null) {
-        break missingId;
-      }
-
       id = R.id.tvMessage;
       TextView tvMessage = ViewBindings.findChildViewById(rootView, id);
       if (tvMessage == null) {
@@ -148,9 +126,8 @@ public final class ActivityFirstOpenLanguageNewBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityFirstOpenLanguageNewBinding((ConstraintLayout) rootView, frAds, imgBack,
-          imgConfirm, llTitle, recyclerViewLanguage, tvChooseLanguage, tvLanguages, tvMessage,
-          tvSetting);
+      return new ActivityFirstOpenLanguageNewBinding((ConstraintLayout) rootView, frAds, imgConfirm,
+          llTitle, recyclerViewLanguage, tvChooseLanguage, tvMessage, tvSetting);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

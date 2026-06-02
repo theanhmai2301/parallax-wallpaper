@@ -51,11 +51,10 @@
             android:textColor="#C9C0D6"
             android:textSize="14sp" />
 
-        <ImageView
-            android:id="@+id/imageIcPer"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:src="@drawable/selector_check_survey" />
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/switchNotif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

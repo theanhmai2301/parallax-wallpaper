@@ -89,22 +89,36 @@
             android:elevation="3dp" />
     </com.google.android.material.card.MaterialCardView>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <LinearLayout
         android:id="@+id/btnSetBackground"
-        style="@style/Widget.ParallaxWallpaper.Button.Primary"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
         android:layout_marginHorizontal="@dimen/screen_margin"
         android:layout_marginBottom="@dimen/space_xl"
-        android:drawableStart="@drawable/ic_apply"
-        android:drawablePadding="6dp"
-        android:paddingStart="100dp"
-        android:paddingEnd="100dp"
+        android:background="@drawable/bg_button_primary"
+        android:clickable="true"
+        android:focusable="true"
         android:gravity="center"
-        android:text="@string/set_background"
-        app:drawableTint="@color/white"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_apply"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/set_background"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

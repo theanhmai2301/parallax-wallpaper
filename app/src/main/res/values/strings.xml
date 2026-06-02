@@ -66,6 +66,7 @@
     <string name="settings_clear_cache">Clear image cache</string>
     <string name="settings_clear_cache_sub">Free up storage used by previews</string>
     <string name="settings_rate">Rate the app</string>
+    <string name="settings_feedback">Feedback</string>
     <string name="settings_privacy">Privacy policy</string>
     <string name="settings_version">Version</string>
     <string name="cache_cleared">Cache cleared</string>
@@ -95,6 +96,12 @@
     <!-- First open: survey -->
     <string name="what_is_your_favorite_topics">What are your favorite topics?</string>
     <string name="please_select_at_least_2_topics">Please select at least 2 topics</string>
+    <string name="survey_parallax">Parallax</string>
+    <string name="survey_live">Live</string>
+    <string name="survey_photos">Photos</string>
+    <string name="survey_colorful">Colorful</string>
+    <string name="survey_featured">Featured</string>
+    <string name="survey_explore">Explore</string>
 
     <!-- First open: permission -->
     <string name="permission_title">Stay updated</string>

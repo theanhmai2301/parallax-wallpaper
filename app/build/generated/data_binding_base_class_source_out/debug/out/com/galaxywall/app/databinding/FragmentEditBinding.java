@@ -53,34 +53,13 @@ public final class FragmentEditBinding implements ViewBinding {
   public final Slider sliderDepth;
 
   @NonNull
-  public final MaterialCardView slotBottomCard;
-
-  @NonNull
-  public final ImageView slotBottomHint;
-
-  @NonNull
-  public final ImageView slotBottomImage;
-
-  @NonNull
-  public final MaterialCardView slotTopCard;
-
-  @NonNull
-  public final ImageView slotTopHint;
-
-  @NonNull
-  public final ImageView slotTopImage;
-
-  @NonNull
   public final TextView title;
 
   private FragmentEditBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView btnBack,
       @NonNull AppCompatButton btnNext, @NonNull ImageView editBg,
       @NonNull ParallaxImageView editPreview, @NonNull MaterialCardView editPreviewCard,
       @NonNull ConstraintLayout editRoot, @NonNull View editScrim, @NonNull LinearLayout panel,
-      @NonNull Slider sliderDepth, @NonNull MaterialCardView slotBottomCard,
-      @NonNull ImageView slotBottomHint, @NonNull ImageView slotBottomImage,
-      @NonNull MaterialCardView slotTopCard, @NonNull ImageView slotTopHint,
-      @NonNull ImageView slotTopImage, @NonNull TextView title) {
+      @NonNull Slider sliderDepth, @NonNull TextView title) {
     this.rootView = rootView;
     this.btnBack = btnBack;
     this.btnNext = btnNext;
@@ -91,12 +70,6 @@ public final class FragmentEditBinding implements ViewBinding {
     this.editScrim = editScrim;
     this.panel = panel;
     this.sliderDepth = sliderDepth;
-    this.slotBottomCard = slotBottomCard;
-    this.slotBottomHint = slotBottomHint;
-    this.slotBottomImage = slotBottomImage;
-    this.slotTopCard = slotTopCard;
-    this.slotTopHint = slotTopHint;
-    this.slotTopImage = slotTopImage;
     this.title = title;
   }
 
@@ -177,42 +150,6 @@ public final class FragmentEditBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.slotBottomCard;
-      MaterialCardView slotBottomCard = ViewBindings.findChildViewById(rootView, id);
-      if (slotBottomCard == null) {
-        break missingId;
-      }
-
-      id = R.id.slotBottomHint;
-      ImageView slotBottomHint = ViewBindings.findChildViewById(rootView, id);
-      if (slotBottomHint == null) {
-        break missingId;
-      }
-
-      id = R.id.slotBottomImage;
-      ImageView slotBottomImage = ViewBindings.findChildViewById(rootView, id);
-      if (slotBottomImage == null) {
-        break missingId;
-      }
-
-      id = R.id.slotTopCard;
-      MaterialCardView slotTopCard = ViewBindings.findChildViewById(rootView, id);
-      if (slotTopCard == null) {
-        break missingId;
-      }
-
-      id = R.id.slotTopHint;
-      ImageView slotTopHint = ViewBindings.findChildViewById(rootView, id);
-      if (slotTopHint == null) {
-        break missingId;
-      }
-
-      id = R.id.slotTopImage;
-      ImageView slotTopImage = ViewBindings.findChildViewById(rootView, id);
-      if (slotTopImage == null) {
-        break missingId;
-      }
-
       id = R.id.title;
       TextView title = ViewBindings.findChildViewById(rootView, id);
       if (title == null) {
@@ -220,8 +157,7 @@ public final class FragmentEditBinding implements ViewBinding {
       }
 
       return new FragmentEditBinding((ConstraintLayout) rootView, btnBack, btnNext, editBg,
-          editPreview, editPreviewCard, editRoot, editScrim, panel, sliderDepth, slotBottomCard,
-          slotBottomHint, slotBottomImage, slotTopCard, slotTopHint, slotTopImage, title);
+          editPreview, editPreviewCard, editRoot, editScrim, panel, sliderDepth, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

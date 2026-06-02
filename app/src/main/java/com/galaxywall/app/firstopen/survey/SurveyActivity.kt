@@ -12,6 +12,7 @@ import android.view.View
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import com.galaxywall.app.R
 import com.galaxywall.app.databinding.ActivitySurveyBinding
 import com.galaxywall.app.firstopen.isSurveyDone
 
@@ -47,9 +48,6 @@ class SurveyActivity : AppCompatActivity() {
             }
             return false
         }
-
-        /** Wallpaper-themed topics (icons reused from the app). Shared by the three survey steps. */
-        fun topics(): List<Survey> = surveyTopics()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,7 +70,7 @@ class SurveyActivity : AppCompatActivity() {
         applicationContext.isSurveyDone = false
 
         binding.recyclerView.layoutManager = GridLayoutManager(this, 2)
-        surveyList = surveyTopics()
+        surveyList = surveyTopics(this)
         surveyAdapter = SurveyAdapter(
             surveyList,
             onSelectionChanged = { count -> updateNextButton(count) },
@@ -133,12 +131,13 @@ class SurveyActivity : AppCompatActivity() {
     }
 }
 
-/** The wallpaper-themed survey topics, reusing icons already in the app. */
-internal fun surveyTopics(): List<Survey> = listOf(
-    Survey("Parallax", com.galaxywall.app.R.drawable.ic_layers),
-    Survey("Live", com.galaxywall.app.R.drawable.ic_live),
-    Survey("Photos", com.galaxywall.app.R.drawable.ic_image),
-    Survey("Colorful", com.galaxywall.app.R.drawable.ic_palette),
-    Survey("Featured", com.galaxywall.app.R.drawable.ic_star),
-    Survey("Explore", com.galaxywall.app.R.drawable.ic_explore)
+/** The wallpaper-themed survey topics, reusing icons already in the app. Names come from string
+ *  resources so they translate with the chosen language. */
+internal fun surveyTopics(context: Context): List<Survey> = listOf(
+    Survey(context.getString(R.string.survey_parallax), R.drawable.ic_layers),
+    Survey(context.getString(R.string.survey_live), R.drawable.ic_live),
+    Survey(context.getString(R.string.survey_photos), R.drawable.ic_image),
+    Survey(context.getString(R.string.survey_colorful), R.drawable.ic_palette),
+    Survey(context.getString(R.string.survey_featured), R.drawable.ic_star),
+    Survey(context.getString(R.string.survey_explore), R.drawable.ic_explore)
 )

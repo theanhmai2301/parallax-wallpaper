@@ -48,6 +48,8 @@ class LanguageFO1Activity : BaseLanguageActivity() {
 
     override fun setAdapter() {
         binding.recyclerViewLanguage.layoutManager = LinearLayoutManager(this)
+        binding.recyclerViewLanguage.setHasFixedSize(true)
+        binding.recyclerViewLanguage.setItemViewCacheSize(languageAdapter.itemCount)
         binding.recyclerViewLanguage.adapter = languageAdapter
     }
 
@@ -65,7 +67,6 @@ class LanguageFO1Activity : BaseLanguageActivity() {
 
     private fun setClickView() {
         binding.imgConfirm.setOnClickListener { showMessage() }
-        binding.imgBack.setOnClickListener { finish() }
     }
 
     /** Placeholder: load + show the FO1 native ad into binding.frAds. */

@@ -15,6 +15,7 @@ import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.galaxywall.app.R;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.materialswitch.MaterialSwitch;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -30,9 +31,6 @@ public final class ActivityPermissionBinding implements ViewBinding {
   public final FrameLayout frAds;
 
   @NonNull
-  public final ImageView imageIcPer;
-
-  @NonNull
   public final LinearLayout llBtn;
 
   @NonNull
@@ -44,18 +42,21 @@ public final class ActivityPermissionBinding implements ViewBinding {
   @NonNull
   public final TextView permTitle;
 
+  @NonNull
+  public final MaterialSwitch switchNotif;
+
   private ActivityPermissionBinding(@NonNull ConstraintLayout rootView,
-      @NonNull MaterialButton button3, @NonNull FrameLayout frAds, @NonNull ImageView imageIcPer,
-      @NonNull LinearLayout llBtn, @NonNull ConstraintLayout newPer, @NonNull ImageView permLogo,
-      @NonNull TextView permTitle) {
+      @NonNull MaterialButton button3, @NonNull FrameLayout frAds, @NonNull LinearLayout llBtn,
+      @NonNull ConstraintLayout newPer, @NonNull ImageView permLogo, @NonNull TextView permTitle,
+      @NonNull MaterialSwitch switchNotif) {
     this.rootView = rootView;
     this.button3 = button3;
     this.frAds = frAds;
-    this.imageIcPer = imageIcPer;
     this.llBtn = llBtn;
     this.newPer = newPer;
     this.permLogo = permLogo;
     this.permTitle = permTitle;
+    this.switchNotif = switchNotif;
   }
 
   @Override
@@ -97,12 +98,6 @@ public final class ActivityPermissionBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.imageIcPer;
-      ImageView imageIcPer = ViewBindings.findChildViewById(rootView, id);
-      if (imageIcPer == null) {
-        break missingId;
-      }
-
       id = R.id.llBtn;
       LinearLayout llBtn = ViewBindings.findChildViewById(rootView, id);
       if (llBtn == null) {
@@ -123,8 +118,14 @@ public final class ActivityPermissionBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityPermissionBinding((ConstraintLayout) rootView, button3, frAds, imageIcPer,
-          llBtn, newPer, permLogo, permTitle);
+      id = R.id.switchNotif;
+      MaterialSwitch switchNotif = ViewBindings.findChildViewById(rootView, id);
+      if (switchNotif == null) {
+        break missingId;
+      }
+
+      return new ActivityPermissionBinding((ConstraintLayout) rootView, button3, frAds, llBtn,
+          newPer, permLogo, permTitle, switchNotif);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

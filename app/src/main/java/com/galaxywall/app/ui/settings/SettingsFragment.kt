@@ -16,16 +16,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import coil.imageLoader
-import com.galaxywall.app.BuildConfig
 import com.galaxywall.app.R
 import com.galaxywall.app.databinding.FragmentSettingsBinding
+import com.galaxywall.app.firstopen.language.LanguageFO2Activity
 import com.galaxywall.app.util.collectWhenStarted
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import java.io.File
 import kotlin.math.abs
 
 @AndroidEntryPoint
@@ -53,7 +51,6 @@ class SettingsFragment : Fragment() {
         }
 
         binding.btnBack.setOnClickListener { findNavController().navigateUp() }
-        binding.textVersion.text = BuildConfig.VERSION_NAME
         setupBottomNav()
         setupControls()
         observe()
@@ -111,9 +108,38 @@ class SettingsFragment : Fragment() {
             if (fromUser) viewModel.setSensitivity(value)
         }
 
-        binding.rowClearCache.setOnClickListener { clearCache() }
+        binding.rowLanguage.setOnClickListener { openLanguage() }
+        binding.rowShare.setOnClickListener { shareApp() }
+        binding.rowFeedback.setOnClickListener { sendFeedback() }
         binding.rowRate.setOnClickListener { openPlayStore() }
         binding.rowPrivacy.setOnClickListener { showPrivacy() }
+    }
+
+    /** Opens the language list from settings (full list + back, returns to Home on confirm). */
+    private fun openLanguage() {
+        LanguageFO2Activity.start(requireContext(), selectedPosition = 0, isOpenFromMain = true)
+    }
+
+    private fun shareApp() {
+        val link = "https://play.google.com/store/apps/details?id=${requireContext().packageName}"
+        val intent = Intent(Intent.ACTION_SEND).apply {
+            type = "text/plain"
+            putExtra(Intent.EXTRA_TEXT, getString(R.string.app_name) + "\n" + link)
+        }
+        startActivity(Intent.createChooser(intent, getString(R.string.detail_share)))
+    }
+
+    private fun sendFeedback() {
+        val intent = Intent(Intent.ACTION_SENDTO).apply {
+            data = Uri.parse("mailto:")
+            putExtra(Intent.EXTRA_EMAIL, arrayOf("feedback@galaxywall.app"))
+            putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name) + " - Feedback")
+        }
+        try {
+            startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            Snackbar.make(binding.root, R.string.apply_error, Snackbar.LENGTH_SHORT).show()
+        }
     }
 
     private fun observe() {
@@ -131,14 +157,6 @@ class SettingsFragment : Fragment() {
                 binding.sliderSensitivity.value = settings.sensitivity.coerceIn(0f, 1f)
             }
         }
-    }
-
-    private fun clearCache() {
-        val context = requireContext()
-        context.imageLoader.memoryCache?.clear()
-        context.imageLoader.diskCache?.clear()
-        File(context.cacheDir, "shared").deleteRecursively()
-        Snackbar.make(binding.root, R.string.cache_cleared, Snackbar.LENGTH_SHORT).show()
     }
 
     private fun openPlayStore() {

@@ -6,10 +6,10 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -28,7 +28,7 @@ public final class FragmentResultBinding implements ViewBinding {
   public final ImageView btnBack;
 
   @NonNull
-  public final AppCompatButton btnSetBackground;
+  public final LinearLayout btnSetBackground;
 
   @NonNull
   public final ImageView resultBg;
@@ -52,7 +52,7 @@ public final class FragmentResultBinding implements ViewBinding {
   public final TextView title;
 
   private FragmentResultBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView btnBack,
-      @NonNull AppCompatButton btnSetBackground, @NonNull ImageView resultBg,
+      @NonNull LinearLayout btnSetBackground, @NonNull ImageView resultBg,
       @NonNull MaterialCardView resultCard, @NonNull ParallaxImageView resultPreview,
       @NonNull ConstraintLayout resultRoot, @NonNull View resultScrim,
       @NonNull TextureView resultVideo, @NonNull TextView title) {
@@ -102,7 +102,7 @@ public final class FragmentResultBinding implements ViewBinding {
       }
 
       id = R.id.btnSetBackground;
-      AppCompatButton btnSetBackground = ViewBindings.findChildViewById(rootView, id);
+      LinearLayout btnSetBackground = ViewBindings.findChildViewById(rootView, id);
       if (btnSetBackground == null) {
         break missingId;
       }

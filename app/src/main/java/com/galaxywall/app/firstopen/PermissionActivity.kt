@@ -63,7 +63,9 @@ class PermissionActivity : AppCompatActivity() {
     private fun createView() {
         reflectGranted(isNotificationPermissionGranted(this))
 
-        binding.imageIcPer.setOnClickListener { requestNotificationPermission() }
+        binding.switchNotif.setOnClickListener {
+            if (!isNotificationPermissionGranted(this)) requestNotificationPermission()
+        }
         binding.button3.setOnClickListener {
             if (isNotificationPermissionGranted(this)) {
                 MainActivity.startMain(this)
@@ -80,8 +82,9 @@ class PermissionActivity : AppCompatActivity() {
         // Keep the label white/readable on the purple button in both states (the #666666 used by
         // the source looked invisible on a solid purple background). The button is always tappable.
         binding.button3.setTextColor(Color.WHITE)
-        binding.imageIcPer.isActivated = granted
-        binding.imageIcPer.isEnabled = !granted
+        // The switch reflects whether notifications are granted; once granted it's on and locked.
+        binding.switchNotif.isChecked = granted
+        binding.switchNotif.isEnabled = !granted
     }
 
     private fun requestNotificationPermission() {

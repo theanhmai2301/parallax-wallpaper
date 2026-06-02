@@ -15,16 +15,24 @@ object LiveWallpaperController {
     private const val KEY_LAYERS = "layers"
     private const val KEY_DEPTH = "depth"
     private const val KEY_EFFECT = "effect"
+    private const val KEY_FALLBACK = "fallback"
     private const val LINE = "\n"
 
     private fun prefs(context: Context) =
         context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 
-    fun setComposition(context: Context, layerUris: List<String>, depth: Float, effectOrdinal: Int) {
+    fun setComposition(
+        context: Context,
+        layerUris: List<String>,
+        depth: Float,
+        effectOrdinal: Int,
+        fallbackUri: String? = null
+    ) {
         prefs(context).edit()
             .putString(KEY_LAYERS, layerUris.joinToString(LINE))
             .putFloat(KEY_DEPTH, depth)
             .putInt(KEY_EFFECT, effectOrdinal)
+            .putString(KEY_FALLBACK, fallbackUri)
             .apply()
     }
 
@@ -33,6 +41,10 @@ object LiveWallpaperController {
             ?.split(LINE)
             ?.filter { it.isNotBlank() }
             ?: emptyList()
+
+    /** The pre-composed full image, used when a layer fails to load so the wallpaper still shows. */
+    fun getFallbackUri(context: Context): String? =
+        prefs(context).getString(KEY_FALLBACK, null)?.takeIf { it.isNotBlank() }
 
     fun getDepth(context: Context): Float = prefs(context).getFloat(KEY_DEPTH, 0.5f)
 

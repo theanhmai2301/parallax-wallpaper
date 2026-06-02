@@ -108,10 +108,16 @@ class WallpaperAdapter(
 
             // Load the thumbnail right away (Coil decodes off the main thread and cancels requests
             // for recycled views) so images keep up with scrolling instead of popping in late.
+            // Show a spinner while loading so the user knows the cell is fetching its image.
+            binding.loading.isVisible = true
             binding.thumb.load(item.thumbUri) {
                 crossfade(220)
                 placeholder(R.drawable.shape_shimmer)
                 error(R.drawable.ic_image_broken)
+                listener(
+                    onSuccess = { _, _ -> binding.loading.isVisible = false },
+                    onError = { _, _ -> binding.loading.isVisible = false }
+                )
             }
 
             binding.playBadge.isVisible = item.type == ContentType.VIDEO

@@ -122,10 +122,21 @@ class ParallaxWallpaperService : WallpaperService() {
             val effectOrdinal = LiveWallpaperController.getEffectOrdinal(applicationContext)
             val key = uris.joinToString("/") + "#$depthVal#$effectOrdinal@$surfaceW"
             if (loadedKey == key && renderLayers.isNotEmpty()) return
+            val fallbackUri = LiveWallpaperController.getFallbackUri(applicationContext)
             scope.launch {
                 val size = Size(surfaceW, surfaceH)
                 val bitmaps = withContext(Dispatchers.IO) {
-                    uris.mapNotNull { BitmapLoader.load(applicationContext, it, size) }
+                    val loaded = uris.map { BitmapLoader.load(applicationContext, it, size) }
+                    val allLoaded = loaded.none { it == null }
+                    // The top (last) layer must keep transparency; an opaque top hides everything below.
+                    val topOpaque = loaded.lastOrNull()?.let { !it.hasAlpha() } ?: true
+                    if (uris.size > 1 && (!allLoaded || topOpaque) && fallbackUri != null) {
+                        // Broken layer stack -> show the pre-composed full image instead.
+                        BitmapLoader.load(applicationContext, fallbackUri, size)?.let { listOf(it) }
+                            ?: loaded.filterNotNull()
+                    } else {
+                        loaded.filterNotNull()
+                    }
                 }
                 renderLayers = bitmaps
                 depth = depthVal

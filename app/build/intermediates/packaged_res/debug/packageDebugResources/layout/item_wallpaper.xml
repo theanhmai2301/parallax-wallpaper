@@ -47,6 +47,18 @@
             app:layout_constraintStart_toStartOf="@id/thumb"
             app:layout_constraintTop_toTopOf="@id/thumb" />
 
+        <!-- Spinner shown while the thumbnail is loading; hidden once it loads (or fails). -->
+        <ProgressBar
+            android:id="@+id/loading"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:indeterminateTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/thumb"
+            app:layout_constraintEnd_toEndOf="@id/thumb"
+            app:layout_constraintStart_toStartOf="@id/thumb"
+            app:layout_constraintTop_toTopOf="@id/thumb" />
+
         <ImageView
             android:id="@+id/playBadge"
             android:layout_width="44dp"

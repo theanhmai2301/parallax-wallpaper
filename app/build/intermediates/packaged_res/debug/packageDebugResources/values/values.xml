@@ -129,6 +129,7 @@
     <string name="settings_dynamic_color_sub">Use colors from your system (Android 12+)</string>
     <string name="settings_enable_parallax">Enable parallax motion</string>
     <string name="settings_enable_parallax_sub">Layers react to gyroscope and tilt</string>
+    <string name="settings_feedback">Feedback</string>
     <string name="settings_general">General</string>
     <string name="settings_parallax">Parallax</string>
     <string name="settings_privacy">Privacy policy</string>
@@ -138,6 +139,12 @@
     <string name="settings_version">Version</string>
     <string name="success_back_home">Back to home</string>
     <string name="success_subtitle">Your wallpaper has been set successfully.</string>
+    <string name="survey_colorful">Colorful</string>
+    <string name="survey_explore">Explore</string>
+    <string name="survey_featured">Featured</string>
+    <string name="survey_live">Live</string>
+    <string name="survey_parallax">Parallax</string>
+    <string name="survey_photos">Photos</string>
     <string name="swipe_to_continue">Swipe to continue</string>
     <string name="tab_diy">DIY Wallpaper</string>
     <string name="tab_favorites">Favorites</string>

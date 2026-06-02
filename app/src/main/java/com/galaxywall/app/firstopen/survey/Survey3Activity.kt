@@ -54,7 +54,7 @@ class Survey3Activity : AppCompatActivity() {
         binding.recyclerView.layoutManager = GridLayoutManager(this, 2)
         binding.lottieAnimationView.visibility = View.INVISIBLE
 
-        surveyList = (intent?.getSerializableExtra("survey_list") as? ArrayList<Survey>) ?: surveyTopics()
+        surveyList = (intent?.getSerializableExtra("survey_list") as? ArrayList<Survey>) ?: surveyTopics(this)
         selectedPosition = intent.getIntExtra("selected_position", -1)
         if (selectedPosition != -1) surveyList[selectedPosition].isSelected = true
 

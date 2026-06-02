@@ -20,6 +20,10 @@ class LanguageAdapter(
     private val items = ArrayList<Language>()
     var currentSelect = -1
 
+    // Cache the check icons once instead of decoding them on every bind (smoother scrolling).
+    private val selectedIcon by lazy { AppCompatResources.getDrawable(context, R.drawable.ic_select_lang) }
+    private val unselectedIcon by lazy { AppCompatResources.getDrawable(context, R.drawable.ic_un_select_lang) }
+
     fun setItems(list: List<Language>) {
         items.clear()
         items.addAll(list)
@@ -43,24 +47,18 @@ class LanguageAdapter(
         with(holder.binding) {
             txtNameLanguage.text = item.title
             imgIconLanguage.setImageResource(item.flag)
-            if (item.isChoose) {
-                imgChooseLanguage.setImageDrawable(
-                    AppCompatResources.getDrawable(context, R.drawable.ic_select_lang)
-                )
-                languageItem.isActivated = true
-            } else {
-                imgChooseLanguage.setImageDrawable(
-                    AppCompatResources.getDrawable(context, R.drawable.ic_un_select_lang)
-                )
-                languageItem.isActivated = false
-            }
+            imgChooseLanguage.setImageDrawable(if (item.isChoose) selectedIcon else unselectedIcon)
+            languageItem.isActivated = item.isChoose
             root.setOnClickListener {
-                listener.onClickItemListener(item, position)
-                for (i in items.indices) {
-                    items[i].isChoose = i == position
-                }
-                notifyDataSetChanged()
-                currentSelect = position
+                val pos = holder.bindingAdapterPosition
+                if (pos == RecyclerView.NO_POSITION) return@setOnClickListener
+                listener.onClickItemListener(items[pos], pos)
+                val prev = currentSelect
+                for (i in items.indices) items[i].isChoose = i == pos
+                currentSelect = pos
+                // Only refresh the two affected rows (no full rebind).
+                if (prev in items.indices) notifyItemChanged(prev)
+                notifyItemChanged(pos)
             }
         }
     }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,6 +32,9 @@ public final class ItemWallpaperBinding implements ViewBinding {
   public final ImageView favoriteButton;
 
   @NonNull
+  public final ProgressBar loading;
+
+  @NonNull
   public final View overlay;
 
   @NonNull
@@ -49,13 +53,15 @@ public final class ItemWallpaperBinding implements ViewBinding {
   public final TextView title;
 
   private ItemWallpaperBinding(@NonNull MaterialCardView rootView, @NonNull MaterialCardView card,
-      @NonNull TextView categoryTag, @NonNull ImageView favoriteButton, @NonNull View overlay,
-      @NonNull ImageView playBadge, @NonNull TextView resolution, @NonNull ImageView thumb,
+      @NonNull TextView categoryTag, @NonNull ImageView favoriteButton,
+      @NonNull ProgressBar loading, @NonNull View overlay, @NonNull ImageView playBadge,
+      @NonNull TextView resolution, @NonNull ImageView thumb,
       @NonNull ParallaxImageView thumbParallax, @NonNull TextView title) {
     this.rootView = rootView;
     this.card = card;
     this.categoryTag = categoryTag;
     this.favoriteButton = favoriteButton;
+    this.loading = loading;
     this.overlay = overlay;
     this.playBadge = playBadge;
     this.resolution = resolution;
@@ -105,6 +111,12 @@ public final class ItemWallpaperBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.loading;
+      ProgressBar loading = ViewBindings.findChildViewById(rootView, id);
+      if (loading == null) {
+        break missingId;
+      }
+
       id = R.id.overlay;
       View overlay = ViewBindings.findChildViewById(rootView, id);
       if (overlay == null) {
@@ -142,7 +154,7 @@ public final class ItemWallpaperBinding implements ViewBinding {
       }
 
       return new ItemWallpaperBinding((MaterialCardView) rootView, card, categoryTag,
-          favoriteButton, overlay, playBadge, resolution, thumb, thumbParallax, title);
+          favoriteButton, loading, overlay, playBadge, resolution, thumb, thumbParallax, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

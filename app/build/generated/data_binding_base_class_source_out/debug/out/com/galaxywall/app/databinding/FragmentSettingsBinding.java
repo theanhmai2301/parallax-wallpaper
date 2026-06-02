@@ -31,13 +31,19 @@ public final class FragmentSettingsBinding implements ViewBinding {
   public final ImageView btnBack;
 
   @NonNull
-  public final LinearLayout rowClearCache;
+  public final LinearLayout rowFeedback;
+
+  @NonNull
+  public final LinearLayout rowLanguage;
 
   @NonNull
   public final LinearLayout rowPrivacy;
 
   @NonNull
   public final LinearLayout rowRate;
+
+  @NonNull
+  public final LinearLayout rowShare;
 
   @NonNull
   public final LinearLayout settingsContent;
@@ -63,23 +69,23 @@ public final class FragmentSettingsBinding implements ViewBinding {
   @NonNull
   public final MaterialSwitch switchParallax;
 
-  @NonNull
-  public final TextView textVersion;
-
   private FragmentSettingsBinding(@NonNull ConstraintLayout rootView,
       @NonNull ViewBottomNavBinding bottomNav, @NonNull ImageView btnBack,
-      @NonNull LinearLayout rowClearCache, @NonNull LinearLayout rowPrivacy,
-      @NonNull LinearLayout rowRate, @NonNull LinearLayout settingsContent,
+      @NonNull LinearLayout rowFeedback, @NonNull LinearLayout rowLanguage,
+      @NonNull LinearLayout rowPrivacy, @NonNull LinearLayout rowRate,
+      @NonNull LinearLayout rowShare, @NonNull LinearLayout settingsContent,
       @NonNull TextView settingsHeaderTitle, @NonNull ConstraintLayout settingsRoot,
       @NonNull NestedScrollView settingsScroll, @NonNull Slider sliderSensitivity,
       @NonNull MaterialSwitch switchDarkMode, @NonNull MaterialSwitch switchDynamic,
-      @NonNull MaterialSwitch switchParallax, @NonNull TextView textVersion) {
+      @NonNull MaterialSwitch switchParallax) {
     this.rootView = rootView;
     this.bottomNav = bottomNav;
     this.btnBack = btnBack;
-    this.rowClearCache = rowClearCache;
+    this.rowFeedback = rowFeedback;
+    this.rowLanguage = rowLanguage;
     this.rowPrivacy = rowPrivacy;
     this.rowRate = rowRate;
+    this.rowShare = rowShare;
     this.settingsContent = settingsContent;
     this.settingsHeaderTitle = settingsHeaderTitle;
     this.settingsRoot = settingsRoot;
@@ -88,7 +94,6 @@ public final class FragmentSettingsBinding implements ViewBinding {
     this.switchDarkMode = switchDarkMode;
     this.switchDynamic = switchDynamic;
     this.switchParallax = switchParallax;
-    this.textVersion = textVersion;
   }
 
   @Override
@@ -131,9 +136,15 @@ public final class FragmentSettingsBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.rowClearCache;
-      LinearLayout rowClearCache = ViewBindings.findChildViewById(rootView, id);
-      if (rowClearCache == null) {
+      id = R.id.rowFeedback;
+      LinearLayout rowFeedback = ViewBindings.findChildViewById(rootView, id);
+      if (rowFeedback == null) {
+        break missingId;
+      }
+
+      id = R.id.rowLanguage;
+      LinearLayout rowLanguage = ViewBindings.findChildViewById(rootView, id);
+      if (rowLanguage == null) {
         break missingId;
       }
 
@@ -146,6 +157,12 @@ public final class FragmentSettingsBinding implements ViewBinding {
       id = R.id.rowRate;
       LinearLayout rowRate = ViewBindings.findChildViewById(rootView, id);
       if (rowRate == null) {
+        break missingId;
+      }
+
+      id = R.id.rowShare;
+      LinearLayout rowShare = ViewBindings.findChildViewById(rootView, id);
+      if (rowShare == null) {
         break missingId;
       }
 
@@ -193,16 +210,10 @@ public final class FragmentSettingsBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.textVersion;
-      TextView textVersion = ViewBindings.findChildViewById(rootView, id);
-      if (textVersion == null) {
-        break missingId;
-      }
-
       return new FragmentSettingsBinding((ConstraintLayout) rootView, binding_bottomNav, btnBack,
-          rowClearCache, rowPrivacy, rowRate, settingsContent, settingsHeaderTitle, settingsRoot,
-          settingsScroll, sliderSensitivity, switchDarkMode, switchDynamic, switchParallax,
-          textVersion);
+          rowFeedback, rowLanguage, rowPrivacy, rowRate, rowShare, settingsContent,
+          settingsHeaderTitle, settingsRoot, settingsScroll, sliderSensitivity, switchDarkMode,
+          switchDynamic, switchParallax);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

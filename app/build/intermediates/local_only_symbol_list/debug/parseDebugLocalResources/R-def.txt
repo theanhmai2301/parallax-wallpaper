@@ -190,8 +190,6 @@ id frAds
 id homeFragment
 id homeRoot
 id illuContainer
-id imageIcPer
-id imgBack
 id imgChooseLanguage
 id imgConfirm
 id imgIconLanguage
@@ -203,6 +201,7 @@ id language_item
 id llBtn
 id llParent
 id ll_title
+id loading
 id lottieAnimationView
 id navCategory
 id navCategoryIcon
@@ -244,9 +243,11 @@ id resultPreview
 id resultRoot
 id resultScrim
 id resultVideo
-id rowClearCache
+id rowFeedback
+id rowLanguage
 id rowPrivacy
 id rowRate
+id rowShare
 id searchIcon
 id searchInput
 id settingsContent
@@ -257,12 +258,6 @@ id settingsScroll
 id shimmerLayout
 id sliderDepth
 id sliderSensitivity
-id slotBottomCard
-id slotBottomHint
-id slotBottomImage
-id slotTopCard
-id slotTopHint
-id slotTopImage
 id splashProgress
 id splashRoot
 id successBg
@@ -272,8 +267,8 @@ id successScrim
 id swipeRefresh
 id switchDarkMode
 id switchDynamic
+id switchNotif
 id switchParallax
-id textVersion
 id thumb
 id thumbParallax
 id title
@@ -281,7 +276,6 @@ id toolbar
 id toolbarTitle
 id tvAppName
 id tvChooseLanguage
-id tvLanguages
 id tvMessage
 id tvSetting
 id tv_des_onboard
@@ -408,6 +402,7 @@ string settings_dynamic_color
 string settings_dynamic_color_sub
 string settings_enable_parallax
 string settings_enable_parallax_sub
+string settings_feedback
 string settings_general
 string settings_parallax
 string settings_privacy
@@ -417,6 +412,12 @@ string settings_title
 string settings_version
 string success_back_home
 string success_subtitle
+string survey_colorful
+string survey_explore
+string survey_featured
+string survey_live
+string survey_parallax
+string survey_photos
 string swipe_to_continue
 string tab_diy
 string tab_favorites
