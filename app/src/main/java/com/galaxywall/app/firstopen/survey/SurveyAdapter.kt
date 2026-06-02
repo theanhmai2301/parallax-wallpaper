@@ -25,7 +25,7 @@ class SurveyAdapter(
         list.filter { it.isSelected }.forEach { selectedItems.add(it) }
     }
 
-    inner class SurveyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class SurveyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imgAnimal: ImageView = itemView.findViewById(R.id.img_animal)
         val tvAnimalName: TextView = itemView.findViewById(R.id.tv_survey)
         val imgCheck: ImageView = itemView.findViewById(R.id.ivCheck)

@@ -77,7 +77,9 @@ class PermissionActivity : AppCompatActivity() {
 
     private fun reflectGranted(granted: Boolean) {
         binding.button3.isActivated = granted
-        binding.button3.setTextColor(if (granted) Color.WHITE else Color.parseColor("#666666"))
+        // Keep the label white/readable on the purple button in both states (the #666666 used by
+        // the source looked invisible on a solid purple background). The button is always tappable.
+        binding.button3.setTextColor(Color.WHITE)
         binding.imageIcPer.isActivated = granted
         binding.imageIcPer.isEnabled = !granted
     }
