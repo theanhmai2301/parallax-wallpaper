@@ -12,18 +12,14 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import coil.load
 import com.galaxywall.app.R
 import com.galaxywall.app.databinding.FragmentSuccessBinding
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 /**
  * Confirmation screen shown after a wallpaper is applied. Uses the same blurred-wallpaper backdrop
- * as the preview/result screens. Returns to Home when the user taps the button or automatically
- * after a short delay (whichever happens first).
+ * as the preview/result screens. Stays on screen until the user taps "Back to home" (no auto-dismiss).
  */
 class SuccessFragment : Fragment() {
 
@@ -60,13 +56,8 @@ class SuccessFragment : Fragment() {
         }
         builderViewModel.currentWallpaper()?.thumbUri?.let { binding.successBg.load(it) }
 
+        // Stays on screen until the user taps the button — no auto-dismiss.
         binding.btnHome.setOnClickListener { goHome() }
-
-        // Auto-return to Home after a short confirmation moment.
-        viewLifecycleOwner.lifecycleScope.launch {
-            delay(2200)
-            goHome()
-        }
     }
 
     private fun goHome() {
