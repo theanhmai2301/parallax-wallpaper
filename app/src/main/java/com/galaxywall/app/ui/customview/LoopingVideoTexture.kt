@@ -17,6 +17,10 @@ class LoopingVideoTexture(private val textureView: TextureView) {
     private var surface: Surface? = null
     private var url: String? = null
     private var available = textureView.isAvailable
+    private var prepared = false
+
+    /** Whether the prepared player should be playing (play) or paused-after-buffering (preload). */
+    private var shouldPlay = false
 
     init {
         textureView.surfaceTextureListener = object : TextureView.SurfaceTextureListener {
@@ -37,15 +41,36 @@ class LoopingVideoTexture(private val textureView: TextureView) {
         }
     }
 
-    /** Starts (or restarts) playback of [videoUrl], looping and muted. */
+    /** Starts (or resumes) playback of [videoUrl], looping and muted. If it was preloaded, the
+     *  buffered player just starts — no fresh network open, so the swap is instant. */
     fun play(videoUrl: String) {
-        if (url == videoUrl && player != null) return
+        shouldPlay = true
+        if (url == videoUrl && player != null) {
+            if (prepared) runCatching { player?.start() }
+            return
+        }
+        url = videoUrl
+        openIfReady()
+    }
+
+    /** Buffers [videoUrl] ahead of time but stays paused (used for the off-centre neighbour pages),
+     *  so swiping onto the page resumes instantly instead of waiting for a fresh network prepare. */
+    fun preload(videoUrl: String) {
+        shouldPlay = false
+        if (url == videoUrl && player != null) {
+            // Already opened. Only pause if it is actually playing (this page just left the centre).
+            // Calling pause() on a merely-PREPARED player is invalid and throws error (-38), which
+            // pushes the player into an Error state so it can never start afterwards.
+            runCatching { if (player?.isPlaying == true) player?.pause() }
+            return
+        }
         url = videoUrl
         openIfReady()
     }
 
     fun stop() {
         url = null
+        shouldPlay = false
         releasePlayer()
     }
 
@@ -55,11 +80,15 @@ class LoopingVideoTexture(private val textureView: TextureView) {
         val st = textureView.surfaceTexture ?: return
         releasePlayer()
         surface = Surface(st)
+        prepared = false
         player = MediaPlayer().apply {
             setOnPreparedListener {
+                prepared = true
                 it.isLooping = true
                 it.setVolume(0f, 0f)
-                runCatching { it.start() }
+                // Only auto-start when this page is the centred (playing) one; preloaded neighbours
+                // stay paused at the buffered first frame.
+                if (shouldPlay) runCatching { it.start() }
             }
             setOnErrorListener { _, what, extra ->
                 Log.e("LoopingVideoTexture", "MediaPlayer error what=$what extra=$extra url=$u")
@@ -74,6 +103,7 @@ class LoopingVideoTexture(private val textureView: TextureView) {
     }
 
     private fun releasePlayer() {
+        prepared = false
         runCatching { player?.release() }
         player = null
         surface?.release()

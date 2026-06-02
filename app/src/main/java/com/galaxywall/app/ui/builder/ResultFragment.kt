@@ -1,7 +1,13 @@
 package com.galaxywall.app.ui.builder
 
+import android.app.Activity
 import android.app.Dialog
+import android.app.WallpaperManager
+import android.graphics.RenderEffect
+import android.graphics.Shader
+import android.os.Build
 import android.os.Bundle
+import androidx.activity.result.contract.ActivityResultContracts
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,11 +25,14 @@ import com.galaxywall.app.R
 import com.galaxywall.app.data.local.SettingsManager
 import com.galaxywall.app.data.model.ContentType
 import com.galaxywall.app.databinding.FragmentResultBinding
+import coil.load
 import com.galaxywall.app.sensors.ParallaxSensorManager
 import com.galaxywall.app.ui.customview.LoopingVideoTexture
 import com.galaxywall.app.util.collectWhenStarted
 import com.galaxywall.app.wallpaper.LiveWallpaperController
+import com.galaxywall.app.wallpaper.ParallaxWallpaperService
 import com.galaxywall.app.wallpaper.VideoWallpaperController
+import com.galaxywall.app.wallpaper.VideoWallpaperService
 import com.galaxywall.app.wallpaper.WallpaperApplier
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -71,6 +80,14 @@ class ResultFragment : Fragment() {
         binding.resultPreview.targetAspect = 0f
         (binding.resultCard.layoutParams as ConstraintLayout.LayoutParams).dimensionRatio =
             "W,${dm.widthPixels}:${dm.heightPixels}"
+
+        // Blurred wallpaper thumbnail as the background (like the preview screen).
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            binding.resultBg.setRenderEffect(
+                RenderEffect.createBlurEffect(50f, 50f, Shader.TileMode.CLAMP)
+            )
+        }
+        builderViewModel.currentWallpaper()?.thumbUri?.let { binding.resultBg.load(it) }
 
         binding.btnBack.setOnClickListener { findNavController().navigateUp() }
         binding.btnSetBackground.setOnClickListener { showAdGate() }
@@ -137,44 +154,89 @@ class ResultFragment : Fragment() {
             showProgress(getString(R.string.ad_loading))
             delay(1800)
             dismissProgress()
-            when (builderViewModel.currentType()) {
-                ContentType.IMAGE -> builderViewModel.applyStaticImage(WallpaperApplier.Target.BOTH)
-                ContentType.VIDEO -> setVideoWallpaper()
-                ContentType.PARALLAX -> applyParallax()
-            }
+            // One unified "set wallpaper" action for every type; all end on the success screen.
+            applyWallpaper()
+        }
+    }
+
+    private fun applyWallpaper() {
+        when (builderViewModel.currentType()) {
+            ContentType.IMAGE -> builderViewModel.applyStaticImage(WallpaperApplier.Target.BOTH)
+            ContentType.PARALLAX -> applyParallax()
+            ContentType.VIDEO -> applyVideo()
         }
     }
 
     private fun applyParallax() {
-        // Save the composition (layers + depth + effect) for the live wallpaper.
+        // Keep the live tilt effect via the system live-wallpaper picker.
         builderViewModel.saveLiveComposition()
-        // Set as a live parallax wallpaper so the 3D tilt works on the home screen.
         try {
-            startActivity(LiveWallpaperController.changeIntent(requireContext()))
+            liveWallpaperLauncher.launch(LiveWallpaperController.changeIntent(requireContext()))
         } catch (e: Exception) {
             // Device without a live-wallpaper picker → fall back to a static composite.
             builderViewModel.setWallpaper(WallpaperApplier.Target.BOTH)
         }
     }
 
-    private fun setVideoWallpaper() {
+    private fun applyVideo() {
         val url = builderViewModel.currentWallpaper()?.sourceUrl
         if (url == null) {
             Snackbar.make(binding.root, R.string.apply_error, Snackbar.LENGTH_SHORT).show()
             return
         }
+        // Keep the looping video via the system live-wallpaper picker.
         VideoWallpaperController.setVideo(requireContext(), url)
         try {
-            startActivity(VideoWallpaperController.changeIntent(requireContext()))
+            liveWallpaperLauncher.launch(VideoWallpaperController.changeIntent(requireContext()))
         } catch (e: Exception) {
-            Snackbar.make(binding.root, R.string.apply_error, Snackbar.LENGTH_SHORT).show()
+            // No live-wallpaper picker → fall back to the video's poster frame as a static image.
+            val poster = builderViewModel.currentWallpaper()?.thumbUri
+            if (poster != null) {
+                builderViewModel.applyStaticFromUrl(poster, WallpaperApplier.Target.BOTH)
+            } else {
+                Snackbar.make(binding.root, R.string.apply_error, Snackbar.LENGTH_SHORT).show()
+            }
         }
     }
 
+    /** Launches the system live-wallpaper picker and, on return, treats it as success if our service
+     *  became the active wallpaper. Result codes are unreliable across devices, and the system also
+     *  updates WallpaperManager.wallpaperInfo a moment AFTER the picker closes, so we accept an
+     *  explicit RESULT_OK and otherwise poll wallpaperInfo briefly before giving up. */
+    private val liveWallpaperLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            viewLifecycleOwner.lifecycleScope.launch {
+                if (result.resultCode == Activity.RESULT_OK) {
+                    onApplied(true)
+                    return@launch
+                }
+                repeat(8) {
+                    if (isOurLiveWallpaperActive()) {
+                        onApplied(true)
+                        return@launch
+                    }
+                    delay(300)
+                }
+            }
+        }
+
+    private fun isOurLiveWallpaperActive(): Boolean {
+        val info = WallpaperManager.getInstance(requireContext()).wallpaperInfo ?: return false
+        val cls = info.component?.className ?: return false
+        return cls == ParallaxWallpaperService::class.java.name ||
+            cls == VideoWallpaperService::class.java.name
+    }
+
     private fun onApplied(success: Boolean) {
-        val message = getString(if (success) R.string.apply_success else R.string.apply_error)
-        Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
-        if (success) findNavController().popBackStack(R.id.homeFragment, false)
+        if (success) {
+            // Show the success screen; it returns to Home (auto or via its button). Guard against
+            // a late callback (e.g. the wallpaperInfo poll) firing after we already navigated away.
+            if (findNavController().currentDestination?.id == R.id.resultFragment) {
+                findNavController().navigate(R.id.action_result_to_success)
+            }
+        } else {
+            Snackbar.make(binding.root, R.string.apply_error, Snackbar.LENGTH_SHORT).show()
+        }
     }
 
     private fun showProgress(message: String) {

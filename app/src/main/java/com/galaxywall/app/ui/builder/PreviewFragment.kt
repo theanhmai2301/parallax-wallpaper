@@ -1,5 +1,8 @@
 package com.galaxywall.app.ui.builder
 
+import android.graphics.RenderEffect
+import android.graphics.Shader
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import coil.load
 import coil.size.Size
 import com.galaxywall.app.R
 import com.galaxywall.app.data.local.SettingsManager
@@ -43,8 +47,17 @@ class PreviewFragment : Fragment() {
 
     private val pageCallback = object : ViewPager2.OnPageChangeCallback() {
         override fun onPageSelected(position: Int) {
+            // Keep this light so the swipe gesture stays smooth: only record the index here. The
+            // heavy work (starting the video player + loading the blurred background) is deferred
+            // to onPageScrollStateChanged(IDLE) below, i.e. once the swipe has actually settled.
             builderViewModel.setIndex(position)
-            updateVideoPlayback()
+        }
+
+        override fun onPageScrollStateChanged(state: Int) {
+            if (state == ViewPager2.SCROLL_STATE_IDLE) {
+                updateVideoPlayback()
+                updateBackground(binding.previewPager.currentItem)
+            }
         }
     }
 
@@ -91,6 +104,14 @@ class PreviewFragment : Fragment() {
         setupPeek()
         binding.previewPager.post { updateVideoPlayback() }
 
+        // Blur the background image (API 31+); the scrim on top keeps it dim either way.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            binding.previewBg.setRenderEffect(
+                RenderEffect.createBlurEffect(50f, 50f, Shader.TileMode.CLAMP)
+            )
+        }
+        updateBackground(builderViewModel.index.value)
+
         binding.btnBack.setOnClickListener { findNavController().navigateUp() }
         binding.btnNext.setOnClickListener { openSelected() }
 
@@ -118,14 +139,27 @@ class PreviewFragment : Fragment() {
         }
     }
 
-    /** Plays only the centered page's video; pauses the rest to keep it light. */
+    /** Sets the blurred screen background to the current item's thumbnail (works for parallax,
+     *  image and video — each carries a preview thumbnail). */
+    private fun updateBackground(position: Int) {
+        val wp = builderViewModel.previewList.getOrNull(position) ?: return
+        binding.previewBg.load(wp.thumbUri) { crossfade(300) }
+    }
+
+    /** Plays the centered page's video and preloads (buffers, paused) ONLY the two immediate
+     *  neighbours so the next swipe resumes instantly. Pages further out (the peek pages on each
+     *  side) are released so they don't open extra HTTP streams and starve the centre of bandwidth. */
     private fun updateVideoPlayback() {
         val rv = binding.previewPager.getChildAt(0) as? RecyclerView ?: return
         val current = binding.previewPager.currentItem
         for (i in 0 until rv.childCount) {
             val holder = rv.getChildViewHolder(rv.getChildAt(i)) as? PreviewPagerAdapter.PageVH
                 ?: continue
-            if (holder.bindingAdapterPosition == current) holder.playVideo() else holder.stopVideo()
+            when (holder.bindingAdapterPosition) {
+                current -> holder.playVideo()
+                current - 1, current + 1 -> holder.preloadVideo()
+                else -> holder.stopVideo()
+            }
         }
     }
 
@@ -167,10 +201,14 @@ class PreviewFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         sensorManager.start()
+        // Re-arm playback/preload after returning (videos were released in onPause).
+        binding.previewPager.post { updateVideoPlayback() }
     }
 
     override fun onPause() {
         sensorManager.stop()
+        // Release players when leaving the screen so nothing streams/decodes in the background.
+        stopAllVideos()
         super.onPause()
     }
 

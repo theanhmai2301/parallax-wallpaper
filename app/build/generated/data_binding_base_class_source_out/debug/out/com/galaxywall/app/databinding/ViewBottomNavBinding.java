@@ -31,6 +31,15 @@ public final class ViewBottomNavBinding implements ViewBinding {
   public final TextView navCategoryText;
 
   @NonNull
+  public final LinearLayout navFavorite;
+
+  @NonNull
+  public final ImageView navFavoriteIcon;
+
+  @NonNull
+  public final TextView navFavoriteText;
+
+  @NonNull
   public final LinearLayout navHome;
 
   @NonNull
@@ -50,14 +59,18 @@ public final class ViewBottomNavBinding implements ViewBinding {
 
   private ViewBottomNavBinding(@NonNull MaterialCardView rootView,
       @NonNull LinearLayout navCategory, @NonNull ImageView navCategoryIcon,
-      @NonNull TextView navCategoryText, @NonNull LinearLayout navHome,
-      @NonNull ImageView navHomeIcon, @NonNull TextView navHomeText,
+      @NonNull TextView navCategoryText, @NonNull LinearLayout navFavorite,
+      @NonNull ImageView navFavoriteIcon, @NonNull TextView navFavoriteText,
+      @NonNull LinearLayout navHome, @NonNull ImageView navHomeIcon, @NonNull TextView navHomeText,
       @NonNull LinearLayout navSetting, @NonNull ImageView navSettingIcon,
       @NonNull TextView navSettingText) {
     this.rootView = rootView;
     this.navCategory = navCategory;
     this.navCategoryIcon = navCategoryIcon;
     this.navCategoryText = navCategoryText;
+    this.navFavorite = navFavorite;
+    this.navFavoriteIcon = navFavoriteIcon;
+    this.navFavoriteText = navFavoriteText;
     this.navHome = navHome;
     this.navHomeIcon = navHomeIcon;
     this.navHomeText = navHomeText;
@@ -111,6 +124,24 @@ public final class ViewBottomNavBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.navFavorite;
+      LinearLayout navFavorite = ViewBindings.findChildViewById(rootView, id);
+      if (navFavorite == null) {
+        break missingId;
+      }
+
+      id = R.id.navFavoriteIcon;
+      ImageView navFavoriteIcon = ViewBindings.findChildViewById(rootView, id);
+      if (navFavoriteIcon == null) {
+        break missingId;
+      }
+
+      id = R.id.navFavoriteText;
+      TextView navFavoriteText = ViewBindings.findChildViewById(rootView, id);
+      if (navFavoriteText == null) {
+        break missingId;
+      }
+
       id = R.id.navHome;
       LinearLayout navHome = ViewBindings.findChildViewById(rootView, id);
       if (navHome == null) {
@@ -148,8 +179,8 @@ public final class ViewBottomNavBinding implements ViewBinding {
       }
 
       return new ViewBottomNavBinding((MaterialCardView) rootView, navCategory, navCategoryIcon,
-          navCategoryText, navHome, navHomeIcon, navHomeText, navSetting, navSettingIcon,
-          navSettingText);
+          navCategoryText, navFavorite, navFavoriteIcon, navFavoriteText, navHome, navHomeIcon,
+          navHomeText, navSetting, navSettingIcon, navSettingText);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

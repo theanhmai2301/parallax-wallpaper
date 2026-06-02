@@ -68,14 +68,18 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/bg_pill_tag"
+            android:drawablePadding="4dp"
+            android:gravity="center_vertical"
             android:paddingHorizontal="10dp"
             android:paddingVertical="4dp"
             android:textColor="@color/white"
             android:textSize="11sp"
             android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_layers"
+            app:drawableTint="@color/white"
             app:layout_constraintStart_toStartOf="@id/thumb"
             app:layout_constraintTop_toTopOf="@id/thumb"
-            tools:text="Anime" />
+            tools:text="Parallax" />
 
         <ImageView
             android:id="@+id/favoriteButton"

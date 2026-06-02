@@ -19,7 +19,12 @@
       "Bash(python -c \"import sys,json,re; d=json.load\\(sys.stdin\\)['data']; g={}; [g.setdefault\\(re.match\\(r'^\\([A-Za-z]+\\\\d+?\\)\\(\\\\d\\)\\\\.',i['filename']\\).group\\(1\\),{}\\).__setitem__\\(int\\(re.match\\(r'^\\([A-Za-z]+\\\\d+?\\)\\(\\\\d\\)\\\\.',i['filename']\\).group\\(2\\)\\), i['filename']\\) for i in d if re.match\\(r'^\\([A-Za-z]+\\\\d+?\\)\\(\\\\d\\)\\\\.',i['filename']\\)]; print\\('groups:', len\\(g\\)\\); [print\\(k, sorted\\(v.items\\(\\)\\)\\) for k,v in list\\(g.items\\(\\)\\)[:4]]\")",
       "Bash(curl -s -m 90 \"https://wallpaper-data-server.onrender.com/api/parallax?category=Galaxy&limit=200\")",
       "Bash(git rm *)",
-      "Bash(cd \"C:/Users/maing/AndroidStudioProjects/parallax-wallpaper\" && stat -c '%y  %s bytes' app/build/outputs/apk/debug/app-debug.apk)"
+      "Bash(cd \"C:/Users/maing/AndroidStudioProjects/parallax-wallpaper\" && stat -c '%y  %s bytes' app/build/outputs/apk/debug/app-debug.apk)",
+      "PowerShell(Get-ChildItem \"app\\\\build\\\\outputs\\\\apk\\\\debug\\\\app-debug.apk\", \"$env:USERPROFILE\\\\Downloads\\\\parallax-wallpaper-debug.apk\" | Select-Object FullName, LastWriteTime | Format-List)",
+      "Bash(xargs grep -l \"dialog\\\\|Dialog\\\\|choose\\\\|screen\")",
+      "PowerShell(.\\\\gradlew.bat compileDebugKotlin --console=plain -q)",
+      "PowerShell(Get-ChildItem -Force | Select-Object Name; Write-Output \"---gradle---\"; \\(Get-Command gradle -ErrorAction SilentlyContinue\\).Source)",
+      "PowerShell($env:JAVA_HOME = \"C:\\\\Program Files\\\\Android\\\\Android Studio\\\\jbr\"; $java = \"$env:JAVA_HOME\\\\bin\\\\java.exe\"; $gradleHome = \"C:\\\\Users\\\\maing\\\\.gradle\\\\wrapper\\\\dists\\\\gradle-8.9-bin\\\\90cnw93cvbtalezasaz0blq0a\\\\gradle-8.9\"; & $java \"-Dorg.gradle.appname=gradlew\" -classpath \"$gradleHome\\\\lib\\\\gradle-launcher-8.9.jar\" org.gradle.launcher.GradleMain compileDebugKotlin --console=plain)"
     ]
   }
 }

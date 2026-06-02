@@ -195,6 +195,18 @@ class BuilderViewModel @Inject constructor(
         }
     }
 
+    /** Applies an arbitrary image [url] (e.g. a video poster frame) as a static wallpaper to
+     *  [target]. Used for the lock-screen option of live wallpapers, where Android cannot show a
+     *  live wallpaper, so a still frame is set instead. */
+    fun applyStaticFromUrl(url: String, target: WallpaperApplier.Target) {
+        viewModelScope.launch {
+            _working.value = context.getString(R.string.applying)
+            val ok = applier.applyFromUrl(url, target)
+            _working.value = null
+            _events.emit(Event.Applied(ok))
+        }
+    }
+
     /** Saves the composition (layers + depth + effect) for the live wallpaper service. */
     fun saveLiveComposition() {
         LiveWallpaperController.setComposition(

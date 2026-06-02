@@ -33,6 +33,7 @@
         android:contentDescription="@string/cd_favorite"
         android:padding="10dp"
         android:src="@drawable/ic_favorite_border"
+        android:visibility="gone"
         app:tint="?attr/colorOnBackground" />
 
     <ImageView

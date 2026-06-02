@@ -8,6 +8,8 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import android.content.Context
+import android.graphics.drawable.Drawable
 import androidx.core.view.isVisible
 import coil.load
 import coil.size.Size
@@ -31,6 +33,30 @@ class WallpaperAdapter(
     private val animateParallax: Boolean = false
 ) : ListAdapter<Wallpaper, WallpaperAdapter.VH>(DIFF) {
 
+    /** Cached type-tag icons (one per content type) so bind doesn't re-decode/tint a drawable on
+     *  every call — keeps scrolling cheap. */
+    private val tagIconCache = HashMap<ContentType, Drawable?>()
+
+    private fun tagIcon(context: Context, type: ContentType): Drawable? =
+        tagIconCache.getOrPut(type) {
+            val res = when (type) {
+                ContentType.PARALLAX -> R.drawable.ic_layers
+                ContentType.VIDEO -> R.drawable.ic_live
+                ContentType.IMAGE -> R.drawable.ic_image
+            }
+            val size = (14 * context.resources.displayMetrics.density).toInt()
+            ContextCompat.getDrawable(context, res)?.apply {
+                setBounds(0, 0, size, size)
+                setTint(ContextCompat.getColor(context, R.color.white))
+            }
+        }
+
+    private fun tagLabel(type: ContentType): String = when (type) {
+        ContentType.PARALLAX -> "Parallax"
+        ContentType.VIDEO -> "Live"
+        ContentType.IMAGE -> "Photo"
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         val binding = ItemWallpaperBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
@@ -50,6 +76,7 @@ class WallpaperAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         private var parallaxJob: Job? = null
+        private var currentRatio: String? = null
 
         fun clearParallax() {
             parallaxJob?.cancel()
@@ -60,14 +87,27 @@ class WallpaperAdapter(
 
         fun bind(item: Wallpaper, position: Int) {
             binding.title.text = item.title
-            binding.categoryTag.text = item.category.label
+
+            // Tag shows the content TYPE (icon + label) so users know image / video / parallax.
+            binding.categoryTag.text = tagLabel(item.type)
+            binding.categoryTag.setCompoundDrawablesRelative(
+                tagIcon(binding.root.context, item.type), null, null, null
+            )
+
             binding.resolution.text = item.resolutionLabel
 
-            (binding.thumb.layoutParams as ConstraintLayout.LayoutParams).dimensionRatio =
-                RATIOS[position % RATIOS.size]
-            binding.thumb.requestLayout()
+            // Only touch the layout when the aspect actually changes — requestLayout on every bind
+            // forces an extra measure/layout pass and is a big cause of scroll jank in this grid.
+            val ratio = RATIOS[position % RATIOS.size]
+            if (ratio != currentRatio) {
+                currentRatio = ratio
+                (binding.thumb.layoutParams as ConstraintLayout.LayoutParams).dimensionRatio = ratio
+                binding.thumb.requestLayout()
+            }
             binding.thumb.transitionName = "thumb_${item.id}"
 
+            // Load the thumbnail right away (Coil decodes off the main thread and cancels requests
+            // for recycled views) so images keep up with scrolling instead of popping in late.
             binding.thumb.load(item.thumbUri) {
                 crossfade(220)
                 placeholder(R.drawable.shape_shimmer)

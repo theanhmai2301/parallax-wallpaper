@@ -4,7 +4,7 @@
     <color name="bg">#FF000000</color>
     <color name="glass_bg">#1AFFFFFF</color>
     <color name="glass_stroke">#26FFFFFF</color>
-    <color name="nav_bg">#FF0B0B12</color>
+    <color name="nav_bg">#CC0B0B12</color>
     <color name="on_bg">#FFF3F4FA</color>
     <color name="on_surface">#FFF3F4FA</color>
     <color name="on_surface_variant">#FFA7ABBE</color>

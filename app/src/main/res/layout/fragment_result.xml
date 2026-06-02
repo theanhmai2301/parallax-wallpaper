@@ -8,6 +8,27 @@
     android:background="?android:attr/colorBackground">
 
     <ImageView
+        android:id="@+id/resultBg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/resultScrim"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#99000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
         android:id="@+id/btnBack"
         android:layout_width="44dp"
         android:layout_height="44dp"
@@ -58,13 +79,13 @@
             android:layout_height="match_parent"
             android:visibility="gone" />
 
-        <!-- Phone-style notch pill at the top center. -->
+        <!-- Punch-hole style round camera at the top center. -->
         <View
-            android:layout_width="100dp"
-            android:layout_height="20dp"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
             android:layout_gravity="center_horizontal|top"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/bg_pill_tag"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_camera_dot"
             android:elevation="3dp" />
     </com.google.android.material.card.MaterialCardView>
 

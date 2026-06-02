@@ -29,22 +29,31 @@ public final class FragmentPreviewBinding implements ViewBinding {
   public final AppCompatButton btnNext;
 
   @NonNull
+  public final ImageView previewBg;
+
+  @NonNull
   public final ViewPager2 previewPager;
 
   @NonNull
   public final ConstraintLayout previewRoot;
 
   @NonNull
+  public final View previewScrim;
+
+  @NonNull
   public final TextView title;
 
   private FragmentPreviewBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView btnBack,
-      @NonNull AppCompatButton btnNext, @NonNull ViewPager2 previewPager,
-      @NonNull ConstraintLayout previewRoot, @NonNull TextView title) {
+      @NonNull AppCompatButton btnNext, @NonNull ImageView previewBg,
+      @NonNull ViewPager2 previewPager, @NonNull ConstraintLayout previewRoot,
+      @NonNull View previewScrim, @NonNull TextView title) {
     this.rootView = rootView;
     this.btnBack = btnBack;
     this.btnNext = btnNext;
+    this.previewBg = previewBg;
     this.previewPager = previewPager;
     this.previewRoot = previewRoot;
+    this.previewScrim = previewScrim;
     this.title = title;
   }
 
@@ -87,6 +96,12 @@ public final class FragmentPreviewBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.previewBg;
+      ImageView previewBg = ViewBindings.findChildViewById(rootView, id);
+      if (previewBg == null) {
+        break missingId;
+      }
+
       id = R.id.previewPager;
       ViewPager2 previewPager = ViewBindings.findChildViewById(rootView, id);
       if (previewPager == null) {
@@ -95,14 +110,20 @@ public final class FragmentPreviewBinding implements ViewBinding {
 
       ConstraintLayout previewRoot = (ConstraintLayout) rootView;
 
+      id = R.id.previewScrim;
+      View previewScrim = ViewBindings.findChildViewById(rootView, id);
+      if (previewScrim == null) {
+        break missingId;
+      }
+
       id = R.id.title;
       TextView title = ViewBindings.findChildViewById(rootView, id);
       if (title == null) {
         break missingId;
       }
 
-      return new FragmentPreviewBinding((ConstraintLayout) rootView, btnBack, btnNext, previewPager,
-          previewRoot, title);
+      return new FragmentPreviewBinding((ConstraintLayout) rootView, btnBack, btnNext, previewBg,
+          previewPager, previewRoot, previewScrim, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

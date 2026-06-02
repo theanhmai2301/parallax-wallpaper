@@ -22,6 +22,9 @@ public final class FragmentFavoriteBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final ViewBottomNavBinding bottomNav;
+
+  @NonNull
   public final ImageView btnBack;
 
   @NonNull
@@ -36,10 +39,12 @@ public final class FragmentFavoriteBinding implements ViewBinding {
   @NonNull
   public final RecyclerView recycler;
 
-  private FragmentFavoriteBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView btnBack,
+  private FragmentFavoriteBinding(@NonNull ConstraintLayout rootView,
+      @NonNull ViewBottomNavBinding bottomNav, @NonNull ImageView btnBack,
       @NonNull ViewEmptyStateBinding emptyState, @NonNull ConstraintLayout favoriteRoot,
       @NonNull TextView favoriteTitle, @NonNull RecyclerView recycler) {
     this.rootView = rootView;
+    this.bottomNav = bottomNav;
     this.btnBack = btnBack;
     this.emptyState = emptyState;
     this.favoriteRoot = favoriteRoot;
@@ -74,6 +79,13 @@ public final class FragmentFavoriteBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.bottomNav;
+      View bottomNav = ViewBindings.findChildViewById(rootView, id);
+      if (bottomNav == null) {
+        break missingId;
+      }
+      ViewBottomNavBinding binding_bottomNav = ViewBottomNavBinding.bind(bottomNav);
+
       id = R.id.btnBack;
       ImageView btnBack = ViewBindings.findChildViewById(rootView, id);
       if (btnBack == null) {
@@ -101,8 +113,8 @@ public final class FragmentFavoriteBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentFavoriteBinding((ConstraintLayout) rootView, btnBack, binding_emptyState,
-          favoriteRoot, favoriteTitle, recycler);
+      return new FragmentFavoriteBinding((ConstraintLayout) rootView, binding_bottomNav, btnBack,
+          binding_emptyState, favoriteRoot, favoriteTitle, recycler);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

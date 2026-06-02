@@ -27,5 +27,5 @@
     <color name="scrim">#80000000</color>
     <color name="shimmer_base">#FFE4E7F0</color>
     <color name="shimmer_highlight">#FFF6F7FC</color>
-    <color name="nav_bg">#FFFFFFFF</color>
+    <color name="nav_bg">#CCFFFFFF</color>
 </resources>

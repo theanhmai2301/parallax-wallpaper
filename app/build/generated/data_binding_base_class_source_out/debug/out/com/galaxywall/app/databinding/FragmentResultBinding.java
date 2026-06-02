@@ -31,6 +31,9 @@ public final class FragmentResultBinding implements ViewBinding {
   public final AppCompatButton btnSetBackground;
 
   @NonNull
+  public final ImageView resultBg;
+
+  @NonNull
   public final MaterialCardView resultCard;
 
   @NonNull
@@ -40,21 +43,27 @@ public final class FragmentResultBinding implements ViewBinding {
   public final ConstraintLayout resultRoot;
 
   @NonNull
+  public final View resultScrim;
+
+  @NonNull
   public final TextureView resultVideo;
 
   @NonNull
   public final TextView title;
 
   private FragmentResultBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView btnBack,
-      @NonNull AppCompatButton btnSetBackground, @NonNull MaterialCardView resultCard,
-      @NonNull ParallaxImageView resultPreview, @NonNull ConstraintLayout resultRoot,
+      @NonNull AppCompatButton btnSetBackground, @NonNull ImageView resultBg,
+      @NonNull MaterialCardView resultCard, @NonNull ParallaxImageView resultPreview,
+      @NonNull ConstraintLayout resultRoot, @NonNull View resultScrim,
       @NonNull TextureView resultVideo, @NonNull TextView title) {
     this.rootView = rootView;
     this.btnBack = btnBack;
     this.btnSetBackground = btnSetBackground;
+    this.resultBg = resultBg;
     this.resultCard = resultCard;
     this.resultPreview = resultPreview;
     this.resultRoot = resultRoot;
+    this.resultScrim = resultScrim;
     this.resultVideo = resultVideo;
     this.title = title;
   }
@@ -98,6 +107,12 @@ public final class FragmentResultBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.resultBg;
+      ImageView resultBg = ViewBindings.findChildViewById(rootView, id);
+      if (resultBg == null) {
+        break missingId;
+      }
+
       id = R.id.resultCard;
       MaterialCardView resultCard = ViewBindings.findChildViewById(rootView, id);
       if (resultCard == null) {
@@ -112,6 +127,12 @@ public final class FragmentResultBinding implements ViewBinding {
 
       ConstraintLayout resultRoot = (ConstraintLayout) rootView;
 
+      id = R.id.resultScrim;
+      View resultScrim = ViewBindings.findChildViewById(rootView, id);
+      if (resultScrim == null) {
+        break missingId;
+      }
+
       id = R.id.resultVideo;
       TextureView resultVideo = ViewBindings.findChildViewById(rootView, id);
       if (resultVideo == null) {
@@ -125,7 +146,7 @@ public final class FragmentResultBinding implements ViewBinding {
       }
 
       return new FragmentResultBinding((ConstraintLayout) rootView, btnBack, btnSetBackground,
-          resultCard, resultPreview, resultRoot, resultVideo, title);
+          resultBg, resultCard, resultPreview, resultRoot, resultScrim, resultVideo, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

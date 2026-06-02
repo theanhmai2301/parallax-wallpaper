@@ -12,15 +12,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
         android:background="@drawable/selector_bg_item_language"
-        android:paddingHorizontal="13dp"
-        android:paddingVertical="13dp" android:tag="layout/item_survey_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="15dp" android:tag="layout/item_survey_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <ImageView
-            android:id="@+id/imgIconSurvey"
-            android:layout_width="23.8dp"
-            android:layout_height="23.8dp"
-            android:contentDescription="TODO"
-            android:src="@drawable/ic_languages_setting"
+        <TextView
+            android:id="@+id/emojiSurvey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="😜"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -29,26 +29,22 @@
             android:id="@+id/txtNameSurvey"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_marginHorizontal="13dp"
+            android:paddingVertical="6dp"
+            android:text="Cartoons"
             android:textColor="@color/white"
-            android:paddingVertical="7.8dp"
             android:textSize="15.6sp"
-            android:text="Memeeeeeeeeeeeee"
-            app:layout_constraintBottom_toBottomOf="@+id/imgIconSurvey"
+            app:layout_constraintBottom_toBottomOf="@+id/emojiSurvey"
             app:layout_constraintEnd_toStartOf="@+id/imgChooseSurvey"
-            app:layout_constraintStart_toEndOf="@+id/imgIconSurvey"
-            app:layout_constraintTop_toTopOf="@+id/imgIconSurvey" />
+            app:layout_constraintStart_toEndOf="@+id/emojiSurvey"
+            app:layout_constraintTop_toTopOf="@+id/emojiSurvey" />
 
         <ImageView
             android:id="@+id/imgChooseSurvey"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:contentDescription="TODO"
-            android:src="@drawable/ic_select_lang"
-            android:visibility="visible"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_un_select_lang"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

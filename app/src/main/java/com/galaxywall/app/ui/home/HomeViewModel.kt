@@ -35,9 +35,7 @@ class HomeViewModel @Inject constructor(
         WallpaperCategory.GALAXY,
         WallpaperCategory.ANIME,
         WallpaperCategory.CAR,
-        WallpaperCategory.SILLYSMILE,
-        WallpaperCategory.FISH,
-        WallpaperCategory.TRENDING
+        WallpaperCategory.SILLYSMILE
     )
 
     private val _mode = MutableStateFlow(Mode.HOME)

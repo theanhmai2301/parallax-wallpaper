@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
@@ -51,6 +52,7 @@ class FavoriteFragment : Fragment() {
             insets
         }
         binding.btnBack.setOnClickListener { findNavController().navigateUp() }
+        setupBottomNav()
         binding.recycler.apply {
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             adapter = this@FavoriteFragment.adapter
@@ -73,6 +75,25 @@ class FavoriteFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun setupBottomNav() {
+        binding.bottomNav.navHome.setOnClickListener { findNavController().navigateUp() }
+        binding.bottomNav.navCategory.setOnClickListener { findNavController().navigateUp() }
+        binding.bottomNav.navSetting.setOnClickListener {
+            findNavController().navigate(R.id.action_global_settings)
+        }
+        // Favorite is the current screen → highlight it; the rest inactive.
+        val active = ContextCompat.getColor(requireContext(), R.color.brand_purple)
+        val inactive = ContextCompat.getColor(requireContext(), R.color.on_surface_variant)
+        binding.bottomNav.navHomeIcon.setColorFilter(inactive)
+        binding.bottomNav.navHomeText.setTextColor(inactive)
+        binding.bottomNav.navCategoryIcon.setColorFilter(inactive)
+        binding.bottomNav.navCategoryText.setTextColor(inactive)
+        binding.bottomNav.navSettingIcon.setColorFilter(inactive)
+        binding.bottomNav.navSettingText.setTextColor(inactive)
+        binding.bottomNav.navFavoriteIcon.setColorFilter(active)
+        binding.bottomNav.navFavoriteText.setTextColor(active)
     }
 
     private fun openPreview(wallpaper: Wallpaper, sharedView: View) {

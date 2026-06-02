@@ -14,7 +14,7 @@
     <color name="favorite_red">#FFFF4D6D</color>
     <color name="glass_bg">#14000000</color>
     <color name="glass_stroke">#1F000000</color>
-    <color name="nav_bg">#FFFFFFFF</color>
+    <color name="nav_bg">#CCFFFFFF</color>
     <color name="on_bg">#FF111219</color>
     <color name="on_surface">#FF111219</color>
     <color name="on_surface_variant">#FF5A5E6C</color>
@@ -94,6 +94,8 @@
     <string name="live_wallpaper_description">Depth motion wallpaper that reacts to your device tilt.</string>
     <string name="live_wallpaper_label">Parallax Wallpaper</string>
     <string name="nav_category">Category</string>
+    <string name="nav_diy">DIY</string>
+    <string name="nav_favorite">Favorite</string>
     <string name="nav_home">Home</string>
     <string name="nav_setting">Settings</string>
     <string name="ok">OK</string>
@@ -126,6 +128,8 @@
     <string name="settings_sensitivity">Motion sensitivity</string>
     <string name="settings_title">Settings</string>
     <string name="settings_version">Version</string>
+    <string name="success_back_home">Back to home</string>
+    <string name="success_subtitle">Your wallpaper has been set successfully.</string>
     <string name="tab_diy">DIY Wallpaper</string>
     <string name="tab_favorites">Favorites</string>
     <string name="tab_home">Explore</string>

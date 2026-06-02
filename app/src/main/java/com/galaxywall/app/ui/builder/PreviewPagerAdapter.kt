@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import coil.size.Size
@@ -50,6 +52,20 @@ class PreviewPagerAdapter(
         holder.preview.setOnClickListener { onClick(holder.bindingAdapterPosition) }
         holder.video.setOnClickListener { onClick(holder.bindingAdapterPosition) }
 
+        // Type tag (icon + label) so the user knows parallax / photo / video.
+        val (tagIcon, tagLabel) = when (wp.type) {
+            ContentType.PARALLAX -> R.drawable.ic_layers to "Parallax"
+            ContentType.VIDEO -> R.drawable.ic_live to "Live"
+            ContentType.IMAGE -> R.drawable.ic_image to "Photo"
+        }
+        holder.tag.text = tagLabel
+        val tagSize = (14 * holder.tag.resources.displayMetrics.density).toInt()
+        val tagDrawable = ContextCompat.getDrawable(holder.tag.context, tagIcon)?.apply {
+            setBounds(0, 0, tagSize, tagSize)
+            setTint(ContextCompat.getColor(holder.tag.context, R.color.white))
+        }
+        holder.tag.setCompoundDrawablesRelative(tagDrawable, null, null, null)
+
         // Video pages get a TextureView on top (the fragment starts the centered page's playback);
         // the thumbnail underneath acts as a poster until the first frame draws.
         if (wp.type == ContentType.VIDEO) {
@@ -89,12 +105,18 @@ class PreviewPagerAdapter(
     class PageVH(view: View) : RecyclerView.ViewHolder(view) {
         val preview: ParallaxImageView = view.findViewById(R.id.pagePreview)
         val video: TextureView = view.findViewById(R.id.pageVideo)
+        val tag: TextView = view.findViewById(R.id.pageTag)
         private val videoPlayer = LoopingVideoTexture(video)
         var videoUrl: String? = null
         var job: Job? = null
 
         fun playVideo() {
             videoUrl?.let { videoPlayer.play(it) }
+        }
+
+        /** Buffer this page's video ahead of time (paused) so swiping onto it plays instantly. */
+        fun preloadVideo() {
+            videoUrl?.let { videoPlayer.preload(it) }
         }
 
         fun stopVideo() {

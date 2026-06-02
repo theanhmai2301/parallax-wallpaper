@@ -60,14 +60,21 @@ class SettingsFragment : Fragment() {
     }
 
     private fun setupBottomNav() {
-        // Home / Category return to the home screen; Setting is the current screen.
+        // Home / Category return to the home screen; Favorite switches over; Setting is current.
         binding.bottomNav.navHome.setOnClickListener { findNavController().navigateUp() }
         binding.bottomNav.navCategory.setOnClickListener { findNavController().navigateUp() }
-        // Highlight the Setting tab as active.
+        binding.bottomNav.navFavorite.setOnClickListener {
+            findNavController().navigate(R.id.action_global_favorite)
+        }
+        // Highlight the Setting tab as active; the rest inactive.
         val active = ContextCompat.getColor(requireContext(), R.color.brand_purple)
         val inactive = ContextCompat.getColor(requireContext(), R.color.on_surface_variant)
         binding.bottomNav.navHomeIcon.setColorFilter(inactive)
         binding.bottomNav.navHomeText.setTextColor(inactive)
+        binding.bottomNav.navCategoryIcon.setColorFilter(inactive)
+        binding.bottomNav.navCategoryText.setTextColor(inactive)
+        binding.bottomNav.navFavoriteIcon.setColorFilter(inactive)
+        binding.bottomNav.navFavoriteText.setTextColor(inactive)
         binding.bottomNav.navSettingIcon.setColorFilter(active)
         binding.bottomNav.navSettingText.setTextColor(active)
     }
@@ -75,17 +82,23 @@ class SettingsFragment : Fragment() {
     private fun setupControls() {
         binding.switchDarkMode.setOnClickListener {
             val enabled = binding.switchDarkMode.isChecked
-            viewModel.setDarkMode(enabled)
-            AppCompatDelegate.setDefaultNightMode(
-                if (enabled) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
-            )
+            // Persist FIRST, then apply the night mode. Applying night mode recreates the activity,
+            // and App.onCreate re-reads the stored value; if the write hasn't flushed yet the old
+            // value is read back and the switch "jumps". Joining the write removes that race.
+            viewLifecycleOwner.lifecycleScope.launch {
+                viewModel.setDarkMode(enabled).join()
+                AppCompatDelegate.setDefaultNightMode(
+                    if (enabled) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
+                )
+            }
         }
 
         binding.switchDynamic.setOnClickListener {
             val enabled = binding.switchDynamic.isChecked
-            val job = viewModel.setDynamicColor(enabled)
+            // Same ordering as dark mode: persist before recreate so the dynamic-color precondition
+            // (and the dark-mode read) see the committed values and neither switch flips back.
             viewLifecycleOwner.lifecycleScope.launch {
-                job.join()
+                viewModel.setDynamicColor(enabled).join()
                 requireActivity().recreate()
             }
         }

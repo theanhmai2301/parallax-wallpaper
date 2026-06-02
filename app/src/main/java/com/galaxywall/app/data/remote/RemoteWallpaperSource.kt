@@ -31,7 +31,9 @@ class RemoteWallpaperSource @Inject constructor(
         val parallaxDef = async { runCatching { groupItems(api.listParallax(limit = 200).data) }.getOrDefault(emptyList()) }
         val imagesDef = async { runCatching { api.listImages(limit = 200).data.mapNotNull { toImage(it) } }.getOrDefault(emptyList()) }
         val videosDef = async { runCatching { api.listVideos(limit = 200).data.mapNotNull { toVideo(it) } }.getOrDefault(emptyList()) }
-        parallaxDef.await() + imagesDef.await() + videosDef.await()
+        // Exclude the fish and trending categories everywhere.
+        (parallaxDef.await() + imagesDef.await() + videosDef.await())
+            .filter { it.category !in EXCLUDED_CATEGORIES }
     }
 
     private fun toImage(item: RemoteItem): Wallpaper? {
@@ -77,9 +79,14 @@ class RemoteWallpaperSource @Inject constructor(
             val l1 = layers[1]
             val l2 = layers[2]
             val l3 = layers[3]
-            // bottom (layer 1) -> top (layer 2): the order the renderer expects, so layer 1 moves
-            // with the tilt and layer 2 stays still. Layer 3 is unused as a render layer.
-            val layerUris = listOfNotNull(l1, l2)
+            // bottom (layer 1) moves with the tilt, top (layer 2) stays still. If a group is missing
+            // a layer, fall back to the pre-composed image (layer 3) so the item still shows fully
+            // (complete, just static) instead of rendering an incomplete set.
+            val layerUris = when {
+                l1 != null && l2 != null -> listOf(l1, l2)
+                l3 != null -> listOf(l3)
+                else -> listOfNotNull(l1, l2)
+            }
             if (layerUris.isEmpty()) return@mapNotNull null
             val thumb = l3 ?: l1 ?: layerUris.first()
             Wallpaper(
@@ -96,5 +103,9 @@ class RemoteWallpaperSource @Inject constructor(
         val m = Regex("([A-Za-z]+)(\\d+)").find(groupKey) ?: return groupKey
         val name = m.groupValues[1].replaceFirstChar { it.uppercase() }
         return "$name ${m.groupValues[2]}"
+    }
+
+    private companion object {
+        val EXCLUDED_CATEGORIES = setOf(WallpaperCategory.FISH, WallpaperCategory.TRENDING)
     }
 }

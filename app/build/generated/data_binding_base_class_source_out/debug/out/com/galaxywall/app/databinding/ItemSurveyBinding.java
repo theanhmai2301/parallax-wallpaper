@@ -17,10 +17,10 @@ import java.lang.Object;
 
 public abstract class ItemSurveyBinding extends ViewDataBinding {
   @NonNull
-  public final ImageView imgChooseSurvey;
+  public final TextView emojiSurvey;
 
   @NonNull
-  public final ImageView imgIconSurvey;
+  public final ImageView imgChooseSurvey;
 
   @NonNull
   public final ConstraintLayout surveyItem;
@@ -29,11 +29,11 @@ public abstract class ItemSurveyBinding extends ViewDataBinding {
   public final TextView txtNameSurvey;
 
   protected ItemSurveyBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      ImageView imgChooseSurvey, ImageView imgIconSurvey, ConstraintLayout surveyItem,
+      TextView emojiSurvey, ImageView imgChooseSurvey, ConstraintLayout surveyItem,
       TextView txtNameSurvey) {
     super(_bindingComponent, _root, _localFieldCount);
+    this.emojiSurvey = emojiSurvey;
     this.imgChooseSurvey = imgChooseSurvey;
-    this.imgIconSurvey = imgIconSurvey;
     this.surveyItem = surveyItem;
     this.txtNameSurvey = txtNameSurvey;
   }

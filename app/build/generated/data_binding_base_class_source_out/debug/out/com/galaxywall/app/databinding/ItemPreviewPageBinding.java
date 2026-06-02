@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -28,14 +29,18 @@ public final class ItemPreviewPageBinding implements ViewBinding {
   public final ParallaxImageView pagePreview;
 
   @NonNull
+  public final TextView pageTag;
+
+  @NonNull
   public final TextureView pageVideo;
 
   private ItemPreviewPageBinding(@NonNull ConstraintLayout rootView,
       @NonNull MaterialCardView cardPage, @NonNull ParallaxImageView pagePreview,
-      @NonNull TextureView pageVideo) {
+      @NonNull TextView pageTag, @NonNull TextureView pageVideo) {
     this.rootView = rootView;
     this.cardPage = cardPage;
     this.pagePreview = pagePreview;
+    this.pageTag = pageTag;
     this.pageVideo = pageVideo;
   }
 
@@ -78,13 +83,19 @@ public final class ItemPreviewPageBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.pageTag;
+      TextView pageTag = ViewBindings.findChildViewById(rootView, id);
+      if (pageTag == null) {
+        break missingId;
+      }
+
       id = R.id.pageVideo;
       TextureView pageVideo = ViewBindings.findChildViewById(rootView, id);
       if (pageVideo == null) {
         break missingId;
       }
 
-      return new ItemPreviewPageBinding((ConstraintLayout) rootView, cardPage, pagePreview,
+      return new ItemPreviewPageBinding((ConstraintLayout) rootView, cardPage, pagePreview, pageTag,
           pageVideo);
     }
     String missingId = rootView.getResources().getResourceName(id);

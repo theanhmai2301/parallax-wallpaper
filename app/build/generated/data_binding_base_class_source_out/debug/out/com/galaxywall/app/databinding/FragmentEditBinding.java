@@ -32,6 +32,9 @@ public final class FragmentEditBinding implements ViewBinding {
   public final AppCompatButton btnNext;
 
   @NonNull
+  public final ImageView editBg;
+
+  @NonNull
   public final ParallaxImageView editPreview;
 
   @NonNull
@@ -39,6 +42,9 @@ public final class FragmentEditBinding implements ViewBinding {
 
   @NonNull
   public final ConstraintLayout editRoot;
+
+  @NonNull
+  public final View editScrim;
 
   @NonNull
   public final LinearLayout panel;
@@ -68,18 +74,21 @@ public final class FragmentEditBinding implements ViewBinding {
   public final TextView title;
 
   private FragmentEditBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView btnBack,
-      @NonNull AppCompatButton btnNext, @NonNull ParallaxImageView editPreview,
-      @NonNull MaterialCardView editPreviewCard, @NonNull ConstraintLayout editRoot,
-      @NonNull LinearLayout panel, @NonNull Slider sliderDepth,
-      @NonNull MaterialCardView slotBottomCard, @NonNull ImageView slotBottomHint,
-      @NonNull ImageView slotBottomImage, @NonNull MaterialCardView slotTopCard,
-      @NonNull ImageView slotTopHint, @NonNull ImageView slotTopImage, @NonNull TextView title) {
+      @NonNull AppCompatButton btnNext, @NonNull ImageView editBg,
+      @NonNull ParallaxImageView editPreview, @NonNull MaterialCardView editPreviewCard,
+      @NonNull ConstraintLayout editRoot, @NonNull View editScrim, @NonNull LinearLayout panel,
+      @NonNull Slider sliderDepth, @NonNull MaterialCardView slotBottomCard,
+      @NonNull ImageView slotBottomHint, @NonNull ImageView slotBottomImage,
+      @NonNull MaterialCardView slotTopCard, @NonNull ImageView slotTopHint,
+      @NonNull ImageView slotTopImage, @NonNull TextView title) {
     this.rootView = rootView;
     this.btnBack = btnBack;
     this.btnNext = btnNext;
+    this.editBg = editBg;
     this.editPreview = editPreview;
     this.editPreviewCard = editPreviewCard;
     this.editRoot = editRoot;
+    this.editScrim = editScrim;
     this.panel = panel;
     this.sliderDepth = sliderDepth;
     this.slotBottomCard = slotBottomCard;
@@ -130,6 +139,12 @@ public final class FragmentEditBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.editBg;
+      ImageView editBg = ViewBindings.findChildViewById(rootView, id);
+      if (editBg == null) {
+        break missingId;
+      }
+
       id = R.id.editPreview;
       ParallaxImageView editPreview = ViewBindings.findChildViewById(rootView, id);
       if (editPreview == null) {
@@ -143,6 +158,12 @@ public final class FragmentEditBinding implements ViewBinding {
       }
 
       ConstraintLayout editRoot = (ConstraintLayout) rootView;
+
+      id = R.id.editScrim;
+      View editScrim = ViewBindings.findChildViewById(rootView, id);
+      if (editScrim == null) {
+        break missingId;
+      }
 
       id = R.id.panel;
       LinearLayout panel = ViewBindings.findChildViewById(rootView, id);
@@ -198,9 +219,9 @@ public final class FragmentEditBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentEditBinding((ConstraintLayout) rootView, btnBack, btnNext, editPreview,
-          editPreviewCard, editRoot, panel, sliderDepth, slotBottomCard, slotBottomHint,
-          slotBottomImage, slotTopCard, slotTopHint, slotTopImage, title);
+      return new FragmentEditBinding((ConstraintLayout) rootView, btnBack, btnNext, editBg,
+          editPreview, editPreviewCard, editRoot, editScrim, panel, sliderDepth, slotBottomCard,
+          slotBottomHint, slotBottomImage, slotTopCard, slotTopHint, slotTopImage, title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

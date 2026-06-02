@@ -5,6 +5,27 @@
     android:id="@+id/nav_main"
     app:startDestination="@id/homeFragment">
 
+    <!-- Global tab actions usable from any bottom-nav screen; pop back to home so the stack stays
+         tab-like (home + at most one sub-screen). -->
+    <action
+        android:id="@+id/action_global_favorite"
+        app:destination="@id/favoriteFragment"
+        app:popUpTo="@id/homeFragment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_in" />
+    <action
+        android:id="@+id/action_global_settings"
+        app:destination="@id/settingsFragment"
+        app:popUpTo="@id/homeFragment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_in" />
+    <action
+        android:id="@+id/action_global_edit"
+        app:destination="@id/editFragment"
+        app:popUpTo="@id/homeFragment"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_in" />
+
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.galaxywall.app.ui.home.HomeFragment"
@@ -57,7 +78,23 @@
         android:id="@+id/resultFragment"
         android:name="com.galaxywall.app.ui.builder.ResultFragment"
         android:label="Result"
-        tools:layout="@layout/fragment_result" />
+        tools:layout="@layout/fragment_result">
+        <!-- After a successful apply, show the success screen on top of Home (the builder stack
+             above Home is popped) so the only way out is back to Home. -->
+        <action
+            android:id="@+id/action_result_to_success"
+            app:destination="@id/successFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_in" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="com.galaxywall.app.ui.builder.SuccessFragment"
+        android:label="Success"
+        tools:layout="@layout/fragment_success" />
 
     <fragment
         android:id="@+id/favoriteFragment"

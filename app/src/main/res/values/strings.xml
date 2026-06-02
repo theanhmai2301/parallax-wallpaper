@@ -7,6 +7,8 @@
     <string name="video_wallpaper_description">Looping video live wallpaper.</string>
     <string name="nav_home">Home</string>
     <string name="nav_category">Category</string>
+    <string name="nav_favorite">Favorite</string>
+    <string name="nav_diy">DIY</string>
     <string name="nav_setting">Settings</string>
     <string name="set_image_title">Set wallpaper</string>
     <string name="set_image_message">Set this image as your home and lock screen wallpaper?</string>
@@ -40,6 +42,8 @@
     <string name="applying">Applying wallpaper…</string>
     <string name="apply_success">Wallpaper applied</string>
     <string name="apply_error">Could not apply wallpaper</string>
+    <string name="success_subtitle">Your wallpaper has been set successfully.</string>
+    <string name="success_back_home">Back to home</string>
 
     <!-- Download -->
     <string name="downloading">Downloading…</string>

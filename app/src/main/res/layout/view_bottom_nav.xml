@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="64dp"
+    android:layout_height="62dp"
     app:cardBackgroundColor="@color/nav_bg"
     app:cardCornerRadius="26dp"
     app:cardElevation="0dp"
@@ -22,24 +22,24 @@
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/navHomeIcon"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:importantForAccessibility="no"
-                android:src="@drawable/ic_explore"
+                android:src="@drawable/ic_home"
                 app:tint="@color/brand_purple" />
 
             <TextView
                 android:id="@+id/navHomeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginTop="3dp"
                 android:text="@string/nav_home"
                 android:textColor="@color/brand_purple"
-                android:textSize="13sp"
+                android:textSize="10sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -50,12 +50,12 @@
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/navCategoryIcon"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:importantForAccessibility="no"
                 android:src="@drawable/ic_folder"
                 app:tint="@color/on_surface_variant" />
@@ -64,10 +64,38 @@
                 android:id="@+id/navCategoryText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginTop="3dp"
                 android:text="@string/nav_category"
                 android:textColor="@color/on_surface_variant"
-                android:textSize="13sp"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navFavorite"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/navFavoriteIcon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_favorite"
+                app:tint="@color/on_surface_variant" />
+
+            <TextView
+                android:id="@+id/navFavoriteText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="@string/nav_favorite"
+                android:textColor="@color/on_surface_variant"
+                android:textSize="10sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -78,12 +106,12 @@
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/navSettingIcon"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
                 android:importantForAccessibility="no"
                 android:src="@drawable/ic_settings"
                 app:tint="@color/on_surface_variant" />
@@ -92,10 +120,10 @@
                 android:id="@+id/navSettingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginTop="3dp"
                 android:text="@string/nav_setting"
                 android:textColor="@color/on_surface_variant"
-                android:textSize="13sp"
+                android:textSize="10sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>

@@ -14,7 +14,7 @@ public class ItemSurveyBindingImpl extends ItemSurveyBinding  {
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.imgIconSurvey, 1);
+        sViewsWithIds.put(R.id.emojiSurvey, 1);
         sViewsWithIds.put(R.id.txtNameSurvey, 2);
         sViewsWithIds.put(R.id.imgChooseSurvey, 3);
     }
@@ -29,8 +29,8 @@ public class ItemSurveyBindingImpl extends ItemSurveyBinding  {
     }
     private ItemSurveyBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
+            , (android.widget.TextView) bindings[1]
             , (android.widget.ImageView) bindings[3]
-            , (android.widget.ImageView) bindings[1]
             , (androidx.constraintlayout.widget.ConstraintLayout) bindings[0]
             , (android.widget.TextView) bindings[2]
             );

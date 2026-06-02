@@ -114,20 +114,21 @@ class HomeFragment : Fragment() {
     private fun setupRecycler() {
         binding.recycler.apply {
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+                // NONE is far cheaper while scrolling: MOVE_ITEMS_BETWEEN_SPANS re-shuffles items
+                // across columns on every scroll pass, which was the main source of scroll jank.
+                // Any first-row gap is handled by invalidateSpanAssignments() after data/relayout.
                 .apply { gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_NONE }
             adapter = this@HomeFragment.adapter
-            setHasFixedSize(false)
+            setHasFixedSize(true)
             setItemViewCacheSize(20)
         }
     }
 
     private fun setupSwipeRefresh() {
-        binding.swipeRefresh.setColorSchemeResources(R.color.brand_purple, R.color.brand_blue)
-        binding.swipeRefresh.setOnRefreshListener {
-            // Refresh reshuffles the feed (a new dataset) → relayout from the top to avoid a gap.
-            pendingScrollReset = true
-            viewModel.refresh()
-        }
+        // Pull-to-refresh is disabled on Home: the feed loads once and is reshuffled only via the
+        // bottom-nav mode / category chips. The SwipeRefreshLayout is kept as the scroll container
+        // but its pull gesture is turned off so dragging down no longer reloads the list.
+        binding.swipeRefresh.isEnabled = false
     }
 
     private fun setupBottomNav() {
@@ -139,8 +140,11 @@ class HomeFragment : Fragment() {
             pendingScrollReset = true
             viewModel.setMode(HomeViewModel.Mode.CATEGORY)
         }
+        binding.bottomNav.navFavorite.setOnClickListener {
+            findNavController().navigate(R.id.action_global_favorite)
+        }
         binding.bottomNav.navSetting.setOnClickListener {
-            findNavController().navigate(R.id.action_home_to_settings)
+            findNavController().navigate(R.id.action_global_settings)
         }
     }
 
@@ -161,6 +165,8 @@ class HomeFragment : Fragment() {
         binding.bottomNav.navHomeText.setTextColor(if (homeActive) active else inactive)
         binding.bottomNav.navCategoryIcon.setColorFilter(if (homeActive) inactive else active)
         binding.bottomNav.navCategoryText.setTextColor(if (homeActive) inactive else active)
+        binding.bottomNav.navFavoriteIcon.setColorFilter(inactive)
+        binding.bottomNav.navFavoriteText.setTextColor(inactive)
         binding.bottomNav.navSettingIcon.setColorFilter(inactive)
         binding.bottomNav.navSettingText.setTextColor(inactive)
     }
@@ -223,6 +229,15 @@ class HomeFragment : Fragment() {
         val index = list.indexOfFirst { it.id == wallpaper.id }.coerceAtLeast(0)
         builderViewModel.startFrom(list, index)
         findNavController().navigate(R.id.action_home_to_preview)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Returning to Home (e.g. from Preview) can leave a StaggeredGrid gap at the top — relayout.
+        val rv = binding.recycler
+        rv.post {
+            (rv.layoutManager as? StaggeredGridLayoutManager)?.invalidateSpanAssignments()
+        }
     }
 
     override fun onDestroyView() {

@@ -1,5 +1,8 @@
 package com.galaxywall.app.ui.builder
 
+import android.graphics.RenderEffect
+import android.graphics.Shader
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -73,6 +76,14 @@ class EditFragment : Fragment() {
         binding.editPreview.targetAspect = 0f
         (binding.editPreviewCard.layoutParams as ConstraintLayout.LayoutParams).dimensionRatio =
             "W,${dm.widthPixels}:${dm.heightPixels}"
+
+        // Blurred wallpaper thumbnail as the background (like the preview screen).
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            binding.editBg.setRenderEffect(
+                RenderEffect.createBlurEffect(50f, 50f, Shader.TileMode.CLAMP)
+            )
+        }
+        builderViewModel.currentWallpaper()?.thumbUri?.let { binding.editBg.load(it) }
 
         binding.btnBack.setOnClickListener { findNavController().navigateUp() }
         binding.btnNext.setOnClickListener { findNavController().navigate(R.id.action_edit_to_result) }

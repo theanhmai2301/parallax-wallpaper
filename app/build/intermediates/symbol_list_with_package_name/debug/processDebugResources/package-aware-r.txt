@@ -3158,6 +3158,7 @@ drawable bg_bottom_nav
 drawable bg_btn_selected
 drawable bg_btn_un_selected
 drawable bg_button_primary
+drawable bg_camera_dot
 drawable bg_card_overlay
 drawable bg_circle_glass
 drawable bg_circle_scrim
@@ -3169,6 +3170,7 @@ drawable bg_pill_tag
 drawable bg_search
 drawable bg_setting_card
 drawable bg_sheet
+drawable bg_success_circle
 drawable bg_text_round
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -3228,12 +3230,15 @@ drawable ic_explore
 drawable ic_favorite
 drawable ic_favorite_border
 drawable ic_folder
+drawable ic_home
+drawable ic_image
 drawable ic_image_broken
 drawable ic_keyboard_black_24dp
 drawable ic_languages_setting
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_layers
+drawable ic_live
 drawable ic_lock
 drawable ic_logo
 drawable ic_m3_chip_check
@@ -3402,6 +3407,9 @@ id action_context_bar
 id action_divider
 id action_edit_to_result
 id action_favorite_to_preview
+id action_global_edit
+id action_global_favorite
+id action_global_settings
 id action_home_to_edit
 id action_home_to_favorite
 id action_home_to_preview
@@ -3414,6 +3422,7 @@ id action_mode_bar_stub
 id action_mode_close_button
 id action_preview_to_edit
 id action_preview_to_result
+id action_result_to_success
 id action_text
 id actions
 id activity_chooser_view_content
@@ -3452,6 +3461,7 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id btnBack
+id btnHome
 id btnNext
 id btnNextToOB
 id btnSetBackground
@@ -3539,14 +3549,17 @@ id easeInOut
 id easeOut
 id east
 id edge
+id editBg
 id editFragment
 id editPreview
 id editPreviewCard
 id editRoot
+id editScrim
 id edit_query
 id edit_text_id
 id elastic
 id embed
+id emojiSurvey
 id emptyAnim
 id emptyRoot
 id emptyState
@@ -3610,7 +3623,6 @@ id image
 id imgChooseLanguage
 id imgChooseSurvey
 id imgIconLanguage
-id imgIconSurvey
 id immediateStop
 id included
 id indeterminate
@@ -3705,6 +3717,9 @@ id multiply
 id navCategory
 id navCategoryIcon
 id navCategoryText
+id navFavorite
+id navFavoriteIcon
+id navFavoriteText
 id navHome
 id navHomeIcon
 id navHomeText
@@ -3758,6 +3773,7 @@ id overlay
 id overshoot
 id packed
 id pagePreview
+id pageTag
 id pageVideo
 id panel
 id parallax
@@ -3776,9 +3792,11 @@ id pooling_container_listener_holder_tag
 id position
 id postLayout
 id pressed
+id previewBg
 id previewFragment
 id previewPager
 id previewRoot
+id previewScrim
 id progressMessage
 id progress_circular
 id progress_horizontal
@@ -3792,10 +3810,12 @@ id recyclerViewSurvey
 id report_drawn
 id resolution
 id restart
+id resultBg
 id resultCard
 id resultFragment
 id resultPreview
 id resultRoot
+id resultScrim
 id resultVideo
 id reverse
 id reverseSawtooth
@@ -3890,6 +3910,10 @@ id stop
 id stretch
 id submenuarrow
 id submit_area
+id successBg
+id successFragment
+id successRoot
+id successScrim
 id supportScrollUp
 id surveyTxt
 id survey_item
@@ -4128,6 +4152,7 @@ layout fragment_home
 layout fragment_preview
 layout fragment_result
 layout fragment_settings
+layout fragment_success
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_language
@@ -4413,6 +4438,8 @@ string mtrl_timepicker_confirm
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description
 string nav_category
+string nav_diy
+string nav_favorite
 string nav_home
 string nav_setting
 string ok
@@ -4457,6 +4484,8 @@ string settings_version
 string side_sheet_accessibility_pane_title
 string side_sheet_behavior
 string status_bar_notification_info_overflow
+string success_back_home
+string success_subtitle
 string tab_diy
 string tab_favorites
 string tab_home
