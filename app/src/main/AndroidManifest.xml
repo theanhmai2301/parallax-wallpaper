@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <uses-feature
         android:name="android.hardware.sensor.gyroscope"
@@ -28,20 +29,42 @@
         android:theme="@style/Theme.ParallaxWallpaper"
         tools:targetApi="35">
         <activity
-            android:name=".ui.survey.SurveyActivity"
-            android:exported="false" />
-        <activity android:name=".ui.language.LanguageActivity" />
-        <activity
-            android:name=".ui.MainActivity"
+            android:name=".firstopen.SplashActivity"
             android:exported="true"
             android:launchMode="singleTop"
-            android:theme="@style/Theme.ParallaxWallpaper.Splash">
+            android:theme="@style/Theme.ParallaxWallpaper">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".firstopen.language.LanguageFO1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".firstopen.language.LanguageFO2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".firstopen.survey.SurveyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".firstopen.survey.SurveyDupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".firstopen.survey.Survey3Activity"
+            android:exported="false" />
+        <activity
+            android:name=".firstopen.onboarding.OnBoardingFullFragmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".firstopen.PermissionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="false"
+            android:launchMode="singleTop" />
 
         <service
             android:name=".wallpaper.ParallaxWallpaperService"

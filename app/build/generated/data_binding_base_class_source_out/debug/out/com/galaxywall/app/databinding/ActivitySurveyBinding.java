@@ -4,7 +4,7 @@ package com.galaxywall.app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,8 +12,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
+import com.airbnb.lottie.LottieAnimationView;
 import com.galaxywall.app.R;
-import com.google.android.material.button.MaterialButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -23,38 +23,42 @@ public final class ActivitySurveyBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final ImageView btnBack;
+  public final FrameLayout frAds;
 
   @NonNull
-  public final MaterialButton btnNextToOB;
+  public final ConstraintLayout llTitle;
 
   @NonNull
-  public final ConstraintLayout main;
+  public final LottieAnimationView lottieAnimationView;
 
   @NonNull
-  public final RecyclerView recyclerViewSurvey;
+  public final RecyclerView recyclerView;
 
   @NonNull
-  public final TextView surveyTxt;
+  public final TextView tvInstruction;
 
   @NonNull
-  public final ConstraintLayout svTitle;
+  public final TextView tvMessage;
 
   @NonNull
-  public final TextView textView;
+  public final TextView tvNext;
 
-  private ActivitySurveyBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView btnBack,
-      @NonNull MaterialButton btnNextToOB, @NonNull ConstraintLayout main,
-      @NonNull RecyclerView recyclerViewSurvey, @NonNull TextView surveyTxt,
-      @NonNull ConstraintLayout svTitle, @NonNull TextView textView) {
+  @NonNull
+  public final TextView tvQuestion;
+
+  private ActivitySurveyBinding(@NonNull ConstraintLayout rootView, @NonNull FrameLayout frAds,
+      @NonNull ConstraintLayout llTitle, @NonNull LottieAnimationView lottieAnimationView,
+      @NonNull RecyclerView recyclerView, @NonNull TextView tvInstruction,
+      @NonNull TextView tvMessage, @NonNull TextView tvNext, @NonNull TextView tvQuestion) {
     this.rootView = rootView;
-    this.btnBack = btnBack;
-    this.btnNextToOB = btnNextToOB;
-    this.main = main;
-    this.recyclerViewSurvey = recyclerViewSurvey;
-    this.surveyTxt = surveyTxt;
-    this.svTitle = svTitle;
-    this.textView = textView;
+    this.frAds = frAds;
+    this.llTitle = llTitle;
+    this.lottieAnimationView = lottieAnimationView;
+    this.recyclerView = recyclerView;
+    this.tvInstruction = tvInstruction;
+    this.tvMessage = tvMessage;
+    this.tvNext = tvNext;
+    this.tvQuestion = tvQuestion;
   }
 
   @Override
@@ -84,46 +88,56 @@ public final class ActivitySurveyBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btnBack;
-      ImageView btnBack = ViewBindings.findChildViewById(rootView, id);
-      if (btnBack == null) {
+      id = R.id.frAds;
+      FrameLayout frAds = ViewBindings.findChildViewById(rootView, id);
+      if (frAds == null) {
         break missingId;
       }
 
-      id = R.id.btnNextToOB;
-      MaterialButton btnNextToOB = ViewBindings.findChildViewById(rootView, id);
-      if (btnNextToOB == null) {
+      id = R.id.ll_title;
+      ConstraintLayout llTitle = ViewBindings.findChildViewById(rootView, id);
+      if (llTitle == null) {
         break missingId;
       }
 
-      ConstraintLayout main = (ConstraintLayout) rootView;
-
-      id = R.id.recyclerViewSurvey;
-      RecyclerView recyclerViewSurvey = ViewBindings.findChildViewById(rootView, id);
-      if (recyclerViewSurvey == null) {
+      id = R.id.lottieAnimationView;
+      LottieAnimationView lottieAnimationView = ViewBindings.findChildViewById(rootView, id);
+      if (lottieAnimationView == null) {
         break missingId;
       }
 
-      id = R.id.surveyTxt;
-      TextView surveyTxt = ViewBindings.findChildViewById(rootView, id);
-      if (surveyTxt == null) {
+      id = R.id.recycler_view;
+      RecyclerView recyclerView = ViewBindings.findChildViewById(rootView, id);
+      if (recyclerView == null) {
         break missingId;
       }
 
-      id = R.id.sv_title;
-      ConstraintLayout svTitle = ViewBindings.findChildViewById(rootView, id);
-      if (svTitle == null) {
+      id = R.id.tv_instruction;
+      TextView tvInstruction = ViewBindings.findChildViewById(rootView, id);
+      if (tvInstruction == null) {
         break missingId;
       }
 
-      id = R.id.textView;
-      TextView textView = ViewBindings.findChildViewById(rootView, id);
-      if (textView == null) {
+      id = R.id.tvMessage;
+      TextView tvMessage = ViewBindings.findChildViewById(rootView, id);
+      if (tvMessage == null) {
         break missingId;
       }
 
-      return new ActivitySurveyBinding((ConstraintLayout) rootView, btnBack, btnNextToOB, main,
-          recyclerViewSurvey, surveyTxt, svTitle, textView);
+      id = R.id.tv_next;
+      TextView tvNext = ViewBindings.findChildViewById(rootView, id);
+      if (tvNext == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_question;
+      TextView tvQuestion = ViewBindings.findChildViewById(rootView, id);
+      if (tvQuestion == null) {
+        break missingId;
+      }
+
+      return new ActivitySurveyBinding((ConstraintLayout) rootView, frAds, llTitle,
+          lottieAnimationView, recyclerView, tvInstruction, tvMessage, tvNext, tvQuestion);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

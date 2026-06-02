@@ -9,7 +9,8 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.galaxywall.app.databinding.ActivityMainBinding
-import com.galaxywall.app.ui.language.LanguageActivity
+import com.galaxywall.app.firstopen.SplashActivity
+import com.galaxywall.app.firstopen.isOnboardingDone
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,8 +22,10 @@ class MainActivity : AppCompatActivity() {
         installSplashScreen()
         super.onCreate(savedInstanceState)
 
-        if (!isOnboardingDone(this)) {
-            startActivity(Intent(this, LanguageActivity::class.java))
+        // Safety net: if MainActivity is entered before the first-open flow is complete (e.g. a
+        // direct/deep-link launch), bounce back to Splash which orchestrates the flow.
+        if (!applicationContext.isOnboardingDone) {
+            startActivity(Intent(this, SplashActivity::class.java))
             finish()
             return
         }
@@ -41,16 +44,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val PREFS = "app"
-        private const val KEY_ONBOARDING = "onboarding_done"
-
-        fun isOnboardingDone(context: Context): Boolean =
-            context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-                .getBoolean(KEY_ONBOARDING, false)
-
-        fun setOnboardingDone(context: Context) {
-            context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-                .edit().putBoolean(KEY_ONBOARDING, true).apply()
+        /** Enters the app, clearing the first-open flow off the back stack. */
+        fun startMain(context: Context) {
+            val intent = Intent(context, MainActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            }
+            context.startActivity(intent)
         }
     }
 }

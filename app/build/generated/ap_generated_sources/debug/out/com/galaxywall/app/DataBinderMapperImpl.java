@@ -7,7 +7,6 @@ import androidx.databinding.DataBinderMapper;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
 import com.galaxywall.app.databinding.ItemLanguageBindingImpl;
-import com.galaxywall.app.databinding.ItemSurveyBindingImpl;
 import java.lang.IllegalArgumentException;
 import java.lang.Integer;
 import java.lang.Object;
@@ -21,13 +20,10 @@ import java.util.List;
 public class DataBinderMapperImpl extends DataBinderMapper {
   private static final int LAYOUT_ITEMLANGUAGE = 1;
 
-  private static final int LAYOUT_ITEMSURVEY = 2;
-
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(2);
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(1);
 
   static {
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.galaxywall.app.R.layout.item_language, LAYOUT_ITEMLANGUAGE);
-    INTERNAL_LAYOUT_ID_LOOKUP.put(com.galaxywall.app.R.layout.item_survey, LAYOUT_ITEMSURVEY);
   }
 
   @Override
@@ -44,12 +40,6 @@ public class DataBinderMapperImpl extends DataBinderMapper {
             return new ItemLanguageBindingImpl(component, view);
           }
           throw new IllegalArgumentException("The tag for item_language is invalid. Received: " + tag);
-        }
-        case  LAYOUT_ITEMSURVEY: {
-          if ("layout/item_survey_0".equals(tag)) {
-            return new ItemSurveyBindingImpl(component, view);
-          }
-          throw new IllegalArgumentException("The tag for item_survey is invalid. Received: " + tag);
         }
       }
     }
@@ -104,11 +94,10 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(2);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(1);
 
     static {
       sKeys.put("layout/item_language_0", com.galaxywall.app.R.layout.item_language);
-      sKeys.put("layout/item_survey_0", com.galaxywall.app.R.layout.item_survey);
     }
   }
 }

@@ -87,6 +87,30 @@
     <string name="tab_diy">DIY Wallpaper</string>
     <string name="section_categories">Categories</string>
 
+    <!-- First open: language -->
+    <string name="language">Language</string>
+    <string name="choose_the_language_you_want">Choose the language you want</string>
+    <string name="please_choose_a_language">Please choose a language</string>
+
+    <!-- First open: survey -->
+    <string name="what_is_your_favorite_topics">What are your favorite topics?</string>
+    <string name="please_select_at_least_2_topics">Please select at least 2 topics</string>
+
+    <!-- First open: permission -->
+    <string name="permission_title">Stay updated</string>
+    <string name="permission_message">Allow notifications to get the latest wallpapers and updates.</string>
+    <string name="permission_continue">Continue</string>
+
+    <!-- Onboarding -->
+    <string name="action_start">Start</string>
+    <string name="swipe_to_continue">Swipe to continue</string>
+    <string name="txt_onboarding_1_title">Living parallax wallpapers</string>
+    <string name="txt_onboarding_1_des">Bring your home screen to life with 3D depth that reacts to every tilt of your device.</string>
+    <string name="txt_onboarding_2_title">Video &amp; live backgrounds</string>
+    <string name="txt_onboarding_2_des">Set looping video and animated wallpapers for a screen that never stands still.</string>
+    <string name="txt_onboarding_3_title">Make it yours</string>
+    <string name="txt_onboarding_3_des">Thousands of wallpapers across every theme — pick a favorite and set it in one tap.</string>
+
     <!-- Builder flow -->
     <string name="action_next">Next</string>
     <string name="action_save">Save</string>
