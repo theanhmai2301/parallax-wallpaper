@@ -6,8 +6,10 @@ import android.content.Intent
 import android.os.Build
 import android.os.Handler
 import android.os.Looper
+import android.view.LayoutInflater
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.galaxywall.app.databinding.ActivityLanguageFo1Binding
 import com.galaxywall.app.firstopen.languageCode
 
 /**
@@ -15,7 +17,10 @@ import com.galaxywall.app.firstopen.languageCode
  * [LanguageFO2Activity] (pre-selected) — the two-screen split exists so a native ad can be shown on
  * each. Ad loading is left as the [loadNativeAd] / preload hooks below.
  */
-class LanguageFO1Activity : BaseLanguageActivity() {
+class LanguageFO1Activity : BaseLanguageActivity<ActivityLanguageFo1Binding>() {
+
+    override fun inflateBinding(inflater: LayoutInflater) =
+        ActivityLanguageFo1Binding.inflate(inflater)
 
     companion object {
         fun start(context: Context, clearTask: Boolean = true) {

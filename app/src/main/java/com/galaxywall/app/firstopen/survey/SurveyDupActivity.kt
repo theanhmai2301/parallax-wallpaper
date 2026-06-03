@@ -12,7 +12,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.galaxywall.app.R
-import com.galaxywall.app.databinding.ActivitySurveyBinding
+import com.galaxywall.app.databinding.ActivitySurveyDupBinding
 import com.galaxywall.app.firstopen.isSurveyDone
 import com.galaxywall.app.firstopen.onboarding.OnBoardingFullFragmentActivity
 
@@ -24,7 +24,7 @@ import com.galaxywall.app.firstopen.onboarding.OnBoardingFullFragmentActivity
 @Suppress("UNCHECKED_CAST", "DEPRECATION")
 class SurveyDupActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivitySurveyBinding
+    private lateinit var binding: ActivitySurveyDupBinding
     private lateinit var surveyAdapter: SurveyAdapter
     private var surveyList: List<Survey> = emptyList()
     private var selectedPosition: Int = -1
@@ -44,7 +44,7 @@ class SurveyDupActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySurveyBinding.inflate(layoutInflater)
+        binding = ActivitySurveyDupBinding.inflate(layoutInflater)
         setContentView(binding.root)
         createView()
     }

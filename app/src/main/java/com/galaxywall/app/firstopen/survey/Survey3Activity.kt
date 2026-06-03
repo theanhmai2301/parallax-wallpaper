@@ -11,7 +11,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.galaxywall.app.R
-import com.galaxywall.app.databinding.ActivitySurveyBinding
+import com.galaxywall.app.databinding.ActivitySurvey3Binding
 import com.galaxywall.app.firstopen.isSurveyDone
 import com.galaxywall.app.firstopen.onboarding.OnBoardingFullFragmentActivity
 
@@ -23,7 +23,7 @@ import com.galaxywall.app.firstopen.onboarding.OnBoardingFullFragmentActivity
 @Suppress("UNCHECKED_CAST")
 class Survey3Activity : AppCompatActivity() {
 
-    private lateinit var binding: ActivitySurveyBinding
+    private lateinit var binding: ActivitySurvey3Binding
     private var surveyAdapter: SurveyAdapter? = null
     private var surveyList: List<Survey> = emptyList()
     private var selectedPosition: Int = -1
@@ -43,7 +43,7 @@ class Survey3Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySurveyBinding.inflate(layoutInflater)
+        binding = ActivitySurvey3Binding.inflate(layoutInflater)
         setContentView(binding.root)
         createView()
     }

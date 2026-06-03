@@ -465,19 +465,19 @@ public final class DaggerApp_HiltComponents_SingletonC {
 
     @IdentifierNameString
     private static final class LazyClassKeyProvider {
-      static String com_galaxywall_app_ui_favorite_FavoriteViewModel = "com.galaxywall.app.ui.favorite.FavoriteViewModel";
-
       static String com_galaxywall_app_ui_home_HomeViewModel = "com.galaxywall.app.ui.home.HomeViewModel";
+
+      static String com_galaxywall_app_ui_favorite_FavoriteViewModel = "com.galaxywall.app.ui.favorite.FavoriteViewModel";
 
       static String com_galaxywall_app_ui_builder_BuilderViewModel = "com.galaxywall.app.ui.builder.BuilderViewModel";
 
       static String com_galaxywall_app_ui_settings_SettingsViewModel = "com.galaxywall.app.ui.settings.SettingsViewModel";
 
       @KeepFieldType
-      FavoriteViewModel com_galaxywall_app_ui_favorite_FavoriteViewModel2;
+      HomeViewModel com_galaxywall_app_ui_home_HomeViewModel2;
 
       @KeepFieldType
-      HomeViewModel com_galaxywall_app_ui_home_HomeViewModel2;
+      FavoriteViewModel com_galaxywall_app_ui_favorite_FavoriteViewModel2;
 
       @KeepFieldType
       BuilderViewModel com_galaxywall_app_ui_builder_BuilderViewModel2;
@@ -533,25 +533,25 @@ public final class DaggerApp_HiltComponents_SingletonC {
 
     @IdentifierNameString
     private static final class LazyClassKeyProvider {
-      static String com_galaxywall_app_ui_settings_SettingsViewModel = "com.galaxywall.app.ui.settings.SettingsViewModel";
+      static String com_galaxywall_app_ui_builder_BuilderViewModel = "com.galaxywall.app.ui.builder.BuilderViewModel";
 
       static String com_galaxywall_app_ui_home_HomeViewModel = "com.galaxywall.app.ui.home.HomeViewModel";
 
-      static String com_galaxywall_app_ui_builder_BuilderViewModel = "com.galaxywall.app.ui.builder.BuilderViewModel";
-
       static String com_galaxywall_app_ui_favorite_FavoriteViewModel = "com.galaxywall.app.ui.favorite.FavoriteViewModel";
 
-      @KeepFieldType
-      SettingsViewModel com_galaxywall_app_ui_settings_SettingsViewModel2;
-
-      @KeepFieldType
-      HomeViewModel com_galaxywall_app_ui_home_HomeViewModel2;
+      static String com_galaxywall_app_ui_settings_SettingsViewModel = "com.galaxywall.app.ui.settings.SettingsViewModel";
 
       @KeepFieldType
       BuilderViewModel com_galaxywall_app_ui_builder_BuilderViewModel2;
 
       @KeepFieldType
+      HomeViewModel com_galaxywall_app_ui_home_HomeViewModel2;
+
+      @KeepFieldType
       FavoriteViewModel com_galaxywall_app_ui_favorite_FavoriteViewModel2;
+
+      @KeepFieldType
+      SettingsViewModel com_galaxywall_app_ui_settings_SettingsViewModel2;
     }
 
     private static final class SwitchingProvider<T> implements Provider<T> {

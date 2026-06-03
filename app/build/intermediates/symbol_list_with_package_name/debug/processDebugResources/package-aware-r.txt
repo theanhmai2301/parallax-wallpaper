@@ -4147,11 +4147,15 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_first_open_language_new
+layout activity_language_fo1
+layout activity_language_fo2
 layout activity_main
 layout activity_onboarding_full_fragment
 layout activity_permission
 layout activity_splash_fo
 layout activity_survey
+layout activity_survey3
+layout activity_survey_dup
 layout chip_category
 layout custom_dialog
 layout design_bottom_navigation_item

@@ -3,15 +3,20 @@ package com.galaxywall.app.firstopen.language
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.view.LayoutInflater
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.galaxywall.app.databinding.ActivityLanguageFo2Binding
 
 /**
  * Second language screen, pre-selected with the row tapped on FO1. Mirrors the source app's
  * LanguageFO2Activity: confirm applies the language and advances (survey on first open, home when
  * opened from the in-app settings). Ad loading is left as the [loadNativeAd] hook.
  */
-class LanguageFO2Activity : BaseLanguageActivity() {
+class LanguageFO2Activity : BaseLanguageActivity<ActivityLanguageFo2Binding>() {
+
+    override fun inflateBinding(inflater: LayoutInflater) =
+        ActivityLanguageFo2Binding.inflate(inflater)
 
     companion object {
         const val KEY_POSITION_SELECTED = "KEY_POSITION_SELECTED"

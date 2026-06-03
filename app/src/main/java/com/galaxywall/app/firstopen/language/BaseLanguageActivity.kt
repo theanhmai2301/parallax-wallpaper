@@ -2,13 +2,14 @@ package com.galaxywall.app.firstopen.language
 
 import android.content.res.Resources
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.core.view.updatePadding
+import androidx.viewbinding.ViewBinding
 import com.galaxywall.app.R
-import com.galaxywall.app.databinding.ActivityFirstOpenLanguageNewBinding
 import com.galaxywall.app.firstopen.LocaleHelper
 import com.galaxywall.app.firstopen.languageCode
 import com.galaxywall.app.firstopen.survey.SurveyActivity
@@ -17,20 +18,25 @@ import com.galaxywall.app.ui.MainActivity
 /**
  * Shared logic for the two language screens, mirroring the source app's BaseLanguageActivity:
  * builds the language list, moves the system / saved language to the top, drives the adapter, and
- * applies the chosen language. FO1 and FO2 both use [ActivityFirstOpenLanguageNewBinding].
+ * applies the chosen language. Each screen owns its layout: FO1 -> activity_language_fo1.xml,
+ * FO2 -> activity_language_fo2.xml. They share the same view ids, so this base only needs the
+ * subclass to inflate its own binding via [inflateBinding].
  */
-abstract class BaseLanguageActivity : AppCompatActivity() {
+abstract class BaseLanguageActivity<VB : ViewBinding> : AppCompatActivity() {
 
-    protected lateinit var binding: ActivityFirstOpenLanguageNewBinding
+    protected lateinit var binding: VB
     protected lateinit var languageAdapter: LanguageAdapter
 
     var listLanguages: ArrayList<Language> = arrayListOf()
     var languageCodeSelected = "en"
 
+    /** Each subclass inflates its own dedicated layout (no shared layout file). */
+    abstract fun inflateBinding(inflater: LayoutInflater): VB
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityFirstOpenLanguageNewBinding.inflate(layoutInflater)
+        binding = inflateBinding(layoutInflater)
         setContentView(binding.root)
         // Push the title row below the status bar. Reading the status-bar height directly is
         // deterministic (the inset listener can fire too late / report 0 on some OEM skins, which

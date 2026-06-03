@@ -115,10 +115,10 @@ class HomeFragment : Fragment() {
     private fun setupRecycler() {
         binding.recycler.apply {
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-                // NONE is far cheaper while scrolling: MOVE_ITEMS_BETWEEN_SPANS re-shuffles items
-                // across columns on every scroll pass, which was the main source of scroll jank.
-                // Any first-row gap is handled by invalidateSpanAssignments() after data/relayout.
-                .apply { gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_NONE }
+                // Items have varied heights (RATIOS), so GAP_HANDLING_NONE leaves blank cells at the
+                // top of a column after data swaps / recycling / fast scroll. MOVE_ITEMS_BETWEEN_SPANS
+                // auto-pulls items up to fill those gaps — the reliable fix for the "empty cell" bug.
+                .apply { gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS }
             adapter = this@HomeFragment.adapter
             setHasFixedSize(true)
             setItemViewCacheSize(20)
@@ -218,20 +218,26 @@ class HomeFragment : Fragment() {
     }
 
     /**
-     * Clears the StaggeredGridLayoutManager first-row gap that GAP_HANDLING_NONE can leave after a
-     * dataset swap or when this screen is re-shown. Runs after the next layout pass so the new items
-     * are measured first. [force] snaps to the very top (used on mode/theme change); otherwise it
-     * only snaps when the list is already at the top, so a mid-scroll list isn't yanked upward.
+     * Re-balances the StaggeredGrid after a dataset swap or when this screen is re-shown, so no blank
+     * cell is left at the top. Runs after the next layout pass so the new items are measured first.
+     * [force] snaps to the very top (used on mode/theme change); otherwise it only snaps when the
+     * list is already at the top, so a mid-scroll list isn't yanked upward. The final
+     * invalidateSpanAssignments lets MOVE_ITEMS_BETWEEN_SPANS re-fill any gap created by the snap.
      */
     private fun resetGridTop(force: Boolean) {
         val rv = _binding?.recycler ?: return
         rv.post {
             val lm = (_binding?.recycler?.layoutManager as? StaggeredGridLayoutManager) ?: return@post
-            lm.invalidateSpanAssignments()
             val firstVisible = IntArray(lm.spanCount)
             lm.findFirstVisibleItemPositions(firstVisible)
-            val atTop = firstVisible.all { it == RecyclerView.NO_POSITION || it <= 0 }
-            if (force || atTop) lm.scrollToPositionWithOffset(0, 0)
+            // "At the top" = some column is currently showing item 0.
+            val atTop = firstVisible.any { it == 0 } || firstVisible.all { it == RecyclerView.NO_POSITION }
+            if (force || atTop) {
+                lm.scrollToPositionWithOffset(0, 0)
+                rv.post { lm.invalidateSpanAssignments() }
+            } else {
+                lm.invalidateSpanAssignments()
+            }
         }
     }
 
