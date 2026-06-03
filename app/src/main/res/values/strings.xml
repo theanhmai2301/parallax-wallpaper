@@ -24,6 +24,9 @@
     <string name="empty_home">No wallpapers found</string>
     <string name="empty_favorites">No favorites yet</string>
     <string name="empty_favorites_hint">Tap the heart on any wallpaper to save it here.</string>
+    <string name="no_internet_title">No internet connection</string>
+    <string name="no_internet_subtitle">Turn on Wi-Fi or mobile data to load wallpapers, then try again.</string>
+    <string name="action_retry">Retry</string>
 
     <!-- Detail -->
     <string name="detail_apply">Apply</string>
@@ -98,10 +101,10 @@
     <string name="please_select_at_least_2_topics">Please select at least 2 topics</string>
     <string name="survey_parallax">Parallax</string>
     <string name="survey_live">Live</string>
-    <string name="survey_photos">Photos</string>
-    <string name="survey_colorful">Colorful</string>
-    <string name="survey_featured">Featured</string>
-    <string name="survey_explore">Explore</string>
+    <string name="survey_cars">Cars</string>
+    <string name="survey_anime">Anime</string>
+    <string name="survey_nature">Nature</string>
+    <string name="survey_others">Others</string>
 
     <!-- First open: permission -->
     <string name="permission_title">Stay updated</string>

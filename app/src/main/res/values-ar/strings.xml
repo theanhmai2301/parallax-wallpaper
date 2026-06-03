@@ -9,10 +9,10 @@
     <string name="please_select_at_least_2_topics">يرجى اختيار موضوعين على الأقل</string>
     <string name="survey_parallax">بارالاكس</string>
     <string name="survey_live">حية</string>
-    <string name="survey_photos">صور</string>
-    <string name="survey_colorful">ملوّنة</string>
-    <string name="survey_featured">مميّزة</string>
-    <string name="survey_explore">استكشاف</string>
+    <string name="survey_cars">سيارات</string>
+    <string name="survey_anime">أنمي</string>
+    <string name="survey_nature">الطبيعة</string>
+    <string name="survey_others">أخرى</string>
     <string name="permission_title">ابقَ على اطلاع</string>
     <string name="permission_message">اسمح بالإشعارات للحصول على أحدث الخلفيات والتحديثات.</string>
     <string name="permission_continue">متابعة</string>

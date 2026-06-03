@@ -1,0 +1,40 @@
+﻿[11:40:31][INFO] ===== SMOKE TEST START: Pixel8Pro (emulator-5554) =====
+[11:40:32][INFO] Device: sdk_gphone16k_x86_64 | Android 17 | 1344x2992
+[11:40:32][INFO] PHASE 0: First-open flow (clearing app data)
+[11:40:41][INFO] Checkpoint '00_splash' |     topResumedActivity=ActivityRecord{119037204 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t74}
+[11:40:41][INFO] Checkpoint '01_language' |     topResumedActivity=ActivityRecord{119037204 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t74}
+[11:40:47][INFO] Language confirmed
+[11:40:50][INFO] Checkpoint '02_after_language' |     topResumedActivity=ActivityRecord{126945755 u0 com.galaxywall.app/.firstopen.survey.SurveyActivity t74}
+[11:40:55][INFO] Survey screen detected; selecting options
+[11:40:56][INFO] Checkpoint '03_survey_selected' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:41:02][INFO] Checkpoint '04_after_survey' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:41:26][INFO] Checkpoint '05_after_onboarding' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:41:32][INFO] Checkpoint '10_home' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:41:32][INFO] PHASE 1: Home gestures
+[11:41:33][INFO] Checkpoint '11_home_swipe_up_fast' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:41:35][INFO] Checkpoint '12_home_swipe_up_slow' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:41:35][INFO] Checkpoint '13_home_swipe_down_fast' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:41:37][INFO] Checkpoint '14_home_swipe_down_slow' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:41:39][INFO] Checkpoint '15_home_fling' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:41:40][INFO] Checkpoint '16_home_swipe_left' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:41:41][INFO] Checkpoint '17_home_swipe_right' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:41:44][INFO] Checkpoint '18_home_pull_refresh' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:41:44][INFO] PHASE 2: Tab switching
+[11:41:48][INFO] Checkpoint '20_tab_navCategory' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:41:53][INFO] Checkpoint '20_tab_navFavorite' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:41:57][INFO] Checkpoint '20_tab_navSetting' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:42:01][INFO] Checkpoint '20_tab_navHome' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:42:25][INFO] Checkpoint '21_tabs_fast' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:42:35][INFO] Checkpoint '22_scroll_while_switching' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:42:35][INFO] PHASE 3: Settings
+[11:42:39][INFO] Checkpoint '30_settings' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:42:43][INFO] Checkpoint '31_dark_on' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:42:48][INFO] Checkpoint '32_dark_off' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:42:52][INFO] Checkpoint '33_parallax_toggle' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:42:58][INFO] PHASE 4: Network off/on
+[11:43:01][INFO] Network OFF
+[11:43:08][INFO] Checkpoint '40_home_offline' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:43:12][INFO] Checkpoint '41_category_offline' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:43:16][INFO] Checkpoint '42_favorite_offline' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:43:22][INFO] Checkpoint '43_offline_retry' |     topResumedActivity=ActivityRecord{175798119 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity t74}
+[11:43:23][INFO] Network ON

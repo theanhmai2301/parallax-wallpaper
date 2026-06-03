@@ -89,12 +89,12 @@
     <string name="settings_version">பதிப்பு</string>
     <string name="success_back_home">முகப்புக்குத் திரும்பு</string>
     <string name="success_subtitle">உங்கள் வால்பேப்பர் வெற்றிகரமாக அமைக்கப்பட்டது.</string>
-    <string name="survey_colorful">வண்ணமயம்</string>
-    <string name="survey_explore">ஆராய்</string>
-    <string name="survey_featured">சிறப்பு</string>
+    <string name="survey_anime">அனிமே</string>
+    <string name="survey_cars">கார்கள்</string>
     <string name="survey_live">லைவ்</string>
+    <string name="survey_nature">இயற்கை</string>
+    <string name="survey_others">மற்றவை</string>
     <string name="survey_parallax">பாரலாக்ஸ்</string>
-    <string name="survey_photos">புகைப்படங்கள்</string>
     <string name="swipe_to_continue">தொடர ஸ்வைப் செய்யவும்</string>
     <string name="tab_favorites">பிடித்தவை</string>
     <string name="tab_home">ஆராய்</string>

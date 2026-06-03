@@ -1,0 +1,52 @@
+﻿[12:29:25][INFO] ===== SMOKE TEST START: Samsung_Galaxy (emulator-5554) =====
+[12:29:25][INFO] Device: sdk_gphone16k_x86_64 | Android 17 | 1080x2340
+[12:29:25][INFO] PHASE 0: First-open flow (clearing app data)
+[12:29:34][INFO] Checkpoint '00_splash' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:30:21][INFO] Checkpoint '05_after_onboarding' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:30:44][WARN] DID NOT reach MainActivity after first-open; current=    topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:31:00][INFO] Checkpoint '10_home' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:31:00][INFO] PHASE 1: Home gestures
+[12:31:01][INFO] Checkpoint '11_home_swipe_up_fast' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:31:03][INFO] Checkpoint '12_home_swipe_up_slow' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:31:04][INFO] Checkpoint '13_home_swipe_down_fast' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:31:05][INFO] Checkpoint '14_home_swipe_down_slow' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:31:08][INFO] Checkpoint '15_home_fling' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:31:10][INFO] Checkpoint '16_home_swipe_left' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:31:11][INFO] Checkpoint '17_home_swipe_right' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:31:14][INFO] Checkpoint '18_home_pull_refresh' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:31:14][INFO] PHASE 2: Tab switching
+[12:31:18][INFO] Checkpoint '20_tab_navCategory' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:31:22][INFO] Checkpoint '20_tab_navFavorite' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:31:27][INFO] Checkpoint '20_tab_navSetting' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:31:31][INFO] Checkpoint '20_tab_navHome' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:31:55][INFO] Checkpoint '21_tabs_fast' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:32:05][INFO] Checkpoint '22_scroll_while_switching' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:32:05][INFO] PHASE 3: Settings
+[12:32:09][INFO] Checkpoint '30_settings' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:32:13][INFO] Checkpoint '31_dark_on' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:32:17][INFO] Checkpoint '32_dark_off' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:32:21][INFO] Checkpoint '33_parallax_toggle' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:32:27][INFO] PHASE 4: Network off/on
+[12:32:31][INFO] Network OFF
+[12:32:37][INFO] Checkpoint '40_home_offline' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:32:41][INFO] Checkpoint '41_category_offline' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:32:45][INFO] Checkpoint '42_favorite_offline' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:32:52][INFO] Checkpoint '43_offline_retry' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:32:52][INFO] Network ON
+[12:33:03][INFO] Checkpoint '44_home_back_online' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:33:04][INFO] PHASE 5: App switching
+[12:33:12][INFO] Checkpoint '50_resume_online' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:33:21][INFO] Checkpoint '51_resume_offline' |     topResumedActivity=ActivityRecord{159960544 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t15}
+[12:33:24][INFO] PHASE 6: Set-wallpaper flows
+[12:33:32][INFO] Checkpoint '60_set1_preview' |     topResumedActivity=ActivityRecord{180057175 u0 com.galaxywall.app/.firstopen.language.LanguageFO2Activity t15}
+[12:33:37][INFO] Checkpoint '61_set1_edit_or_result' |     topResumedActivity=ActivityRecord{180057175 u0 com.galaxywall.app/.firstopen.language.LanguageFO2Activity t15}
+[12:33:42][WARN] btnSetBackground not found for set1
+[12:33:55][INFO] Checkpoint '60_set2_preview' |     topResumedActivity=ActivityRecord{180057175 u0 com.galaxywall.app/.firstopen.language.LanguageFO2Activity t15}
+[12:34:00][INFO] Checkpoint '61_set2_edit_or_result' |     topResumedActivity=ActivityRecord{180057175 u0 com.galaxywall.app/.firstopen.language.LanguageFO2Activity t15}
+[12:34:05][WARN] btnSetBackground not found for set2
+[12:34:23][INFO] Checkpoint '60_set3_preview' |     topResumedActivity=ActivityRecord{180057175 u0 com.galaxywall.app/.firstopen.language.LanguageFO2Activity t15}
+[12:34:28][INFO] Checkpoint '61_set3_edit_or_result' |     topResumedActivity=ActivityRecord{180057175 u0 com.galaxywall.app/.firstopen.language.LanguageFO2Activity t15}
+[12:34:33][WARN] btnSetBackground not found for set3
+[12:34:41][INFO] Checkpoint '90_final_home' |     topResumedActivity=ActivityRecord{180057175 u0 com.galaxywall.app/.firstopen.language.LanguageFO2Activity t15}
+[12:34:41][INFO] ===== SMOKE TEST DONE: Samsung_Galaxy | screenshots=35 =====
+[12:34:41][INFO] RESULT: no crashes/ANRs detected

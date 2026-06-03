@@ -9,10 +9,10 @@
     <string name="please_select_at_least_2_topics">Pilih setidaknya 2 topik</string>
     <string name="survey_parallax">Parallax</string>
     <string name="survey_live">Live</string>
-    <string name="survey_photos">Foto</string>
-    <string name="survey_colorful">Berwarna</string>
-    <string name="survey_featured">Unggulan</string>
-    <string name="survey_explore">Jelajahi</string>
+    <string name="survey_cars">Mobil</string>
+    <string name="survey_anime">Anime</string>
+    <string name="survey_nature">Alam</string>
+    <string name="survey_others">Lainnya</string>
     <string name="permission_title">Tetap update</string>
     <string name="permission_message">Izinkan notifikasi untuk mendapatkan wallpaper dan pembaruan terbaru.</string>
     <string name="permission_continue">Lanjutkan</string>

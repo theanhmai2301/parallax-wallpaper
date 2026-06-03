@@ -9,10 +9,10 @@
     <string name="please_select_at_least_2_topics">Lütfen en az 2 konu seç</string>
     <string name="survey_parallax">Parallax</string>
     <string name="survey_live">Canlı</string>
-    <string name="survey_photos">Fotoğraflar</string>
-    <string name="survey_colorful">Renkli</string>
-    <string name="survey_featured">Öne çıkanlar</string>
-    <string name="survey_explore">Keşfet</string>
+    <string name="survey_cars">Arabalar</string>
+    <string name="survey_anime">Anime</string>
+    <string name="survey_nature">Doğa</string>
+    <string name="survey_others">Diğer</string>
     <string name="permission_title">Güncel kal</string>
     <string name="permission_message">En yeni duvar kağıtları ve güncellemeleri almak için bildirimlere izin ver.</string>
     <string name="permission_continue">Devam et</string>

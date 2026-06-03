@@ -134,10 +134,10 @@ class SurveyActivity : AppCompatActivity() {
 /** The wallpaper-themed survey topics, reusing icons already in the app. Names come from string
  *  resources so they translate with the chosen language. */
 internal fun surveyTopics(context: Context): List<Survey> = listOf(
-    Survey(context.getString(R.string.survey_parallax), R.drawable.ic_layers),
-    Survey(context.getString(R.string.survey_live), R.drawable.ic_live),
-    Survey(context.getString(R.string.survey_photos), R.drawable.ic_image),
-    Survey(context.getString(R.string.survey_colorful), R.drawable.ic_palette),
-    Survey(context.getString(R.string.survey_featured), R.drawable.ic_star),
-    Survey(context.getString(R.string.survey_explore), R.drawable.ic_explore)
+    Survey(context.getString(R.string.survey_parallax), R.drawable.sv_parallax),
+    Survey(context.getString(R.string.survey_live), R.drawable.sv_live_wall),
+    Survey(context.getString(R.string.survey_cars), R.drawable.sv_car),
+    Survey(context.getString(R.string.survey_anime), R.drawable.sv_anime),
+    Survey(context.getString(R.string.survey_nature), R.drawable.sv_natural),
+    Survey(context.getString(R.string.survey_others), R.drawable.sv_other)
 )

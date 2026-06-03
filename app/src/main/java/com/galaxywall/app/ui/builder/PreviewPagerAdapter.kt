@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -85,6 +86,7 @@ class PreviewPagerAdapter(
         }
 
         holder.job?.cancel()
+        holder.loading.isVisible = true
         val ctx = holder.preview.context
         holder.job = scope.launch {
             val inputs = withContext(Dispatchers.IO) {
@@ -93,6 +95,7 @@ class PreviewPagerAdapter(
                 }
             }
             holder.preview.setLayers(inputs)
+            holder.loading.isVisible = false
         }
     }
 
@@ -106,6 +109,7 @@ class PreviewPagerAdapter(
         val preview: ParallaxImageView = view.findViewById(R.id.pagePreview)
         val video: TextureView = view.findViewById(R.id.pageVideo)
         val tag: TextView = view.findViewById(R.id.pageTag)
+        val loading: ProgressBar = view.findViewById(R.id.pageLoading)
         private val videoPlayer = LoopingVideoTexture(video)
         var videoUrl: String? = null
         var job: Job? = null

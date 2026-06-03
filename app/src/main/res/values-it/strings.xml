@@ -9,10 +9,10 @@
     <string name="please_select_at_least_2_topics">Seleziona almeno 2 temi</string>
     <string name="survey_parallax">Parallax</string>
     <string name="survey_live">Live</string>
-    <string name="survey_photos">Foto</string>
-    <string name="survey_colorful">Colorato</string>
-    <string name="survey_featured">In evidenza</string>
-    <string name="survey_explore">Esplora</string>
+    <string name="survey_cars">Auto</string>
+    <string name="survey_anime">Anime</string>
+    <string name="survey_nature">Natura</string>
+    <string name="survey_others">Altri</string>
     <string name="permission_title">Resta aggiornato</string>
     <string name="permission_message">Consenti le notifiche per ricevere gli ultimi sfondi e aggiornamenti.</string>
     <string name="permission_continue">Continua</string>

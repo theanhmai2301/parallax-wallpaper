@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.airbnb.lottie.LottieAnimationView;
@@ -24,6 +25,9 @@ public final class ViewEmptyStateBinding implements ViewBinding {
   public final LottieAnimationView emptyAnim;
 
   @NonNull
+  public final AppCompatButton emptyRetry;
+
+  @NonNull
   public final LinearLayout emptyRoot;
 
   @NonNull
@@ -33,10 +37,12 @@ public final class ViewEmptyStateBinding implements ViewBinding {
   public final TextView emptyTitle;
 
   private ViewEmptyStateBinding(@NonNull LinearLayout rootView,
-      @NonNull LottieAnimationView emptyAnim, @NonNull LinearLayout emptyRoot,
-      @NonNull TextView emptySubtitle, @NonNull TextView emptyTitle) {
+      @NonNull LottieAnimationView emptyAnim, @NonNull AppCompatButton emptyRetry,
+      @NonNull LinearLayout emptyRoot, @NonNull TextView emptySubtitle,
+      @NonNull TextView emptyTitle) {
     this.rootView = rootView;
     this.emptyAnim = emptyAnim;
+    this.emptyRetry = emptyRetry;
     this.emptyRoot = emptyRoot;
     this.emptySubtitle = emptySubtitle;
     this.emptyTitle = emptyTitle;
@@ -75,6 +81,12 @@ public final class ViewEmptyStateBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.emptyRetry;
+      AppCompatButton emptyRetry = ViewBindings.findChildViewById(rootView, id);
+      if (emptyRetry == null) {
+        break missingId;
+      }
+
       LinearLayout emptyRoot = (LinearLayout) rootView;
 
       id = R.id.emptySubtitle;
@@ -89,8 +101,8 @@ public final class ViewEmptyStateBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ViewEmptyStateBinding((LinearLayout) rootView, emptyAnim, emptyRoot, emptySubtitle,
-          emptyTitle);
+      return new ViewEmptyStateBinding((LinearLayout) rootView, emptyAnim, emptyRetry, emptyRoot,
+          emptySubtitle, emptyTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

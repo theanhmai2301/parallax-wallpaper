@@ -89,12 +89,12 @@
     <string name="settings_version">الإصدار</string>
     <string name="success_back_home">العودة إلى الرئيسية</string>
     <string name="success_subtitle">تم تعيين خلفيتك بنجاح.</string>
-    <string name="survey_colorful">ملوّنة</string>
-    <string name="survey_explore">استكشاف</string>
-    <string name="survey_featured">مميّزة</string>
+    <string name="survey_anime">أنمي</string>
+    <string name="survey_cars">سيارات</string>
     <string name="survey_live">حية</string>
+    <string name="survey_nature">الطبيعة</string>
+    <string name="survey_others">أخرى</string>
     <string name="survey_parallax">بارالاكس</string>
-    <string name="survey_photos">صور</string>
     <string name="swipe_to_continue">اسحب للمتابعة</string>
     <string name="tab_favorites">المفضلة</string>
     <string name="tab_home">استكشاف</string>

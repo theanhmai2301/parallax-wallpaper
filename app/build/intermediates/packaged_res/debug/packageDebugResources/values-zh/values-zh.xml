@@ -89,12 +89,12 @@
     <string name="settings_version">版本</string>
     <string name="success_back_home">返回首页</string>
     <string name="success_subtitle">你的壁纸已成功设置。</string>
-    <string name="survey_colorful">多彩</string>
-    <string name="survey_explore">探索</string>
-    <string name="survey_featured">精选</string>
+    <string name="survey_anime">动漫</string>
+    <string name="survey_cars">汽车</string>
     <string name="survey_live">动态</string>
+    <string name="survey_nature">自然</string>
+    <string name="survey_others">其他</string>
     <string name="survey_parallax">视差</string>
-    <string name="survey_photos">照片</string>
     <string name="swipe_to_continue">滑动以继续</string>
     <string name="tab_favorites">收藏</string>
     <string name="tab_home">发现</string>

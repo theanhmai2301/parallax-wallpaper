@@ -13,18 +13,31 @@
         android:layout_width="match_parent"
         android:layout_height="140dp"
         android:background="@drawable/selector_survey"
-        android:padding="2dp">
+        android:padding="6dp">
 
-        <ImageView
-            android:id="@+id/img_animal"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:importantForAccessibility="no"
+        <!-- Topic illustration fills the card (rounded, cropped). No tint:
+             these are full-colour photos, not monochrome icons. -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:cardBackgroundColor="@color/first_open_card"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/white" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- fitCenter: show the WHOLE image inside the square without zooming
+                 or cropping its corners (letterboxed on @color/first_open_card). -->
+            <ImageView
+                android:id="@+id/img_animal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:importantForAccessibility="no"
+                android:scaleType="fitCenter" />
+        </com.google.android.material.card.MaterialCardView>
 
         <ImageView
             android:id="@+id/ivCheck"

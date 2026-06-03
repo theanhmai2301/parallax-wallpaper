@@ -176,39 +176,17 @@ class BuilderViewModel @Inject constructor(
     /**
      * Loads the ordered render bitmaps as-is (bottom -> top), no background removal.
      *
-     * A parallax item is two layers: an opaque background (bottom) and a transparent cut-out
-     * foreground (top). The composite only looks right when BOTH load: if the background fails to
-     * load, the leftover transparent foreground would render alone over the black frame (subject on
-     * black); if the foreground is opaque it would hide the background entirely. In either broken
-     * case we fall back to the pre-composed full image ([Wallpaper.thumbUri], the layer-3 .jpg) so
-     * the wallpaper still shows complete and correct — just static, without the tilt offset.
+     * ALL expected images must load; if any one fails (e.g. offline mid-load) this returns an empty
+     * list so the preview stays blank and the caller keeps the "set wallpaper" action disabled —
+     * instead of rendering a half-composite (cut-out subject on black) or a degraded still. The
+     * caller reloads once the network is back.
      */
     suspend fun loadRenderLayers(): List<ParallaxImageView.LayerInput> = withContext(Dispatchers.IO) {
         val uris = renderUris()
-        val wp = currentWallpaper()
-        val isParallaxStack = uris.size > 1 &&
-            !isDiy && // DIY images are user-picked; there is no composed image to fall back to
-            wp?.type == ContentType.PARALLAX
-
-        if (isParallaxStack) {
-            val bitmaps = uris.map { BitmapLoader.load(context, it) }
-            val allLoaded = bitmaps.none { it == null }
-            // The top (last) layer must keep transparency, otherwise it covers everything below.
-            val topOpaque = bitmaps.lastOrNull()?.let { !it.hasAlpha() } ?: true
-            if (allLoaded && !topOpaque) {
-                return@withContext bitmaps.filterNotNull().map { ParallaxImageView.LayerInput(it) }
-            }
-            // Broken stack -> show the composed full image instead of a half-rendered one.
-            val composed = wp?.thumbUri?.let { BitmapLoader.load(context, it) }
-            if (composed != null) {
-                return@withContext listOf(ParallaxImageView.LayerInput(composed))
-            }
-            return@withContext bitmaps.filterNotNull().map { ParallaxImageView.LayerInput(it) }
-        }
-
-        uris.mapNotNull { uri ->
-            BitmapLoader.load(context, uri)?.let { ParallaxImageView.LayerInput(it) }
-        }
+        if (uris.isEmpty()) return@withContext emptyList()
+        val bitmaps = uris.map { BitmapLoader.load(context, it) }
+        if (bitmaps.any { it == null }) return@withContext emptyList()
+        bitmaps.map { ParallaxImageView.LayerInput(it!!) }
     }
 
     /** Applies the current static image (IMAGE type) directly with WallpaperManager. */

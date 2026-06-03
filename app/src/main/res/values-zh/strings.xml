@@ -9,10 +9,10 @@
     <string name="please_select_at_least_2_topics">请至少选择 2 个主题</string>
     <string name="survey_parallax">视差</string>
     <string name="survey_live">动态</string>
-    <string name="survey_photos">照片</string>
-    <string name="survey_colorful">多彩</string>
-    <string name="survey_featured">精选</string>
-    <string name="survey_explore">探索</string>
+    <string name="survey_cars">汽车</string>
+    <string name="survey_anime">动漫</string>
+    <string name="survey_nature">自然</string>
+    <string name="survey_others">其他</string>
     <string name="permission_title">保持更新</string>
     <string name="permission_message">允许通知，及时获取最新壁纸和更新。</string>
     <string name="permission_continue">继续</string>

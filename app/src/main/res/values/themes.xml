@@ -35,9 +35,16 @@
     <style name="Theme.ParallaxWallpaper" parent="Base.Theme.ParallaxWallpaper" />
 
     <style name="Theme.ParallaxWallpaper.Splash" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/bg</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_logo</item>
-        <item name="postSplashScreenTheme">@style/Theme.ParallaxWallpaper</item>
+        <item name="windowSplashScreenBackground">@color/first_open_bg</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_icon_app</item>
+        <item name="postSplashScreenTheme">@style/Theme.ParallaxWallpaper.SplashHost</item>
+    </style>
+
+    <!-- Host theme for SplashActivity after the system splash dismisses. Dark
+         background matching the splash + first-open screens, so there is no
+         white/blank flash before the first screen appears. -->
+    <style name="Theme.ParallaxWallpaper.SplashHost" parent="Theme.ParallaxWallpaper">
+        <item name="android:windowBackground">@color/first_open_bg</item>
     </style>
 
     <style name="ThemeOverlay.ParallaxWallpaper.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">

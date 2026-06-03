@@ -107,4 +107,14 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
     implementation("com.google.code.gson:gson:2.10.1")
+
+    // --- Instrumented UI tests (androidTest) ---
+    androidTestImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.test.junit)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.androidx.test.rules)
+    androidTestImplementation(libs.androidx.test.core)
+    androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(libs.espresso.contrib)
+    androidTestImplementation(libs.uiautomator)
 }

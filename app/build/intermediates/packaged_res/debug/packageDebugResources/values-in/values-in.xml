@@ -89,12 +89,12 @@
     <string name="settings_version">Versi</string>
     <string name="success_back_home">Kembali ke beranda</string>
     <string name="success_subtitle">Wallpaper Anda berhasil diatur.</string>
-    <string name="survey_colorful">Berwarna</string>
-    <string name="survey_explore">Jelajahi</string>
-    <string name="survey_featured">Unggulan</string>
+    <string name="survey_anime">Anime</string>
+    <string name="survey_cars">Mobil</string>
     <string name="survey_live">Live</string>
+    <string name="survey_nature">Alam</string>
+    <string name="survey_others">Lainnya</string>
     <string name="survey_parallax">Parallax</string>
-    <string name="survey_photos">Foto</string>
     <string name="swipe_to_continue">Geser untuk melanjutkan</string>
     <string name="tab_favorites">Favorit</string>
     <string name="tab_home">Jelajahi</string>

@@ -9,10 +9,10 @@
     <string name="please_select_at_least_2_topics">주제를 2개 이상 선택하세요</string>
     <string name="survey_parallax">패럴랙스</string>
     <string name="survey_live">라이브</string>
-    <string name="survey_photos">사진</string>
-    <string name="survey_colorful">컬러풀</string>
-    <string name="survey_featured">추천</string>
-    <string name="survey_explore">탐색</string>
+    <string name="survey_cars">자동차</string>
+    <string name="survey_anime">애니메이션</string>
+    <string name="survey_nature">자연</string>
+    <string name="survey_others">기타</string>
     <string name="permission_title">최신 소식 받기</string>
     <string name="permission_message">알림을 허용하고 최신 배경화면과 업데이트를 받아보세요.</string>
     <string name="permission_continue">계속</string>

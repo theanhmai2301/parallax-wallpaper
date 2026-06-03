@@ -9,10 +9,10 @@
     <string name="please_select_at_least_2_topics">Veuillez sélectionner au moins 2 thèmes</string>
     <string name="survey_parallax">Parallaxe</string>
     <string name="survey_live">Animé</string>
-    <string name="survey_photos">Photos</string>
-    <string name="survey_colorful">Coloré</string>
-    <string name="survey_featured">À la une</string>
-    <string name="survey_explore">Explorer</string>
+    <string name="survey_cars">Voitures</string>
+    <string name="survey_anime">Animé</string>
+    <string name="survey_nature">Nature</string>
+    <string name="survey_others">Autres</string>
     <string name="permission_title">Restez informé</string>
     <string name="permission_message">Autorisez les notifications pour recevoir les derniers fonds d\'écran et mises à jour.</string>
     <string name="permission_continue">Continuer</string>

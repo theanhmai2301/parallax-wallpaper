@@ -1,0 +1,422 @@
+﻿=== 00_splash ===
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 05_after_onboarding ===
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 10_home ===
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 11_home_swipe_up_fast ===
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 12_home_swipe_up_slow ===
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 13_home_swipe_down_fast ===
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 14_home_swipe_down_slow ===
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 15_home_fling ===
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 16_home_swipe_left ===
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 17_home_swipe_right ===
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 18_home_pull_refresh ===
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 20_tab_navCategory ===
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 20_tab_navFavorite ===
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 20_tab_navSetting ===
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 20_tab_navHome ===
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 21_tabs_fast ===
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 22_scroll_while_switching ===
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 30_settings ===
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 31_dark_on ===
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 32_dark_off ===
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 33_parallax_toggle ===
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 40_home_offline ===
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.doDestroyPredictionSession(AppPredictionService.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.-$$Nest$mdoDestroyPredictionSession(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1.$r8$lambda$6jiocxmfpkMhouurJIFDr1RsclQ(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1$$ExternalSyntheticLambda4.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.doInvoke(PooledLambdaImpl.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.invoke(PooledLambdaImpl.java:204)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.OmniFunction.run(OmniFunction.java:87)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:1095)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessageImpl(Handler.java:135)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:296)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:397)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9523)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:575)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:939)
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 41_category_offline ===
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.doDestroyPredictionSession(AppPredictionService.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.-$$Nest$mdoDestroyPredictionSession(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1.$r8$lambda$6jiocxmfpkMhouurJIFDr1RsclQ(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1$$ExternalSyntheticLambda4.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.doInvoke(PooledLambdaImpl.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.invoke(PooledLambdaImpl.java:204)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.OmniFunction.run(OmniFunction.java:87)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:1095)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessageImpl(Handler.java:135)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:296)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:397)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9523)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:575)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:939)
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 42_favorite_offline ===
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.doDestroyPredictionSession(AppPredictionService.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.-$$Nest$mdoDestroyPredictionSession(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1.$r8$lambda$6jiocxmfpkMhouurJIFDr1RsclQ(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1$$ExternalSyntheticLambda4.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.doInvoke(PooledLambdaImpl.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.invoke(PooledLambdaImpl.java:204)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.OmniFunction.run(OmniFunction.java:87)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:1095)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessageImpl(Handler.java:135)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:296)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:397)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9523)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:575)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:939)
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 43_offline_retry ===
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.doDestroyPredictionSession(AppPredictionService.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.-$$Nest$mdoDestroyPredictionSession(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1.$r8$lambda$6jiocxmfpkMhouurJIFDr1RsclQ(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1$$ExternalSyntheticLambda4.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.doInvoke(PooledLambdaImpl.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.invoke(PooledLambdaImpl.java:204)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.OmniFunction.run(OmniFunction.java:87)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:1095)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessageImpl(Handler.java:135)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:296)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:397)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9523)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:575)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:939)
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 44_home_back_online ===
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.doDestroyPredictionSession(AppPredictionService.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.-$$Nest$mdoDestroyPredictionSession(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1.$r8$lambda$6jiocxmfpkMhouurJIFDr1RsclQ(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1$$ExternalSyntheticLambda4.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.doInvoke(PooledLambdaImpl.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.invoke(PooledLambdaImpl.java:204)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.OmniFunction.run(OmniFunction.java:87)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:1095)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessageImpl(Handler.java:135)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:296)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:397)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9523)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:575)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:939)
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 50_resume_online ===
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.doDestroyPredictionSession(AppPredictionService.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.-$$Nest$mdoDestroyPredictionSession(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1.$r8$lambda$6jiocxmfpkMhouurJIFDr1RsclQ(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1$$ExternalSyntheticLambda4.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.doInvoke(PooledLambdaImpl.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.invoke(PooledLambdaImpl.java:204)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.OmniFunction.run(OmniFunction.java:87)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:1095)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessageImpl(Handler.java:135)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:296)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:397)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9523)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:575)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:939)
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+=== 51_resume_offline ===
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.doDestroyPredictionSession(AppPredictionService.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.-$$Nest$mdoDestroyPredictionSession(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1.$r8$lambda$6jiocxmfpkMhouurJIFDr1RsclQ(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1$$ExternalSyntheticLambda4.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.doInvoke(PooledLambdaImpl.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.invoke(PooledLambdaImpl.java:204)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.OmniFunction.run(OmniFunction.java:87)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:1095)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessageImpl(Handler.java:135)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:296)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:397)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9523)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:575)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:939)
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+06-03 12:12:53.750   649  1884 I ActivityManager: Process com.galaxywall.app (pid 30022) has died: prcp TOP 
+06-03 12:13:01.728   649  1137 I ActivityManager: Process com.galaxywall.app (pid 30957) has died: fg  TOP 
+=== 60_set1_preview ===
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.doDestroyPredictionSession(AppPredictionService.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.-$$Nest$mdoDestroyPredictionSession(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1.$r8$lambda$6jiocxmfpkMhouurJIFDr1RsclQ(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1$$ExternalSyntheticLambda4.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.doInvoke(PooledLambdaImpl.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.invoke(PooledLambdaImpl.java:204)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.OmniFunction.run(OmniFunction.java:87)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:1095)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessageImpl(Handler.java:135)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:296)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:397)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9523)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:575)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:939)
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+06-03 12:12:53.750   649  1884 I ActivityManager: Process com.galaxywall.app (pid 30022) has died: prcp TOP 
+06-03 12:13:01.728   649  1137 I ActivityManager: Process com.galaxywall.app (pid 30957) has died: fg  TOP 
+=== 61_set1_edit_or_result ===
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.doDestroyPredictionSession(AppPredictionService.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.-$$Nest$mdoDestroyPredictionSession(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1.$r8$lambda$6jiocxmfpkMhouurJIFDr1RsclQ(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1$$ExternalSyntheticLambda4.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.doInvoke(PooledLambdaImpl.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.invoke(PooledLambdaImpl.java:204)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.OmniFunction.run(OmniFunction.java:87)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:1095)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessageImpl(Handler.java:135)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:296)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:397)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9523)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:575)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:939)
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+06-03 12:12:53.750   649  1884 I ActivityManager: Process com.galaxywall.app (pid 30022) has died: prcp TOP 
+06-03 12:13:01.728   649  1137 I ActivityManager: Process com.galaxywall.app (pid 30957) has died: fg  TOP 
+=== 60_set2_preview ===
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.doDestroyPredictionSession(AppPredictionService.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.-$$Nest$mdoDestroyPredictionSession(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1.$r8$lambda$6jiocxmfpkMhouurJIFDr1RsclQ(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1$$ExternalSyntheticLambda4.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.doInvoke(PooledLambdaImpl.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.invoke(PooledLambdaImpl.java:204)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.OmniFunction.run(OmniFunction.java:87)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:1095)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessageImpl(Handler.java:135)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:296)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:397)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9523)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:575)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:939)
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+06-03 12:12:53.750   649  1884 I ActivityManager: Process com.galaxywall.app (pid 30022) has died: prcp TOP 
+06-03 12:13:01.728   649  1137 I ActivityManager: Process com.galaxywall.app (pid 30957) has died: fg  TOP 
+=== 61_set2_edit_or_result ===
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.doDestroyPredictionSession(AppPredictionService.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.-$$Nest$mdoDestroyPredictionSession(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1.$r8$lambda$6jiocxmfpkMhouurJIFDr1RsclQ(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1$$ExternalSyntheticLambda4.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.doInvoke(PooledLambdaImpl.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.invoke(PooledLambdaImpl.java:204)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.OmniFunction.run(OmniFunction.java:87)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:1095)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessageImpl(Handler.java:135)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:296)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:397)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9523)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:575)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:939)
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+06-03 12:12:53.750   649  1884 I ActivityManager: Process com.galaxywall.app (pid 30022) has died: prcp TOP 
+06-03 12:13:01.728   649  1137 I ActivityManager: Process com.galaxywall.app (pid 30957) has died: fg  TOP 
+=== 60_set3_preview ===
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.doDestroyPredictionSession(AppPredictionService.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.-$$Nest$mdoDestroyPredictionSession(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1.$r8$lambda$6jiocxmfpkMhouurJIFDr1RsclQ(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1$$ExternalSyntheticLambda4.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.doInvoke(PooledLambdaImpl.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.invoke(PooledLambdaImpl.java:204)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.OmniFunction.run(OmniFunction.java:87)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:1095)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessageImpl(Handler.java:135)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:296)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:397)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9523)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:575)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:939)
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+06-03 12:12:53.750   649  1884 I ActivityManager: Process com.galaxywall.app (pid 30022) has died: prcp TOP 
+06-03 12:13:01.728   649  1137 I ActivityManager: Process com.galaxywall.app (pid 30957) has died: fg  TOP 
+=== 61_set3_edit_or_result ===
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.doDestroyPredictionSession(AppPredictionService.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.-$$Nest$mdoDestroyPredictionSession(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1.$r8$lambda$6jiocxmfpkMhouurJIFDr1RsclQ(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1$$ExternalSyntheticLambda4.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.doInvoke(PooledLambdaImpl.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.invoke(PooledLambdaImpl.java:204)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.OmniFunction.run(OmniFunction.java:87)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:1095)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessageImpl(Handler.java:135)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:296)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:397)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9523)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:575)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:939)
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+06-03 12:12:53.750   649  1884 I ActivityManager: Process com.galaxywall.app (pid 30022) has died: prcp TOP 
+06-03 12:13:01.728   649  1137 I ActivityManager: Process com.galaxywall.app (pid 30957) has died: fg  TOP 
+=== 90_final_home ===
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.doDestroyPredictionSession(AppPredictionService.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService.-$$Nest$mdoDestroyPredictionSession(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1.$r8$lambda$6jiocxmfpkMhouurJIFDr1RsclQ(AppPredictionService.java:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$1$$ExternalSyntheticLambda4.accept(D8$$SyntheticClass:0)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.doInvoke(PooledLambdaImpl.java:281)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.PooledLambdaImpl.invoke(PooledLambdaImpl.java:204)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.util.function.pooled.OmniFunction.run(OmniFunction.java:87)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:1095)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessageImpl(Handler.java:135)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:125)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:296)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:397)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:9523)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:575)
+06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:939)
+06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+06-03 12:12:53.750   649  1884 I ActivityManager: Process com.galaxywall.app (pid 30022) has died: prcp TOP 
+06-03 12:13:01.728   649  1137 I ActivityManager: Process com.galaxywall.app (pid 30957) has died: fg  TOP 

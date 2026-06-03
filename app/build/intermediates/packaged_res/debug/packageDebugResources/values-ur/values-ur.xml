@@ -89,12 +89,12 @@
     <string name="settings_version">ورژن</string>
     <string name="success_back_home">ہوم پر واپس جائیں</string>
     <string name="success_subtitle">آپ کا وال پیپر کامیابی سے سیٹ ہو گیا ہے۔</string>
-    <string name="survey_colorful">رنگین</string>
-    <string name="survey_explore">دریافت کریں</string>
-    <string name="survey_featured">نمایاں</string>
+    <string name="survey_anime">اینیمی</string>
+    <string name="survey_cars">گاڑیاں</string>
     <string name="survey_live">لائیو</string>
+    <string name="survey_nature">فطرت</string>
+    <string name="survey_others">دیگر</string>
     <string name="survey_parallax">پیرالیکس</string>
-    <string name="survey_photos">تصاویر</string>
     <string name="swipe_to_continue">جاری رکھنے کے لیے سوائپ کریں</string>
     <string name="tab_favorites">پسندیدہ</string>
     <string name="tab_home">دریافت کریں</string>

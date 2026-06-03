@@ -89,12 +89,12 @@
     <string name="settings_version">Версия</string>
     <string name="success_back_home">На главную</string>
     <string name="success_subtitle">Ваши обои успешно установлены.</string>
-    <string name="survey_colorful">Яркие</string>
-    <string name="survey_explore">Обзор</string>
-    <string name="survey_featured">Избранное</string>
+    <string name="survey_anime">Аниме</string>
+    <string name="survey_cars">Машины</string>
     <string name="survey_live">Живые</string>
+    <string name="survey_nature">Природа</string>
+    <string name="survey_others">Другое</string>
     <string name="survey_parallax">Параллакс</string>
-    <string name="survey_photos">Фото</string>
     <string name="swipe_to_continue">Проведите, чтобы продолжить</string>
     <string name="tab_favorites">Избранное</string>
     <string name="tab_home">Обзор</string>

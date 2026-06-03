@@ -9,10 +9,10 @@
     <string name="please_select_at_least_2_topics">Selecione pelo menos 2 temas</string>
     <string name="survey_parallax">Parallax</string>
     <string name="survey_live">Ao vivo</string>
-    <string name="survey_photos">Fotos</string>
-    <string name="survey_colorful">Colorido</string>
-    <string name="survey_featured">Destaques</string>
-    <string name="survey_explore">Explorar</string>
+    <string name="survey_cars">Carros</string>
+    <string name="survey_anime">Anime</string>
+    <string name="survey_nature">Natureza</string>
+    <string name="survey_others">Outros</string>
     <string name="permission_title">Fique por dentro</string>
     <string name="permission_message">Permita notificações para receber os papéis de parede e novidades mais recentes.</string>
     <string name="permission_continue">Continuar</string>

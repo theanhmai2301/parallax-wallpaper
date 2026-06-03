@@ -9,10 +9,10 @@
     <string name="please_select_at_least_2_topics">براہ کرم کم از کم 2 موضوعات منتخب کریں</string>
     <string name="survey_parallax">پیرالیکس</string>
     <string name="survey_live">لائیو</string>
-    <string name="survey_photos">تصاویر</string>
-    <string name="survey_colorful">رنگین</string>
-    <string name="survey_featured">نمایاں</string>
-    <string name="survey_explore">دریافت کریں</string>
+    <string name="survey_cars">گاڑیاں</string>
+    <string name="survey_anime">اینیمی</string>
+    <string name="survey_nature">فطرت</string>
+    <string name="survey_others">دیگر</string>
     <string name="permission_title">باخبر رہیں</string>
     <string name="permission_message">تازہ ترین وال پیپرز اور اپڈیٹس حاصل کرنے کے لیے اطلاعات کی اجازت دیں۔</string>
     <string name="permission_continue">جاری رکھیں</string>

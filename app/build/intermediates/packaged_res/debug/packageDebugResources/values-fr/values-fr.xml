@@ -89,12 +89,12 @@
     <string name="settings_version">Version</string>
     <string name="success_back_home">Retour à l\'accueil</string>
     <string name="success_subtitle">Votre fond d\'écran a été appliqué avec succès.</string>
-    <string name="survey_colorful">Coloré</string>
-    <string name="survey_explore">Explorer</string>
-    <string name="survey_featured">À la une</string>
+    <string name="survey_anime">Animé</string>
+    <string name="survey_cars">Voitures</string>
     <string name="survey_live">Animé</string>
+    <string name="survey_nature">Nature</string>
+    <string name="survey_others">Autres</string>
     <string name="survey_parallax">Parallaxe</string>
-    <string name="survey_photos">Photos</string>
     <string name="swipe_to_continue">Balayez pour continuer</string>
     <string name="tab_favorites">Favoris</string>
     <string name="tab_home">Explorer</string>

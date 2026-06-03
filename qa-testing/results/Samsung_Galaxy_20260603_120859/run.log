@@ -1,0 +1,220 @@
+﻿[12:08:59][INFO] ===== SMOKE TEST START: Samsung_Galaxy (emulator-5554) =====
+[12:08:59][INFO] Device: sdk_gphone16k_x86_64 | Android 17 | 1080x2340
+[12:08:59][INFO] PHASE 0: First-open flow (clearing app data)
+[12:09:15][INFO] Checkpoint '00_splash' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:09:15][ERROR] CRASH/ANR detected at '00_splash':
+[12:09:15][ERROR]     06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+[12:10:12][INFO] Checkpoint '05_after_onboarding' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:10:13][ERROR] CRASH/ANR detected at '05_after_onboarding':
+[12:10:13][ERROR]     06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+[12:10:35][WARN] DID NOT reach MainActivity after first-open; current=      topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:10:53][INFO] Checkpoint '10_home' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:10:53][ERROR] CRASH/ANR detected at '10_home':
+[12:10:53][ERROR]     06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+[12:10:53][INFO] PHASE 1: Home gestures
+[12:10:54][INFO] Checkpoint '11_home_swipe_up_fast' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:10:55][ERROR] CRASH/ANR detected at '11_home_swipe_up_fast':
+[12:10:55][ERROR]     06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+[12:10:56][INFO] Checkpoint '12_home_swipe_up_slow' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:10:57][ERROR] CRASH/ANR detected at '12_home_swipe_up_slow':
+[12:10:57][ERROR]     06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+[12:10:58][INFO] Checkpoint '13_home_swipe_down_fast' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:10:58][ERROR] CRASH/ANR detected at '13_home_swipe_down_fast':
+[12:10:58][ERROR]     06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+[12:11:00][INFO] Checkpoint '14_home_swipe_down_slow' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:11:00][ERROR] CRASH/ANR detected at '14_home_swipe_down_slow':
+[12:11:00][ERROR]     06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+[12:11:03][INFO] Checkpoint '15_home_fling' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:11:04][ERROR] CRASH/ANR detected at '15_home_fling':
+[12:11:04][ERROR]     06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+[12:11:05][INFO] Checkpoint '16_home_swipe_left' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:11:06][ERROR] CRASH/ANR detected at '16_home_swipe_left':
+[12:11:06][ERROR]     06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+[12:11:07][INFO] Checkpoint '17_home_swipe_right' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:11:08][ERROR] CRASH/ANR detected at '17_home_swipe_right':
+[12:11:08][ERROR]     06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+[12:11:12][INFO] Checkpoint '18_home_pull_refresh' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:11:13][ERROR] CRASH/ANR detected at '18_home_pull_refresh':
+[12:11:13][ERROR]     06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+[12:11:13][INFO] PHASE 2: Tab switching
+[12:11:19][INFO] Checkpoint '20_tab_navCategory' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:11:19][ERROR] CRASH/ANR detected at '20_tab_navCategory':
+[12:11:19][ERROR]     06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+[12:11:24][INFO] Checkpoint '20_tab_navFavorite' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:11:25][ERROR] CRASH/ANR detected at '20_tab_navFavorite':
+[12:11:25][ERROR]     06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+[12:11:29][INFO] Checkpoint '20_tab_navSetting' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:11:29][ERROR] CRASH/ANR detected at '20_tab_navSetting':
+[12:11:29][ERROR]     06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+[12:11:34][INFO] Checkpoint '20_tab_navHome' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:11:34][ERROR] CRASH/ANR detected at '20_tab_navHome':
+[12:11:34][ERROR]     06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+[12:12:00][INFO] Checkpoint '21_tabs_fast' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:12:01][ERROR] CRASH/ANR detected at '21_tabs_fast':
+[12:12:01][ERROR]     06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+[12:12:14][INFO] Checkpoint '22_scroll_while_switching' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:12:15][ERROR] CRASH/ANR detected at '22_scroll_while_switching':
+[12:12:15][ERROR]     06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+[12:12:15][INFO] PHASE 3: Settings
+[12:12:19][INFO] Checkpoint '30_settings' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:12:20][ERROR] CRASH/ANR detected at '30_settings':
+[12:12:20][ERROR]     06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+[12:12:25][INFO] Checkpoint '31_dark_on' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:12:26][ERROR] CRASH/ANR detected at '31_dark_on':
+[12:12:26][ERROR]     06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+[12:12:30][INFO] Checkpoint '32_dark_off' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:12:32][ERROR] CRASH/ANR detected at '32_dark_off':
+[12:12:32][ERROR]     06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+[12:12:36][INFO] Checkpoint '33_parallax_toggle' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:12:37][ERROR] CRASH/ANR detected at '33_parallax_toggle':
+[12:12:37][ERROR]     06-03 12:08:20.719   649  2499 I ActivityManager: Process com.galaxywall.app (pid 6529) has died: fg  TOP 
+[12:12:44][INFO] PHASE 4: Network off/on
+[12:12:49][INFO] Network OFF
+[12:12:55][INFO] Checkpoint '40_home_offline' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:12:56][ERROR] CRASH/ANR detected at '40_home_offline':
+[12:12:56][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+[12:12:56][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+[12:12:56][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+[12:12:56][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+[12:12:56][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+[12:12:56][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+[12:12:56][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+[12:12:56][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+[12:13:01][INFO] Checkpoint '41_category_offline' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:13:02][ERROR] CRASH/ANR detected at '41_category_offline':
+[12:13:02][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+[12:13:02][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+[12:13:02][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+[12:13:02][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+[12:13:02][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+[12:13:02][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+[12:13:02][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+[12:13:02][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+[12:13:06][INFO] Checkpoint '42_favorite_offline' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:13:07][ERROR] CRASH/ANR detected at '42_favorite_offline':
+[12:13:07][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+[12:13:07][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+[12:13:07][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+[12:13:07][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+[12:13:07][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+[12:13:07][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+[12:13:07][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+[12:13:07][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+[12:13:14][INFO] Checkpoint '43_offline_retry' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:13:15][ERROR] CRASH/ANR detected at '43_offline_retry':
+[12:13:15][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+[12:13:15][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+[12:13:15][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+[12:13:15][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+[12:13:15][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+[12:13:15][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+[12:13:15][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+[12:13:15][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+[12:13:15][INFO] Network ON
+[12:13:27][INFO] Checkpoint '44_home_back_online' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:13:28][ERROR] CRASH/ANR detected at '44_home_back_online':
+[12:13:28][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+[12:13:28][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+[12:13:28][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+[12:13:28][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+[12:13:28][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+[12:13:28][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+[12:13:28][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+[12:13:28][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+[12:13:28][INFO] PHASE 5: App switching
+[12:13:38][INFO] Checkpoint '50_resume_online' |     topResumedActivity=ActivityRecord{113169172 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t12}
+[12:13:39][ERROR] CRASH/ANR detected at '50_resume_online':
+[12:13:39][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+[12:13:39][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+[12:13:39][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+[12:13:39][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+[12:13:39][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+[12:13:39][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+[12:13:39][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+[12:13:39][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+[12:13:49][INFO] Checkpoint '51_resume_offline' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:13:50][ERROR] CRASH/ANR detected at '51_resume_offline':
+[12:13:50][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+[12:13:50][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+[12:13:50][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+[12:13:50][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+[12:13:50][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+[12:13:50][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+[12:13:50][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+[12:13:50][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+[12:13:53][INFO] PHASE 6: Set-wallpaper flows
+[12:14:03][INFO] Checkpoint '60_set1_preview' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:14:04][ERROR] CRASH/ANR detected at '60_set1_preview':
+[12:14:04][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+[12:14:04][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+[12:14:04][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+[12:14:04][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+[12:14:04][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+[12:14:04][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+[12:14:04][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+[12:14:04][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+[12:14:10][INFO] Checkpoint '61_set1_edit_or_result' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:14:12][ERROR] CRASH/ANR detected at '61_set1_edit_or_result':
+[12:14:12][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+[12:14:12][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+[12:14:12][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+[12:14:12][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+[12:14:12][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+[12:14:12][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+[12:14:12][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+[12:14:12][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+[12:14:17][WARN] btnSetBackground not found for set1
+[12:14:31][INFO] Checkpoint '60_set2_preview' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:14:32][ERROR] CRASH/ANR detected at '60_set2_preview':
+[12:14:32][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+[12:14:32][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+[12:14:32][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+[12:14:32][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+[12:14:32][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+[12:14:32][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+[12:14:32][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+[12:14:32][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+[12:14:37][INFO] Checkpoint '61_set2_edit_or_result' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:14:38][ERROR] CRASH/ANR detected at '61_set2_edit_or_result':
+[12:14:38][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+[12:14:38][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+[12:14:38][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+[12:14:38][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+[12:14:38][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+[12:14:38][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+[12:14:38][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+[12:14:38][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+[12:14:43][WARN] btnSetBackground not found for set2
+[12:15:01][INFO] Checkpoint '60_set3_preview' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:15:02][ERROR] CRASH/ANR detected at '60_set3_preview':
+[12:15:02][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+[12:15:02][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+[12:15:02][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+[12:15:02][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+[12:15:02][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+[12:15:02][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+[12:15:02][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+[12:15:02][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+[12:15:07][INFO] Checkpoint '61_set3_edit_or_result' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:15:08][ERROR] CRASH/ANR detected at '61_set3_edit_or_result':
+[12:15:08][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+[12:15:08][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+[12:15:08][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+[12:15:08][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+[12:15:08][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+[12:15:08][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+[12:15:08][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+[12:15:08][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+[12:15:13][WARN] btnSetBackground not found for set3
+[12:15:21][INFO] Checkpoint '90_final_home' |       topResumedActivity=ActivityRecord{131740531 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t10}
+[12:15:22][ERROR] CRASH/ANR detected at '90_final_home':
+[12:15:22][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: FATAL EXCEPTION: main
+[12:15:22][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: Process: com.google.android.as, PID: 24634
+[12:15:22][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: java.util.NoSuchElementException: Death link does not exist (NAME_NOT_FOUND)
+[12:15:22][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeathNative(Native Method)
+[12:15:22][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.os.BinderProxy.unlinkToDeath(BinderProxy.java:684)
+[12:15:22][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$CallbackWrapper.destroy(AppPredictionService.java:369)
+[12:15:22][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at android.service.appprediction.AppPredictionService$$ExternalSyntheticLambda3.accept(D8$$SyntheticClass:0)
+[12:15:22][ERROR]     06-03 12:11:51.298 24634 24634 E AndroidRuntime: 	at java.util.ArrayList.forEach(ArrayList.java:1621)
+[12:15:22][INFO] ===== SMOKE TEST DONE: Samsung_Galaxy | screenshots=35 =====
+[12:15:22][ERROR] RESULT: CRASHES/ANRs FOUND - see CRASHES.txt

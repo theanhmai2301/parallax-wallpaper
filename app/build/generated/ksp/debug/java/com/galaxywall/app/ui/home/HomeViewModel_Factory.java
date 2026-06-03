@@ -1,6 +1,7 @@
 package com.galaxywall.app.ui.home;
 
 import com.galaxywall.app.data.repository.WallpaperRepository;
+import com.galaxywall.app.util.NetworkMonitor;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.Factory;
 import dagger.internal.QualifierMetadata;
@@ -26,20 +27,26 @@ import javax.inject.Provider;
 public final class HomeViewModel_Factory implements Factory<HomeViewModel> {
   private final Provider<WallpaperRepository> repositoryProvider;
 
-  public HomeViewModel_Factory(Provider<WallpaperRepository> repositoryProvider) {
+  private final Provider<NetworkMonitor> networkMonitorProvider;
+
+  public HomeViewModel_Factory(Provider<WallpaperRepository> repositoryProvider,
+      Provider<NetworkMonitor> networkMonitorProvider) {
     this.repositoryProvider = repositoryProvider;
+    this.networkMonitorProvider = networkMonitorProvider;
   }
 
   @Override
   public HomeViewModel get() {
-    return newInstance(repositoryProvider.get());
+    return newInstance(repositoryProvider.get(), networkMonitorProvider.get());
   }
 
-  public static HomeViewModel_Factory create(Provider<WallpaperRepository> repositoryProvider) {
-    return new HomeViewModel_Factory(repositoryProvider);
+  public static HomeViewModel_Factory create(Provider<WallpaperRepository> repositoryProvider,
+      Provider<NetworkMonitor> networkMonitorProvider) {
+    return new HomeViewModel_Factory(repositoryProvider, networkMonitorProvider);
   }
 
-  public static HomeViewModel newInstance(WallpaperRepository repository) {
-    return new HomeViewModel(repository);
+  public static HomeViewModel newInstance(WallpaperRepository repository,
+      NetworkMonitor networkMonitor) {
+    return new HomeViewModel(repository, networkMonitor);
   }
 }

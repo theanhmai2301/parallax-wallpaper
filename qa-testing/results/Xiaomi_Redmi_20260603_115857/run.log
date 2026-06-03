@@ -1,0 +1,12 @@
+﻿[11:58:57][INFO] ===== SMOKE TEST START: Xiaomi_Redmi (emulator-5554) =====
+[11:58:57][INFO] Device: sdk_gphone16k_x86_64 | Android 17 | 1080x2400
+[11:58:57][INFO] PHASE 0: First-open flow (clearing app data)
+[11:59:08][INFO] Checkpoint '00_splash' |     topResumedActivity=ActivityRecord{233380102 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t7}
+[11:59:09][INFO] Checkpoint '01_language' |     topResumedActivity=ActivityRecord{233380102 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t7}
+[11:59:21][WARN] imgConfirm not found (maybe second language screen / ad)
+[11:59:24][INFO] Checkpoint '02_after_language' |     topResumedActivity=ActivityRecord{233380102 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t7}
+[11:59:33][INFO] Checkpoint '05_after_onboarding' |     topResumedActivity=ActivityRecord{233380102 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t7}
+[11:59:56][WARN] DID NOT reach MainActivity after first-open; current=    topResumedActivity=ActivityRecord{233380102 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t7}
+[12:00:13][INFO] Checkpoint '10_home' |     topResumedActivity=ActivityRecord{233380102 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t7}
+[12:00:13][INFO] PHASE 1: Home gestures
+[12:00:14][INFO] Checkpoint '11_home_swipe_up_fast' |     topResumedActivity=ActivityRecord{233380102 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity t7}

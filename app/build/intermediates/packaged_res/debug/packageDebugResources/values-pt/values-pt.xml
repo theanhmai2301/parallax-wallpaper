@@ -89,12 +89,12 @@
     <string name="settings_version">Versão</string>
     <string name="success_back_home">Voltar ao início</string>
     <string name="success_subtitle">Seu papel de parede foi definido com sucesso.</string>
-    <string name="survey_colorful">Colorido</string>
-    <string name="survey_explore">Explorar</string>
-    <string name="survey_featured">Destaques</string>
+    <string name="survey_anime">Anime</string>
+    <string name="survey_cars">Carros</string>
     <string name="survey_live">Ao vivo</string>
+    <string name="survey_nature">Natureza</string>
+    <string name="survey_others">Outros</string>
     <string name="survey_parallax">Parallax</string>
-    <string name="survey_photos">Fotos</string>
     <string name="swipe_to_continue">Deslize para continuar</string>
     <string name="tab_favorites">Favoritos</string>
     <string name="tab_home">Explorar</string>

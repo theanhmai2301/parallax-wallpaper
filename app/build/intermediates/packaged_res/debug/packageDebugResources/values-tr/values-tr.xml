@@ -89,12 +89,12 @@
     <string name="settings_version">Sürüm</string>
     <string name="success_back_home">Ana sayfaya dön</string>
     <string name="success_subtitle">Duvar kağıdın başarıyla ayarlandı.</string>
-    <string name="survey_colorful">Renkli</string>
-    <string name="survey_explore">Keşfet</string>
-    <string name="survey_featured">Öne çıkanlar</string>
+    <string name="survey_anime">Anime</string>
+    <string name="survey_cars">Arabalar</string>
     <string name="survey_live">Canlı</string>
+    <string name="survey_nature">Doğa</string>
+    <string name="survey_others">Diğer</string>
     <string name="survey_parallax">Parallax</string>
-    <string name="survey_photos">Fotoğraflar</string>
     <string name="swipe_to_continue">Devam etmek için kaydır</string>
     <string name="tab_favorites">Favoriler</string>
     <string name="tab_home">Keşfet</string>

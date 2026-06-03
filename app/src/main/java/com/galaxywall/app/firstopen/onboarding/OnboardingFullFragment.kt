@@ -60,9 +60,9 @@ class OnboardingFullFragment : Fragment() {
 
     private fun setupViewFile() {
         val (titleRes, desRes, iconRes) = when (pagePosition) {
-            0 -> Triple(R.string.txt_onboarding_1_title, R.string.txt_onboarding_1_des, R.drawable.ic_layers)
-            1 -> Triple(R.string.txt_onboarding_2_title, R.string.txt_onboarding_2_des, R.drawable.ic_live)
-            else -> Triple(R.string.txt_onboarding_3_title, R.string.txt_onboarding_3_des, R.drawable.ic_palette)
+            0 -> Triple(R.string.txt_onboarding_1_title, R.string.txt_onboarding_1_des, R.drawable.ob_1)
+            1 -> Triple(R.string.txt_onboarding_2_title, R.string.txt_onboarding_2_des, R.drawable.ob_2)
+            else -> Triple(R.string.txt_onboarding_3_title, R.string.txt_onboarding_3_des, R.drawable.ob_3)
         }
         binding.tvTitleOnboard.setText(titleRes)
         binding.tvDesOnboard.setText(desRes)

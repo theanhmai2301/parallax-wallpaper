@@ -9,7 +9,7 @@
         android:layout_height="30dp"
         android:layout_gravity="center_vertical"
         android:importantForAccessibility="no"
-        android:src="@drawable/ic_logo" />
+        android:src="@drawable/ic_icon_app" />
 
     <TextView
         android:id="@+id/toolbarTitle"

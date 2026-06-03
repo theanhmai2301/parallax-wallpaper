@@ -9,10 +9,10 @@
     <string name="please_select_at_least_2_topics">குறைந்தது 2 தலைப்புகளைத் தேர்ந்தெடுக்கவும்</string>
     <string name="survey_parallax">பாரலாக்ஸ்</string>
     <string name="survey_live">லைவ்</string>
-    <string name="survey_photos">புகைப்படங்கள்</string>
-    <string name="survey_colorful">வண்ணமயம்</string>
-    <string name="survey_featured">சிறப்பு</string>
-    <string name="survey_explore">ஆராய்</string>
+    <string name="survey_cars">கார்கள்</string>
+    <string name="survey_anime">அனிமே</string>
+    <string name="survey_nature">இயற்கை</string>
+    <string name="survey_others">மற்றவை</string>
     <string name="permission_title">புதுப்பித்த நிலையில் இருங்கள்</string>
     <string name="permission_message">சமீபத்திய வால்பேப்பர்கள் மற்றும் புதுப்பிப்புகளைப் பெற அறிவிப்புகளை அனுமதிக்கவும்.</string>
     <string name="permission_continue">தொடரவும்</string>

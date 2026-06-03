@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,6 +38,9 @@ public final class FragmentResultBinding implements ViewBinding {
   public final MaterialCardView resultCard;
 
   @NonNull
+  public final ProgressBar resultLoading;
+
+  @NonNull
   public final ParallaxImageView resultPreview;
 
   @NonNull
@@ -53,14 +57,15 @@ public final class FragmentResultBinding implements ViewBinding {
 
   private FragmentResultBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView btnBack,
       @NonNull LinearLayout btnSetBackground, @NonNull ImageView resultBg,
-      @NonNull MaterialCardView resultCard, @NonNull ParallaxImageView resultPreview,
-      @NonNull ConstraintLayout resultRoot, @NonNull View resultScrim,
-      @NonNull TextureView resultVideo, @NonNull TextView title) {
+      @NonNull MaterialCardView resultCard, @NonNull ProgressBar resultLoading,
+      @NonNull ParallaxImageView resultPreview, @NonNull ConstraintLayout resultRoot,
+      @NonNull View resultScrim, @NonNull TextureView resultVideo, @NonNull TextView title) {
     this.rootView = rootView;
     this.btnBack = btnBack;
     this.btnSetBackground = btnSetBackground;
     this.resultBg = resultBg;
     this.resultCard = resultCard;
+    this.resultLoading = resultLoading;
     this.resultPreview = resultPreview;
     this.resultRoot = resultRoot;
     this.resultScrim = resultScrim;
@@ -119,6 +124,12 @@ public final class FragmentResultBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.resultLoading;
+      ProgressBar resultLoading = ViewBindings.findChildViewById(rootView, id);
+      if (resultLoading == null) {
+        break missingId;
+      }
+
       id = R.id.resultPreview;
       ParallaxImageView resultPreview = ViewBindings.findChildViewById(rootView, id);
       if (resultPreview == null) {
@@ -146,7 +157,8 @@ public final class FragmentResultBinding implements ViewBinding {
       }
 
       return new FragmentResultBinding((ConstraintLayout) rootView, btnBack, btnSetBackground,
-          resultBg, resultCard, resultPreview, resultRoot, resultScrim, resultVideo, title);
+          resultBg, resultCard, resultLoading, resultPreview, resultRoot, resultScrim, resultVideo,
+          title);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

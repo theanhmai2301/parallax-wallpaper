@@ -7,6 +7,7 @@ import com.galaxywall.app.data.model.ContentType
 import com.galaxywall.app.data.model.Wallpaper
 import com.galaxywall.app.data.model.WallpaperCategory
 import com.galaxywall.app.data.remote.RemoteWallpaperSource
+import com.galaxywall.app.util.NetworkMonitor
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
@@ -19,7 +20,8 @@ import javax.inject.Singleton
 @Singleton
 class WallpaperRepository @Inject constructor(
     private val remote: RemoteWallpaperSource,
-    private val dao: WallpaperDao
+    private val dao: WallpaperDao,
+    private val networkMonitor: NetworkMonitor
 ) {
     private val mutex = Mutex()
 
@@ -62,6 +64,12 @@ class WallpaperRepository @Inject constructor(
                 emit(list)
                 return@flow
             }
+            // Offline: stop immediately so the UI can show a clear "no internet" message instead of
+            // shimmering for the whole retry budget waiting for a server that can't be reached.
+            if (!networkMonitor.isOnline()) {
+                emit(emptyList())
+                return@flow
+            }
             attempt++
             delay(CATALOG_RETRY_DELAY_MS * attempt)
         }
@@ -94,11 +102,21 @@ class WallpaperRepository @Inject constructor(
             feed.map { it.copy(isFavorite = favSet.contains(it.id)) }
         }
 
-    private fun buildFeed(all: List<Wallpaper>): List<Wallpaper> =
-        all.groupBy { it.category }
-            .values
+    /**
+     * The full home ordering, revealed progressively as the user scrolls (infinite scroll). The
+     * first wave is the curated mix (a few per category, shuffled) so the top of Home looks varied;
+     * the rest of the catalog follows (shuffled) so scrolling down keeps loading more wallpapers
+     * until everything has been shown.
+     */
+    private fun buildFeed(all: List<Wallpaper>): List<Wallpaper> {
+        val byCategory = all.groupBy { it.category }
+        val firstWave = byCategory.values
             .flatMap { items -> items.shuffled().take(FEED_PER_CATEGORY) }
             .shuffled()
+        val firstIds = firstWave.mapTo(HashSet()) { it.id }
+        val rest = all.filterNot { it.id in firstIds }.shuffled()
+        return firstWave + rest
+    }
 
     fun observeFavorites(): Flow<List<Wallpaper>> =
         combine(catalogFlow(), dao.observeFavoriteIds()) { all, favIds ->

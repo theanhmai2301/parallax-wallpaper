@@ -32,4 +32,19 @@
         android:layout_marginTop="6dp"
         android:gravity="center"
         android:textAppearance="@style/TextAppearance.ParallaxWallpaper.Body" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/emptyRetry"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_button_primary"
+        android:minWidth="140dp"
+        android:paddingHorizontal="28dp"
+        android:stateListAnimator="@null"
+        android:text="@string/action_retry"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:visibility="gone" />
 </LinearLayout>

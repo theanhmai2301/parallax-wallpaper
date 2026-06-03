@@ -89,12 +89,12 @@
     <string name="settings_version">เวอร์ชัน</string>
     <string name="success_back_home">กลับไปหน้าแรก</string>
     <string name="success_subtitle">ตั้งวอลเปเปอร์ของคุณสำเร็จแล้ว</string>
-    <string name="survey_colorful">สีสัน</string>
-    <string name="survey_explore">สำรวจ</string>
-    <string name="survey_featured">แนะนำ</string>
+    <string name="survey_anime">อนิเมะ</string>
+    <string name="survey_cars">รถยนต์</string>
     <string name="survey_live">ไลฟ์</string>
+    <string name="survey_nature">ธรรมชาติ</string>
+    <string name="survey_others">อื่นๆ</string>
     <string name="survey_parallax">พารัลแลกซ์</string>
-    <string name="survey_photos">รูปภาพ</string>
     <string name="swipe_to_continue">ปัดเพื่อดำเนินการต่อ</string>
     <string name="tab_favorites">รายการโปรด</string>
     <string name="tab_home">สำรวจ</string>

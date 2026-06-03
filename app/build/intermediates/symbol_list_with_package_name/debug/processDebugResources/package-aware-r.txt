@@ -1544,6 +1544,8 @@ color dim_foreground_material_light
 color error_color_material_dark
 color error_color_material_light
 color favorite_red
+color first_open_bg
+color first_open_card
 color foreground_material_dark
 color foreground_material_light
 color glass_bg
@@ -3236,6 +3238,7 @@ drawable ic_favorite
 drawable ic_favorite_border
 drawable ic_folder
 drawable ic_home
+drawable ic_icon_app
 drawable ic_image
 drawable ic_image_broken
 drawable ic_keyboard_black_24dp
@@ -3339,12 +3342,21 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable ob_1
+drawable ob_2
+drawable ob_3
 drawable ripple_card
 drawable selector_bg_btn_language
 drawable selector_bg_item_language
 drawable selector_check_survey
 drawable selector_survey
 drawable shape_shimmer
+drawable sv_anime
+drawable sv_car
+drawable sv_live_wall
+drawable sv_natural
+drawable sv_other
+drawable sv_parallax
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -3572,6 +3584,7 @@ id edit_text_id
 id elastic
 id embed
 id emptyAnim
+id emptyRetry
 id emptyRoot
 id emptyState
 id emptySubtitle
@@ -3668,6 +3681,7 @@ id llBtn
 id llParent
 id ll_title
 id loading
+id loadingMore
 id locale
 id lottieAnimationView
 id lottie_layer_name
@@ -3791,6 +3805,7 @@ id outward
 id overlay
 id overshoot
 id packed
+id pageLoading
 id pagePreview
 id pageTag
 id pageVideo
@@ -3834,6 +3849,7 @@ id restart
 id resultBg
 id resultCard
 id resultFragment
+id resultLoading
 id resultPreview
 id resultRoot
 id resultScrim
@@ -4290,6 +4306,7 @@ string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
 string action_next
+string action_retry
 string action_save
 string action_set
 string action_start
@@ -4476,6 +4493,8 @@ string nav_diy
 string nav_favorite
 string nav_home
 string nav_setting
+string no_internet_subtitle
+string no_internet_title
 string ok
 string overlay_title
 string password_toggle_content_description
@@ -4526,12 +4545,12 @@ string side_sheet_behavior
 string status_bar_notification_info_overflow
 string success_back_home
 string success_subtitle
-string survey_colorful
-string survey_explore
-string survey_featured
+string survey_anime
+string survey_cars
 string survey_live
+string survey_nature
+string survey_others
 string survey_parallax
-string survey_photos
 string swipe_to_continue
 string tab_diy
 string tab_favorites
@@ -5193,6 +5212,7 @@ style Theme_MaterialComponents_NoActionBar
 style Theme_MaterialComponents_NoActionBar_Bridge
 style Theme_ParallaxWallpaper
 style Theme_ParallaxWallpaper_Splash
+style Theme_ParallaxWallpaper_SplashHost
 style Theme_ParallaxWallpaper_Translucent
 style Theme_SplashScreen
 style Theme_SplashScreen_Common

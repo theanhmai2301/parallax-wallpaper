@@ -9,10 +9,10 @@
     <string name="please_select_at_least_2_topics">2つ以上のトピックを選択してください</string>
     <string name="survey_parallax">パララックス</string>
     <string name="survey_live">ライブ</string>
-    <string name="survey_photos">写真</string>
-    <string name="survey_colorful">カラフル</string>
-    <string name="survey_featured">おすすめ</string>
-    <string name="survey_explore">探す</string>
+    <string name="survey_cars">車</string>
+    <string name="survey_anime">アニメ</string>
+    <string name="survey_nature">自然</string>
+    <string name="survey_others">その他</string>
     <string name="permission_title">最新情報を受け取る</string>
     <string name="permission_message">通知を許可して、最新の壁紙やアップデートを受け取りましょう。</string>
     <string name="permission_continue">続行</string>

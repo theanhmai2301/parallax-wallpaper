@@ -4,7 +4,7 @@
             "outputFile": "com.galaxywall.app-mergeDebugResources-63:/values-en-rXC/values-en-rXC.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\maing\\.gradle\\caches\\8.9\\transforms\\dee341c5bf39f1aa1ed98a96037d8291\\transformed\\core-1.15.0\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "source": "C:\\Users\\maing\\.gradle\\caches\\8.9\\transforms\\aa4b066cd2e8ea03d3cda4a8ed4b9b75\\transformed\\core-1.15.0\\res\\values-en-rXC\\values-en-rXC.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\maing\\.gradle\\caches\\8.9\\transforms\\b77a0b9d130863d27c59c285c62efcf7\\transformed\\appcompat-1.7.0\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "source": "C:\\Users\\maing\\.gradle\\caches\\8.9\\transforms\\20df75a07727220085cdbdf8e9933c9e\\transformed\\appcompat-1.7.0\\res\\values-en-rXC\\values-en-rXC.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

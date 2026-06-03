@@ -9,10 +9,10 @@
     <string name="please_select_at_least_2_topics">অনুগ্রহ করে অন্তত ২টি বিষয় নির্বাচন করুন</string>
     <string name="survey_parallax">প্যারালাক্স</string>
     <string name="survey_live">লাইভ</string>
-    <string name="survey_photos">ছবি</string>
-    <string name="survey_colorful">রঙিন</string>
-    <string name="survey_featured">বৈশিষ্ট্যযুক্ত</string>
-    <string name="survey_explore">অন্বেষণ</string>
+    <string name="survey_cars">গাড়ি</string>
+    <string name="survey_anime">অ্যানিমে</string>
+    <string name="survey_nature">প্রকৃতি</string>
+    <string name="survey_others">অন্যান্য</string>
     <string name="permission_title">আপডেট থাকুন</string>
     <string name="permission_message">সর্বশেষ ওয়ালপেপার ও আপডেট পেতে বিজ্ঞপ্তির অনুমতি দিন।</string>
     <string name="permission_continue">চালিয়ে যান</string>

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
+import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -40,6 +41,9 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final ConstraintLayout homeRoot;
 
   @NonNull
+  public final ProgressBar loadingMore;
+
+  @NonNull
   public final RecyclerView recycler;
 
   @NonNull
@@ -54,15 +58,16 @@ public final class FragmentHomeBinding implements ViewBinding {
   private FragmentHomeBinding(@NonNull ConstraintLayout rootView,
       @NonNull ViewBottomNavBinding bottomNav, @NonNull ChipGroup categoryChips,
       @NonNull HorizontalScrollView chipScroll, @NonNull ViewEmptyStateBinding emptyState,
-      @NonNull ConstraintLayout homeRoot, @NonNull RecyclerView recycler,
-      @NonNull ShimmerFrameLayout shimmerLayout, @NonNull SwipeRefreshLayout swipeRefresh,
-      @NonNull PremiumToolbar toolbar) {
+      @NonNull ConstraintLayout homeRoot, @NonNull ProgressBar loadingMore,
+      @NonNull RecyclerView recycler, @NonNull ShimmerFrameLayout shimmerLayout,
+      @NonNull SwipeRefreshLayout swipeRefresh, @NonNull PremiumToolbar toolbar) {
     this.rootView = rootView;
     this.bottomNav = bottomNav;
     this.categoryChips = categoryChips;
     this.chipScroll = chipScroll;
     this.emptyState = emptyState;
     this.homeRoot = homeRoot;
+    this.loadingMore = loadingMore;
     this.recycler = recycler;
     this.shimmerLayout = shimmerLayout;
     this.swipeRefresh = swipeRefresh;
@@ -124,6 +129,12 @@ public final class FragmentHomeBinding implements ViewBinding {
 
       ConstraintLayout homeRoot = (ConstraintLayout) rootView;
 
+      id = R.id.loadingMore;
+      ProgressBar loadingMore = ViewBindings.findChildViewById(rootView, id);
+      if (loadingMore == null) {
+        break missingId;
+      }
+
       id = R.id.recycler;
       RecyclerView recycler = ViewBindings.findChildViewById(rootView, id);
       if (recycler == null) {
@@ -149,7 +160,8 @@ public final class FragmentHomeBinding implements ViewBinding {
       }
 
       return new FragmentHomeBinding((ConstraintLayout) rootView, binding_bottomNav, categoryChips,
-          chipScroll, binding_emptyState, homeRoot, recycler, shimmerLayout, swipeRefresh, toolbar);
+          chipScroll, binding_emptyState, homeRoot, loadingMore, recycler, shimmerLayout,
+          swipeRefresh, toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -4,7 +4,7 @@
             "outputFile": "com.galaxywall.app-mergeDebugResources-63:/values-sw600dp-v13/values-sw600dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\maing\\.gradle\\caches\\8.9\\transforms\\b77a0b9d130863d27c59c285c62efcf7\\transformed\\appcompat-1.7.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "source": "C:\\Users\\maing\\.gradle\\caches\\8.9\\transforms\\20df75a07727220085cdbdf8e9933c9e\\transformed\\appcompat-1.7.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\maing\\.gradle\\caches\\8.9\\transforms\\8d9770f18181e22b7c184ff395781901\\transformed\\material-1.12.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "source": "C:\\Users\\maing\\.gradle\\caches\\8.9\\transforms\\0a6c1ad9413ae239e45f69497550283a\\transformed\\material-1.12.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,10,11,12,13,14",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",

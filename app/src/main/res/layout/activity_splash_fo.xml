@@ -5,14 +5,14 @@
     android:id="@+id/splashRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:attr/colorBackground">
+    android:background="@color/first_open_bg">
 
     <ImageView
         android:id="@+id/ivAppLogo"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:importantForAccessibility="no"
-        android:src="@drawable/ic_logo"
+        android:src="@drawable/ic_icon_app"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -78,6 +78,9 @@ class WallpaperAdapter(
         private var parallaxJob: Job? = null
         private var currentRatio: String? = null
 
+        /** Only allow opening the preview once the thumbnail has actually loaded. */
+        private var thumbLoaded = false
+
         fun clearParallax() {
             parallaxJob?.cancel()
             parallaxJob = null
@@ -108,15 +111,22 @@ class WallpaperAdapter(
 
             // Load the thumbnail right away (Coil decodes off the main thread and cancels requests
             // for recycled views) so images keep up with scrolling instead of popping in late.
-            // Show a spinner while loading so the user knows the cell is fetching its image.
+            // Show a spinner while loading; the cell is only tappable once the image has loaded.
+            thumbLoaded = false
             binding.loading.isVisible = true
             binding.thumb.load(item.thumbUri) {
                 crossfade(220)
                 placeholder(R.drawable.shape_shimmer)
                 error(R.drawable.ic_image_broken)
                 listener(
-                    onSuccess = { _, _ -> binding.loading.isVisible = false },
-                    onError = { _, _ -> binding.loading.isVisible = false }
+                    onSuccess = { _, _ ->
+                        binding.loading.isVisible = false
+                        thumbLoaded = true
+                    },
+                    onError = { _, _ ->
+                        binding.loading.isVisible = false
+                        thumbLoaded = false
+                    }
                 )
             }
 
@@ -153,7 +163,8 @@ class WallpaperAdapter(
                 ContextCompat.getColor(binding.root.context, favColor)
             )
 
-            binding.card.setOnClickListener { onClick(item, binding.thumb) }
+            // Block opening the preview until the thumbnail has finished loading.
+            binding.card.setOnClickListener { if (thumbLoaded) onClick(item, binding.thumb) }
             binding.favoriteButton.setOnClickListener { onFavorite(item) }
         }
     }

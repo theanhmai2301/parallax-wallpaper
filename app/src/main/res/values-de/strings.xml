@@ -9,10 +9,10 @@
     <string name="please_select_at_least_2_topics">Bitte wähle mindestens 2 Themen</string>
     <string name="survey_parallax">Parallax</string>
     <string name="survey_live">Live</string>
-    <string name="survey_photos">Fotos</string>
-    <string name="survey_colorful">Farbenfroh</string>
-    <string name="survey_featured">Empfohlen</string>
-    <string name="survey_explore">Entdecken</string>
+    <string name="survey_cars">Autos</string>
+    <string name="survey_anime">Anime</string>
+    <string name="survey_nature">Natur</string>
+    <string name="survey_others">Andere</string>
     <string name="permission_title">Bleib auf dem Laufenden</string>
     <string name="permission_message">Erlaube Benachrichtigungen, um die neuesten Hintergründe und Updates zu erhalten.</string>
     <string name="permission_continue">Weiter</string>

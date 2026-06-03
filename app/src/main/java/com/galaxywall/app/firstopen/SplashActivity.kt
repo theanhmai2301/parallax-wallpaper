@@ -2,8 +2,8 @@ package com.galaxywall.app.firstopen
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
-import com.galaxywall.app.databinding.ActivitySplashFoBinding
 import com.galaxywall.app.firstopen.language.LanguageFO1Activity
 import com.galaxywall.app.firstopen.onboarding.OnBoardingFullFragmentActivity
 import com.galaxywall.app.firstopen.survey.SurveyActivity
@@ -21,13 +21,16 @@ import kotlinx.coroutines.launch
  */
 class SplashActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivitySplashFoBinding
     private var completed = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // SINGLE splash: keep the Android-12 system splash (app icon on
+        // @color/first_open_bg) on screen for the whole load, then route straight
+        // to the first screen. We deliberately do NOT inflate a second in-app
+        // splash layout, so the user only ever sees one splash.
+        val splashScreen = installSplashScreen()
+        splashScreen.setKeepOnScreenCondition { !completed }
         super.onCreate(savedInstanceState)
-        binding = ActivitySplashFoBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         createView()
     }
 

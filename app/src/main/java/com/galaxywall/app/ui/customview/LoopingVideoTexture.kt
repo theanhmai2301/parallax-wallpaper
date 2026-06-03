@@ -22,6 +22,12 @@ class LoopingVideoTexture(private val textureView: TextureView) {
     /** Whether the prepared player should be playing (play) or paused-after-buffering (preload). */
     private var shouldPlay = false
 
+    /** Invoked once the video is buffered and ready to play (used to gate the "set wallpaper" CTA). */
+    var onReady: (() -> Unit)? = null
+
+    /** Invoked when the video fails to load/stream (e.g. offline). */
+    var onError: (() -> Unit)? = null
+
     init {
         textureView.surfaceTextureListener = object : TextureView.SurfaceTextureListener {
             override fun onSurfaceTextureAvailable(st: SurfaceTexture, width: Int, height: Int) {
@@ -89,9 +95,11 @@ class LoopingVideoTexture(private val textureView: TextureView) {
                 // Only auto-start when this page is the centred (playing) one; preloaded neighbours
                 // stay paused at the buffered first frame.
                 if (shouldPlay) runCatching { it.start() }
+                onReady?.invoke()
             }
             setOnErrorListener { _, what, extra ->
                 Log.e("LoopingVideoTexture", "MediaPlayer error what=$what extra=$extra url=$u")
+                onError?.invoke()
                 true
             }
             runCatching {

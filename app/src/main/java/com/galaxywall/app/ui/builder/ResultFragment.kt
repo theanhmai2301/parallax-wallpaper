@@ -28,6 +28,7 @@ import com.galaxywall.app.databinding.FragmentResultBinding
 import coil.load
 import com.galaxywall.app.sensors.ParallaxSensorManager
 import com.galaxywall.app.ui.customview.LoopingVideoTexture
+import com.galaxywall.app.util.NetworkMonitor
 import com.galaxywall.app.util.collectWhenStarted
 import com.galaxywall.app.wallpaper.LiveWallpaperController
 import com.galaxywall.app.wallpaper.ParallaxWallpaperService
@@ -36,6 +37,7 @@ import com.galaxywall.app.wallpaper.VideoWallpaperService
 import com.galaxywall.app.wallpaper.WallpaperApplier
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -51,9 +53,17 @@ class ResultFragment : Fragment() {
     @Inject
     lateinit var settingsManager: SettingsManager
 
+    @Inject
+    lateinit var networkMonitor: NetworkMonitor
+
     private lateinit var sensorManager: ParallaxSensorManager
     private var progressDialog: Dialog? = null
     private var videoPlayer: LoopingVideoTexture? = null
+    private var renderJob: Job? = null
+
+    /** The preview content (layers / image / video) must finish loading before it can be applied. */
+    private var contentReady = false
+    private var wasOffline = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -90,10 +100,25 @@ class ResultFragment : Fragment() {
         builderViewModel.currentWallpaper()?.thumbUri?.let { binding.resultBg.load(it) }
 
         binding.btnBack.setOnClickListener { findNavController().navigateUp() }
-        binding.btnSetBackground.setOnClickListener { showAdGate() }
+        // Can only set the wallpaper once the preview content has fully loaded.
+        binding.btnSetBackground.setOnClickListener { if (contentReady) showAdGate() }
 
+        setContentReady(false)
         renderPreview()
         setupVideo()
+
+        // When the network comes back after dropping, reload the preview right away.
+        collectWhenStarted(networkMonitor.observe()) { online ->
+            if (!online) {
+                wasOffline = true
+            } else if (wasOffline) {
+                wasOffline = false
+                if (!contentReady) {
+                    renderPreview()
+                    setupVideo()
+                }
+            }
+        }
 
         collectWhenStarted(builderViewModel.working) { message ->
             if (message != null) showProgress(message) else dismissProgress()
@@ -113,9 +138,26 @@ class ResultFragment : Fragment() {
         }
     }
 
+    /** Toggles the loading spinner and enables/disables the "set wallpaper" button accordingly. */
+    private fun setContentReady(ready: Boolean) {
+        contentReady = ready
+        _binding?.let {
+            it.resultLoading.isVisible = !ready
+            it.btnSetBackground.isEnabled = ready
+            it.btnSetBackground.alpha = if (ready) 1f else 0.5f
+        }
+    }
+
     private fun renderPreview() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            binding.resultPreview.setLayers(builderViewModel.loadRenderLayers())
+        val isVideo = builderViewModel.currentType() == ContentType.VIDEO
+        if (!isVideo) setContentReady(false)
+        renderJob?.cancel()
+        renderJob = viewLifecycleOwner.lifecycleScope.launch {
+            val layers = builderViewModel.loadRenderLayers()
+            binding.resultPreview.setLayers(layers)
+            // Image/parallax become ready when their bitmaps load; video readiness comes from the
+            // player's onReady callback below (the image here is just its poster underneath).
+            if (!isVideo) setContentReady(layers.isNotEmpty())
         }
     }
 
@@ -125,6 +167,8 @@ class ResultFragment : Fragment() {
         binding.resultVideo.isVisible = isVideo
         if (!isVideo) return
         if (videoPlayer == null) videoPlayer = LoopingVideoTexture(binding.resultVideo)
+        videoPlayer?.onReady = { setContentReady(true) }
+        videoPlayer?.onError = { setContentReady(false) }
         builderViewModel.currentWallpaper()?.sourceUrl?.let { videoPlayer?.play(it) }
     }
 
@@ -168,7 +212,8 @@ class ResultFragment : Fragment() {
     }
 
     private fun applyParallax() {
-        // Keep the live tilt effect via the system live-wallpaper picker.
+        // The layers are already loaded (the button is gated on that), so the live service renders
+        // the real parallax. Keep the live tilt effect via the system live-wallpaper picker.
         builderViewModel.saveLiveComposition()
         try {
             liveWallpaperLauncher.launch(LiveWallpaperController.changeIntent(requireContext()))
@@ -268,6 +313,8 @@ class ResultFragment : Fragment() {
     override fun onDestroyView() {
         dismissProgress()
         progressDialog = null
+        renderJob?.cancel()
+        renderJob = null
         videoPlayer?.stop()
         videoPlayer = null
         _binding = null

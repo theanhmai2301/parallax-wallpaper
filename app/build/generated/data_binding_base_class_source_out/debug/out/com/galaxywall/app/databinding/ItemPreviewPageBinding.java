@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,6 +27,9 @@ public final class ItemPreviewPageBinding implements ViewBinding {
   public final MaterialCardView cardPage;
 
   @NonNull
+  public final ProgressBar pageLoading;
+
+  @NonNull
   public final ParallaxImageView pagePreview;
 
   @NonNull
@@ -35,10 +39,12 @@ public final class ItemPreviewPageBinding implements ViewBinding {
   public final TextureView pageVideo;
 
   private ItemPreviewPageBinding(@NonNull ConstraintLayout rootView,
-      @NonNull MaterialCardView cardPage, @NonNull ParallaxImageView pagePreview,
-      @NonNull TextView pageTag, @NonNull TextureView pageVideo) {
+      @NonNull MaterialCardView cardPage, @NonNull ProgressBar pageLoading,
+      @NonNull ParallaxImageView pagePreview, @NonNull TextView pageTag,
+      @NonNull TextureView pageVideo) {
     this.rootView = rootView;
     this.cardPage = cardPage;
+    this.pageLoading = pageLoading;
     this.pagePreview = pagePreview;
     this.pageTag = pageTag;
     this.pageVideo = pageVideo;
@@ -77,6 +83,12 @@ public final class ItemPreviewPageBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.pageLoading;
+      ProgressBar pageLoading = ViewBindings.findChildViewById(rootView, id);
+      if (pageLoading == null) {
+        break missingId;
+      }
+
       id = R.id.pagePreview;
       ParallaxImageView pagePreview = ViewBindings.findChildViewById(rootView, id);
       if (pagePreview == null) {
@@ -95,8 +107,8 @@ public final class ItemPreviewPageBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemPreviewPageBinding((ConstraintLayout) rootView, cardPage, pagePreview, pageTag,
-          pageVideo);
+      return new ItemPreviewPageBinding((ConstraintLayout) rootView, cardPage, pageLoading,
+          pagePreview, pageTag, pageVideo);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -1,0 +1,65 @@
+﻿[11:49:29][INFO] ===== SMOKE TEST START: itel_P663LN_real (11046644BW001856) =====
+[11:49:29][INFO] Device: itel P663LN | Android 13 | 720x1612
+[11:49:30][INFO] PHASE 0: First-open flow (clearing app data)
+[11:49:39][INFO] Checkpoint '00_splash' |     topResumedActivity=ActivityRecord{f89b2f1 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity} t860 d0}
+[11:49:39][INFO] Checkpoint '01_language' |     topResumedActivity=ActivityRecord{f89b2f1 u0 com.galaxywall.app/.firstopen.language.LanguageFO1Activity} t860 d0}
+[11:49:46][INFO] Language confirmed
+[11:49:48][INFO] Checkpoint '02_after_language' |     topResumedActivity=ActivityRecord{ed05185 u0 com.galaxywall.app/.firstopen.survey.SurveyActivity} t860 d0}
+[11:49:54][INFO] Survey variant #0 detected; selecting topics
+[11:49:55][INFO] Checkpoint '03_survey0_selected' |     topResumedActivity=ActivityRecord{8c84620 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity} t860 d0}
+[11:50:00][INFO] Checkpoint '04_after_survey0' |     topResumedActivity=ActivityRecord{8c84620 u0 com.galaxywall.app/.firstopen.survey.SurveyDupActivity} t860 d0}
+[11:50:03][INFO] Survey variant #1 detected; selecting topics
+[11:50:04][INFO] Checkpoint '03_survey1_selected' |     topResumedActivity=ActivityRecord{bbc2296 u0 com.galaxywall.app/.firstopen.survey.Survey3Activity} t860 d0}
+[11:50:09][INFO] Checkpoint '04_after_survey1' |     topResumedActivity=ActivityRecord{bbc2296 u0 com.galaxywall.app/.firstopen.survey.Survey3Activity} t860 d0}
+[11:50:12][INFO] Survey variant #2 detected; selecting topics
+[11:50:13][INFO] Checkpoint '03_survey2_selected' |     topResumedActivity=ActivityRecord{bbc2296 u0 com.galaxywall.app/.firstopen.survey.Survey3Activity} t860 d0}
+[11:50:18][INFO] Checkpoint '04_after_survey2' |     topResumedActivity=ActivityRecord{83605f2 u0 com.galaxywall.app/.firstopen.onboarding.OnBoardingFullFragmentActivity} t860 d0}
+[11:50:41][INFO] Checkpoint '05_after_onboarding' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:50:44][INFO] Reached MainActivity (home)
+[11:50:47][INFO] Checkpoint '10_home' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:50:47][INFO] PHASE 1: Home gestures
+[11:50:48][INFO] Checkpoint '11_home_swipe_up_fast' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:50:50][INFO] Checkpoint '12_home_swipe_up_slow' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:50:52][INFO] Checkpoint '13_home_swipe_down_fast' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:50:54][INFO] Checkpoint '14_home_swipe_down_slow' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:50:57][INFO] Checkpoint '15_home_fling' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:50:58][INFO] Checkpoint '16_home_swipe_left' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:51:00][INFO] Checkpoint '17_home_swipe_right' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:51:04][INFO] Checkpoint '18_home_pull_refresh' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:51:04][INFO] PHASE 2: Tab switching
+[11:51:09][INFO] Checkpoint '20_tab_navCategory' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:51:14][INFO] Checkpoint '20_tab_navFavorite' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:51:20][INFO] Checkpoint '20_tab_navSetting' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:51:25][INFO] Checkpoint '20_tab_navHome' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:51:54][INFO] Checkpoint '21_tabs_fast' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:52:09][INFO] Checkpoint '22_scroll_while_switching' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:52:09][INFO] PHASE 3: Settings
+[11:52:14][INFO] Checkpoint '30_settings' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:52:19][INFO] Checkpoint '31_dark_on' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:52:24][INFO] Checkpoint '32_dark_off' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:52:29][INFO] Checkpoint '33_parallax_toggle' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:52:36][INFO] PHASE 4: Network off/on
+[11:52:40][INFO] Network OFF
+[11:52:47][INFO] Checkpoint '40_home_offline' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:52:52][INFO] Checkpoint '41_category_offline' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:52:57][INFO] Checkpoint '42_favorite_offline' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:53:05][INFO] Checkpoint '43_offline_retry' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:53:05][INFO] Network ON
+[11:53:18][INFO] Checkpoint '44_home_back_online' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:53:18][INFO] PHASE 5: App switching
+[11:53:27][INFO] Checkpoint '50_resume_online' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:53:36][INFO] Checkpoint '51_resume_offline' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:53:40][INFO] PHASE 6: Set-wallpaper flows
+[11:53:49][INFO] Checkpoint '60_set1_preview' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:53:55][INFO] Checkpoint '61_set1_edit_or_result' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:54:03][INFO] Checkpoint '63_set1_set_dialog' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:54:17][INFO] Checkpoint '64_set1_after_set' |     topResumedActivity=ActivityRecord{5b5ab65 u0 com.galaxywall.app/.ui.MainActivity} t860 d0}
+[11:54:35][INFO] Checkpoint '60_set2_preview' |       topResumedActivity=ActivityRecord{c3d9f1f u0 com.transsion.itel.launcher/com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher} t6 d0}
+[11:54:42][INFO] Checkpoint '61_set2_edit_or_result' |       topResumedActivity=ActivityRecord{c3d9f1f u0 com.transsion.itel.launcher/com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher} t6 d0}
+[11:54:47][WARN] btnSetBackground not found for set2
+[11:55:07][INFO] Checkpoint '60_set3_preview' |       topResumedActivity=ActivityRecord{c3d9f1f u0 com.transsion.itel.launcher/com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher} t6 d0}
+[11:55:13][INFO] Checkpoint '61_set3_edit_or_result' |       topResumedActivity=ActivityRecord{c3d9f1f u0 com.transsion.itel.launcher/com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher} t6 d0}
+[11:55:20][WARN] btnSetBackground not found for set3
+[11:55:29][INFO] Checkpoint '90_final_home' |       topResumedActivity=ActivityRecord{c3d9f1f u0 com.transsion.itel.launcher/com.android.quickstep.src.com.android.launcher3.uioverrides.QuickstepLauncher} t6 d0}
+[11:55:29][INFO] ===== SMOKE TEST DONE: itel_P663LN_real | screenshots=45 =====
+[11:55:29][INFO] RESULT: no crashes/ANRs detected

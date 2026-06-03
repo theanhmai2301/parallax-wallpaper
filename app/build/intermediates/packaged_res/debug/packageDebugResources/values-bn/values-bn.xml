@@ -89,12 +89,12 @@
     <string name="settings_version">সংস্করণ</string>
     <string name="success_back_home">হোমে ফিরুন</string>
     <string name="success_subtitle">আপনার ওয়ালপেপার সফলভাবে সেট হয়েছে।</string>
-    <string name="survey_colorful">রঙিন</string>
-    <string name="survey_explore">অন্বেষণ</string>
-    <string name="survey_featured">বৈশিষ্ট্যযুক্ত</string>
+    <string name="survey_anime">অ্যানিমে</string>
+    <string name="survey_cars">গাড়ি</string>
     <string name="survey_live">লাইভ</string>
+    <string name="survey_nature">প্রকৃতি</string>
+    <string name="survey_others">অন্যান্য</string>
     <string name="survey_parallax">প্যারালাক্স</string>
-    <string name="survey_photos">ছবি</string>
     <string name="swipe_to_continue">চালিয়ে যেতে সোয়াইপ করুন</string>
     <string name="tab_favorites">প্রিয়</string>
     <string name="tab_home">এক্সপ্লোর</string>

@@ -4,7 +4,7 @@
             "outputFile": "com.galaxywall.app-mergeDebugResources-63:/values-v27/values-v27.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\maing\\.gradle\\caches\\8.9\\transforms\\baf096e3a68c6459f1a59abf562a2e9e\\transformed\\core-splashscreen-1.0.1\\res\\values-v27\\values-v27.xml",
+                    "source": "C:\\Users\\maing\\.gradle\\caches\\8.9\\transforms\\6924fe1ca98c56f25cbdd47fecfdc50f\\transformed\\core-splashscreen-1.0.1\\res\\values-v27\\values-v27.xml",
                     "from": {
                         "startLines": "2,3,4,7",
                         "startColumns": "4,4,4,4",

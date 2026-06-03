@@ -4,7 +4,7 @@
             "outputFile": "com.galaxywall.app-mergeDebugResources-63:/values-h550dp-port-v13/values-h550dp-port-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\maing\\.gradle\\caches\\8.9\\transforms\\8d9770f18181e22b7c184ff395781901\\transformed\\material-1.12.0\\res\\values-h550dp-port-v13\\values-h550dp-port-v13.xml",
+                    "source": "C:\\Users\\maing\\.gradle\\caches\\8.9\\transforms\\0a6c1ad9413ae239e45f69497550283a\\transformed\\material-1.12.0\\res\\values-h550dp-port-v13\\values-h550dp-port-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

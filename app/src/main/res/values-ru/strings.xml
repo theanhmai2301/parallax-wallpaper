@@ -9,10 +9,10 @@
     <string name="please_select_at_least_2_topics">Выберите хотя бы 2 темы</string>
     <string name="survey_parallax">Параллакс</string>
     <string name="survey_live">Живые</string>
-    <string name="survey_photos">Фото</string>
-    <string name="survey_colorful">Яркие</string>
-    <string name="survey_featured">Избранное</string>
-    <string name="survey_explore">Обзор</string>
+    <string name="survey_cars">Машины</string>
+    <string name="survey_anime">Аниме</string>
+    <string name="survey_nature">Природа</string>
+    <string name="survey_others">Другое</string>
     <string name="permission_title">Будьте в курсе</string>
     <string name="permission_message">Разрешите уведомления, чтобы получать новые обои и обновления.</string>
     <string name="permission_continue">Продолжить</string>

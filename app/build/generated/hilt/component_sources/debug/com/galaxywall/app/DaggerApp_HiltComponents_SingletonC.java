@@ -30,11 +30,13 @@ import com.galaxywall.app.ui.favorite.FavoriteFragment;
 import com.galaxywall.app.ui.favorite.FavoriteViewModel;
 import com.galaxywall.app.ui.favorite.FavoriteViewModel_HiltModules;
 import com.galaxywall.app.ui.home.HomeFragment;
+import com.galaxywall.app.ui.home.HomeFragment_MembersInjector;
 import com.galaxywall.app.ui.home.HomeViewModel;
 import com.galaxywall.app.ui.home.HomeViewModel_HiltModules;
 import com.galaxywall.app.ui.settings.SettingsFragment;
 import com.galaxywall.app.ui.settings.SettingsViewModel;
 import com.galaxywall.app.ui.settings.SettingsViewModel_HiltModules;
+import com.galaxywall.app.util.NetworkMonitor;
 import com.galaxywall.app.wallpaper.WallpaperApplier;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import dagger.hilt.android.ActivityRetainedLifecycle;
@@ -365,6 +367,7 @@ public final class DaggerApp_HiltComponents_SingletonC {
 
     @Override
     public void injectHomeFragment(HomeFragment homeFragment) {
+      injectHomeFragment2(homeFragment);
     }
 
     @Override
@@ -396,7 +399,14 @@ public final class DaggerApp_HiltComponents_SingletonC {
     @CanIgnoreReturnValue
     private ResultFragment injectResultFragment2(ResultFragment instance3) {
       ResultFragment_MembersInjector.injectSettingsManager(instance3, singletonCImpl.settingsManagerProvider.get());
+      ResultFragment_MembersInjector.injectNetworkMonitor(instance3, singletonCImpl.networkMonitorProvider.get());
       return instance3;
+    }
+
+    @CanIgnoreReturnValue
+    private HomeFragment injectHomeFragment2(HomeFragment instance4) {
+      HomeFragment_MembersInjector.injectNetworkMonitor(instance4, singletonCImpl.networkMonitorProvider.get());
+      return instance4;
     }
   }
 
@@ -465,25 +475,25 @@ public final class DaggerApp_HiltComponents_SingletonC {
 
     @IdentifierNameString
     private static final class LazyClassKeyProvider {
-      static String com_galaxywall_app_ui_home_HomeViewModel = "com.galaxywall.app.ui.home.HomeViewModel";
+      static String com_galaxywall_app_ui_settings_SettingsViewModel = "com.galaxywall.app.ui.settings.SettingsViewModel";
 
-      static String com_galaxywall_app_ui_favorite_FavoriteViewModel = "com.galaxywall.app.ui.favorite.FavoriteViewModel";
+      static String com_galaxywall_app_ui_home_HomeViewModel = "com.galaxywall.app.ui.home.HomeViewModel";
 
       static String com_galaxywall_app_ui_builder_BuilderViewModel = "com.galaxywall.app.ui.builder.BuilderViewModel";
 
-      static String com_galaxywall_app_ui_settings_SettingsViewModel = "com.galaxywall.app.ui.settings.SettingsViewModel";
+      static String com_galaxywall_app_ui_favorite_FavoriteViewModel = "com.galaxywall.app.ui.favorite.FavoriteViewModel";
+
+      @KeepFieldType
+      SettingsViewModel com_galaxywall_app_ui_settings_SettingsViewModel2;
 
       @KeepFieldType
       HomeViewModel com_galaxywall_app_ui_home_HomeViewModel2;
 
       @KeepFieldType
-      FavoriteViewModel com_galaxywall_app_ui_favorite_FavoriteViewModel2;
-
-      @KeepFieldType
       BuilderViewModel com_galaxywall_app_ui_builder_BuilderViewModel2;
 
       @KeepFieldType
-      SettingsViewModel com_galaxywall_app_ui_settings_SettingsViewModel2;
+      FavoriteViewModel com_galaxywall_app_ui_favorite_FavoriteViewModel2;
     }
   }
 
@@ -533,22 +543,22 @@ public final class DaggerApp_HiltComponents_SingletonC {
 
     @IdentifierNameString
     private static final class LazyClassKeyProvider {
-      static String com_galaxywall_app_ui_builder_BuilderViewModel = "com.galaxywall.app.ui.builder.BuilderViewModel";
+      static String com_galaxywall_app_ui_favorite_FavoriteViewModel = "com.galaxywall.app.ui.favorite.FavoriteViewModel";
 
       static String com_galaxywall_app_ui_home_HomeViewModel = "com.galaxywall.app.ui.home.HomeViewModel";
 
-      static String com_galaxywall_app_ui_favorite_FavoriteViewModel = "com.galaxywall.app.ui.favorite.FavoriteViewModel";
+      static String com_galaxywall_app_ui_builder_BuilderViewModel = "com.galaxywall.app.ui.builder.BuilderViewModel";
 
       static String com_galaxywall_app_ui_settings_SettingsViewModel = "com.galaxywall.app.ui.settings.SettingsViewModel";
 
       @KeepFieldType
-      BuilderViewModel com_galaxywall_app_ui_builder_BuilderViewModel2;
+      FavoriteViewModel com_galaxywall_app_ui_favorite_FavoriteViewModel2;
 
       @KeepFieldType
       HomeViewModel com_galaxywall_app_ui_home_HomeViewModel2;
 
       @KeepFieldType
-      FavoriteViewModel com_galaxywall_app_ui_favorite_FavoriteViewModel2;
+      BuilderViewModel com_galaxywall_app_ui_builder_BuilderViewModel2;
 
       @KeepFieldType
       SettingsViewModel com_galaxywall_app_ui_settings_SettingsViewModel2;
@@ -582,7 +592,7 @@ public final class DaggerApp_HiltComponents_SingletonC {
           return (T) new FavoriteViewModel(singletonCImpl.wallpaperRepositoryProvider.get());
 
           case 2: // com.galaxywall.app.ui.home.HomeViewModel 
-          return (T) new HomeViewModel(singletonCImpl.wallpaperRepositoryProvider.get());
+          return (T) new HomeViewModel(singletonCImpl.wallpaperRepositoryProvider.get(), singletonCImpl.networkMonitorProvider.get());
 
           case 3: // com.galaxywall.app.ui.settings.SettingsViewModel 
           return (T) new SettingsViewModel(singletonCImpl.settingsManagerProvider.get());
@@ -669,6 +679,8 @@ public final class DaggerApp_HiltComponents_SingletonC {
 
     private Provider<SettingsManager> settingsManagerProvider;
 
+    private Provider<NetworkMonitor> networkMonitorProvider;
+
     private Provider<OkHttpClient> provideOkHttpClientProvider;
 
     private Provider<Retrofit> provideRetrofitProvider;
@@ -696,13 +708,14 @@ public final class DaggerApp_HiltComponents_SingletonC {
     @SuppressWarnings("unchecked")
     private void initialize(final ApplicationContextModule applicationContextModuleParam) {
       this.settingsManagerProvider = DoubleCheck.provider(new SwitchingProvider<SettingsManager>(singletonCImpl, 0));
-      this.provideOkHttpClientProvider = DoubleCheck.provider(new SwitchingProvider<OkHttpClient>(singletonCImpl, 5));
-      this.provideRetrofitProvider = DoubleCheck.provider(new SwitchingProvider<Retrofit>(singletonCImpl, 4));
-      this.provideWallpaperApiProvider = DoubleCheck.provider(new SwitchingProvider<WallpaperApi>(singletonCImpl, 3));
-      this.remoteWallpaperSourceProvider = DoubleCheck.provider(new SwitchingProvider<RemoteWallpaperSource>(singletonCImpl, 2));
-      this.provideDatabaseProvider = DoubleCheck.provider(new SwitchingProvider<AppDatabase>(singletonCImpl, 6));
-      this.wallpaperRepositoryProvider = DoubleCheck.provider(new SwitchingProvider<WallpaperRepository>(singletonCImpl, 1));
-      this.wallpaperApplierProvider = DoubleCheck.provider(new SwitchingProvider<WallpaperApplier>(singletonCImpl, 7));
+      this.networkMonitorProvider = DoubleCheck.provider(new SwitchingProvider<NetworkMonitor>(singletonCImpl, 1));
+      this.provideOkHttpClientProvider = DoubleCheck.provider(new SwitchingProvider<OkHttpClient>(singletonCImpl, 6));
+      this.provideRetrofitProvider = DoubleCheck.provider(new SwitchingProvider<Retrofit>(singletonCImpl, 5));
+      this.provideWallpaperApiProvider = DoubleCheck.provider(new SwitchingProvider<WallpaperApi>(singletonCImpl, 4));
+      this.remoteWallpaperSourceProvider = DoubleCheck.provider(new SwitchingProvider<RemoteWallpaperSource>(singletonCImpl, 3));
+      this.provideDatabaseProvider = DoubleCheck.provider(new SwitchingProvider<AppDatabase>(singletonCImpl, 7));
+      this.wallpaperRepositoryProvider = DoubleCheck.provider(new SwitchingProvider<WallpaperRepository>(singletonCImpl, 2));
+      this.wallpaperApplierProvider = DoubleCheck.provider(new SwitchingProvider<WallpaperApplier>(singletonCImpl, 8));
     }
 
     @Override
@@ -748,25 +761,28 @@ public final class DaggerApp_HiltComponents_SingletonC {
           case 0: // com.galaxywall.app.data.local.SettingsManager 
           return (T) new SettingsManager(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
 
-          case 1: // com.galaxywall.app.data.repository.WallpaperRepository 
-          return (T) new WallpaperRepository(singletonCImpl.remoteWallpaperSourceProvider.get(), singletonCImpl.wallpaperDao());
+          case 1: // com.galaxywall.app.util.NetworkMonitor 
+          return (T) new NetworkMonitor(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
 
-          case 2: // com.galaxywall.app.data.remote.RemoteWallpaperSource 
+          case 2: // com.galaxywall.app.data.repository.WallpaperRepository 
+          return (T) new WallpaperRepository(singletonCImpl.remoteWallpaperSourceProvider.get(), singletonCImpl.wallpaperDao(), singletonCImpl.networkMonitorProvider.get());
+
+          case 3: // com.galaxywall.app.data.remote.RemoteWallpaperSource 
           return (T) new RemoteWallpaperSource(singletonCImpl.provideWallpaperApiProvider.get());
 
-          case 3: // com.galaxywall.app.data.remote.WallpaperApi 
+          case 4: // com.galaxywall.app.data.remote.WallpaperApi 
           return (T) NetworkModule_ProvideWallpaperApiFactory.provideWallpaperApi(singletonCImpl.provideRetrofitProvider.get());
 
-          case 4: // retrofit2.Retrofit 
+          case 5: // retrofit2.Retrofit 
           return (T) NetworkModule_ProvideRetrofitFactory.provideRetrofit(singletonCImpl.provideOkHttpClientProvider.get());
 
-          case 5: // okhttp3.OkHttpClient 
+          case 6: // okhttp3.OkHttpClient 
           return (T) NetworkModule_ProvideOkHttpClientFactory.provideOkHttpClient();
 
-          case 6: // com.galaxywall.app.data.local.AppDatabase 
+          case 7: // com.galaxywall.app.data.local.AppDatabase 
           return (T) DatabaseModule_ProvideDatabaseFactory.provideDatabase(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
 
-          case 7: // com.galaxywall.app.wallpaper.WallpaperApplier 
+          case 8: // com.galaxywall.app.wallpaper.WallpaperApplier 
           return (T) new WallpaperApplier(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
 
           default: throw new AssertionError(id);

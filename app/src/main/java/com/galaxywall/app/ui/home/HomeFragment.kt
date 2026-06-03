@@ -27,8 +27,10 @@ import com.galaxywall.app.ui.builder.BuilderViewModel
 import com.galaxywall.app.util.UiState
 import com.galaxywall.app.util.collectWhenStarted
 import com.galaxywall.app.util.setVisible
+import com.galaxywall.app.util.NetworkMonitor
 import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -38,6 +40,12 @@ class HomeFragment : Fragment() {
 
     private val viewModel: HomeViewModel by viewModels()
     private val builderViewModel: BuilderViewModel by activityViewModels()
+
+    @Inject
+    lateinit var networkMonitor: NetworkMonitor
+
+    /** Tracks an offline period so a thumbnail-reload can fire when the network returns. */
+    private var wasOffline = false
 
     private val adapter by lazy {
         WallpaperAdapter(onClick = ::openPreview, onFavorite = viewModel::toggleFavorite)
@@ -66,6 +74,7 @@ class HomeFragment : Fragment() {
         setupRecycler()
         setupSwipeRefresh()
         setupBottomNav()
+        binding.emptyState.emptyRetry.setOnClickListener { viewModel.refresh() }
         observeState()
     }
 
@@ -122,6 +131,16 @@ class HomeFragment : Fragment() {
             adapter = this@HomeFragment.adapter
             setHasFixedSize(true)
             setItemViewCacheSize(20)
+            addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                private val lastPositions = IntArray(2)
+                override fun onScrolled(rv: RecyclerView, dx: Int, dy: Int) {
+                    if (dy <= 0) return // only when scrolling down
+                    val lm = rv.layoutManager as? StaggeredGridLayoutManager ?: return
+                    val lastVisible = lm.findLastVisibleItemPositions(lastPositions).maxOrNull() ?: return
+                    // Near the bottom -> reveal the next page (HOME mode only; guarded in the VM).
+                    if (lastVisible >= lm.itemCount - LOAD_MORE_THRESHOLD) viewModel.loadMoreHome()
+                }
+            })
         }
     }
 
@@ -151,6 +170,17 @@ class HomeFragment : Fragment() {
 
     private fun observeState() {
         collectWhenStarted(viewModel.uiState) { renderState(it) }
+        collectWhenStarted(viewModel.loadingMore) { binding.loadingMore.isVisible = it }
+        collectWhenStarted(networkMonitor.observe()) { online ->
+            if (!online) {
+                wasOffline = true
+            } else if (wasOffline) {
+                wasOffline = false
+                // Network is back -> retry any thumbnails that failed to load while offline so the
+                // cells become tappable again (rebinding re-issues their Coil requests).
+                adapter.notifyDataSetChanged()
+            }
+        }
         collectWhenStarted(viewModel.mode) { mode ->
             // Home = curated mix (no chips); Category = pick a theme via the chips.
             binding.chipScroll.isVisible = mode == HomeViewModel.Mode.CATEGORY
@@ -189,6 +219,15 @@ class HomeFragment : Fragment() {
                 binding.recycler.setVisible(false)
                 showEmpty(getString(R.string.empty_home))
             }
+            is UiState.NoNetwork -> {
+                binding.swipeRefresh.isRefreshing = false
+                binding.recycler.setVisible(false)
+                showEmpty(
+                    title = getString(R.string.no_internet_title),
+                    subtitle = getString(R.string.no_internet_subtitle),
+                    showRetry = true
+                )
+            }
             is UiState.Error -> {
                 binding.swipeRefresh.isRefreshing = false
                 binding.recycler.setVisible(false)
@@ -199,14 +238,21 @@ class HomeFragment : Fragment() {
     }
 
     private fun submitAndAnimate(data: List<Wallpaper>) {
+        // An "append" (infinite scroll) keeps the same prefix and only adds items at the end; in that
+        // case we must NOT touch the scroll position or re-balance from the top.
+        val prev = adapter.currentList
+        val isAppend = prev.isNotEmpty() && data.size > prev.size &&
+            data.subList(0, prev.size).map { it.id } == prev.map { it.id }
         adapter.submitList(data) {
             val recycler = _binding?.recycler ?: return@submitList
-            if (pendingScrollReset) {
-                pendingScrollReset = false
-                resetGridTop(force = true)
-            } else {
+            when {
+                pendingScrollReset -> {
+                    pendingScrollReset = false
+                    resetGridTop(force = true)
+                }
+                isAppend -> Unit // keep the current scroll position; new items just extend the list
                 // Same dataset re-shown (e.g. returning to this tab) — clear any stale top gap.
-                resetGridTop(force = false)
+                else -> resetGridTop(force = false)
             }
             if (!firstLoadAnimated && data.isNotEmpty()) {
                 firstLoadAnimated = true
@@ -241,10 +287,11 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun showEmpty(title: String) {
+    private fun showEmpty(title: String, subtitle: String = "", showRetry: Boolean = false) {
         binding.emptyState.emptyRoot.setVisible(true)
         binding.emptyState.emptyTitle.text = title
-        binding.emptyState.emptySubtitle.text = ""
+        binding.emptyState.emptySubtitle.text = subtitle
+        binding.emptyState.emptyRetry.isVisible = showRetry
     }
 
     private fun openPreview(wallpaper: Wallpaper, sharedView: View) {
@@ -267,5 +314,10 @@ class HomeFragment : Fragment() {
         binding.recycler.adapter = null
         _binding = null
         super.onDestroyView()
+    }
+
+    private companion object {
+        // Trigger "load more" once the user is within this many items of the bottom.
+        const val LOAD_MORE_THRESHOLD = 4
     }
 }

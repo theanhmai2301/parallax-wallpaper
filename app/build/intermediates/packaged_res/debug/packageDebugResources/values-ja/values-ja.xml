@@ -89,12 +89,12 @@
     <string name="settings_version">バージョン</string>
     <string name="success_back_home">ホームに戻る</string>
     <string name="success_subtitle">壁紙が正常に設定されました。</string>
-    <string name="survey_colorful">カラフル</string>
-    <string name="survey_explore">探す</string>
-    <string name="survey_featured">おすすめ</string>
+    <string name="survey_anime">アニメ</string>
+    <string name="survey_cars">車</string>
     <string name="survey_live">ライブ</string>
+    <string name="survey_nature">自然</string>
+    <string name="survey_others">その他</string>
     <string name="survey_parallax">パララックス</string>
-    <string name="survey_photos">写真</string>
     <string name="swipe_to_continue">スワイプして続行</string>
     <string name="tab_favorites">お気に入り</string>
     <string name="tab_home">探す</string>

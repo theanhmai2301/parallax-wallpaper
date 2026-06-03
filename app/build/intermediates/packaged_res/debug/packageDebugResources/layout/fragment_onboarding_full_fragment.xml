@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:attr/colorBackground">
+    android:background="@color/first_open_bg">
 
     <FrameLayout
         android:id="@+id/illuContainer"
@@ -17,14 +17,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!-- Full-colour onboarding illustration. Fills the panel and shows the
+             whole image (fitCenter). No tint: these are photos, not icons.
+             The actual image per page is set in OnboardingFullFragment. -->
         <ImageView
             android:id="@+id/img_onboarding"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:layout_margin="12dp"
             android:importantForAccessibility="no"
-            android:src="@drawable/ic_layers"
-            app:tint="@color/white" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/ob_1" />
     </FrameLayout>
 
     <TextView

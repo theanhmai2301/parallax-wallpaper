@@ -89,12 +89,12 @@
     <string name="settings_version">संस्करण</string>
     <string name="success_back_home">होम पर वापस जाएं</string>
     <string name="success_subtitle">आपका वॉलपेपर सफलतापूर्वक सेट हो गया है।</string>
-    <string name="survey_colorful">रंगीन</string>
-    <string name="survey_explore">एक्सप्लोर</string>
-    <string name="survey_featured">फ़ीचर्ड</string>
+    <string name="survey_anime">एनीमे</string>
+    <string name="survey_cars">कारें</string>
     <string name="survey_live">लाइव</string>
+    <string name="survey_nature">प्रकृति</string>
+    <string name="survey_others">अन्य</string>
     <string name="survey_parallax">पैरालैक्स</string>
-    <string name="survey_photos">तस्वीरें</string>
     <string name="swipe_to_continue">जारी रखने के लिए स्वाइप करें</string>
     <string name="tab_favorites">पसंदीदा</string>
     <string name="tab_home">एक्सप्लोर</string>
