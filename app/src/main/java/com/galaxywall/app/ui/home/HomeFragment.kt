@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.galaxywall.app.R
 import com.galaxywall.app.data.model.Wallpaper
@@ -202,10 +203,10 @@ class HomeFragment : Fragment() {
             val recycler = _binding?.recycler ?: return@submitList
             if (pendingScrollReset) {
                 pendingScrollReset = false
-                (recycler.layoutManager as? StaggeredGridLayoutManager)?.apply {
-                    invalidateSpanAssignments()
-                    scrollToPositionWithOffset(0, 0)
-                }
+                resetGridTop(force = true)
+            } else {
+                // Same dataset re-shown (e.g. returning to this tab) — clear any stale top gap.
+                resetGridTop(force = false)
             }
             if (!firstLoadAnimated && data.isNotEmpty()) {
                 firstLoadAnimated = true
@@ -213,6 +214,24 @@ class HomeFragment : Fragment() {
                     AnimationUtils.loadLayoutAnimation(requireContext(), R.anim.layout_anim_fall_down)
                 recycler.scheduleLayoutAnimation()
             }
+        }
+    }
+
+    /**
+     * Clears the StaggeredGridLayoutManager first-row gap that GAP_HANDLING_NONE can leave after a
+     * dataset swap or when this screen is re-shown. Runs after the next layout pass so the new items
+     * are measured first. [force] snaps to the very top (used on mode/theme change); otherwise it
+     * only snaps when the list is already at the top, so a mid-scroll list isn't yanked upward.
+     */
+    private fun resetGridTop(force: Boolean) {
+        val rv = _binding?.recycler ?: return
+        rv.post {
+            val lm = (_binding?.recycler?.layoutManager as? StaggeredGridLayoutManager) ?: return@post
+            lm.invalidateSpanAssignments()
+            val firstVisible = IntArray(lm.spanCount)
+            lm.findFirstVisibleItemPositions(firstVisible)
+            val atTop = firstVisible.all { it == RecyclerView.NO_POSITION || it <= 0 }
+            if (force || atTop) lm.scrollToPositionWithOffset(0, 0)
         }
     }
 
@@ -233,11 +252,9 @@ class HomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        // Returning to Home (e.g. from Preview) can leave a StaggeredGrid gap at the top — relayout.
-        val rv = binding.recycler
-        rv.post {
-            (rv.layoutManager as? StaggeredGridLayoutManager)?.invalidateSpanAssignments()
-        }
+        // Returning to Home/Category (from Favorite, Settings, Preview, Language...) can leave a
+        // StaggeredGrid gap at the top — relayout and snap to the top if we're already there.
+        resetGridTop(force = false)
     }
 
     override fun onDestroyView() {

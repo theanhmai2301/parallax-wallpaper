@@ -7,6 +7,7 @@ import com.galaxywall.app.data.model.ContentType
 import com.galaxywall.app.data.model.Wallpaper
 import com.galaxywall.app.data.model.WallpaperCategory
 import com.galaxywall.app.data.remote.RemoteWallpaperSource
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flow
@@ -46,7 +47,25 @@ class WallpaperRepository @Inject constructor(
         feedCache = null
     }
 
-    private fun catalogFlow(): Flow<List<Wallpaper>> = flow { emit(loadCatalog()) }
+    /**
+     * Emits the catalog, retrying while it comes back empty (no network yet / Render free-tier cold
+     * start can take tens of seconds). Until the first non-empty result it emits nothing, so the
+     * screen stays on its loading shimmer and then fills automatically — instead of flashing an empty
+     * grid that never recovers until the user switches tab/chip. Gives up after [MAX_CATALOG_RETRIES]
+     * and emits empty so the empty state can show.
+     */
+    private fun catalogFlow(): Flow<List<Wallpaper>> = flow {
+        var attempt = 0
+        while (true) {
+            val list = loadCatalog()
+            if (list.isNotEmpty() || attempt >= MAX_CATALOG_RETRIES) {
+                emit(list)
+                return@flow
+            }
+            attempt++
+            delay(CATALOG_RETRY_DELAY_MS * attempt)
+        }
+    }
 
     fun observeWallpapers(
         type: ContentType?,
@@ -111,5 +130,8 @@ class WallpaperRepository @Inject constructor(
 
     private companion object {
         const val FEED_PER_CATEGORY = 4
+        // Up to ~1.5+3+4.5+...+12 ≈ 54s of retries, covering a cold backend start.
+        const val MAX_CATALOG_RETRIES = 8
+        const val CATALOG_RETRY_DELAY_MS = 1500L
     }
 }
