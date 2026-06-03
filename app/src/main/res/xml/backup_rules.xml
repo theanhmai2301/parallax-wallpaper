@@ -3,4 +3,7 @@
     <include domain="database" path="parallax_wallpaper.db" />
     <include domain="sharedpref" path="." />
     <include domain="file" path="datastore/" />
+    <!-- Keep the first-open flags out of backup so a fresh install always shows
+         the full intro (Language/Survey/Onboarding), not just Permission. -->
+    <exclude domain="sharedpref" path="first_open.xml" />
 </full-backup-content>

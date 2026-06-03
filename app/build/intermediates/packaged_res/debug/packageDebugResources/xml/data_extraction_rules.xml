@@ -4,10 +4,15 @@
         <include domain="database" path="parallax_wallpaper.db" />
         <include domain="sharedpref" path="." />
         <include domain="file" path="datastore/" />
+        <!-- Do NOT back up the first-open flags. Otherwise a fresh install on a
+             new device (same Google account / phone clone) restores them and the
+             app skips Language/Survey/Onboarding, landing straight on Permission. -->
+        <exclude domain="sharedpref" path="first_open.xml" />
     </cloud-backup>
     <device-transfer>
         <include domain="database" path="parallax_wallpaper.db" />
         <include domain="sharedpref" path="." />
         <include domain="file" path="datastore/" />
+        <exclude domain="sharedpref" path="first_open.xml" />
     </device-transfer>
 </data-extraction-rules>
