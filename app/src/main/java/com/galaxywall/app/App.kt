@@ -3,6 +3,7 @@ package com.galaxywall.app
 import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
 import com.galaxywall.app.data.local.SettingsManager
+import com.galaxywall.app.firstopen.ensureFreshInstallResetsFirstOpen
 import com.google.android.material.color.DynamicColors
 import com.google.android.material.color.DynamicColorsOptions
 import dagger.hilt.android.HiltAndroidApp
@@ -18,6 +19,9 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        // Must run before Splash routing: if backup/clone restored the first-open
+        // flags onto a fresh install, clear them so the intro shows from the start.
+        ensureFreshInstallResetsFirstOpen()
         applyStoredTheme()
         applyDynamicColor()
     }

@@ -1,6 +1,7 @@
 package com.galaxywall.app.firstopen
 
 import android.content.Context
+import java.io.File
 
 /**
  * Persists the first-open flow state, mirroring the source app's SharedPreferenceUtils keys:
@@ -37,3 +38,28 @@ var Context.isOnboardingDone: Boolean
     set(value) {
         firstOpenPrefs().edit().putBoolean(KEY_ONBOARDING_DONE, value).apply()
     }
+
+/** Marker file kept in no-backup storage; its presence means this install has
+ *  already run (or skipped) the first-open flow. It is NEVER backed up, so it is
+ *  absent on every genuinely new install. */
+private const val FRESH_INSTALL_MARKER = "first_open.initialized"
+
+/**
+ * Guarantees the first-open funnel runs once per *install*, not per *backup*.
+ *
+ * Android Auto Backup and device-transfer (phone clone) can restore the
+ * "first_open" SharedPreferences onto a brand-new install, which would wrongly
+ * skip Language/Survey/Onboarding and drop the user straight on Permission.
+ *
+ * We detect a fresh install via a marker in [Context.getNoBackupFilesDir] (which
+ * is never backed up or restored). If the marker is missing, we clear any
+ * restored first-open flags and recreate it. Call this once, early, before the
+ * Splash routing reads the flags.
+ */
+fun Context.ensureFreshInstallResetsFirstOpen() {
+    val marker = File(noBackupFilesDir, FRESH_INSTALL_MARKER)
+    if (marker.exists()) return
+    // Fresh install (or backup restored onto one): start the intro from scratch.
+    firstOpenPrefs().edit().clear().commit()
+    runCatching { marker.createNewFile() }
+}

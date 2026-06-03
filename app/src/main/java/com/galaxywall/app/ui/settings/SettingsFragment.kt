@@ -132,7 +132,7 @@ class SettingsFragment : Fragment() {
     private fun sendFeedback() {
         val intent = Intent(Intent.ACTION_SENDTO).apply {
             data = Uri.parse("mailto:")
-            putExtra(Intent.EXTRA_EMAIL, arrayOf("feedback@galaxywall.app"))
+            putExtra(Intent.EXTRA_EMAIL, arrayOf("exostudio24@gmail.com"))
             putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name) + " - Feedback")
         }
         try {

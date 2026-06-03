@@ -56,7 +56,10 @@
       "Bash(ls values-night/)",
       "Bash(grep -rn 'Splash\\\\|windowSplashScreen' values-night/)",
       "Bash(sed -i 's|@drawable/ic_logo|@drawable/ic_icon_app|g' layout/activity_permission.xml layout/activity_splash_fo.xml layout/view_premium_toolbar.xml values/themes.xml xml/parallax_wallpaper.xml xml/video_wallpaper.xml)",
-      "Bash(grep -rn 'ic_logo' .)"
+      "Bash(grep -rn 'ic_logo' .)",
+      "Bash(cat App.kt)",
+      "Bash(grep -nA8 'fun isNotificationPermissionGranted' firstopen/PermissionActivity.kt)",
+      "PowerShell($emu = \"$env:LOCALAPPDATA\\\\Android\\\\Sdk\\\\emulator\\\\emulator.exe\"; Start-Process -FilePath $emu -ArgumentList '-avd','Xiaomi_Redmi_Test','-no-snapshot','-no-boot-anim','-netdelay','none','-netspeed','full' -WindowStyle Minimized; Write-Output \"Xiaomi booting...\")"
     ]
   }
 }

@@ -183,15 +183,20 @@ class ParallaxWallpaperService : WallpaperService() {
             canvas.drawColor(Color.BLACK)
             if (renderLayers.isEmpty()) return
 
+            // COVER the surface with the foreground content (never FIT/letterbox):
+            // the wallpaper surface can be taller than the screen aspect, and a
+            // FIT box would leave the foreground short of the surface -> a gap at
+            // the bottom for tall (e.g. anime portrait) images. Covering keeps the
+            // foreground filling the whole surface, matching the in-app preview.
             val surfaceAspect = surfaceW.toFloat() / surfaceH
             val contentW: Float
             val contentH: Float
             if (surfaceAspect > screenAspect) {
-                contentH = surfaceH.toFloat()
-                contentW = contentH * screenAspect
-            } else {
                 contentW = surfaceW.toFloat()
                 contentH = contentW / screenAspect
+            } else {
+                contentH = surfaceH.toFloat()
+                contentW = contentH * screenAspect
             }
             val offX = (surfaceW - contentW) * pageOffset
             val offY = (surfaceH - contentH) / 2f
