@@ -128,15 +128,17 @@ class ParallaxWallpaperService : WallpaperService() {
                 val bitmaps = withContext(Dispatchers.IO) {
                     val loaded = uris.map { BitmapLoader.load(applicationContext, it, size) }
                     val allLoaded = loaded.none { it == null }
-                    // The top (last) layer must keep transparency; an opaque top hides everything below.
-                    val topOpaque = loaded.lastOrNull()?.let { !it.hasAlpha() } ?: true
-                    if (uris.size > 1 && (!allLoaded || topOpaque) && fallbackUri != null) {
-                        // Broken layer stack -> show the pre-composed full image instead.
-                        BitmapLoader.load(applicationContext, fallbackUri, size)?.let { listOf(it) }
-                            ?: loaded.filterNotNull()
-                    } else {
-                        loaded.filterNotNull()
-                    }
+                    // The pre-composed image (loaded at the SAME size so it aligns) drives a clean
+                    // difference matte for a subject-on-black foreground (e.g. Anime9) -> real
+                    // 2-layer parallax that matches the in-app preview; it also doubles as the
+                    // fallback when a layer fails to load or the layers can't be separated.
+                    val composite = fallbackUri?.let { BitmapLoader.load(applicationContext, it, size) }
+                    val ordered = if (allLoaded) {
+                        BitmapLoader.orderParallaxLayers(loaded.filterNotNull(), composite)
+                    } else null
+                    ordered
+                        ?: composite?.let { listOf(it) }
+                        ?: loaded.filterNotNull()
                 }
                 renderLayers = bitmaps
                 depth = depthVal
@@ -203,8 +205,10 @@ class ParallaxWallpaperService : WallpaperService() {
 
             val n = renderLayers.size
             renderLayers.forEachIndexed { i, bitmap ->
-                // Bottom layer (i=0) moves the most; top layer stays still.
-                val factor = if (n <= 1) 0f else 1f - i.toFloat() / (n - 1)
+                // Bottom layer (i=0) moves the most; top layer stays still. A SINGLE layer (a
+                // pre-composed full image, e.g. Anime9) gets factor 1 so the whole image still
+                // pans/zooms with the tilt instead of sitting dead still.
+                val factor = if (n <= 1) 1f else 1f - i.toFloat() / (n - 1)
                 if (i == 0) {
                     drawBackground(canvas, bitmap, factor)
                 } else {

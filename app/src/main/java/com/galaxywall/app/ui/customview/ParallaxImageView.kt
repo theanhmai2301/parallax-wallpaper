@@ -132,8 +132,10 @@ class ParallaxImageView @JvmOverloads constructor(
             val bw = bitmap.width.toFloat()
             val bh = bitmap.height.toFloat()
             if (bw <= 0f || bh <= 0f) return@forEachIndexed
-            // Bottom layer (i=0) moves the most; top layer stays still.
-            val factor = if (n <= 1) 0f else 1f - i.toFloat() / (n - 1)
+            // Bottom layer (i=0) moves the most; top layer stays still. A SINGLE layer (a
+            // pre-composed full image, e.g. Anime9) gets factor 1 so the whole image still pans/
+            // zooms with the tilt — otherwise it would sit dead still with no parallax at all.
+            val factor = if (n <= 1) 1f else 1f - i.toFloat() / (n - 1)
             // Over-scale the moving layer by the depth, then let it travel exactly the extra margin
             // that over-scale created — so it shifts as far as possible while still covering the frame.
             val scale = max(contentW / bw, contentH / bh) * (1f + OVERSCALE_AMOUNT * parallaxDepth * factor)

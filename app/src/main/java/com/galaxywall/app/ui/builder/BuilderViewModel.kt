@@ -186,7 +186,14 @@ class BuilderViewModel @Inject constructor(
         if (uris.isEmpty()) return@withContext emptyList()
         val bitmaps = uris.map { BitmapLoader.load(context, it) }
         if (bitmaps.any { it == null }) return@withContext emptyList()
-        bitmaps.map { ParallaxImageView.LayerInput(it!!) }
+        val loaded = bitmaps.filterNotNull()
+        // The pre-composed image (layer 3 / thumbUri) lets the layer prep build a clean difference
+        // matte for a subject-on-black foreground (e.g. Anime9); it also doubles as the fallback.
+        val composite = currentWallpaper()?.thumbUri?.let { BitmapLoader.load(context, it) }
+        val render = BitmapLoader.orderParallaxLayers(loaded, composite)
+            ?: composite?.let { listOf(it) }
+            ?: loaded
+        render.map { ParallaxImageView.LayerInput(it) }
     }
 
     /** Applies the current static image (IMAGE type) directly with WallpaperManager. */
@@ -242,7 +249,13 @@ class BuilderViewModel @Inject constructor(
 
     private suspend fun buildComposite(): Bitmap? {
         val bitmaps = withContext(Dispatchers.IO) {
-            currentLayerUris().mapNotNull { BitmapLoader.load(context, it) }
+            val loaded = currentLayerUris().mapNotNull { BitmapLoader.load(context, it) }
+            // The pre-composed image drives a clean difference matte for a subject-on-black
+            // foreground; it also doubles as the fallback when the layers can't be separated.
+            val composite = currentWallpaper()?.thumbUri?.let { BitmapLoader.load(context, it) }
+            BitmapLoader.orderParallaxLayers(loaded, composite)
+                ?: composite?.let { listOf(it) }
+                ?: loaded
         }
         if (bitmaps.isEmpty()) return null
         val base = bitmaps.maxByOrNull { it.width.toLong() * it.height }!!

@@ -59,7 +59,25 @@
       "Bash(grep -rn 'ic_logo' .)",
       "Bash(cat App.kt)",
       "Bash(grep -nA8 'fun isNotificationPermissionGranted' firstopen/PermissionActivity.kt)",
-      "PowerShell($emu = \"$env:LOCALAPPDATA\\\\Android\\\\Sdk\\\\emulator\\\\emulator.exe\"; Start-Process -FilePath $emu -ArgumentList '-avd','Xiaomi_Redmi_Test','-no-snapshot','-no-boot-anim','-netdelay','none','-netspeed','full' -WindowStyle Minimized; Write-Output \"Xiaomi booting...\")"
+      "PowerShell($emu = \"$env:LOCALAPPDATA\\\\Android\\\\Sdk\\\\emulator\\\\emulator.exe\"; Start-Process -FilePath $emu -ArgumentList '-avd','Xiaomi_Redmi_Test','-no-snapshot','-no-boot-anim','-netdelay','none','-netspeed','full' -WindowStyle Minimized; Write-Output \"Xiaomi booting...\")",
+      "Bash(curl -s \"https://wallpaper-data-server.onrender.com/api/parallax?limit=200\" --max-time 60)",
+      "Bash(python -c 'import sys,json; d=json.load\\(sys.stdin\\); items=d.get\\('\\\\''data'\\\\'',[]\\); print\\('\\\\''TOTAL'\\\\'',len\\(items\\)\\); *)",
+      "Read(//c/Program Files/Android/Android Studio/jbr/bin/**)",
+      "Read(//c/Users/maing/.gradle/wrapper/dists/**)",
+      "Bash(JAVA_HOME=\"C:/Program Files/Android/Android Studio/jbr\" \"C:/Users/maing/.gradle/wrapper/dists/gradle-8.9-bin/90cnw93cvbtalezasaz0blq0a/gradle-8.9/bin/gradle.bat\" :app:compileDebugKotlin --console=plain)",
+      "Bash(\"C:/Users/maing/AppData/Local/Android/Sdk/platform-tools/adb.exe\" devices *)",
+      "Bash(JAVA_HOME=\"C:/Program Files/Android/Android Studio/jbr\" \"C:/Users/maing/.gradle/wrapper/dists/gradle-8.9-bin/90cnw93cvbtalezasaz0blq0a/gradle-8.9/bin/gradle.bat\" :app:installDebug --console=plain)",
+      "Bash(curl -s \"https://wallpaper-data-server.onrender.com/api/parallax?category=Anime&limit=200&offset=0\" -o /tmp/anime_parallax.json)",
+      "Bash(echo \"exit=$?\")",
+      "Read(//tmp/**)",
+      "Bash(cd \"C:/Users/maing/AndroidStudioProjects/parallax-wallpaper\" && cat /tmp/anime_parallax.json | tr ',' '\\\\n' | grep -i \"anime9\" )",
+      "Bash(C:/Users/maing/AppData/Local/Android/Sdk/platform-tools/adb.exe shell *)",
+      "Bash(echo \"launch-exit=$?\")",
+      "Bash(C:/Users/maing/AppData/Local/Android/Sdk/platform-tools/adb.exe kill-server *)",
+      "Bash(C:/Users/maing/AppData/Local/Android/Sdk/platform-tools/adb.exe start-server *)",
+      "Bash(C:/Users/maing/AppData/Local/Android/Sdk/platform-tools/adb.exe wait-for-device *)",
+      "Bash(C:/Users/maing/AppData/Local/Android/Sdk/platform-tools/adb.exe devices *)",
+      "Bash(cat gradle/wrapper/gradle-wrapper.properties; echo \"---\"; ls -d ~/.gradle/wrapper/dists/*/ 2>/dev/null; ls -d /c/Gradle/*/ 2>/dev/null)"
     ]
   }
 }

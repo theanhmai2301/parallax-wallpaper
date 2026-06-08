@@ -69,7 +69,11 @@ class RemoteWallpaperSource @Inject constructor(
             val filename = item.filename ?: continue
             val url = item.url ?: continue
             val match = fileRegex.find(filename) ?: continue
-            val groupKey = match.groupValues[1]
+            // Normalize the group key to lower case so case-mismatched filenames (e.g. Sport31 /
+            // sport32 / Sport33) still merge into ONE group. Otherwise a single odd-cased layer
+            // splits off into its own group and the main group loses a layer, dropping the item to
+            // a static (non-parallax) fallback.
+            val groupKey = match.groupValues[1].lowercase()
             val layer = match.groupValues[2].toIntOrNull() ?: continue
             groups.getOrPut(groupKey) { sortedMapOf() }[layer] = url
             groupCategory.putIfAbsent(groupKey, item.category)

@@ -88,11 +88,20 @@ class PreviewPagerAdapter(
         holder.job?.cancel()
         holder.loading.isVisible = true
         val ctx = holder.preview.context
+        val composedUri = wp.thumbUri
         holder.job = scope.launch {
             val inputs = withContext(Dispatchers.IO) {
-                uris.mapNotNull { uri ->
-                    BitmapLoader.load(ctx, uri, loadSize)?.let { ParallaxImageView.LayerInput(it) }
-                }
+                val bitmaps = uris.mapNotNull { BitmapLoader.load(ctx, it, loadSize) }
+                // The pre-composed image (loaded at the SAME size so it aligns) lets the layer prep
+                // build a clean difference matte for a subject-on-black foreground (e.g. Anime9);
+                // it also doubles as the fallback. Same handling as the editor/result/live paths.
+                val composite = if (isParallax) BitmapLoader.load(ctx, composedUri, loadSize) else null
+                val ordered =
+                    if (isParallax) BitmapLoader.orderParallaxLayers(bitmaps, composite) else bitmaps
+                val finalBitmaps = ordered
+                    ?: composite?.let { listOf(it) }
+                    ?: bitmaps
+                finalBitmaps.map { ParallaxImageView.LayerInput(it) }
             }
             holder.preview.setLayers(inputs)
             holder.loading.isVisible = false
